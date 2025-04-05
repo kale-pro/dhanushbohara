@@ -10,272 +10,304 @@
 
     <!-- Don't forget to include Font Awesome in your head tag -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link rel="stylesheet" href="/HTML/website3.css">
+<style>
+    :root {
+    --primary: #1a1a1a;
+    --secondary: #ff4655;
+    --text: #ffffff;
+    --bg: #0a0a0a;
+}
 
-    <style>
-        :root {
-            --primary: #1a1a1a;
-            --secondary: #ff4655;
-            --text: #ffffff;
-            --bg: #0a0a0a;
-        }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            transition: all 0.3s ease;
-        }
+body {
+    font-family: 'Arial', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+}
 
-        body {
-            font-family: 'Arial', sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
-        }
+/* Navigation Bar */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    padding: 1rem 2rem;
+}
 
-        /* Navigation Bar */
-        .navbar {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            padding: 1rem 2rem;
-        }
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
 
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-        }
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
 
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
+.nav-links a:hover {
+    color: var(--secondary);
+}
 
-        .nav-links a:hover {
-            color: var(--secondary);
-        }
+.social-icons {
+    display: flex;
+    gap: 1rem;
+}
 
-        .social-icons {
-            display: flex;
-            gap: 1rem;
-        }
+.social-icons a {
+    color: white;
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
 
-        .social-icons a {
-            color: white;
-            font-size: 1.5rem;
-            transition: color 0.3s ease;
-        }
+.social-icons a:hover {
+    color: var(--secondary);
+}
 
-        .social-icons a:hover {
-            color: var(--secondary);
-        }
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+}
 
-        .menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.5rem;
-        }
+/* Hero Section */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
 
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
+#particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
 
-        #particles-js {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-        }
+.hero-content {
+    z-index: 2;
+    padding: 2rem;
+}
 
-        .hero-content {
-            z-index: 2;
-            padding: 2rem;
-        }
+.hero h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    animation: fadeIn 1s ease;
+}
 
-        .hero h1 {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            animation: fadeIn 1s ease;
-        }
+.tagline {
+    font-size: 15px;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
 
-        .tagline {
-            font-size: 15px;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-        }
+/* Sections Common Styles */
+section {
+    padding: 5rem 2rem;
+    min-height: 100vh;
+    scroll-margin-top: 2rem;
+}
 
-        /* Sections Common Styles */
-        section {
-            padding: 5rem 2rem;
-            min-height: 100vh;
-            scroll-margin-top: 2rem;
-        }
+/* Contact Form */
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    border: 2px solid var(--secondary);
+}
 
-        /* Contact Form */
-        .contact-form {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 2rem;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            border: 2px solid var(--secondary);
-        }
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: none;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+}
 
-        .contact-form input,
-        .contact-form textarea {
-            width: 100%;
-            padding: 1rem;
-            margin-bottom: 1rem;
-            border: none;
-            border-radius: 5px;
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
-        }
+.contact-form button {
+    padding: 1rem;
+    background: var(--secondary);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
 
-        .contact-form button {
-            padding: 1rem;
-            background: var(--secondary);
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
+.contact-form button:hover {
+    background: #ff3344;
+}
 
-        .contact-form button:hover {
-            background: #ff3344;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: rgba(0, 0, 0, 0.9);
-                flex-direction: column;
-                padding: 1rem;
-                text-align: center;
-            }
-            .nav-links.active { display: flex; }
-            .menu-toggle { display: block; }
-        }
-
-        /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        #welcom{
-            font-size:20px;
-        }
-
-        
-
-        #contact {
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero h1 { font-size: 2.5rem; }
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.9);
+        flex-direction: column;
+        padding: 1rem;
         text-align: center;
-        padding: 60px 0;
     }
-    
-    .contact-info {
-        max-width: 500px;
-        margin: 30px auto;
-    }
-    
-    .contact-item {
-        margin: 15px 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    
-    .contact-item i {
-        margin-right: 15px;
-        font-size: 20px;
-        color: #555;
-    }
-    
-    .social-links {
-        margin-top: 40px;
-    }
-    
-    .social-links a {
-        display: inline-block;
-        margin: 0 10px;
-        font-size: 24px;
-        color: #555;
-        transition: color 0.3s;
-    }
-    
-    .social-links a:hover {
-        color: #000;
-    }
+    .nav-links.active { display: flex; }
+    .menu-toggle { display: block; }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+#welcom{
+    font-size:20px;
+}
 
 
-    /* Skills Section */
-    .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 2rem;
-            max-width: 1000px;
-            margin: 2rem auto;
-        }
 
-        .skill {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 1.5rem;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 10px;
-            transition: transform 0.3s ease;
-        }
+#contact {
+text-align: center;
+padding: 60px 0;
+}
 
-        .skill:hover {
-            transform: translateY(-5px);
-        }
+.contact-info {
+max-width: 500px;
+margin: 30px auto;
+}
 
-        .skill i {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-        #abouts{
-            text-align: center;
-        }
-        #project{
-            text-align: center;
-        }
-        #skill{
-            text-align: center;
-        }
+.contact-item {
+margin: 15px 0;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.contact-item i {
+margin-right: 15px;
+font-size: 20px;
+color: #555;
+}
+
+.social-links {
+margin-top: 40px;
+}
+
+.social-links a {
+display: inline-block;
+margin: 0 10px;
+font-size: 24px;
+color: #555;
+transition: color 0.3s;
+}
+
+.social-links a:hover {
+color: #000;
+}
 
 
-    </style>
-</head>
+/* Skills Section */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 2rem auto;
+}
+
+.skill {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.skill:hover {
+    transform: translateY(-5px);
+}
+
+.skill i {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+#abouts{
+    text-align: center;
+}
+#project{
+    text-align: center;
+}
+#skill{
+    text-align: center;
+}
+.footer {
+    background-color:rgb(10, 9, 9);
+    color: white;
+    padding: 20px 0;
+  }
+  
+  .footer-container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+    text-align: center;
+  }
+  
+  .footer-left h2 {
+    margin: 0;
+    font-size: 1.5rem;
+  }
+  
+  .footer-left p {
+    margin: 5px 0;
+    color: #9ca3af;
+    font-size: 0.875rem;
+  }
+
+  #buttons {
+    background-color: rgb(19, 7, 29);
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    color: rgb(244, 235, 235);
+  }
+  #search{
+    height:20px;
+    color:rgb(41, 56, 41);
+  }
+</style></head>
 <body>
     <!-- Navigation Bar -->
     <nav class="navbar">
@@ -313,7 +345,8 @@
             <h1 id="welcom">Welcom To Website</h1>
             <h1>Dhanush Bohara</h1>
             <p class="tagline">Aspiring Software Developer | IT Enthusiast</p>
-            <!-- <button class="cta-button" onclick="smoothScroll('projects')">Explore My Work</button> -->
+            <input id="search" placeholder="Search "> <!-- सर्च बक्स -->
+            <button id="buttons">Search</button>
         </div>
     </section>
 
@@ -383,53 +416,7 @@
         </div>
     </section>
 
-
-
-
-
-    
-    <section id="contact" data-aos="fade-up">
-        <div class="container">
-            <h2>Contact Me</h2>
-            <div class="contact-info">
-                <div class="contact-item">
-                    <i class="fas fa-envelope"></i>
-                    <a href="mailto:mr.dhanushbohara@gmail.com">mr.dhanushbohara@gmail.com</a>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-phone"></i>
-                    <a href="tel:+9779842172080">+977-9842172080</a>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <span>Sudurpaschim, Nepal</span>
-                </div>
-            </div>
-            
-            <div class="social-links">
-                <a href="https://youtube.com/@kaleproff" target="_blank">
-                    <i class="fab fa-youtube"></i>
-
-                <a href="https://facebook.com/dhanushbohara" target="_blank">
-                    <i class="fab fa-facebook"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/dhanush-bohara-660732358/" target="_blank">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-                <a href="https://github.com/kale-pro" target="_blank">
-                    <i class="fab fa-github"></i>
-                </a>
-                
-                    <!-- <a href="https://www.tiktok.com/@dhanushchhetree?_t=ZS-8vAFoD0k4nq&_r=1" target="_blank">
-                        <i class="fab fa-Tiktok"></i>
-                </a> -->
-            </div>
-        </div>
-    </section>
-    
-
-    
-    <!-- Comment / Feedback Section -->
+ <!-- Comment / Feedback Section -->
 <section id="contact" data-aos="fade-up">
     <div class="container">
         <h2>Comment</h2>
@@ -439,6 +426,46 @@
             <textarea placeholder="Your Comment or Feedback..." rows="5" required></textarea>
             <button type="submit">Post Comment</button>
         </form>
+    </div>
+    </section>
+
+    <!-- Contact Me -->
+    <section id="contact" data-aos="fade-up">
+    <div class="container">
+        <h2>Contact Me</h2>
+        <div class="contact-info">
+            <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <a href="mailto:mr.dhanushbohara@gmail.com">mr.dhanushbohara@gmail.com</a>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-phone"></i>
+                <a href="tel:+9779842172080">+977-9842172080</a>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Sudurpaschim, Nepal</span>
+            </div>
+        </div>
+        
+        <div class="social-links">
+            <a href="https://youtube.com/@kaleproff" target="_blank">
+                <i class="fab fa-youtube"></i>
+
+            <a href="https://facebook.com/dhanushbohara" target="_blank">
+                <i class="fab fa-facebook"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/dhanush-bohara-660732358/" target="_blank">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://github.com/kale-pro" target="_blank">
+                <i class="fab fa-github"></i>
+            </a>
+            
+                <!-- <a href="https://www.tiktok.com/@dhanushchhetree?_t=ZS-8vAFoD0k4nq&_r=1" target="_blank">
+                    <i class="fab fa-Tiktok"></i>
+            </a> -->
+        </div>
     </div>
 </section>
 
@@ -507,4 +534,28 @@
         }
     </script>
 </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dhanush's Website</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+  
+<!-- Footer Section -->
+<footer class="footer">
+    <div class="footer-container">
+      <div class="footer-left">
+        <h2>Kale Pro</h2>
+        <p>© 2025 All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+  
+
+  <script src="script.js"></script>
 </html>
