@@ -273,19 +273,6 @@ color: #000;
   margin: 0 auto;
 }
 
-.about-photo {
-  flex: 1;
-  min-width: 280px;
-  text-align: center;
-}
-
-.about-photo img {
-  width: 100%;
-  max-width: 300px;
-  border-radius: 15px;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
-}
-
 .about-text {
   flex: 2;
   min-width: 300px;
@@ -297,10 +284,39 @@ color: #000;
   margin-bottom: 15px;
 }
 
+/* Right side photo with unique frame */
+.about-photo {
+  flex: 1;
+  min-width: 280px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.photo-frame {
+  padding: 10px;
+  border: 5px solid #00ffff; /* cyan frame */
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.4);
+  background: linear-gradient(145deg, #0f0f0f, #1a1a1a);
+  transition: transform 0.3s ease;
+}
+
+.photo-frame:hover {
+  transform: scale(1.05);
+}
+
+.photo-frame img {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 15px;
+}
+
 #about {
   background-color: #000; /* dark background */
   color: #fff;
 }
+
 
 #project{
     text-align: center;
@@ -414,12 +430,7 @@ color: #000;
 <section id="about" data-aos="fade-up">
     <div class="container about-container">
         
-        <!-- Left: Photo -->
-        <div class="about-photo">
-            <img src="images/https://github.com/kale-pro/dhanushbohara/blob/main/dhanush-1.jpg" alt="Dhanush Bohara">
-        </div>
-
-        <!-- Right: Text -->
+        <!-- Left: Text -->
         <div class="about-text">
             <h2 id="abouts">About Me</h2><br><br>
 
@@ -436,8 +447,17 @@ color: #000;
             <p>म फुर्सदको समयमा YouTube तथा अनलाइन प्लेटफर्महरूबाट नयाँ कुरा सिक्न मन पराउँछु... </p><br><br>
             <p>खेलकुदमा पनि मेरो रुचि छ, विशेष गरेर क्रिकेट हेर्न मलाई मन पर्छ... </p><br><br>
         </div>
+
+        <!-- Right: Photo -->
+        <div class="about-photo">
+            <div class="photo-frame">
+                <img src="https://raw.githubusercontent.com/kale-pro/dhanushbohara/main/dhanush-1.jpg" alt="Dhanush Bohara">
+            </div>
+        </div>
+        
     </div>
 </section>
+
 
 
 
