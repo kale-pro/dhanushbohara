@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Profile</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+
+        .universe {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: #000;
+            overflow: hidden;
+        }
+
+        .orbit {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform-origin: center;
+            will-change: transform;
+        }
+
+        .planet {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.5);
+        }
+
+        .earth-orbit { animation: rotate 20s linear infinite; }
+        .mars-orbit { animation: rotate 30s linear infinite; }
+        .jupiter-orbit { animation: rotate 50s linear infinite; }
+
+        .earth {
+            transform: translateX(15vw);
+            background: radial-gradient(circle, #0077be, #0047ab);
+        }
+
+        .mars {
+            transform: translateX(20vw);
+            background: radial-gradient(circle, #ff4500, #ff6347);
+        }
+
+        .jupiter {
+            transform: translateX(25vw);
+            background: radial-gradient(circle, #ffd700, #ffa500);
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+        }
+
+        .twinkling {
+            animation: twinkling 2s infinite;
+        }
+
+        @keyframes twinkling {
+            0% { opacity: 0; }
+            50% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+
+
+        /* Profile Header */
+        .profile-header {
+            position: relative;
+            margin-top: 80px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            padding: 120px 30px 30px;
+            box-shadow: 0 0 20px rgba(0, 78, 146, 0.3);
+        }
+
+        /* Profile photo styling */
+        .profile-photo {
+            position: absolute;
+            top: -75px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid #020b0b;
+            box-shadow: 0 0 30px rgba(4, 255, 0, 0.5);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .profile-photo:hover {
+            transform: translateX(-50%) scale(1.05);
+            box-shadow: 0 0 50px rgba(6, 163, 172, 0.8);
+        }
+
+        .profile-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Profile info section */
+        .profile-info {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .name {
+            font-size: 2.5em;
+            color: #ecf0f0;
+            text-shadow: 0 0 10px rgba(229, 213, 198, 0.5);
+            margin-bottom: 10px;
+        }
+
+        .title {
+            color: #945c4d;
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        /* Reusable box style for both sections */
+        #info {
+  color: white;
+  padding: 30px;
+  border-radius: 12px;
+  width: 530px;
+  text-align: left ;
+  margin: 30px auto; /* Center the box itself */
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.contact-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact-box p {
+  margin: 10px 0;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-box i {
+  margin-right: 10px;
+  color: #007bff;
+}
+
+
+
+        /* Social media links styling */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .social-links a {
+            color: #e4e7e8;
+            font-size: 24px;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #028824;
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="universe">
+        <!-- Stars and planets will be added via JS -->
+    </div>
+ <!-- Main container for the profile -->
+    <div class="container">
+        <div class="profile-header">
+            <!-- Profile Photo -->
+            <div class="profile-photo">
+                <img src="https://raw.githubusercontent.com/kale-pro/dhanushbohara/main/d-lofo.jpg" alt="Profile Photo">
+            </div>
+            
+            <!-- Profile Info Section -->
+            <div class="profile-info">
+                <h1 class="name">Dhanush Bohara</h1>
+                <p class="title">Aspiring Software Developer | IT Enthusiast</p>
+                
+                 <!-- Contact Info Box -->
+<h3 id="info">
+    <p>Name: Dhanush Bohara</p>
+    <p>Age: 18 Years</p>
+    <p>Edu: 12(IT) Graduate</p>
+    <p><i class="fas fa-map-marker-alt"></i> Sudurpaschim, Nepal</p>
+    <p><i class="fas fa-envelope"></i> mr.dhanushbohara@gmail.com</p>
+    <p><i class="fas fa-phone"></i> +977-9842172080</p>
+    <p><i class="fas fa-code"></i> Aspiring Developer | Python, Java & Web Enthusiast</p>
+    <p><i class="fas fa-lightbulb"></i> Passionate about real-world projects and continuous learning.</p>
+</h3>
+                
+                <!-- Social Media Links -->
+                <div class="social-links">
+                    <a href="https://wa.me/9779842172080" target="_blank" title="Chat on WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="https://youtube.com/@kaleproff" target="_blank"><i class="fab fa-youtube"></i></a>
+                    <a href="https://facebook.com/dhanushbohara" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.linkedin.com/in/dhanush-bohara-660732358/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/kale-pro" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://www.tiktok.com/@dhanushchhetree?_t=ZS-8vAFoD0k4nq&_r=1" target="_blank"><i class="fab fa-tiktok"></i></a>
+                
+            </div>
+            <h2 style="color: white;">Designed By Kale Pro</h2>
+            <p style="color: white;">© 2025 All rights reserved.</p>            
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const universe = document.querySelector('.universe');
+
+            // Create Stars
+            const numStars = 200;
+            for (let i = 0; i < numStars; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                if (Math.random() < 0.5) {
+                    star.classList.add('twinkling');
+                }
+                star.style.left = `${Math.random() * 100}vw`;
+                star.style.top = `${Math.random() * 100}vh`;
+                star.style.width = `${Math.random() * 2 + 1}px`;
+                star.style.height = star.style.width;
+                universe.appendChild(star);
+            }
+
+            // Create Planets
+            const planets = [
+                { class: 'earth', orbitClass: 'earth-orbit' },
+                { class: 'mars', orbitClass: 'mars-orbit' },
+                { class: 'jupiter', orbitClass: 'jupiter-orbit' }
+            ];
+
+            planets.forEach(planet => {
+                const orbit = document.createElement('div');
+                orbit.className = `orbit ${planet.orbitClass}`;
+                const planetDiv = document.createElement('div');
+                planetDiv.className = `planet ${planet.class}`;
+                orbit.appendChild(planetDiv);
+                universe.appendChild(orbit);
+            });
+        });
+    </script>
+</body>
+</html>
