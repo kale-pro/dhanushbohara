@@ -7,11 +7,403 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <link rel="stylesheet" href="https://raw.githubusercontent.com/kale-pro/dhanushbohara/main/dhanush.css">
 
     <!-- Don't forget to include Font Awesome in your head tag -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        :root {
+    --primary: #1a1a1a;
+    --secondary: #ff4655;
+    --text: #ffffff;
+    --bg: #0a0a0a;
+}
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+/* Navigation Bar */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    padding: 1rem 2rem;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--secondary);
+}
+
+.social-icons {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-icons a {
+    color: white;
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: var(--secondary);
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+#particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.hero-content {
+    z-index: 2;
+    padding: 2rem;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    animation: fadeIn 1s ease;
+}
+
+.tagline {
+    font-size: 15px;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+/* Sections Common Styles */
+section {
+    padding: 5rem 2rem;
+    min-height: 100vh;
+    scroll-margin-top: 2rem;
+}
+
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero h1 { font-size: 2.5rem; }
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.9);
+        flex-direction: column;
+        padding: 1rem;
+        text-align: center;
+    }
+    .nav-links.active { display: flex; }
+    .menu-toggle { display: block; }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+#welcom{
+    font-size:20px;
+}
+.social-links {
+margin-top: 40px;
+}
+
+.social-links a {
+display: inline-block;
+margin: 0 10px;
+font-size: 24px;
+color: #555;
+transition: color 0.3s;
+}
+
+.social-links a:hover {
+color: #000;
+}
+
+
+/* Skills Section */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 2rem auto;
+}
+
+.skill {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.skill:hover {
+    transform: translateY(-5px);
+}
+
+.skill i {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+/*      <!-- About Section css-->    */
+.about-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.about-text {
+  flex: 2;
+  min-width: 300px;
+  color: #fff;
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+.about-text h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+  color: #f1f3f3;
+}
+
+.about-text p {
+  margin-bottom: 20px;
+  text-align: justify;
+}
+
+.about-photo {
+  flex: 1;
+  min-width: 280px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.photo-frame {
+  padding: 10px;
+  border: 5px solid #00ffff;
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.4);
+  background: linear-gradient(145deg, #0f0f0f, #1a1a1a);
+  transition: transform 0.3s ease;
+}
+
+.photo-frame:hover {
+  transform: scale(1.05);
+}
+
+.photo-frame img {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 15px;
+}
+
+#about {
+  background-color: #000;
+  padding: 50px 0;
+}
+
+
+
+#project{
+    text-align: center;
+}
+#skill{
+    text-align: center;
+}
+.footer {
+    background-color:black;
+    color: white;
+    padding: 20px 0;
+  }
+  
+  .footer-container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+    text-align: center;
+  }
+  
+  .footer-left h2 {
+    margin: 0;
+    font-size: 1.5rem;
+  }
+  
+  .footer-left p {
+    margin: 5px 0;
+    color: #9ca3af;
+    font-size: 0.875rem;
+  }
+
+  #buttons {
+    background-color: rgb(19, 5, 29);
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    color: rgb(244, 235, 235);
+  }
+  #search{
+    height:20px;
+    color:rgb(41, 56, 41);
+  }
+        .logo {
+  width: 40px;  /* Logo को size adjust गर्न सक्छौं */
+  height: 40px; /* Logo को height adjust गर्न सक्छौं */
+  border-radius: 50%; /* Circle shape बनाउँछ */
+  object-fit: cover; /* Image को aspect ratio सही राख्छ */
+  margin: 10px;
+}
+
+body {
+      background-color: black;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Reusable box style for both sections */
+    .contact-box, .comment-box {
+      background-color: black;
+      color: white;
+      padding: 30px;
+      border-radius: 12px;
+      width: 530px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      text-align: left;
+      margin: 30px 0;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .contact-box p {
+      margin: 10px 0;
+      font-size: 16px;
+    }
+
+    .contact-box i {
+      margin-right: 10px;
+      color: #007bff;
+    }
+
+    .social-links {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .social-links a {
+      color: white;
+      font-size: 24px;
+      transition: color 0.3s;
+    }
+
+    .social-links a:hover {
+      color: #007bff;
+    }
+
+    /* Comment form */
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border: none;
+      border-radius: 5px;
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+    }
+
+    .contact-form input::placeholder,
+    .contact-form textarea::placeholder {
+      color: #ccc;
+    }
+
+    .contact-form button {
+      width: 100%;
+      padding: 1rem;
+      background: hsl(45, 14%, 95%);
+      color: black;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .contact-form button:hover {
+      background: #b30000;
+    }
+    </style>
 </head>
 <body>
 <!-- Navigation Bar (already OK) -->
@@ -246,7 +638,7 @@
 <footer class="footer">
     <div class="footer-container">
       <div class="footer-left">
-        <h2>Designed by Kale Pro</h2>
+        <h2>Designed By Kale Pro</h2>
         <p>© 2025 All rights reserved.</p>
       </div>
     </div>
