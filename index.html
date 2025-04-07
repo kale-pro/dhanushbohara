@@ -266,6 +266,24 @@ color: #000;
   background-color: #000;
   padding: 50px 0;
 }
+#buttons {
+    background-color: rgb(19, 5, 29);
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    color: rgb(244, 235, 235);
+  }
+  #search{
+    height:20px;
+    color:rgb(41, 56, 41);
+  }
+        .logo {
+  width: 40px;  /* Logo को size adjust गर्न सक्छौं */
+  height: 40px; /* Logo को height adjust गर्न सक्छौं */
+  border-radius: 50%; /* Circle shape बनाउँछ */
+  object-fit: cover; /* Image को aspect ratio सही राख्छ */
+  margin: 10px;
+}
 
 
 
@@ -299,27 +317,8 @@ color: #000;
     font-size: 0.875rem;
   }
 
-  #buttons {
-    background-color: rgb(19, 5, 29);
-    padding: 10px 15px;
-    border: none;
-    cursor: pointer;
-    color: rgb(244, 235, 235);
-  }
-  #search{
-    height:20px;
-    color:rgb(41, 56, 41);
-  }
-        .logo {
-  width: 40px;  /* Logo को size adjust गर्न सक्छौं */
-  height: 40px; /* Logo को height adjust गर्न सक्छौं */
-  border-radius: 50%; /* Circle shape बनाउँछ */
-  object-fit: cover; /* Image को aspect ratio सही राख्छ */
-  margin: 10px;
-}
-
-body {
-      background-color: black;
+  .cc-box {
+      background-color:black;
       font-family: Arial, sans-serif;
       display: flex;
       flex-direction: column;
@@ -327,8 +326,7 @@ body {
       margin: 0;
       padding: 0;
     }
-
-    /* Reusable box style for both sections */
+/* Reusable box style for both sections */
     .contact-box, .comment-box {
       background-color: black;
       color: white;
@@ -527,36 +525,37 @@ body {
     </section>
 
       <!-- Comment/Feedback Box -->
-  <div class="comment-box">
-    <h2>Comment</h2>
-    <form class="contact-form">
-      <input type="text" placeholder="Your Name" required>
-      <input type="email" placeholder="Your Email" required>
-      <textarea placeholder="Your Comment or Feedback..." rows="5" required></textarea>
-      <button type="submit">Post Comment</button>
-    </form>
-  </div><br><br><br><br><br><br><br><br><br><br><br><br>
+<div class="cc-box">
+    <div class="comment-box">
+        <h2>Comment</h2>
+        <form class="contact-form">
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea placeholder="Your Comment or Feedback..." rows="5" required></textarea>
+        <button type="submit">Post Comment</button>
+        </form>
+    </div><br><br><br><br><br><br><br><br><br><br><br><br>
 
-   <!-- Contact Info Box -->
+            <!-- Contact Info Box -->
    <div class="contact-box" id="contact">
-    <h2>Contact Information</h2>
-    <p><i class="fas fa-envelope"></i> mr.dhanushbohara@gmail.com</p>
-    <p><i class="fas fa-phone"></i> +977-9842172080</p>
-    <p><i class="fas fa-map-marker-alt"></i> Sudurpaschim, Nepal</p>
-    <p><i class="fas fa-code"></i> Aspiring Developer | Python, Java & Web Enthusiast</p>
-    <p><i class="fas fa-lightbulb"></i> Passionate about real-world projects and continuous learning.</p>
+        <h2>Contact Information</h2>
+        <p><i class="fas fa-envelope"></i> mr.dhanushbohara@gmail.com</p>
+        <p><i class="fas fa-phone"></i> +977-9842172080</p>
+        <p><i class="fas fa-map-marker-alt"></i> Sudurpaschim, Nepal</p>
+        <p><i class="fas fa-code"></i> Aspiring Developer | Python, Java & Web Enthusiast</p>
+        <p><i class="fas fa-lightbulb"></i> Passionate about real-world projects and continuous learning.</p>
 
     <div class="social-links">
-  <a href="https://wa.me/9779842172080" target="_blank" title="Chat on WhatsApp">
-    <i class="fab fa-whatsapp"></i>
-  </a>
-      <a href="https://youtube.com/@kaleproff" target="_blank"><i class="fab fa-youtube"></i></a>
-      <a href="https://facebook.com/dhanushbohara" target="_blank"><i class="fab fa-facebook"></i></a>
-      <a href="https://www.linkedin.com/in/dhanush-bohara-660732358/" target="_blank"><i class="fab fa-linkedin"></i></a>
-      <a href="https://github.com/kale-pro" target="_blank"><i class="fab fa-github"></i></a>
-      <a href="https://www.tiktok.com/@dhanushchhetree?_t=ZS-8vAFoD0k4nq&_r=1" target="_blank"><i class="fab fa-tiktok"></i></a>
+        <a href="https://wa.me/9779842172080" target="_blank" title="Chat on WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="https://youtube.com/@kaleproff" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://facebook.com/dhanushbohara" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.linkedin.com/in/dhanush-bohara-660732358/" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/kale-pro" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://www.tiktok.com/@dhanushchhetree?_t=ZS-8vAFoD0k4nq&_r=1" target="_blank"><i class="fab fa-tiktok"></i></a>
     </div>
-  </div>
+</div>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
