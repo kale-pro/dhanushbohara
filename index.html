@@ -559,6 +559,33 @@
         .contact-form button:hover {
             background: #b30000;
         }
+        /* ChatBot section css */
+        .chatbot-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        /* Style the chat dialog */
+        .df-messenger-dialog {
+            width: 350px !important;
+            height: 430px !important;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+        }
+
+        /* Ensure the chat icon is visible and positioned correctly */
+        df-messenger {
+            --df-messenger-button-visibility: visible !important;
+        }
+
+        /* Optional: Style the chat icon (e.g., size, position) */
+        df-messenger .df-messenger-button {
+            width: 50px !important;
+            height: 50px !important;
+        }
+
     </style>
 </head>
 <body>
@@ -598,6 +625,16 @@
             </div>
         </div>
     </section>
+    <!-- Chatbot section HTML -->
+    <div class="chatbot-container">
+        <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+        <df-messenger
+            intent="WELCOME"
+            chat-title="kaleproBot"
+            agent-id="f8df47c5-f7d7-49a5-bccd-c5b2e9936794"
+            language-code="en">
+        </df-messenger>
+    </div>
 
     <!-- About Section -->
     <div class="container" id="content">
