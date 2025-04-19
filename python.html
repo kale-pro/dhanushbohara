@@ -143,7 +143,7 @@
         }
 
         .container {
-            width: 80%;
+            width: 98%;
             margin: auto;
             padding: 20px;
         }
@@ -391,152 +391,240 @@
 <div class="container">
 
     <!-- Example Section (Repeatable format) -->
-    <section>
-        <h2>1. Introduction to Python (Basic) <button onclick="toggleHello(this)">Start</button></h2>
+
+        </section>
+        <h2>1. Introduction to Python (Basic)</h2>
         <ul>
-            <li>Installing Python and Setting up IDEs</li>
-            <li>Basic Python Syntax and Indentation</li>
-            <li>Variables and Data Types</li>
-            <li>Basic Operators</li>
-            <li>Basic Input/Output</li>
+            <li onclick="toggleItemHello(this)">
+                Installing Python and Setting up IDEs
+                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+            </li>
+            <li onclick="toggleItemHello(this)">
+                Basic Python Syntax and Indentation
+                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+            </li>
+            <li onclick="toggleItemHello(this)">
+                Variables and Data Types
+                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+            </li>
+            <li onclick="toggleItemHello(this)">
+                Basic Operators
+                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+            </li>
+            <li onclick="toggleItemHello(this)">
+                Basic Input/Output
+                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+            </li> 
         </ul>
-        <div class="hello-message">
-            <p>Introduction to Python (Basic)
-                Python is a powerful, high-level programming language that emphasizes code readability and simplicity, making it an ideal choice for beginners and experienced developers alike. Created by Guido van Rossum and first released in 1991, Python has grown into one of the most widely-used languages in the world, thanks to its clean syntax that closely resembles natural language. It supports multiple programming paradigms, including procedural, object-oriented, and functional programming, which allows developers to write flexible and scalable code. Python’s extensive standard library, along with thousands of third-party packages, enables users to perform a vast range of tasks—from web development and data analysis to machine learning and automation—without reinventing the wheel. Additionally, Python's strong community support, comprehensive documentation, and cross-platform compatibility make learning and working with it even more accessible. Whether you're writing a simple script or building a complex application, Python provides the tools and structure to bring ideas to life efficiently and effectively.</p>
-        </div> <!-- Message shown when Start is clicked -->
+    </section>
+    <!-- Message shown when Start is clicked -->
+
+    </section>
+        <h2>2. Control Flow (Intermediate)</h2>
+        <ul>
+            <li onclick="toggleItemHello(this)">
+                Conditionals (Using `if`, `elif`, `else`)
+                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+            </li>
+            <li onclick="toggleItemHello(this)">
+                Loops (Using `for` and `while` loops`)
+                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+            </li>
+            <li onclick="toggleItemHello(this)">
+                Loop Control (Using `break`, `continue`, `pass`)
+                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+            </li>
+            <li onclick="toggleItemHello(this)">
+                List Comprehension
+                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+            </li>
+        </ul>
     </section>
 
     <section>
-        <h2>2. Control Flow (Intermediate) <button onclick="toggleHello(this)">Start</button></h2>
+        <h2>3. Functions (Intermediate)</h2>
         <ul>
-            <li>Conditionals (Using `if`, `elif`, `else`)</li>
-            <li>Loops (Using `for` and `while` loops)</li>
-            <li>Loop Control (Using `break`, `continue`, `pass`)</li>
-            <li>List Comprehension</li>
+            <li onclick="toggleItemHello(this)">Defining Functions (Parameters and Return Values)
+                <div class="hello-message">Hi Hello</div>
+            </li>
+            <li onclick="toggleItemHello(this)">Function Scope (Local and Global Variables)
+                <div class="hello-message">Hi Hello</div>
+            </li>
+            <li onclick="toggleItemHello(this)">Lambda Functions (Anonymous Functions)
+                <div class="hello-message">Hi Hello</div>
+            </li>
+            <li onclick="toggleItemHello(this)">Recursion (Calling Functions from Within Themselves)
+                <div class="hello-message">Hi Hello</div>
+            </li>
         </ul>
-        <div class="hello-message">looding.....</div> <!-- Message shown when Start is clicked -->
     </section>
-
+    
     <section>
-        <h2>3. Functions (Intermediate) <button onclick="toggleHello(this)">Start</button></h2>
+        <h2>4. Data Structures (Intermediate)</h2>
         <ul>
-            <li>Defining Functions (Parameters and Return Values)</li>
-            <li>Function Scope (Local and Global Variables)</li>
-            <li>Lambda Functions (Anonymous Functions)</li>
-            <li>Recursion (Calling Functions from Within Themselves)</li>
+            <li onclick="toggleItemHello(this)">Lists, Tuples, Dictionaries, Sets
+                <div class="hello-message">Hi Hello</div>
+            </li>
+            <li onclick="toggleItemHello(this)">String Operations and Formatting
+                <div class="hello-message">Hi Hello</div>
+            </li>
         </ul>
-        <div class="hello-message">looding.....</div> <!-- Message shown when Start is clicked -->
     </section>
-
+    
     <section>
-        <h2>4. Data Structures (Intermediate) <button onclick="toggleHello(this)">Start</button></h2>
+        <h2>5. Object-Oriented Programming (Advanced)</h2>
         <ul>
-            <li>Lists, Tuples, Dictionaries, Sets</li>
-            <li>String Operations and Formatting</li>
+            <li onclick="toggleItemHello(this)">Classes and Objects
+                <div class="hello-message">Hi Hello</div>
+            </li>
+            <li onclick="toggleItemHello(this)">Attributes and Methods
+                <div class="hello-message">Hi Hello</div>
+            </li>
+            <li onclick="toggleItemHello(this)">Inheritance and Polymorphism
+                <div class="hello-message">Hi Hello</div>
+            </li>
+            <li onclick="toggleItemHello(this)">Encapsulation and Abstraction
+                <div class="hello-message">Hi Hello</div>
+            </li>
+            <li onclick="toggleItemHello(this)">Magic Methods (`__init__`, `__str__`, etc.)
+                <div class="hello-message">Hi Hello</div>
+            </li>
         </ul>
-        <div class="hello-message">looding.....</div> <!-- Message shown when Start is clicked -->
     </section>
-
+    
     <section>
-        <h2>5. Object-Oriented Programming (Advanced) <button onclick="toggleHello(this)">Start</button></h2>
+        <h2>6. Modules and Packages (Intermediate)</h2>
         <ul>
-            <li>Classes and Objects</li>
-            <li>Attributes and Methods</li>
-            <li>Inheritance and Polymorphism</li>
-            <li>Encapsulation and Abstraction</li>
-            <li>Magic Methods (`__init__`, `__str__`, etc.)</li>
+            <li onclick="toggleItemHello(this)">Importing Modules (Built-in and Custom)
+                <div class="hello-message">Hi Hello</div>
+            </li>
+            <li onclick="toggleItemHello(this)">Package Structure
+                <div class="hello-message">Hi Hello</div>
+            </li>
         </ul>
-        <div class="hello-message">looding.....</div> <!-- Message shown when Start is clicked -->
     </section>
-
+    
     <section>
-        <h2>6. Modules and Packages (Intermediate) <button onclick="toggleHello(this)">Start</button></h2>
+        <h2>7. Error Handling (Intermediate)</h2>
         <ul>
-            <li>Importing Modules (Built-in and Custom)</li>
-            <li>Package Structure</li>
+            <li onclick="toggleItemHello(this)">Exceptions (Using `try`, `except` blocks)
+                <div class="hello-message">Hi Hello</div>
+            </li>
+            <li onclick="toggleItemHello(this)">Custom Exceptions
+                <div class="hello-message">Hi Hello</div>
+            </li>
+            <li onclick="toggleItemHello(this)">Using `finally` Block
+                <div class="hello-message">Hi Hello</div>
+            </li>
         </ul>
-        <div class="hello-message">looding.....</div> <!-- Message shown when Start is clicked -->
     </section>
-
+    
     <section>
-        <h2>7. Error Handling (Intermediate) <button onclick="toggleHello(this)">Start</button></h2>
+        <h2>8. File I/O (Intermediate)</h2>
         <ul>
-            <li>Exceptions (Using `try`, `except` blocks)</li>
-            <li>Custom Exceptions</li>
-            <li>Using `finally` Block</li>
+            <li onclick="toggleItemHello(this)">Reading and Writing Files
+                <div class="hello-message">Hi Hello</div>
+            </li>
+            <li onclick="toggleItemHello(this)">Working with CSV, JSON, and XML
+                <div class="hello-message">Hi Hello</div>
+            </li>
+            <li onclick="toggleItemHello(this)">Context Managers (`with` statement)
+                <div class="hello-message">Hi Hello</div>
+            </li>
         </ul>
-        <div class="hello-message">looding.....</div> <!-- Message shown when Start is clicked -->
     </section>
-
+    
     <section>
-        <h2>8. File I/O (Intermediate) <button onclick="toggleHello(this)">Start</button></h2>
+        <h2>9. Advanced Python Concepts (Advanced)</h2>
         <ul>
-            <li>Reading and Writing Files</li>
-            <li>Working with CSV, JSON, and XML</li>
-            <li>Context Managers (`with` statement)</li>
+            <li onclick="toggleItemHello(this)">Decorators and Generators
+                <div class="hello-message">Hi Hello</div>
+            </li>
+            <li onclick="toggleItemHello(this)">Iterators and Custom Iterators
+                <div class="hello-message">Hi Hello</div>
+            </li>
+            <li onclick="toggleItemHello(this)">Multithreading and Multiprocessing
+                <div class="hello-message">Hi Hello</div>
+            </li>
+            <li onclick="toggleItemHello(this)">Async Programming with `asyncio`
+                <div class="hello-message">Hi Hello</div>
+            </li>
         </ul>
-        <div class="hello-message">Hello</div> <!-- Message shown when Start is clicked -->
     </section>
-
+    
     <section>
-        <h2>9. Advanced Python Concepts (Advanced) <button onclick="toggleHello(this)">Start</button></h2>
+        <h2>10. Libraries and Frameworks (Advanced)</h2>
         <ul>
-            <li>Decorators and Generators</li>
-            <li>Iterators and Custom Iterators</li>
-            <li>Multithreading and Multiprocessing</li>
-            <li>Async Programming with `asyncio`</li>
+            <li onclick="toggleItemHello(this)">Data Science Libraries (NumPy, Pandas, Matplotlib)
+                <div class="hello-message">Hi Hello</div>
+            </li>
+            <li onclick="toggleItemHello(this)">Web Frameworks (Flask, Django)
+                <div class="hello-message">Hi Hello</div>
+            </li>
+            <li onclick="toggleItemHello(this)">Machine Learning (TensorFlow, PyTorch)
+                <div class="hello-message">Hi Hello</div>
+            </li>
+            <li onclick="toggleItemHello(this)">APIs and Automation
+                <div class="hello-message">Hi Hello</div>
+            </li>
         </ul>
-        <div class="hello-message">Hello</div> <!-- Message shown when Start is clicked -->
     </section>
-
+    
     <section>
-        <h2>10. Libraries and Frameworks (Advanced) <button onclick="toggleHello(this)">Start</button></h2>
+        <h2>11. Testing and Debugging (Advanced)</h2>
         <ul>
-            <li>Data Science Libraries (NumPy, Pandas, Matplotlib)</li>
-            <li>Web Frameworks (Flask, Django)</li>
-            <li>Machine Learning (TensorFlow, PyTorch)</li>
-            <li>APIs and Automation</li>
+            <li onclick="toggleItemHello(this)">Unit Testing and Test-Driven Development (TDD)
+                <div class="hello-message">Hi Hello</div>
+            </li>
+            <li onclick="toggleItemHello(this)">Debugging Tools (IDE Debuggers, `pdb`)
+                <div class="hello-message">Hi Hello</div>
+            </li>
+            <li onclick="toggleItemHello(this)">Mocking
+                <div class="hello-message">Hi Hello</div>
+            </li>
         </ul>
-        <div class="hello-message">Hello</div> <!-- Message shown when Start is clicked -->
     </section>
-
+    
     <section>
-        <h2>11. Testing and Debugging (Advanced) <button onclick="toggleHello(this)">Start</button></h2>
+        <h2>12. Python Best Practices (Advanced)</h2>
         <ul>
-            <li>Unit Testing and Test-Driven Development (TDD)</li>
-            <li>Debugging Tools (IDE Debuggers, `pdb`)</li>
-            <li>Mocking</li>
+            <li onclick="toggleItemHello(this)">PEP 8 and Code Style
+                <div class="hello-message">Hi Hello</div>
+            </li>
+            <li onclick="toggleItemHello(this)">Code Documentation
+                <div class="hello-message">Hi Hello</div>
+            </li>
+            <li onclick="toggleItemHello(this)">Efficient Python Code
+                <div class="hello-message">Hi Hello</div>
+            </li>
         </ul>
-        <div class="hello-message">Hello</div> <!-- Message shown when Start is clicked -->
     </section>
-
+    
     <section>
-        <h2>12. Python Best Practices (Advanced)<button onclick="toggleHello(this)">Start</button></h2>
+        <h2>13. Python in Real-World Applications (Expert)</h2>
         <ul>
-            <li>PEP 8 and Code Style</li>
-            <li>Code Documentation</li>
-            <li>Efficient Python Code</li>
+            <li onclick="toggleItemHello(this)">Web Scraping with BeautifulSoup, Scrapy
+                <div class="hello-message">Hi Hello</div>
+            </li>
+            <li onclick="toggleItemHello(this)">Working with APIs (RESTful APIs)
+                <div class="hello-message">Hi Hello</div>
+            </li>
+            <li onclick="toggleItemHello(this)">Automation (Selenium, PyAutoGUI)
+                <div class="hello-message">Hi Hello</div>
+            </li>
+            <li onclick="toggleItemHello(this)">Data Science, Machine Learning, and AI
+                <div class="hello-message">Hi Hello</div>
+            </li>
         </ul>
-        <div class="hello-message">looding.....</div> <!-- Message shown when Start is clicked -->
     </section>
-
+    
     <section>
-        <h2>13. Python in Real-World Applications (Expert) <button onclick="toggleHello(this)">Start</button></h2>
+        <h2>14. Final Projects (Expert)</h2>
         <ul>
-            <li>Web Scraping with BeautifulSoup, Scrapy</li>
-            <li>Working with APIs (RESTful APIs)</li>
-            <li>Automation (Selenium, PyAutoGUI)</li>
-            <li>Data Science, Machine Learning, and AI</li>
+            <li onclick="toggleItemHello(this)">Capstone Projects (Web Applications, Data Analysis, Machine Learning Models)
+                <div class="hello-message">Hi Hello</div>
+            </li>
         </ul>
-        <div class="hello-message">looding.....</div> <!-- Message shown when Start is clicked -->
-    </section>
-
-    <section>
-        <h2>14. Final Projects (Expert) <button onclick="toggleHello(this)">Start</button></h2>
-        <ul>
-            <li>Capstone Projects (Web Applications, Data Analysis, Machine Learning Models)</li>
-        </ul>
-        <div class="hello-message">looding.....</div> <!-- Message shown when Start is clicked -->
     </section>
 
     <!-- You can continue adding more sections following the same format -->
@@ -592,6 +680,16 @@
         // Toggle visibility
         helloMessage.style.display = 
             helloMessage.style.display === 'block' ? 'none' : 'block';
+    }
+// topics heading discribe. 
+    function toggleItemHello(item) {
+        const msg = item.querySelector('.hello-message');
+        msg.style.display = msg.style.display === 'none' ? 'block' : 'none';
+    }
+
+    function toggleItemHello(el) {
+        const msg = el.querySelector('.hello-message');
+        msg.style.display = msg.style.display === 'none' ? 'block' : 'none';
     }
 </script>
 
