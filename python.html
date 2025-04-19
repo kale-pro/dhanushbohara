@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Programming Course</title>
+                <!-- In your <head> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        /* Basic dark theme styles */
+
+        :root {
+            --primary: #1a1a1a;
+            --secondary: #ff4655;
+            --text: #ffffff;
+            --bg: #0a0a0a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 2rem;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-icons a {
+            color: var(--text);
+            font-size: 1.5rem;
+        }
+
+        .social-icons a:hover {
+            color: var(--secondary);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                background: rgba(0, 0, 0, 0.9);
+                padding: 1rem;
+                text-align: center;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .social-icons {
+                display: none;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+        }
+
+        
+        /* Logo Section */
+        .logo {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 10px;
+        }
+        /* Header seaction */
+        header {
+            background-color: #070707;
+            text-align: center;
+            padding: 20px;
+        }
+
+        header img {
+            max-height: 80px;
+            display: block;
+            margin: 10px auto;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+        }
+
+        section {
+            background-color: #1e1e1e;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.05);
+        }
+
+        h2 {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #ffffff;
+        }
+
+        h2 button {
+            background-color: #000000;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        h2 button:hover {
+            background-color: #983a00;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        ul li {
+            background-color: #2c2c2c;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #444;
+        }
+
+        .hello-message {
+            display: none; /* Hidden by default */
+            margin-top: 15px;
+            background-color: #333;
+            padding: 10px;
+            border-radius: 4px;
+            color: #f3f5f3;
+           
+        }
+
+        /* Footer */
+        .footer {
+            background-color: black;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .footer-left h2 {
+            margin: 0;
+            font-size: 1.5rem;
+            
+        }
+
+        .footer-left p {
+            margin: 5px 0;
+            color: #9ca3af;
+            font-size: 0.875rem;
+        }
+
+        /* Contact and Comment Box */
+        .cc-box {
+            background-color: black;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .contact-box, .comment-box {
+            background-color: black;
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            width: 530px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            text-align: left;
+            margin: 30px 0;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .contact-box p {
+            margin: 10px 0;
+            font-size: 16px;
+        }
+
+        .contact-box i {
+            margin-right: 10px;
+            color: #007bff;
+        }
+
+        .social-links {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 24px;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #007bff;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border: none;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+
+        .contact-form input::placeholder,
+        .contact-form textarea::placeholder {
+            color: #ccc;
+        }
+
+        .contact-form button {
+            width: 100%;
+            padding: 1rem;
+            background: hsl(45, 14%, 95%);
+            color: black;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .contact-form button:hover {
+            background: #b30000;
+        }
+
+                /* ChatBot section css */
+                .chatbot-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        /* Style the chat dialog */
+        .df-messenger-dialog {
+            width: 350px !important;
+            height: 430px !important;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+        }
+
+        /* Ensure the chat icon is visible and positioned correctly */
+        df-messenger {
+            --df-messenger-button-visibility: visible !important;
+        }
+
+        /* Optional: Style the chat icon (e.g., size, position) */
+        df-messenger .df-messenger-button {
+            width: 50px !important;
+            height: 50px !important;
+        }
+
+    </style>
+</head>
+<body>
+      <!-- Navigation Bar -->
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <a href="https://kale-pro.github.io/dhanushbohara/profile.html" aria-label="Home">
+                <img src="https://raw.githubusercontent.com/kale-pro/dhanushbohara/main/d-lofo.jpg" alt="Logo" class="logo">
+            </a>
+            <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="nav-links" role="menu">
+                <a href="https://kale-pro.github.io/dhanushbohara/index.html" role="menuitem">Home</a>
+                <a href="https://kale-pro.github.io/dhanushbohara/index.html#about" role="menuitem">About</a>
+                <a href="https://kale-pro.github.io/dhanushbohara/index.html#projects" role="menuitem">Projects</a>
+                <a href="https://kale-pro.github.io/dhanushbohara/index.html#skills" role="menuitem">Skills</a>
+                <a href="https://kale-pro.github.io/dhanushbohara/index.html#contact" role="menuitem">Contact</a>
+            </div>
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/dhanush-bohara-660732358/" target="_blank" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://github.com/kale-pro" target="_blank" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.facebook.com/profile.php?id=100082124208815" target="_blank" aria-label="Facebook">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="https://youtube.com/@kaleproff" target="_blank" aria-label="YouTube">
+                    <i class="fab fa-youtube"></i>
+                </a>
+            </div>
+        </div>
+    </nav><br><br><br>
+<header>
+    <h1>Python Programming Course</h1>
+    <p>Learn Python from Basic to Advanced Concepts</p>
+</header>
+ <!-- Chatbot section HTML -->
+ <div class="chatbot-container">
+    <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+    <df-messenger
+        intent="WELCOME"
+        chat-title="kaleproBot"
+        agent-id="f8df47c5-f7d7-49a5-bccd-c5b2e9936794"
+        language-code="en">
+    </df-messenger>
+</div>
+
+<div class="container">
+
+    <!-- Example Section (Repeatable format) -->
+    <section>
+        <h2>1. Introduction to Python (Basic) <button onclick="toggleHello(this)">Start</button></h2>
+        <ul>
+            <li>Installing Python and Setting up IDEs</li>
+            <li>Basic Python Syntax and Indentation</li>
+            <li>Variables and Data Types</li>
+            <li>Basic Operators</li>
+            <li>Basic Input/Output</li>
+        </ul>
+        <div class="hello-message">
+            <p>Introduction to Python (Basic)
+                Python is a powerful, high-level programming language that emphasizes code readability and simplicity, making it an ideal choice for beginners and experienced developers alike. Created by Guido van Rossum and first released in 1991, Python has grown into one of the most widely-used languages in the world, thanks to its clean syntax that closely resembles natural language. It supports multiple programming paradigms, including procedural, object-oriented, and functional programming, which allows developers to write flexible and scalable code. Python’s extensive standard library, along with thousands of third-party packages, enables users to perform a vast range of tasks—from web development and data analysis to machine learning and automation—without reinventing the wheel. Additionally, Python's strong community support, comprehensive documentation, and cross-platform compatibility make learning and working with it even more accessible. Whether you're writing a simple script or building a complex application, Python provides the tools and structure to bring ideas to life efficiently and effectively.</p>
+        </div> <!-- Message shown when Start is clicked -->
+    </section>
+
+    <section>
+        <h2>2. Control Flow (Intermediate) <button onclick="toggleHello(this)">Start</button></h2>
+        <ul>
+            <li>Conditionals (Using `if`, `elif`, `else`)</li>
+            <li>Loops (Using `for` and `while` loops)</li>
+            <li>Loop Control (Using `break`, `continue`, `pass`)</li>
+            <li>List Comprehension</li>
+        </ul>
+        <div class="hello-message">looding.....</div> <!-- Message shown when Start is clicked -->
+    </section>
+
+    <section>
+        <h2>3. Functions (Intermediate) <button onclick="toggleHello(this)">Start</button></h2>
+        <ul>
+            <li>Defining Functions (Parameters and Return Values)</li>
+            <li>Function Scope (Local and Global Variables)</li>
+            <li>Lambda Functions (Anonymous Functions)</li>
+            <li>Recursion (Calling Functions from Within Themselves)</li>
+        </ul>
+        <div class="hello-message">looding.....</div> <!-- Message shown when Start is clicked -->
+    </section>
+
+    <section>
+        <h2>4. Data Structures (Intermediate) <button onclick="toggleHello(this)">Start</button></h2>
+        <ul>
+            <li>Lists, Tuples, Dictionaries, Sets</li>
+            <li>String Operations and Formatting</li>
+        </ul>
+        <div class="hello-message">looding.....</div> <!-- Message shown when Start is clicked -->
+    </section>
+
+    <section>
+        <h2>5. Object-Oriented Programming (Advanced) <button onclick="toggleHello(this)">Start</button></h2>
+        <ul>
+            <li>Classes and Objects</li>
+            <li>Attributes and Methods</li>
+            <li>Inheritance and Polymorphism</li>
+            <li>Encapsulation and Abstraction</li>
+            <li>Magic Methods (`__init__`, `__str__`, etc.)</li>
+        </ul>
+        <div class="hello-message">looding.....</div> <!-- Message shown when Start is clicked -->
+    </section>
+
+    <section>
+        <h2>6. Modules and Packages (Intermediate) <button onclick="toggleHello(this)">Start</button></h2>
+        <ul>
+            <li>Importing Modules (Built-in and Custom)</li>
+            <li>Package Structure</li>
+        </ul>
+        <div class="hello-message">looding.....</div> <!-- Message shown when Start is clicked -->
+    </section>
+
+    <section>
+        <h2>7. Error Handling (Intermediate) <button onclick="toggleHello(this)">Start</button></h2>
+        <ul>
+            <li>Exceptions (Using `try`, `except` blocks)</li>
+            <li>Custom Exceptions</li>
+            <li>Using `finally` Block</li>
+        </ul>
+        <div class="hello-message">looding.....</div> <!-- Message shown when Start is clicked -->
+    </section>
+
+    <section>
+        <h2>8. File I/O (Intermediate) <button onclick="toggleHello(this)">Start</button></h2>
+        <ul>
+            <li>Reading and Writing Files</li>
+            <li>Working with CSV, JSON, and XML</li>
+            <li>Context Managers (`with` statement)</li>
+        </ul>
+        <div class="hello-message">Hello</div> <!-- Message shown when Start is clicked -->
+    </section>
+
+    <section>
+        <h2>9. Advanced Python Concepts (Advanced) <button onclick="toggleHello(this)">Start</button></h2>
+        <ul>
+            <li>Decorators and Generators</li>
+            <li>Iterators and Custom Iterators</li>
+            <li>Multithreading and Multiprocessing</li>
+            <li>Async Programming with `asyncio`</li>
+        </ul>
+        <div class="hello-message">Hello</div> <!-- Message shown when Start is clicked -->
+    </section>
+
+    <section>
+        <h2>10. Libraries and Frameworks (Advanced) <button onclick="toggleHello(this)">Start</button></h2>
+        <ul>
+            <li>Data Science Libraries (NumPy, Pandas, Matplotlib)</li>
+            <li>Web Frameworks (Flask, Django)</li>
+            <li>Machine Learning (TensorFlow, PyTorch)</li>
+            <li>APIs and Automation</li>
+        </ul>
+        <div class="hello-message">Hello</div> <!-- Message shown when Start is clicked -->
+    </section>
+
+    <section>
+        <h2>11. Testing and Debugging (Advanced) <button onclick="toggleHello(this)">Start</button></h2>
+        <ul>
+            <li>Unit Testing and Test-Driven Development (TDD)</li>
+            <li>Debugging Tools (IDE Debuggers, `pdb`)</li>
+            <li>Mocking</li>
+        </ul>
+        <div class="hello-message">Hello</div> <!-- Message shown when Start is clicked -->
+    </section>
+
+    <section>
+        <h2>12. Python Best Practices (Advanced)<button onclick="toggleHello(this)">Start</button></h2>
+        <ul>
+            <li>PEP 8 and Code Style</li>
+            <li>Code Documentation</li>
+            <li>Efficient Python Code</li>
+        </ul>
+        <div class="hello-message">looding.....</div> <!-- Message shown when Start is clicked -->
+    </section>
+
+    <section>
+        <h2>13. Python in Real-World Applications (Expert) <button onclick="toggleHello(this)">Start</button></h2>
+        <ul>
+            <li>Web Scraping with BeautifulSoup, Scrapy</li>
+            <li>Working with APIs (RESTful APIs)</li>
+            <li>Automation (Selenium, PyAutoGUI)</li>
+            <li>Data Science, Machine Learning, and AI</li>
+        </ul>
+        <div class="hello-message">looding.....</div> <!-- Message shown when Start is clicked -->
+    </section>
+
+    <section>
+        <h2>14. Final Projects (Expert) <button onclick="toggleHello(this)">Start</button></h2>
+        <ul>
+            <li>Capstone Projects (Web Applications, Data Analysis, Machine Learning Models)</li>
+        </ul>
+        <div class="hello-message">looding.....</div> <!-- Message shown when Start is clicked -->
+    </section>
+
+    <!-- You can continue adding more sections following the same format -->
+
+</div>
+
+    <!-- Comment/Feedback and Contact Section -->
+    <div class="cc-box">
+        <div class="comment-box">
+            <h2>Comment</h2>
+            <form class="contact-form">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea placeholder="Your Comment or Feedback..." rows="5" required></textarea>
+                <button type="submit">Post Comment</button>
+            </form>
+        </div>
+
+        <div class="contact-box" id="contact">
+            <h2>Contact Information</h2>
+            <p><i class="fas fa-envelope"></i> mr.dhanushbohara@gmail.com</p>
+            <p><i class="fas fa-phone"></i> +977-9842172080</p>
+            <p><i class="fas fa-map-marker-alt"></i> Sudurpaschim, Nepal</p>
+            <p><i class="fas fa-code"></i> Aspiring Developer | Python, Java & Web Enthusiast</p>
+            <p><i class="fas fa-lightbulb"></i> Passionate about real-world projects and continuous learning.</p>
+            <div class="social-links">
+                <a href="https://wa.me/9779842172080" target="_blank" title="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://youtube.com/@kaleproff" target="_blank"><i class="fab fa-youtube"></i></a>
+                <a href="https://facebook.com/dhanushbohara" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.linkedin.com/in/dhanush-bohara-660732358/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/kale-pro" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.tiktok.com/@dhanushchhetree?_t=ZS-8vAFoD0k4nq&_r=1" target="_blank"><i class="fab fa-tiktok"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-left">
+                <p>&copy; 2025 Designed By Kale pro || All Rights Reserved</p>
+            </div>
+        </div>
+    </footer>
+
+<!-- JavaScript to handle toggle behavior -->
+<script>
+    function toggleHello(button) {
+        // Find the nearest section of the clicked button
+        const section = button.closest('section');
+        // Find the hello message in that section
+        const helloMessage = section.querySelector('.hello-message');
+        // Toggle visibility
+        helloMessage.style.display = 
+            helloMessage.style.display === 'block' ? 'none' : 'block';
+    }
+</script>
+
+</body>
+</html>
