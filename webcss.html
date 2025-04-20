@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dhanush Bohara</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <style>
+        :root {
+            --primary: #1a1a1a;
+            --secondary: #ff4655;
+            --text: #ffffff;
+            --bg: #0a0a0a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 2rem;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-icons a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: var(--secondary);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        /* Logo Section */
+        .logo {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 10px;
+        }
+
+        /* Header section */
+        header {
+            background-color: #070707;
+            text-align: center;
+            padding: 20px;
+        }
+
+        header img {
+            max-height: 80px;
+            display: block;
+            margin: 10px auto;
+        }
+
+        .container {
+            width: 98%;
+            margin: auto;
+            padding: 20px;
+        }
+
+        section {
+            background-color: #1e1e1e;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.05);
+        }
+
+        h2 {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #ffffff;
+        }
+
+        h2 button {
+            background-color: #000000;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        h2 button:hover {
+            background-color: #983a00;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        ul li {
+            background-color: #2c2c2c;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #444;
+            cursor: pointer;
+            color: #ffffff;
+        }
+
+        .hello-message {
+            display: none;
+            margin-top: 15px;
+            background-color: #333;
+            padding: 10px;
+            border-radius: 4px;
+            color: #f3f5f3;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: black;
+            color: white;
+            padding: 20px 0;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .footer-left h2 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        .footer-left p {
+            margin: 5px 0;
+            color: #9ca3af;
+            font-size: 0.875rem;
+        }
+
+        /* Contact and Comment Box */
+        .cc-box {
+            background-color: black;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .contact-box, .comment-box {
+            background-color: black;
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            width: 530px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            text-align: left;
+            margin: 30px 0;
+        }
+
+        .contact-box p {
+            margin: 10px 0;
+            font-size: 16px;
+        }
+
+        .contact-box i {
+            margin-right: 10px;
+            color: #007bff;
+        }
+
+        .social-links {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 24px;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #007bff;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border: none;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+
+        .contact-form input::placeholder,
+        .contact-form textarea::placeholder {
+            color: #ccc;
+        }
+
+        .contact-form button {
+            width: 100%;
+            padding: 1rem;
+            background: hsl(45, 14%, 95%);
+            color: black;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .contact-form button:hover {
+            background: #b30000;
+        }
+
+        /* ChatBot section css */
+        .chatbot-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .df-messenger-dialog {
+            width: 350px !important;
+            height: 430px !important;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+        }
+
+        df-messenger {
+            --df-messenger-button-visibility: visible !important;
+        }
+
+        df-messenger .df-messenger-button {
+            width: 50px !important;
+            height: 50px !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="https://kale-pro.github.io/dhanushbohara/profile.html">
+                <img src="https://raw.githubusercontent.com/kale-pro/dhanushbohara/main/d-lofo.jpg" alt="Logo" class="logo">
+            </a>
+            <button class="menu-toggle"><i class="fas fa-bars"></i></button>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#skills">Skills</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/dhanush-bohara-660732358/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/kale-pro" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=100082124208815" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://youtube.com/@kaleproff" target="_blank"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </nav><br><br><br><br>
+
+    <header>
+        <h1>CSS Course</h1>
+        <p>Learn CSS from Basic to Advanced Concepts</p>
+    </header>
+
+    <!-- Beginner Level -->
+    <section>
+        <h2>1. Introduction to CSS <button>Expand</button></h2>
+        <ul>
+            <li onclick="toggleItemHello(this)">What is CSS?
+                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+            </li>
+            <li onclick="toggleItemHello(this)">CSS Syntax and Selectors
+                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+            </li>
+            <li onclick="toggleItemHello(this)">Ways to Include CSS (Inline, Internal, External)
+                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>2. Basic Styling <button>Expand</button></h2>
+        <ul>
+            <li onclick="toggleItemHello(this)">Colors and Backgrounds
+                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+            </li>
+            <li onclick="toggleItemHello(this)">Fonts and Text Properties
+                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+            </li>
+            <li onclick="toggleItemHello(this)">Margins and Padding
+                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>3. Box Model <button>Expand</button></h2>
+        <ul>
+            <li onclick="toggleItemHello(this)">Understanding the Box Model
+                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+            </li>
+            <li onclick="toggleItemHello(this)">Borders and Box Sizing
+                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+            </li>
+            <li onclick="toggleItemHello(this)">Width and Height Properties
+                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>4. Selectors and Specificity <button>Expand</button></h2>
+        <ul>
+            <li onclick="toggleItemHello(this)">Element, Class, and ID Selectors
+                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+            </li>
+            <li onclick="toggleItemHello(this)">Pseudo-classes and Pseudo-elements
+                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+            </li>
+            <li onclick="toggleItemHello(this)">CSS Specificity Rules
+                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>5. Layout Basics <button>Expand</button></h2>
+        <ul>
+            <li onclick="toggleItemHello(this)">Display Property (block, inline, inline-block)
+                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+            </li>
+            <li onclick="toggleItemHello(this)">Position Property (static, relative, absolute, fixed)
+                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+            </li>
+            <li onclick="toggleItemHello(this)">Float and Clear
+                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>6. CSS Units <button>Expand</button></h2>
+        <ul>
+            <li onclick="toggleItemHello(this)">Absolute Units (px, pt, cm)
+                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+            </li>
+            <li onclick="toggleItemHello(this)">Relative Units (%, vw, vh, rem, em)
+                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+            </li>
+            <li onclick="toggleItemHello(this)">Using Units in Responsive Design
+                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>7. Styling Links and Lists <button>Expand</button></h2>
+        <ul>
+            <li onclick="toggleItemHello(this)">Styling Hyperlinks
+                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+            </li>
+            <li onclick="toggleItemHello(this)">Custom List Styles
+                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+            </li>
+            <li onclick="toggleItemHello(this)">Hover Effects for Links
+                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>8. CSS Transitions <button>Expand</button></h2>
+        <ul>
+            <li onclick="toggleItemHello(this)">Transition Property Basics
+                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+            </li>
+            <li onclick="toggleItemHello(this)">Timing Functions
+                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+            </li>
+            <li onclick="toggleItemHello(this)">Transition Delays
+                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+            </li>
+        </ul>
+    </section>
+
+    <!-- Intermediate Level -->
+    <section>
+        <h2>9. Flexbox <button>Expand</button></h2>
+        <ul>
+            <li onclick="toggleItemHello(this)">Flex Container and Items
+                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+            </li>
+            <li onclick="toggleItemHello(this)">Flex Properties (justify-content, align-items)
+                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+            </li>
+            <li onclick="toggleItemHello(this)">Responsive Layouts with Flexbox
+                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>10. CSS Grid <button>Expand</button></h2>
+        <ul>
+            <li onclick="toggleItemHello(this)">Grid Container and Grid Items
+                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+            </li>
+            <li onclick="toggleItemHello(this)">Grid Tracks and Areas
+                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+            </li>
+            <li onclick="toggleItemHello(this)">Building Complex Layouts
+                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>11. Responsive Design <button>Expand</button></h2>
+        <ul>
+            <li onclick="toggleItemHello(this)">Media Queries
+                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+            </li>
+            <li onclick="toggleItemHello(this)">Mobile-First Design
+                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+            </li>
+            <li onclick="toggleItemHello(this)">Responsive Images and Videos
+                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>12. CSS Animations <button>Expand</button></h2>
+        <ul>
+            <li onclick="toggleItemHello(this)">@keyframes and Animation Properties
+                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+            </li>
+            <li onclick="toggleItemHello(this)">Animation Timing and Delays
+                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+            </li>
+            <li onclick="toggleItemHello(this)">Creating Complex Animations
+                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>13. CSS Variables <button>Expand</button></h2>
+        <ul>
+            <li onclick="toggleItemHello(this)">Defining and Using CSS Variables
+                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+            </li>
+            <li onclick="toggleItemHello(this)">Dynamic Theming with Variables
+                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+            </li>
+            <li onclick="toggleItemHello(this)">Scoped Variables
+                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+            </li>
+        </ul>
+    </section>
+
+    <!-- Advanced Level -->
+    <section>
+        <h2>14. Advanced Selectors <button>Expand</button></h2>
+        <ul>
+            <li onclick="toggleItemHello(this)">Attribute Selectors
+                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+            </li>
+            <li onclick="toggleItemHello(this)">Combinators (descendant, child, sibling)
+                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+            </li>
+            <li onclick="toggleItemHello(this)">Advanced Pseudo-classes (:nth-child, :not)
+                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>15. CSS Preprocessors <button>Expand</button></h2>
+        <ul>
+            <li onclick="toggleItemHello(this)">Introduction to SASS/SCSS
+                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+            </li>
+            <li onclick="toggleItemHello(this)">Nesting and Mixins
+                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+            </li>
+            <li onclick="toggleItemHello(this)">Variables and Partials
+                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>16. CSS Frameworks <button>Expand</button></h2>
+        <ul>
+            <li onclick="toggleItemHello(this)">Bootstrap Basics
+                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+            </li>
+            <li onclick="toggleItemHello(this)">Tailwind CSS Introduction
+                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+            </li>
+            <li onclick="toggleItemHello(this)">Customizing Frameworks
+                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>17. Performance Optimization <button>Expand</button></h2>
+        <ul>
+            <li onclick="toggleItemHello(this)">Minifying CSS
+                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+            </li>
+            <li onclick="toggleItemHello(this)">Reducing Reflows and Repaints
+                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+            </li>
+            <li onclick="toggleItemHello(this)">Critical CSS Techniques
+                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>18. Accessibility in CSS <button>Expand</button></h2>
+        <ul>
+            <li onclick="toggleItemHello(this)">Accessible Color Contrast
+                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+            </li>
+            <li onclick="toggleItemHello(this)">Focus States and Keyboard Navigation
+                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+            </li>
+            <li onclick="toggleItemHello(this)">ARIA-enhanced Styling
+                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+            </li>
+        </ul>
+    </section>
+
+    <!-- Comment/Feedback and Contact Section -->
+    <div class="cc-box">
+        <div class="comment-box">
+            <h2>Comment</h2>
+            <form class="contact-form">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea placeholder="Your Comment or Feedback..." rows="5" required></textarea>
+                <button type="submit">Post Comment</button>
+            </form>
+        </div>
+
+        <div class="contact-box" id="contact">
+            <h2>Contact Information</h2>
+            <p><i class="fas fa-envelope"></i> mr.dhanushbohara@gmail.com</p>
+            <p><i class="fas fa-phone"></i> +977-9842172080</p>
+            <p><i class="fas fa-map-marker-alt"></i> Sudurpaschim, Nepal</p>
+            <p><i class="fas fa-code"></i> Aspiring Developer | Python, Java & Web Enthusiast</p>
+            <p><i class="fas fa-lightbulb"></i> Passionate about real-world projects and continuous learning.</p>
+            <div class="social-links">
+                <a href="https://wa.me/9779842172080" target="_blank" title="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://youtube.com/@kaleproff" target="_blank"><i class="fab fa-youtube"></i></a>
+                <a href="https://facebook.com/dhanushbohara" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.linkedin.com/in/dhanush-bohara-660732358/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/kale-pro" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.tiktok.com/@dhanushchhetree?_t=ZS-8vAFoD0k4nq&_r=1" target="_blank"><i class="fab fa-tiktok"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-left">
+                <p>Designed By Kale Pro || © 2025 All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // AOS Initialization
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+
+        // Mobile Menu Toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Particle Background
+        particlesJS('particles-js', {
+            particles: {
+                number: { value: 80 },
+                color: { value: '#ffffff' },
+                shape: { type: 'circle' },
+                opacity: { value: 0.5 },
+                size: { value: 3 },
+                move: {
+                    enable: true,
+                    speed: 2,
+                    direction: 'none',
+                    random: false,
+                    straight: false,
+                    out_mode: 'out',
+                }
+            },
+            interactivity: {
+                detect_on: 'canvas',
+                events: {
+                    onhover: { enable: true, mode: 'repulse' },
+                    resize: true
+                }
+            }
+        });
+
+        // Toggle Hello Message
+        function toggleItemHello(element) {
+            const message = element.querySelector('.hello-message');
+            if (message.style.display === 'none') {
+                message.style.display = 'block';
+            } else {
+                message.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
