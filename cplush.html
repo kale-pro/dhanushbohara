@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dhanush Bohara</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <style>
+        :root {
+            --primary: #1a1a1a;
+            --secondary: #ff4655;
+            --text: #ffffff;
+            --bg: #0a0a0a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line的事件: 1.6;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 2rem;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-icons a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: var(--secondary);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        /* Logo Section */
+        .logo {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 10px;
+        }
+
+        /* Header section */
+        header {
+            background-color: #070707;
+            text-align: center;
+            padding: 20px;
+        }
+
+        header img {
+            max-height: 80px;
+            display: block;
+            margin: 10px auto;
+        }
+
+        .container {
+            width: 98%;
+            margin: auto;
+            padding: 20px;
+        }
+
+        section {
+            background-color: #1e1e1e;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.05);
+        }
+
+        h2 {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #ffffff;
+        }
+
+        h2 button {
+            background-color: #000000;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        h2 button:hover {
+            background-color: #983a00;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        ul li {
+            background-color: #2c2c2c;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #444;
+            cursor: pointer;
+            color: #ffffff;
+        }
+
+        .hello-message {
+            display: none; /* Hidden by default */
+            margin-top: 15px;
+            background-color: #333;
+            padding: 10px;
+            border-radius: 4px;
+            color: #f3f5f3;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: black;
+            color: white;
+            padding: 20px 0;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .footer-left h2 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        .footer-left p {
+            margin: 5px 0;
+            color: #9ca3af;
+            font-size: 0.875rem;
+        }
+
+        /* Contact and Comment Box */
+        .cc-box {
+            background-color: black;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .contact-box, .comment-box {
+            background-color: black;
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            width: 530px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            text-align: left;
+            margin: 30px 0;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .contact-box p {
+            margin: 10px 0;
+            font-size: 16px;
+        }
+
+        .contact-box i {
+            margin-right: 10px;
+            color: #007bff;
+        }
+
+        .social-links {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 24px;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #007bff;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border: none;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+
+        .contact-form input::placeholder,
+        .contact-form textarea::placeholder {
+            color: #ccc;
+        }
+
+        .contact-form button {
+            width: 100%;
+            padding: 1rem;
+            background: hsl(45, 14%, 95%);
+            color: black;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .contact-form button:hover {
+            background: #b30000;
+        }
+
+        /* ChatBot section css */
+        .chatbot-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        /* Style the chat dialog */
+        .df-messenger-dialog {
+            width: 350px !important;
+            height: 430px !important;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+        }
+
+        /* Ensure the chat icon is visible and positioned correctly */
+        df-messenger {
+            --df-messenger-button-visibility: visible !important;
+        }
+
+        /* Optional: Style the chat icon (e.g., size, position) */
+        df-messenger .df-messenger-button {
+            width: 50px !important;
+            height: 50px !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="https://kale-pro.github.io/dhanushbohara/profile.html">
+                <img src="https://raw.githubusercontent.com/kale-pro/dhanushbohara/main/d-lofo.jpg" alt="Logo" class="logo">
+            </a>
+            <button class="menu-toggle"><i class="fas fa-bars"></i></button>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#skills">Skills</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/dhanush-bohara-660732358/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/kale-pro" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=100082124208815" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://youtube.com/@kaleproff" target="_blank"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </nav><br><br><br><br>
+
+    <header>
+        <h1>C++ Programming Course</h1>
+        <p>Learn C++ from Basic to Advanced Concepts</p>
+    </header>
+
+    <div class="container">
+        <!-- Beginner Level -->
+        <section>
+            <h2>1. Introduction to C++ <button>Expand</button></h2>
+            <ul>
+                <li onclick="toggleItemHello(this)">History and Features of C++
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+                </li>
+                <li onclick="toggleItemHello(this)">Setting up C++ Environment (Compilers, IDEs)
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+                </li>
+                <li onclick="toggleItemHello(this)">Structure of a C++ Program
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>2. Basic Syntax <button>Expand</button></h2>
+            <ul>
+                <li onclick="toggleItemHello(this)">Variables and Data Types
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+                </li>
+                <li onclick="toggleItemHello(this)">Constants and Literals
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+                </li>
+                <li onclick="toggleItemHello(this)">Keywords and Identifiers
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>3. Input/Output <button>Expand</button></h2>
+            <ul>
+                <li onclick="toggleItemHello(this)">Using cin and cout (iostream)
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+                </li>
+                <li onclick="toggleItemHello(this)">Formatting Output
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+                </li>
+                <li onclick="toggleItemHello(this)">File Streams (ifstream, ofstream)
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>4. Operators <button>Expand</button></h2>
+            <ul>
+                <li onclick="toggleItemHello(this)">Arithmetic, Relational, Logical Operators
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+                </li>
+                <li onclick="toggleItemHello(this)">Bitwise and Assignment Operators
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+                </li>
+                <li onclick="toggleItemHello(this)">Scope Resolution Operator (::)
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>5. Control Structures <button>Expand</button></h2>
+            <ul>
+                <li onclick="toggleItemHello(this)">Conditional Statements (if, switch)
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+                </li>
+                <li onclick="toggleItemHello(this)">Loops (for, while, do-while)
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+                </li>
+                <li onclick="toggleItemHello(this)">Break, Continue, and Goto
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>6. Functions <button>Expand</button></h2>
+            <ul>
+                <li onclick="toggleItemHello(this)">Function Declaration and Definition
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+                </li>
+                <li onclick="toggleItemHello(this)">Function Overloading
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+                </li>
+                <li onclick="toggleItemHello(this)">Default Arguments
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>7. Arrays and Strings <button>Expand</button></h2>
+            <ul>
+                <li onclick="toggleItemHello(this)">Arrays (1D and Multi-dimensional)
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+                </li>
+                <li onclick="toggleItemHello(this)">C-style Strings (char arrays)
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+                </li>
+                <li onclick="toggleItemHello(this)">C++ string Class
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>8. Pointers and References <button>Expand</button></h2>
+            <ul>
+                <li onclick="toggleItemHello(this)">Pointer Declaration and Arithmetic
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+                </li>
+                <li onclick="toggleItemHello(this)">References vs. Pointers
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+                </li>
+                <li onclick="toggleItemHello(this)">Pointers to Arrays and Functions
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Intermediate Level -->
+        <section>
+            <h2>9. Classes and Objects <button>Expand</button></h2>
+            <ul>
+                <li onclick="toggleItemHello(this)">Defining Classes and Objects
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+                </li>
+                <li onclick="toggleItemHello(this)">Constructors and Destructors
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+                </li>
+                <li onclick="toggleItemHello(this)">Access Specifiers (public, private, protected)
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>10. Inheritance <button>Expand</button></h2>
+            <ul>
+                <li onclick="toggleItemHello(this)">Single and Multiple Inheritance
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+                </li>
+                <li onclick="toggleItemHello(this)">Access Control and Visibility
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+                </li>
+                <li onclick="toggleItemHello(this)">Virtual Base Classes
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>11. Polymorphism <button>Expand</button></h2>
+            <ul>
+                <li onclick="toggleItemHello(this)">Function Overriding
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+                </li>
+                <li onclick="toggleItemHello(this)">Virtual Functions
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+                </li>
+                <li onclick="toggleItemHello(this)">Abstract Classes and Pure Virtual Functions
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h sanity="12. Encapsulation and Abstraction <button>Expand</button></h2>
+            <ul>
+                <li onclick="toggleItemHello(this)">Data Hiding
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+                </li>
+                <li onclick="toggleItemHello(this)">Getter and Setter Methods
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+                </li>
+                <li onclick="toggleItemHello(this)">Friend Functions and Classes
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>13. Templates <button>Expand</button></h2>
+            <ul>
+                <li onclick="toggleItemHello(this)">Function Templates
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+                </li>
+                <li onclick="toggleItemHello(this)">Class Templates
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+                </li>
+                <li onclick="toggleItemHello(this)">Template Specialization
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>14. Exception Handling <button>Expand</button></h2>
+            <ul>
+                <li onclick="toggleItemHello(this)">Try, Catch, and Throw
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+                </li>
+                <li onclick="toggleItemHello(this)">Custom Exceptions
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+                </li>
+                <li onclick="toggleItemHello(this)">Standard Exceptions
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>15. Standard Template Library (STL) <button>Expand</button></h2>
+            <ul>
+                <li onclick="toggleItemHello(this)">Containers (vector, list, map, set)
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+                </li>
+                <li onclick="toggleItemHello(this)">Iterators
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+                </li>
+                <li onclick="toggleItemHello(this)">Algorithms (sort, find, etc.)
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Advanced Level -->
+        <section>
+            <h2>16. Advanced Pointers <button>Expand</button></h2>
+            <ul>
+                <li onclick="toggleItemHello(this)">Smart Pointers (unique_ptr, shared_ptr, weak_ptr)
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+                </li>
+                <li onclick="toggleItemHello(this)">Raw Pointers vs. Smart Pointers
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+                </li>
+                <li onclick="toggleItemHello(this)">Dynamic Memory Management
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>17. Operator Overloading <button>Expand</button></h2>
+            <ul>
+                <li onclick="toggleItemHello(this)">Overloading Unary and Binary Operators
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+                </li>
+                <li onclick="toggleItemHello(this)">Overloading Stream Operators
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+                </li>
+                <li onclick="toggleItemHello(this)">Conversion Operators
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>18. Multithreading <button>Expand</button></h2>
+            <ul>
+                <li onclick="toggleItemHello(this)">Thread Creation (std::thread)
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+                </li>
+                <li onclick="toggleItemHello(this)">Mutex and Synchronization
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+                </li>
+                <li onclick="toggleItemHello(this)">Condition Variables
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>19. File Handling <button>Expand</button></h2>
+            <ul>
+                <li onclick="toggleItemHello(this)">Binary File Operations
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+                </li>
+                <li onclick="toggleItemHello(this)">Random Access in Files
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+                </li>
+                <li onclick="toggleItemHello(this)">File Streams with Error Handling
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>20. C++11/14/17/20 Features <button>Expand</button></h2>
+            <ul>
+                <li onclick="toggleItemHello(this)">Auto, nullptr, and Range-based Loops
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+                </li>
+                <li onclick="toggleItemHello(this)">Lambda Expressions
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+                </li>
+                <li onclick="toggleItemHello(this)">Move Semantics and Rvalue References
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+                </li>
+                <li onclick="toggleItemHello(this)">Concepts (C++20)
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>21. Design Patterns <button>Expand</button></h2>
+            <ul>
+                <li onclick="toggleItemHello(this)">Singleton Pattern
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+                </li>
+                <li onclick="toggleItemHello(this)">Factory Pattern
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+                </li>
+                <li onclick="toggleItemHello(this)">Observer Pattern
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>22. Networking in C++ <button>Expand</button></h2>
+            <ul>
+                <li onclick="toggleItemHello(this)">Socket Programming (Boost.Asio)
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+                </li>
+                <li onclick="toggleItemHello(this)">TCP/UDP Communication
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+                </li>
+                <li onclick="toggleItemHello(this)">Client-Server Model
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>23. Performance Optimization <button>Expand</button></h2>
+            <ul>
+                <li onclick="toggleItemHello(this)">Inline Functions and Compiler Optimizations
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+                </li>
+                <li onclick="toggleItemHello(this)">Memory Alignment and Cache Efficiency
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+                </li>
+                <li onclick="toggleItemHello(this)">Profiling Tools (e.g., gprof)
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
+                </li>
+            </ul>
+        </section>
+    </div>
+
+    <!-- Comment/Feedback and Contact Section -->
+    <div class="cc-box">
+        <div class="comment-box">
+            <h2>Comment</h2>
+            <form class="contact-form">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea placeholder="Your Comment or Feedback..." rows="5" required></textarea>
+                <button type="submit">Post Comment</button>
+            </form>
+        </div>
+
+        <div class="contact-box" id="contact">
+            <h2>Contact Information</h2>
+            <p><i class="fas fa-envelope"></i> mr.dhanushbohara@gmail.com</p>
+            <p><i class="fas fa-phone"></i> +977-9842172080</p>
+            <p><i class="fas fa-map-marker-alt"></i> Sudurpaschim, Nepal</p>
+            <p><i class="fas fa-code"></i> Aspiring Developer | Python, Java & Web Enthusiast</p>
+            <p><i class="fas fa-lightbulb"></i> Passionate about real-world projects and continuous learning.</p>
+            <div class="social-links">
+                <a href="https://wa.me/9779842172080" target="_blank" title="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://youtube.com/@kaleproff" target="_blank"><i class="fab fa-youtube"></i></a>
+                <a href="https://facebook.com/dhanushbohara" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.linkedin.com/in/dhanush-bohara-660732358/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/kale-pro" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.tiktok.com/@dhanushchhetree?_t=ZS-8vAFoD0k4nq&_r=1" target="_blank"><i class="fab fa-tiktok"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-left">
+           
+                <p>Designed By Kale Pro || © 2025 All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // AOS Initialization
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+
+        // Mobile Menu Toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Particle Background
+        particlesJS('particles-js', {
+            particles: {
+                number: { value: 80 },
+                color: { value: '#ffffff' },
+                shape: { type: 'circle' },
+                opacity: { value: 0.5 },
+                size: { value: 3 },
+                move: {
+                    enable: true,
+                    speed: 2,
+                    direction: 'none',
+                    random: false,
+                    straight: false,
+                    out_mode: 'out',
+                }
+            },
+            interactivity: {
+                detect_on: 'canvas',
+                events: {
+                    onhover: { enable: true, mode: 'repulse' },
+                    resize: true
+                }
+            }
+        });
+
+        // Search Functionality
+        document.getElementById('buttons').addEventListener('click', function() {
+            const query = document.getElementById('search').value.toLowerCase();
+            const content = document.getElementById('content').getElementsByTagName('p');
+            let results = '';
+            let found = false;
+
+            for (let i = 0; i < content.length; i++) {
+                if (content[i].textContent.toLowerCase().includes(query)) {
+                    results += `<p style="color: rgb(19, 5, 29);">${content[i].textContent}</p>`;
+                    found = true;
+                }
+            }
+
+            if (!found) {
+                results = '<p style="color: red;">कुनै नतिजा भेटिएन।</p>';
+            }
+
+            // Display results in an alert or create a results div if preferred
+            alert(results); // Replace with a div if you want to show results on the page
+        });
+
+        function toggleItemHello(element) {
+            const message = element.querySelector('.hello-message');
+            if (message.style.display === 'none') {
+                message.style.display = 'block';
+            } else {
+                message.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
