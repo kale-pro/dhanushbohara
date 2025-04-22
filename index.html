@@ -586,41 +586,6 @@
                 animation: pulse 1.5s infinite;
             }
 
-            /* Success Modal Styling */
-            .success-modal {
-                display: none;
-                position: fixed;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                background: rgba(0, 128, 0, 0.9);
-                color: #ffffff;
-                padding: 2rem;
-                border-radius: 10px;
-                z-index: 1000;
-                text-align: center;
-                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
-            }
-
-            .success-modal p {
-                font-size: 1.2rem;
-                margin-bottom: 1rem;
-            }
-
-            .success-modal button {
-                background: #ffffff;
-                color: #000000;
-                padding: 0.5rem 1rem;
-                border: none;
-                border-radius: 5px;
-                cursor: pointer;
-                font-size: 1rem;
-            }
-
-            .success-modal button:hover {
-                background: #e0e0e0;
-            }
-
             /* ChatBot Section */
             .chatbot-container {
                 position: fixed;
@@ -821,7 +786,8 @@
         <div class="cc-box">
             <div class="comment-box">
                 <h2>Comment</h2>
-                <form class="contact-form" id="commentForm">
+                <!-- Comment form submits directly to Formspree -->
+                <form class="contact-form" id="commentForm" action="https://formspree.io/f/xldbedaz" method="POST">
                     <label for="name">Your Name</label>
                     <input id="name" type="text" name="name" placeholder="Your Name" required>
                     <label for="email">Your Email</label>
@@ -848,12 +814,6 @@
                     <a href="https://www.tiktok.com/@dhanushchhetree?_t=ZS-8vAFoD0k4nq&_r=1" target="_blank"><i class="fab fa-tiktok"></i></a>
                 </div>
             </div>
-        </div>
-
-        <!-- Success Modal -->
-        <div class="success-modal" id="successModal">
-            <p>Comment Posted Successfully!</p>
-            <button onclick="closeSuccessModal()">OK</button>
         </div>
 
         <!-- Footer Section -->
@@ -1109,25 +1069,21 @@
 
             // Comment Form Submission
             const commentForm = document.getElementById('commentForm');
-            const successModal = document.getElementById('successModal');
 
             commentForm.addEventListener('submit', function(e) {
                 e.preventDefault();
                 const submitButton = commentForm.querySelector('button[type="submit"]');
                 submitButton.disabled = true;
 
-                // Simulate form submission (replace with actual Formspree submission if needed)
+                // Submit form directly to Formspree
+                commentForm.submit();
+                // Reset form and re-enable button after submission
                 setTimeout(() => {
-                    successModal.style.display = 'block';
                     commentForm.reset();
                     submitButton.disabled = false;
+                    alert('Comment submitted successfully!'); // User feedback
                 }, 1000);
             });
-
-            // Close Success Modal
-            function closeSuccessModal() {
-                successModal.style.display = 'none';
-            }
         </script>
     </body>
 </html>
