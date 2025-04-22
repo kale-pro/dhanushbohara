@@ -1,40 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Dhanush Bohara - Official Website</title>
+        <!-- Meta Tags for SEO and Responsiveness -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="Welcome to the official website of Dhanush Bohara. Explore his projects, blogs, and more.">
-        <meta name="keywords" content="Dhanush Bohara, dhanushbohara.com.np, Kale Pro, Python Developer, Student from Bajhang">
+        <meta name="keywords" content="Dhanush Bohara, dhanushbohara.com.np, Kale Pro, Python Developer, Student from Bajhang, Software Developer, Portfolio, Nepal">
+        <!-- Open Graph Tags for Social Media -->
+        <meta property="og:title" content="Dhanush Bohara - Official Website">
+        <meta property="og:description" content="Welcome to the official website of Dhanush Bohara. Explore his projects, blogs, and more.">
+        <meta property="og:image" content="https://raw.githubusercontent.com/kale-pro/dhanushbohara/main/web%20logo.png">
+        <meta property="og:url" content="https://kale-pro.github.io/dhanushbohara/">
+        <!-- Twitter Card Tags -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Dhanush Bohara - Official Website">
+        <meta name="twitter:description" content="Welcome to the official website of Dhanush Bohara. Explore his projects, blogs, and more.">
+        <meta name="twitter:image" content="https://raw.githubusercontent.com/kale-pro/dhanushbohara/main/web%20logo.png">
+        <title>Dhanush Bohara - Official Website</title>
         <!-- Web logo icon -->
         <link rel="icon" type="image/png" sizes="32x32" href="https://raw.githubusercontent.com/kale-pro/dhanushbohara/main/web%20logo.png">
+        <!-- External Stylesheets with SRI -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
         <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+        <!-- Particles.js Script -->
         <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
         <style>
+            /* CSS Variables for Theme Support */
             :root {
-                --primary: #1a1a1a; /* Default dark mode primary color */
-                --secondary: #ff4655; /* Accent color (unchanged in light mode) */
-                --text: #ffffff; /* Default text color for dark mode */
-                --bg: #0a0a0a; /* Default background color for dark mode */
+                --primary: #1a1a1a; 
+                --secondary: #ff4655; 
+                --text: #ffffff; 
+                --bg: #0a0a0a;
             }
 
-            /* Light mode variables */
+            /* Light Mode Variables */
             [data-theme="light"] {
-                --primary: #ffffff; /* Light mode primary color */
-                --text: #333333; /* Light mode text color */
-                --bg: #f0f0f0; /* Light mode background color */
+                --primary: #ffffff; 
+                --text: #1a1a1a; 
+                --bg: #f0f0f0; 
             }
 
+            /* Global Reset and Transitions */
             * {
                 margin: 0;
                 padding: 0;
                 box-sizing: border-box;
-                transition: all 0.3s ease; /* Smooth transition for theme changes */
+                transition: all 0.3s ease;
             }
 
             body {
                 font-family: 'Arial', sans-serif;
-                background: var(--bg); /* Use theme background */
-                color: var(--text); /* Use theme text color */
+                background: #0a0a0a; /* Fallback */
+                background: var(--bg);
+                color: #ffffff; /* Fallback */
+                color: var(--text);
                 line-height: 1.6;
             }
 
@@ -43,16 +62,14 @@
                 position: fixed;
                 top: 0;
                 width: 100%;
-                background: rgba(0, 0, 0, 0.8); /* Default dark mode navbar background */
+                background: rgba(0, 0, 0, 0.8); /* Fallback */
                 backdrop-filter: blur(10px);
                 z-index: 1000;
                 padding: 1rem 2rem;
             }
 
-            /* Adjust navbar background for light mode */
             [data-theme="light"] .navbar {
-                background: rgba(255, 255, 255, 0.8); /* Light mode navbar background */
-                backdrop-filter: blur(10px);
+                background: rgba(255, 255, 255, 0.8);
             }
 
             .nav-container {
@@ -69,14 +86,13 @@
             }
 
             .nav-links a {
-                color: var(--text); /* Use theme text color */
+                color: var(--text);
                 text-decoration: none;
                 font-weight: 500;
-                transition: color 0.3s ease;
             }
 
             .nav-links a:hover {
-                color: var(--secondary); /* Hover color remains consistent */
+                color: var(--secondary);
             }
 
             .social-icons {
@@ -85,9 +101,8 @@
             }
 
             .social-icons a {
-                color: var(--text); /* Use theme text color */
+                color: var(--text);
                 font-size: 1.5rem;
-                transition: color 0.3s ease;
             }
 
             .social-icons a:hover {
@@ -98,22 +113,21 @@
                 display: none;
                 background: none;
                 border: none;
-                color: var(--text); /* Use theme text color */
+                color: var(--text);
                 font-size: 1.5rem;
             }
 
-            /* Theme Toggle Button Styling */
+            /* Theme Toggle Button */
             .theme-toggle {
                 background: none;
                 border: none;
-                color: var(--text); /* Use theme text color */
+                color: var(--text);
                 font-size: 1.5rem;
                 cursor: pointer;
-                transition: color 0.3s ease;
             }
 
             .theme-toggle:hover {
-                color: var(--secondary); /* Hover effect matches other icons */
+                color: var(--secondary);
             }
 
             /* Hero Section */
@@ -151,7 +165,7 @@
                 opacity: 0.9;
             }
 
-            /* Sections Common Styles */
+            /* Sections */
             section {
                 padding: 5rem 2rem;
                 min-height: 100vh;
@@ -163,16 +177,17 @@
                 .hero h1 { font-size: 2.5rem; }
                 .nav-links {
                     display: none;
-                    position: absolute;
-                    top: 100%;
+                    position: fixed;
+                    top: 60px;
                     left: 0;
                     width: 100%;
-                    background: rgba(0, 0, 0, 0.9); /* Default mobile menu background */
+                    height: calc(100vh - 60px);
+                    background: rgba(0, 0, 0, 0.9);
                     flex-direction: column;
                     padding: 1rem;
                     text-align: center;
+                    z-index: 999;
                 }
-                /* Adjust mobile menu background for light mode */
                 [data-theme="light"] .nav-links {
                     background: rgba(255, 255, 255, 0.9);
                 }
@@ -190,7 +205,7 @@
                 font-size: 20px;
             }
 
-            /* About Section CSS */
+            /* About Section */
             .container {
                 max-width: 1000px;
                 margin: 0 auto;
@@ -210,14 +225,18 @@
                 margin-bottom: 20px;
                 font-size: 1.1em;
             }
-                /* photo-gallery-container */
+
+            .justify-text {
+                text-align: justify;
+            }
+
+            /* Photo Gallery */
             .photo-gallery-container {
                 position: relative;
                 margin: 40px 0;
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                /* background: linear-gradient(135deg, #2a2a2a, #1a1a1a); */
                 padding: 20px;
                 border-radius: 15px;
                 box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
@@ -320,6 +339,14 @@
                 right: -60px;
             }
 
+            @media (max-width: 768px) {
+                .photo-gallery { width: 300px; justify-content: flex-start; }
+                .photo-frame { width: 300px; height: 300px; }
+                .arrow-left { left: 10px; }
+                .arrow-right { right: 10px; }
+                .photo-gallery-container { padding: 15px; }
+            }
+
             .photo-gallery.loading::before {
                 content: "Loading...";
                 position: absolute;
@@ -331,15 +358,17 @@
                 animation: pulse 1.5s infinite;
             }
 
+            /* screen notice */
             .modal {
                 display: none;
                 position: fixed;
                 top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background: rgba(0, 0, 0, 0.9);
+                right:0;
+                width: 40%;
+                height: 30%;
+                background: rgba(255, 0, 0, 0.9);
                 z-index: 1000;
+                display: flex;
                 justify-content: center;
                 align-items: center;
             }
@@ -358,7 +387,6 @@
                 color: #ffffff;
                 font-size: 40px;
                 cursor: pointer;
-                transition: color 0.3s ease;
             }
 
             .modal .close:hover {
@@ -371,34 +399,20 @@
                 100% { opacity: 1; }
             }
 
-            @media (max-width: 768px) {
-                .photo-gallery {
-                    width: 300px;
-                    justify-content: flex-start;
-                }
-                .photo-frame {
-                    width: 300px;
-                    height: 300px;
-                }
-                .arrow-left { left: -50px; }
-                .arrow-right { right: -50px; }
-                .photo-gallery-container { padding: 15px; }
-            }
-
             .social-links {
                 margin-top: 40px;
+                display: flex;
+                justify-content: center;
+                gap: 20px;
             }
 
             .social-links a {
-                display: inline-block;
-                margin: 0 10px;
                 font-size: 24px;
-                color: #555;
-                transition: color 0.3s;
+                color: var(--text);
             }
 
             .social-links a:hover {
-                color: #000;
+                color: var(--secondary);
             }
 
             /* Skills Section */
@@ -418,14 +432,16 @@
                 background: rgba(255, 255, 255, 0.05);
                 border-radius: 10px;
                 transition: transform 0.3s ease;
+                cursor: pointer;
             }
 
             .skill:hover {
                 transform: translateY(-5px);
             }
 
-            .skill i {
-                font-size: 2.5rem;
+            .skill img, .skill i {
+                width: 24px;
+                height: 24px;
                 margin-bottom: 1rem;
             }
 
@@ -447,7 +463,6 @@
                 color: black;
                 font-size: 16px;
                 outline: none;
-                transition: border-color 0.3s ease;
             }
 
             #search:focus {
@@ -462,12 +477,17 @@
                 cursor: pointer;
                 color: rgb(244, 235, 235);
                 font-size: 16px;
-                transition: background-color 0.3s ease, transform 0.2s ease;
             }
 
             #buttons:hover {
                 background-color: rgb(50, 20, 70);
                 transform: scale(1.05);
+            }
+
+            #searchResults {
+                margin: 20px;
+                padding: 10px;
+                border-radius: 5px;
             }
 
             /* Logo Section */
@@ -485,8 +505,6 @@
 
             /* Contact and Comment Box */
             .cc-box {
-                /* background-color: black; */
-                font-family: Arial, sans-serif;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
@@ -494,9 +512,8 @@
                 padding: 0;
             }
 
+            /* Comment Box */
             .contact-box, .comment-box {
-                /* background-color: black;
-                color: white; */
                 padding: 30px;
                 border-radius: 12px;
                 width: 530px;
@@ -520,21 +537,10 @@
                 color: #007bff;
             }
 
-            .social-links {
-                margin-top: 20px;
-                display: flex;
-                justify-content: center;
-                gap: 20px;
-            }
-
-            .social-links a {
-                color: white;
-                font-size: 24px;
-                transition: color 0.3s;
-            }
-
-            .social-links a:hover {
-                color: #007bff;
+            .contact-form label {
+                display: block;
+                margin-bottom: 5px;
+                font-weight: bold;
             }
 
             .contact-form input,
@@ -545,19 +551,19 @@
                 border: none;
                 border-radius: 5px;
                 background: rgba(255, 255, 255, 0.2);
-                /* color: white; */
+                color: var(--text);
             }
 
             .contact-form input::placeholder,
             .contact-form textarea::placeholder {
-                color: #ccc;  color: black;
+                color: #ccc;
             }
 
             .contact-form button {
                 width: 100%;
                 padding: 1rem;
-                background: hsl(278, 14%, 37%); */
-                color: black;
+                background: hsl(278, 14%, 37%);
+                color: var(--text);
                 border: none;
                 border-radius: 5px;
                 cursor: pointer;
@@ -568,7 +574,52 @@
                 background: #b30000;
             }
 
-            /* ChatBot section css */
+            .contact-form button:disabled {
+                opacity: 0.7;
+                cursor: not-allowed;
+            }
+
+            .contact-form button:disabled::after {
+                content: "Loading...";
+                animation: pulse 1.5s infinite;
+            }
+
+            /* Success Modal Styling */
+            .success-modal {
+                display: none;
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: rgba(0, 128, 0, 0.9);
+                color: #ffffff;
+                padding: 2rem;
+                border-radius: 10px;
+                z-index: 1000;
+                text-align: center;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+            }
+
+            .success-modal p {
+                font-size: 1.2rem;
+                margin-bottom: 1rem;
+            }
+
+            .success-modal button {
+                background: #ffffff;
+                color: #000000;
+                padding: 0.5rem 1rem;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                font-size: 1rem;
+            }
+
+            .success-modal button:hover {
+                background: #e0e0e0;
+            }
+
+            /* ChatBot Section */
             .chatbot-container {
                 position: fixed;
                 bottom: 20px;
@@ -590,6 +641,19 @@
             df-messenger .df-messenger-button {
                 width: 50px !important;
                 height: 50px !important;
+            }
+
+            /* Footer */
+            footer {
+                text-align: center;
+                padding: 20px;
+            }
+
+            .back-to-top {
+                display: inline-block;
+                margin-top: 10px;
+                color: var(--text);
+                font-size: 1.5rem;
             }
         </style>
     </head>
@@ -662,17 +726,13 @@
                 <button class="arrow arrow-right" onclick="nextPhotos()">›</button>
             </div>
 
-            <p style="text-align: justify;">धनुष बोहरा बझाङ जिल्लाको केदारस्युँ गाउँपालिका–५, पउटा भन्ने सानो तर रमणीय गाउँमा जन्मिएर हुर्किएका हुन्। सानै उमेरदेखि पढाइमा रुचि राख्ने धनुषले कक्षा १ देखि ८ सम्म श्री रत्न माध्यमिक विद्यालय, पउटाबाट अध्ययन पूरा गरे। त्यसपछि उनले बागथलामा कक्षा ९ र १० मा कम्प्युटर इन्जिनियरिङ (आईटी) विषयमा पढे र +2 पनि यही विषयमा कैलालीको दुर्गा लक्ष्मी मोडेल स्कुल, अत्तरियामा सम्पन्न गरे।</p>
+            <p style="text-align: justify;">धनुष बोहरा बझाङ जिल्लाको केदारस्युँ गाउँपालिका–५, पउटा भन्ने सानो तर रमणीय गाउँमा जन्मिएर हुर्किएका हुन्। सानै उमेरदेखि प
+
+ढाइमा रुचि राख्ने धनुषले कक्षा १ देखि ८ सम्म श्री रत्न माध्यमिक विद्यालय, पउटाबाट अध्ययन पूरा गरे। त्यसपछि उनले बागथलामा कक्षा ९ र १० मा कम्प्युटर इन्जिनियरिङ (आईटी) विषयमा पढे र +2 पनि यही विषयमा कैलालीको दुर्गा लक्ष्मी मोडेल स्कुल, अत्तरियामा सम्पन्न गरे।</p>
             <p style="text-align: justify;">म एक उत्साही र जिज्ञासु विद्यार्थी हुँ, जसलाई प्रविधि र प्रोग्रामिङमा गहिरो रुचि छ। माध्यमिक तहमा कम्प्युटर इन्जिनियरिङ (आईटी) विषय लिएर अध्ययन गरेको छु, र हाल इन्जिनियरिङ प्रवेश परीक्षाको तयारी गर्दैछु। मेरो लक्ष्य प्रविधिको माध्यमबाट आफूलाई सक्षम बनाउनु र भविष्यमा उपयोगी प्रोजेक्टहरू निर्माण गर्नु हो।</p>
             <p style="text-align: justify;">अहिले म Python, Java, C, C++ जस्ता प्रोग्रामिङ भाषाहरू सिक्दै छु। सानोसानो प्रोजेक्टहरू बनाउँदै अभ्यास गर्दैछु, जसमध्ये HTML प्रयोग गरेर बनाएको एक step-wise website मेरो लागि सिक्ने राम्रो माध्यम बनेको छ। अहिले म आफ्नो पोर्टफोलियो वेबसाइट निर्माणमा पनि लागिरहेको छु, जसमा म आफ्नो सीप र रुचिहरू प्रस्तुत गर्ने सोचमा छु।</p>
             <p style="text-align: justify;">म फुर्सदको समयमा YouTube तथा अनलाइन प्लेटफर्महरूबाट नयाँ कुरा सिक्न मन पराउँछु। कहिलेकाहीँ वेबसाइट डिजाइन, code experimentation, वा logical problems solve गर्दै रमाउँछु। म विश्वास गर्छु — निरन्तर अभ्यास र आत्मविश्वासले मात्र आफूलाई अगाडि बढाउन सकिन्छ।</p>
             <p style="text-align: justify;">खेलकुदमा पनि मेरो रुचि छ, विशेष गरेर क्रिकेट हेर्न मलाई मन पर्छ। प्रविधि र सिर्जनात्मकता मेरो प्रेरणाका मूल आधार हुन्, जसले मलाई हरेक दिन केही नयाँ गर्न उत्प्रेरित गर्छ।</p>
-        </div>
-
-        <!-- Full-Screen Modal -->
-        <div class="modal" id="photoModal">
-            <span class="close" onclick="closeModal()">×</span>
-            <img id="modalImage" src="" alt="Full-screen photo">
         </div>
 
         <!-- Projects Section -->
@@ -681,11 +741,11 @@
                 <h2 id="project">Projects</h2><br><br>
                 <div class="project">
                     <h3>Personal Website</h3>
-                    <p>A fully responsive personal website developed with HTML, CSS, and JavaScript. It includes animations, smooth scroll, and a contact form. I am constantly adding more features to enhance the user experience.</p>
+                    <p style="text-align: justify;">A fully responsive personal website developed with HTML, CSS, and JavaScript. It includes animations, smooth scroll, and a contact form. I am constantly adding more features to enhance the user experience.</p>
                 </div><br><br>
                 <div class="project">
                     <h3>Python Projects</h3>
-                    <p>I have worked on various Python-based projects including automation scripts, web scraping, and small applications. These projects helped me hone my problem-solving skills and knowledge of Python libraries.</p>
+                    <p style="text-align: justify;">I have worked on various Python-based projects including automation scripts, web scraping, and small applications. These projects helped me hone my problem-solving skills and knowledge of Python libraries.</p>
                 </div>
             </div>
         </section>
@@ -755,10 +815,13 @@
         <div class="cc-box">
             <div class="comment-box">
                 <h2>Comment</h2>
-                <form class="contact-form">
-                    <input type="text" placeholder="Your Name" required>
-                    <input type="email" placeholder="Your Email" required>
-                    <textarea placeholder="Your Comment or Feedback..." rows="5" required></textarea>
+                <form class="contact-form" id="commentForm">
+                    <label for="name">Your Name</label>
+                    <input id="name" type="text" name="name" placeholder="Your Name" required>
+                    <label for="email">Your Email</label>
+                    <input id="email" type="email" name="email" placeholder="Your Email" required>
+                    <label for="comment">Your Comment or Feedback</label>
+                    <textarea id="comment" name="comment" placeholder="Your Comment or Feedback..." rows="5" required></textarea>
                     <button type="submit">Post Comment</button>
                 </form>
             </div>
@@ -781,9 +844,16 @@
             </div>
         </div>
 
+        <!-- Success Modal -->
+        <div class="success-modal" id="successModal">
+            <p>Comment Posted Successfully!</p>
+            <button onclick="closeSuccessModal()">OK</button>
+        </div>
+
         <!-- Footer Section -->
-        <footer style="text-align: center; padding: 20px;">
-            <p style="font-weight: bold;">Designed by <span style="color: #ea2525;">Kale Pro</span></p>
+        <footer>
+            <a href="#home" class="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></a>
+            <p>Designed by <span style="color: #ea2525;">Kale Pro</span></p>
             <p>© 2025 <strong>Kale Pro by Dhanush Bohara</strong>. All rights reserved.</p>
         </footer>
 
@@ -826,8 +896,6 @@
             let currentIndex = 0;
             let maxFrames = window.innerWidth <= 768 ? 1 : 3;
             const photoGallery = document.getElementById("photoGallery");
-            const modal = document.getElementById("photoModal");
-            const modalImage = document.getElementById("modalImage");
 
             function displayPhotos() {
                 photoGallery.classList.add("loading");
@@ -844,7 +912,6 @@
                             img.src = images[index];
                             img.alt = `Photo ${index + 1}`;
                             img.loading = "lazy";
-                            img.addEventListener("click", () => openModal(images[index]));
                             frame.appendChild(img);
                             photoGallery.appendChild(frame);
                         }
@@ -864,16 +931,6 @@
                 displayPhotos();
             }
 
-            function openModal(imageSrc) {
-                modalImage.src = imageSrc;
-                modal.style.display = "flex";
-            }
-
-            function closeModal() {
-                modal.style.display = "none";
-                modalImage.src = "";
-            }
-
             displayPhotos();
 
             window.addEventListener("resize", () => {
@@ -884,7 +941,6 @@
             document.addEventListener("keydown", (event) => {
                 if (event.key === "ArrowRight") nextPhotos();
                 else if (event.key === "ArrowLeft") previousPhotos();
-                else if (event.key === "Escape") closeModal();
             });
 
             let isDragging = false;
@@ -1010,9 +1066,30 @@
                     results = '<p style="color: red;">कुनै नतिजा भेटिएन।</p>';
                 }
 
-                // Display results in an alert or create a results div if preferred
-                alert(results); // Replace with a div if you want to show results on the page
+                alert(results);
             });
+
+            // Comment Form Submission
+            const commentForm = document.getElementById('commentForm');
+            const successModal = document.getElementById('successModal');
+
+            commentForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const submitButton = commentForm.querySelector('button[type="submit"]');
+                submitButton.disabled = true;
+
+                // Simulate form submission (replace with actual Formspree submission if needed)
+                setTimeout(() => {
+                    successModal.style.display = 'block';
+                    commentForm.reset();
+                    submitButton.disabled = false;
+                }, 1000);
+            });
+
+            // Close Success Modal
+            function closeSuccessModal() {
+                successModal.style.display = 'none';
+            }
         </script>
     </body>
 </html>
