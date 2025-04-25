@@ -1,139 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-        <title>Dhanush Bohara - Official Website</title>
-        <meta name="description" content="Welcome to the official website of Dhanush Bohara. Explore his projects, blogs, and more.">
-        <meta name="keywords" content="Dhanush Bohara, dhanushbohara.com.np, Kale Pro, Python Developer, Student from Bajhang">
-          <!--         web logo icon -->
-        <link rel="icon" type="image/png" sizes="32x32" href="https://raw.githubusercontent.com/kale-pro/dhanushbohara/main/web%20logo.png">
-                <!-- In your <head> -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <style>
-        /* Basic dark theme styles */
+    <head>
+        <!-- Required Meta Tags -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        :root {
-            --primary: #1a1a1a;
-            --secondary: #ff4655;
-            --text: #ffffff;
-            --bg: #0a0a0a;
-        }
+        <!-- Title (Shown in Browser Tab) -->
+        <title>Dhanush Bohara</title>
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            transition: all 0.3s ease;
-        }
+        <!-- Description and Keywords (SEO) -->
+        <meta name="description" content="Official website of Dhanush Bohara — Python, Java & Web Developer from Nepal. Explore projects, skills and connect.">
+        <meta name="keywords" content="Dhanush Bohara, dhanushbohara.com.np, Kale Pro, Python Developer, Software Developer, Portfolio, Nepal, Web Developer">
 
-        body {
-            font-family: 'Arial', sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
-        }
+        <!-- Author (Recommended) -->
+        <meta name="author" content="Dhanush Bohara">
 
-        /* Navigation Bar */
-        .navbar {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            padding: 1rem 2rem;
-        }
+        <!-- Open Graph Meta Tags (for social sharing) -->
+        <meta property="og:title" content="Dhanush Bohara">
+        <meta property="og:description" content="Visit the official site of Dhanush Bohara, Python & Java Developer from Nepal. Check out his skills, projects and contact.">
+        <meta property="og:image" content="https://raw.githubusercontent.com/kale-pro/dhanushbohara/main/web%20logo.png">
+        <meta property="og:url" content="https://www.dhanushbohara.com.np">
+        <meta property="og:type" content="website">
 
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+        <!-- Twitter Card Tags -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Dhanush Bohara">
+        <meta name="twitter:description" content="Official Website of Dhanush Bohara – Aspiring Developer from Nepal.">
+        <meta name="twitter:image" content="https://raw.githubusercontent.com/kale-pro/dhanushbohara/main/web%20logo.png">
 
-        .logo {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
+        <!-- Favicon (Browser Tab Icon) -->
+        <link rel="icon" type="image/png" href="https://github.com/kale-pro/dhanushbohara/blob/main/web%20logo.png">
 
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-        }
-        .nav-links a {
-            color: var(--text);
-            text-decoration: none;
-            font-weight: 500;
-        }
+        <!-- Fonts and Icons -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-        .nav-links a:hover {
-            color: var(--secondary);
-        }
+        <!-- Animation on Scroll -->
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-        .social-icons {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .social-icons a {
-            color: var(--text);
-            font-size: 1.5rem;
-        }
-
-        .social-icons a:hover {
-            color: var(--secondary);
-        }
-
-        .menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            color: var(--text);
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 60px;
-                left: 0;
-                width: 100%;
-                background: rgba(0, 0, 0, 0.9);
-                padding: 1rem;
-                text-align: center;
+        <!-- Particles.js -->
+        <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+        <style>
+            /* CSS Variables for Theme Support */
+            :root {
+                --primary: #1a1a1a; 
+                --secondary: #ff4655; 
+                --text: #ffffff; 
+                --bg: #0a0a0a;
             }
 
-            .nav-links.active {
+            /* Light Mode Variables */
+            [data-theme="light"] {
+                --primary: #ffffff; 
+                --text: #1a1a1a; 
+                --bg: #f0f0f0; 
+            }
+
+            /* Global Reset and Transitions */
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                transition: all 0.3s ease;
+            }
+
+            body {
+                font-family: 'Arial', sans-serif;
+                background: #0a0a0a; /* Fallback */
+                background: var(--bg);
+                color: #ffffff; /* Fallback */
+                color: var(--text);
+                line-height: 1.6;
+            }
+
+            /* Navigation Bar */
+            .navbar {
+                position: fixed;
+                top: 0;
+                width: 100%;
+                background: rgba(0, 0, 0, 0.8); /* Fallback */
+                backdrop-filter: blur(10px);
+                z-index: 1000;
+                padding: 1rem 2rem;
+            }
+
+            [data-theme="light"] .navbar {
+                background: rgba(255, 255, 255, 0.8);
+            }
+
+            .nav-container {
+                max-width: 1200px;
+                margin: 0 auto;
                 display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .nav-links {
+                display: flex;
+                gap: 2rem;
+            }
+
+            .nav-links a {
+                color: var(--text);
+                text-decoration: none;
+                font-weight: 500;
+            }
+
+            .nav-links a:hover {
+                color: var(--secondary);
             }
 
             .social-icons {
-                display: none;
+                display: flex;
+                gap: 1rem;
+            }
+
+            .social-icons a {
+                color: var(--text);
+                font-size: 1.5rem;
+            }
+
+            .social-icons a:hover {
+                color: var(--secondary);
             }
 
             .menu-toggle {
-                display: block;
+                display: none;
+                background: none;
+                border: none;
+                color: var(--text);
+                font-size: 1.5rem;
             }
-        }
+                 /* Logo Section */
+                .logo {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                object-fit: cover;
+                margin: 10px;
+            }
 
-        
-        /* Logo Section */
-        .logo {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin: 10px;
-        }
-        /* Header seaction */
+
+            /* Theme Toggle Button */
+            .theme-toggle {
+                background: none;
+                border: none;
+                color: var(--text);
+                font-size: 1.5rem;
+                cursor: pointer;
+            }
+
+            .theme-toggle:hover {
+                color: var(--secondary);
+            }
+         /* Header section */
         header {
-            background-color: #070707;
             text-align: center;
             padding: 20px;
         }
@@ -151,7 +172,6 @@
         }
 
         section {
-            background-color: #1e1e1e;
             padding: 20px;
             margin-bottom: 20px;
             border-radius: 8px;
@@ -162,16 +182,15 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            color: #ffffff;
+           
         }
 
         h2 button {
-            background-color: #000000;
-            color: white;
             border: none;
             padding: 6px 12px;
             border-radius: 4px;
             cursor: pointer;
+            border: 1px solid #444;
         }
 
         h2 button:hover {
@@ -184,53 +203,23 @@
         }
 
         ul li {
-            background-color: #2c2c2c;
             margin: 10px 0;
             padding: 10px;
             border-radius: 4px;
             border: 1px solid #444;
-        }
-
-        .hello-message {
-            display: none; /* Hidden by default */
-            margin-top: 15px;
-            background-color: #333;
-            padding: 10px;
-            border-radius: 4px;
-            color: #f3f5f3;
-           
-        }
-
-        /* Footer */
-        .footer {
-            background-color: black;
-            color: white;
-            padding: 20px 0;
-            text-align: center;
-        }
-
-        .footer-container {
-            max-width: 1200px;
-            margin: auto;
-            padding: 0 20px;
-            text-align: center;
-        }
-
-        .footer-left h2 {
-            margin: 0;
-            font-size: 1.5rem;
+            cursor: pointer;
             
         }
 
-        .footer-left p {
-            margin: 5px 0;
-            color: #9ca3af;
-            font-size: 0.875rem;
+        .hello-message {
+            display: none;
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 4px;
         }
 
-        /* Contact and Comment Box */
-        .cc-box {
-            background-color: black;
+              /* Contact and Comment Box */
+            .cc-box {    
             font-family: Arial, sans-serif;
             display: flex;
             flex-direction: column;
@@ -240,8 +229,8 @@
         }
 
         .contact-box, .comment-box {
-            background-color: black;
-            color: white;
+          
+          
             padding: 30px;
             border-radius: 12px;
             width: 530px;
@@ -301,8 +290,7 @@
         .contact-form button {
             width: 100%;
             padding: 1rem;
-            background: hsl(45, 14%, 95%);
-            color: black;
+            background: hsl(214, 83%, 46%);
             border: none;
             border-radius: 5px;
             cursor: pointer;
@@ -313,386 +301,508 @@
             background: #b30000;
         }
 
-                /* ChatBot section css */
-                .chatbot-container {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 1000;
-        }
+            /* ChatBot Section */
+            .chatbot-container {
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                z-index: 1000;
+            }
 
-        /* Style the chat dialog */
-        .df-messenger-dialog {
-            width: 350px !important;
-            height: 430px !important;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            border-radius: 10px;
-        }
+            .df-messenger-dialog {
+                width: 350px !important;
+                height: 430px !important;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                border-radius: 10px;
+            }
 
-        /* Ensure the chat icon is visible and positioned correctly */
-        df-messenger {
-            --df-messenger-button-visibility: visible !important;
-        }
+            df-messenger {
+                --df-messenger-button-visibility: visible !important;
+            }
 
-        /* Optional: Style the chat icon (e.g., size, position) */
-        df-messenger .df-messenger-button {
-            width: 50px !important;
-            height: 50px !important;
-        }
+            df-messenger .df-messenger-button {
+                width: 50px !important;
+                height: 50px !important;
+            }
 
-    </style>
-</head>
-<body>
-      <!-- Navigation Bar -->
-    <nav class="navbar" role="navigation" aria-label="Main navigation">
-        <div class="nav-container">
-            <a href="https://kale-pro.github.io/dhanushbohara/profile.html" aria-label="Home">
-                <img src="https://raw.githubusercontent.com/kale-pro/dhanushbohara/main/d-lofo.jpg" alt="Logo" class="logo">
-            </a>
-            <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
-                <i class="fas fa-bars"></i>
-            </button>
-            <div class="nav-links" role="menu">
-                <a href="https://kale-pro.github.io/dhanushbohara/index.html" role="menuitem">Home</a>
-                <a href="https://kale-pro.github.io/dhanushbohara/index.html#about" role="menuitem">About</a>
-                <a href="https://kale-pro.github.io/dhanushbohara/index.html#projects" role="menuitem">Projects</a>
-                <a href="https://kale-pro.github.io/dhanushbohara/index.html#skills" role="menuitem">Skills</a>
-                <a href="https://kale-pro.github.io/dhanushbohara/index.html#contact" role="menuitem">Contact</a>
-            </div>
-            <div class="social-icons">
-                <a href="https://www.linkedin.com/in/dhanush-bohara-660732358/" target="_blank" aria-label="LinkedIn">
-                    <i class="fab fa-linkedin"></i>
+            /* Footer */
+            footer {
+                text-align: center;
+                padding: 20px;
+            }
+
+            .back-to-top {
+                display: inline-block;
+                margin-top: 10px;
+                color: var(--text);
+                font-size: 1.5rem;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Navigation Bar -->
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="https://kale-pro.github.io/dhanushbohara/profile.html">
+                    <img src="https://raw.githubusercontent.com/kale-pro/dhanushbohara/main/d-lofo.jpg" alt="Logo" class="logo">
                 </a>
-                <a href="https://github.com/kale-pro" target="_blank" aria-label="GitHub">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="https://www.facebook.com/profile.php?id=100082124208815" target="_blank" aria-label="Facebook">
-                    <i class="fab fa-facebook"></i>
-                </a>
-                <a href="https://youtube.com/@kaleproff" target="_blank" aria-label="YouTube">
-                    <i class="fab fa-youtube"></i>
-                </a>
-            </div>
-        </div>
-    </nav><br><br><br>
-<header>
-    <h1>Python Programming Course</h1>
-    <p>Learn Python from Basic to Advanced Concepts</p>
-</header>
- <!-- Chatbot section HTML -->
- <div class="chatbot-container">
-    <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
-    <df-messenger
-        intent="WELCOME"
-        chat-title="kaleproBot"
-        agent-id="f8df47c5-f7d7-49a5-bccd-c5b2e9936794"
-        language-code="en">
-    </df-messenger>
-</div>
-
-<div class="container">
-
-    <!-- Example Section (Repeatable format) -->
-
-        </section>
-        <h2>1. Introduction to Python (Basic)</h2>
-        <ul>
-            <li onclick="toggleItemHello(this)">
-                Basic Python Syntax and Indentation
-                <div class="hello-message" style="display:none; margin-top: 5px;">
-                    <p> <h3>Introduction</h3>
-                        Python is a high-level, interpreted programming language known for its simplicity and readability. It is widely used for web development, data analysis, artificial intelligence, automation, and more. Python's syntax is clean and easy to understand, making it an ideal choice for beginners and experienced developers alike. One of its unique features is the use of indentation instead of braces to define code blocks, which improves code readability.</p>
+                <button class="menu-toggle"><i class="fas fa-bars"></i></button>
+                <div class="nav-links">
+                    <a href="https://kale-pro.github.io/dhanushbohara/">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#skills">Skills</a>
+                    <a href="#contact">Contact</a>
                 </div>
-            </li>
-            <li onclick="toggleItemHello(this)">
-                Variables and Data Types
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">
-                Basic Operators
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">
-                Basic Input/Output
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li> 
-        </ul>
-    </section>
-    <!-- Message shown when Start is clicked -->
+                <div class="social-icons">
+                    <a href="https://www.linkedin.com/in/dhanush-bohara-660732358/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/kale-pro" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=100082124208815" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="https://youtube.com/@kaleproff" target="_blank"><i class="fab fa-youtube"></i></a>
+                </div>
+                <!-- Theme toggle button added to navbar -->
+                <button class="theme-toggle" id="themeToggle" title="Toggle Theme">
+                    <i class="fas fa-moon"></i> <!-- Default icon for dark mode -->
+                </button>
+            </div>
+        </nav><br><br><br>
 
-    </section>
-        <h2>2. Control Flow (Intermediate)</h2>
-        <ul>
-            <li onclick="toggleItemHello(this)">
-                Conditionals (Using `if`, `elif`, `else`)
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">
-                Loops (Using `for` and `while` loops`)
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">
-                Loop Control (Using `break`, `continue`, `pass`)
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">
-                List Comprehension
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-        </ul>
-    </section>
-
-    <section>
-        <h2>3. Functions (Intermediate)</h2>
-        <ul>
-            <li onclick="toggleItemHello(this)">Defining Functions (Parameters and Return Values)
-                <div class="hello-message">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">Function Scope (Local and Global Variables)
-                <div class="hello-message">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">Lambda Functions (Anonymous Functions)
-                <div class="hello-message">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">Recursion (Calling Functions from Within Themselves)
-                <div class="hello-message">Hi Hello</div>
-            </li>
-        </ul>
-    </section>
+            <!-- Header Section -->
+            <header>
+                <h1>Python Programming Course</h1>
+                <p>Learn Python from Basic to Advanced Concepts</p>
+            </header>
+        <!-- Main Content -->
+        <div class="container">
+            <!-- Section 1: Introduction to Python (Basic) -->
+            <section>
+                <h2>1. Introduction to Python (Basic)</h2>
+                <ul>
+                    <li onclick="toggleItemHello(this)">
+                        Installing Python and Setting up IDEs
+                        <div class="hello-message">Download and install Python from python.org and set up an IDE like VS Code or PyCharm for coding.</div>
+                    </li>
+                    <li onclick="toggleItemHello(this)">
+                        Basic Python Syntax and Indentation
+                        <div class="hello-message">Learn Python's simple syntax and the importance of indentation for code blocks.</div>
+                    </li>
+                    <li onclick="toggleItemHello(this)">
+                        Variables and Data Types
+                        <div class="hello-message">Understand how to create variables and use data types like integers, strings, and booleans.</div>
+                    </li>
+                    <li onclick="toggleItemHello(this)">
+                        Basic Operators
+                        <div class="hello-message">Explore arithmetic, comparison, and logical operators to perform operations in Python.</div>
+                    </li>
+                    <li onclick="toggleItemHello(this)">
+                        Basic Input/Output
+                        <div class="hello-message">Use `print()` to display output and `input()` to get user input in Python programs.</div>
+                    </li>
+                </ul>
+            </section>
     
-    <section>
-        <h2>4. Data Structures (Intermediate)</h2>
-        <ul>
-            <li onclick="toggleItemHello(this)">Lists, Tuples, Dictionaries, Sets
-                <div class="hello-message">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">String Operations and Formatting
-                <div class="hello-message">Hi Hello</div>
-            </li>
-        </ul>
-    </section>
+            <!-- Section 2: Control Flow (Intermediate) -->
+            <section>
+                <h2>2. Control Flow (Intermediate)</h2>
+                <ul>
+                    <li onclick="toggleItemHello(this)">
+                        Conditionals (Using `if`, `elif`, `else`)
+                        <div class="hello-message">Control program flow with `if`, `elif`, and `else` statements based on conditions.</div>
+                    </li>
+                    <li onclick="toggleItemHello(this)">
+                        Loops (Using `for` and `while` loops)
+                        <div class="hello-message">Repeat tasks using `for` loops for known iterations and `while` loops for condition-based repetition.</div>
+                    </li>
+                    <li onclick="toggleItemHello(this)">
+                        Loop Control (Using `break`, `continue`, `pass`)
+                        <div class="hello-message">Manage loops with `break` to exit, `continue` to skip, and `pass` as a placeholder.</div>
+                    </li>
+                    <li onclick="toggleItemHello(this)">
+                        List Comprehension
+                        <div class="hello-message">Create lists efficiently using concise syntax for loops and conditions.</div>
+                    </li>
+                </ul>
+            </section>
     
-    <section>
-        <h2>5. Object-Oriented Programming (Advanced)</h2>
-        <ul>
-            <li onclick="toggleItemHello(this)">Classes and Objects
-                <div class="hello-message">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">Attributes and Methods
-                <div class="hello-message">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">Inheritance and Polymorphism
-                <div class="hello-message">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">Encapsulation and Abstraction
-                <div class="hello-message">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">Magic Methods (`__init__`, `__str__`, etc.)
-                <div class="hello-message">Hi Hello</div>
-            </li>
-        </ul>
-    </section>
+            <!-- Section 3: Functions (Intermediate) -->
+            <section>
+                <h2>3. Functions (Intermediate)</h2>
+                <ul>
+                    <li onclick="toggleItemHello(this)">
+                        Defining Functions (Parameters and Return Values)
+                        <div class="hello-message">Create reusable code blocks with functions, passing parameters and returning results.</div>
+                    </li>
+                    <li onclick="toggleItemHello(this)">
+                        Function Scope (Local and Global Variables)
+                        <div class="hello-message">Understand variable scope: local variables inside functions and global variables outside.</div>
+                    </li>
+                    <li onclick="toggleItemHello(this)">
+                        Lambda Functions (Anonymous Functions)
+                        <div class="hello-message">Write short, nameless functions using `lambda` for simple operations.</div>
+                    </li>
+                    <li onclick="toggleItemHello(this)">
+                        Recursion (Calling Functions from Within Themselves)
+                        <div class="hello-message">Solve problems by having a function call itself with modified inputs.</div>
+                    </li>
+                </ul>
+            </section>
     
-    <section>
-        <h2>6. Modules and Packages (Intermediate)</h2>
-        <ul>
-            <li onclick="toggleItemHello(this)">Importing Modules (Built-in and Custom)
-                <div class="hello-message">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">Package Structure
-                <div class="hello-message">Hi Hello</div>
-            </li>
-        </ul>
-    </section>
+            <!-- Section 4: Data Structures (Intermediate) -->
+            <section>
+                <h2>4. Data Structures (Intermediate)</h2>
+                <ul>
+                    <li onclick="toggleItemHello(this)">
+                        Lists, Tuples, Dictionaries, Sets
+                        <div class="hello-message">Store data using lists (ordered), tuples (immutable), dictionaries (key-value), and sets (unique items).</div>
+                    </li>
+                    <li onclick="toggleItemHello(this)">
+                        String Operations and Formatting
+                        <div class="hello-message">Manipulate strings with methods and format them using f-strings or `.format()`.</div>
+                    </li>
+                </ul>
+            </section>
     
-    <section>
-        <h2>7. Error Handling (Intermediate)</h2>
-        <ul>
-            <li onclick="toggleItemHello(this)">Exceptions (Using `try`, `except` blocks)
-                <div class="hello-message">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">Custom Exceptions
-                <div class="hello-message">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">Using `finally` Block
-                <div class="hello-message">Hi Hello</div>
-            </li>
-        </ul>
-    </section>
+            <!-- Section 5: Object-Oriented Programming (Advanced) -->
+            <section>
+                <h2>5. Object-Oriented Programming (Advanced)</h2>
+                <ul>
+                    <li onclick="toggleItemHello(this)">
+                        Classes and Objects
+                        <div class="hello-message">Define blueprints (classes) to create objects with attributes and behaviors.</div>
+                    </li>
+                    <li onclick="toggleItemHello(this)">
+                        Attributes and Methods
+                        <div class="hello-message">Add data (attributes) and functions (methods) to classes for object functionality.</div>
+                    </li>
+                    <li onclick="toggleItemHello(this)">
+                        Inheritance and Polymorphism
+                        <div class="hello-message">Reuse code with inheritance and allow objects to take multiple forms via polymorphism.</div>
+                    </li>
+                    <li onclick="toggleItemHello(this)">
+                        Encapsulation and Abstraction
+                        <div class="hello-message">Hide data (encapsulation) and simplify interfaces (abstraction) for secure code.</div>
+                    </li>
+                    <li onclick="toggleItemHello(this)">
+                        Magic Methods (`__init__`, `__str__`, etc.)
+                        <div class="hello-message">Customize object behavior with special methods like `__init__` for initialization.</div>
+                    </li>
+                </ul>
+            </section>
     
-    <section>
-        <h2>8. File I/O (Intermediate)</h2>
-        <ul>
-            <li onclick="toggleItemHello(this)">Reading and Writing Files
-                <div class="hello-message">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">Working with CSV, JSON, and XML
-                <div class="hello-message">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">Context Managers (`with` statement)
-                <div class="hello-message">Hi Hello</div>
-            </li>
-        </ul>
-    </section>
+            <!-- Section 6: Modules and Packages (Intermediate) -->
+            <section>
+                <h2>6. Modules and Packages (Intermediate)</h2>
+                <ul>
+                    <li onclick="toggleItemHello(this)">
+                        Importing Modules (Built-in and Custom)
+                        <div class="hello-message">Use Python’s built-in modules or create your own to organize code.</div>
+                    </li>
+                    <li onclick="toggleItemHello(this)">
+                        Package Structure
+                        <div class="hello-message">Group related modules into packages for large-scale projects.</div>
+                    </li>
+                </ul>
+            </section>
     
-    <section>
-        <h2>9. Advanced Python Concepts (Advanced)</h2>
-        <ul>
-            <li onclick="toggleItemHello(this)">Decorators and Generators
-                <div class="hello-message">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">Iterators and Custom Iterators
-                <div class="hello-message">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">Multithreading and Multiprocessing
-                <div class="hello-message">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">Async Programming with `asyncio`
-                <div class="hello-message">Hi Hello</div>
-            </li>
-        </ul>
-    </section>
+            <!-- Section 7: Error Handling (Intermediate) -->
+            <section>
+                <h2>7. Error Handling (Intermediate)</h2>
+                <ul>
+                    <li onclick="toggleItemHello(this)">
+                        Exceptions (Using `try`, `except` blocks)
+                        <div class="hello-message">Handle errors gracefully using `try` and `except` to prevent crashes.</div>
+                    </li>
+                    <li onclick="toggleItemHello(this)">
+                        Custom Exceptions
+                        <div class="hello-message">Create your own error types for specific error-handling needs.</div>
+                    </li>
+                    <li onclick="toggleItemHello(this)">
+                        Using `finally` Block
+                        <div class="hello-message">Run cleanup code with `finally`, regardless of errors.</div>
+                    </li>
+                </ul>
+            </section>
     
-    <section>
-        <h2>10. Libraries and Frameworks (Advanced)</h2>
-        <ul>
-            <li onclick="toggleItemHello(this)">Data Science Libraries (NumPy, Pandas, Matplotlib)
-                <div class="hello-message">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">Web Frameworks (Flask, Django)
-                <div class="hello-message">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">Machine Learning (TensorFlow, PyTorch)
-                <div class="hello-message">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">APIs and Automation
-                <div class="hello-message">Hi Hello</div>
-            </li>
-        </ul>
-    </section>
+            <!-- Section 8: File I/O (Intermediate) -->
+            <section>
+                <h2>8. File I/O (Intermediate)</h2>
+                <ul>
+                    <li onclick="toggleItemHello(this)">
+                        Reading and Writing Files
+                        <div class="hello-message">Read from and write to text files using Python’s file-handling functions.</div>
+                    </li>
+                    <li onclick="toggleItemHello(this)">
+                        Working with CSV, JSON, and XML
+                        <div class="hello-message">Process structured data formats like CSV, JSON, and XML for data exchange.</div>
+                    </li>
+                    <li onclick="toggleItemHello(this)">
+                        Context Managers (`with` statement)
+                        <div class="hello-message">Use `with` to safely open and automatically close files.</div>
+                    </li>
+                </ul>
+            </section>
     
-    <section>
-        <h2>11. Testing and Debugging (Advanced)</h2>
-        <ul>
-            <li onclick="toggleItemHello(this)">Unit Testing and Test-Driven Development (TDD)
-                <div class="hello-message">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">Debugging Tools (IDE Debuggers, `pdb`)
-                <div class="hello-message">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">Mocking
-                <div class="hello-message">Hi Hello</div>
-            </li>
-        </ul>
-    </section>
+            <!-- Section 9: Advanced Python Concepts (Advanced) -->
+            <section>
+                <h2>9. Advanced Python Concepts (Advanced)</h2>
+                <ul>
+                    <li onclick="toggleItemHello(this)">
+                        Decorators and Generators
+                        <div class="hello-message">Modify functions with decorators and create iterators with generators for efficiency.</div>
+                    </li>
+                    <li onclick="toggleItemHello(this)">
+                        Iterators and Custom Iterators
+                        <div class="hello-message">Build custom objects that can be iterated over, like lists.</div>
+                    </li>
+                    <li onclick="toggleItemHello(this)">
+                        Multithreading and Multiprocessing
+                        <div class="hello-message">Run tasks concurrently using threads or multiple processes for performance.</div>
+                    </li>
+                    <li onclick="toggleItemHello(this)">
+                        Async Programming with `asyncio`
+                        <div class="hello-message">Handle asynchronous tasks for efficient I/O operations using `asyncio`.</div>
+                    </li>
+                </ul>
+            </section>
     
-    <section>
-        <h2>12. Python Best Practices (Advanced)</h2>
-        <ul>
-            <li onclick="toggleItemHello(this)">PEP 8 and Code Style
-                <div class="hello-message">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">Code Documentation
-                <div class="hello-message">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">Efficient Python Code
-                <div class="hello-message">Hi Hello</div>
-            </li>
-        </ul>
-    </section>
+            <!-- Section 10: Libraries and Frameworks (Advanced) -->
+            <section>
+                <h2>10. Libraries and Frameworks (Advanced)</h2>
+                <ul>
+                    <li onclick="toggleItemHello(this)">
+                        Data Science Libraries (NumPy, Pandas, Matplotlib)
+                        <div class="hello-message">Analyze and visualize data with NumPy, Pandas, and Matplotlib.</div>
+                    </li>
+                    <li onclick="toggleItemHello(this)">
+                        Web Frameworks (Flask, Django)
+                        <div class="hello-message">Build web applications using lightweight Flask or full-featured Django.</div>
+                    </li>
+                    <li onclick="toggleItemHello(this)">
+                        Machine Learning (TensorFlow, PyTorch)
+                        <div class="hello-message">Create ML models with TensorFlow or PyTorch for AI applications.</div>
+                    </li>
+                    <li onclick="toggleItemHello(this)">
+                        APIs and Automation
+                        <div class="hello-message">Interact with APIs and automate tasks using Python libraries.</div>
+                    </li>
+                </ul>
+            </section>
     
-    <section>
-        <h2>13. Python in Real-World Applications (Expert)</h2>
-        <ul>
-            <li onclick="toggleItemHello(this)">Web Scraping with BeautifulSoup, Scrapy
-                <div class="hello-message">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">Working with APIs (RESTful APIs)
-                <div class="hello-message">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">Automation (Selenium, PyAutoGUI)
-                <div class="hello-message">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">Data Science, Machine Learning, and AI
-                <div class="hello-message">Hi Hello</div>
-            </li>
-        </ul>
-    </section>
+            <!-- Section 11: Testing and Debugging (Advanced) -->
+            <section>
+                <h2>11. Testing and Debugging (Advanced)</h2>
+                <ul>
+                    <li onclick="toggleItemHello(this)">
+                        Unit Testing and Test-Driven Development (TDD)
+                        <div class="hello-message">Write tests to verify code functionality and develop using TDD.</div>
+                    </li>
+                    <li onclick="toggleItemHello(this)">
+                        Debugging Tools (IDE Debuggers, `pdb`)
+                        <div class="hello-message">Use debuggers like `pdb` or IDE tools to find and fix bugs.</div>
+                    </li>
+                    <li onclick="toggleItemHello(this)">
+                        Mocking
+                        <div class="hello-message">Simulate objects or functions for testing without dependencies.</div>
+                    </li>
+                </ul>
+            </section>
     
-    <section>
-        <h2>14. Final Projects (Expert)</h2>
-        <ul>
-            <li onclick="toggleItemHello(this)">Capstone Projects (Web Applications, Data Analysis, Machine Learning Models)
-                <div class="hello-message">Hi Hello</div>
-            </li>
-        </ul>
-    </section>
-
-    <!-- You can continue adding more sections following the same format -->
-
-</div>
-
-    <!-- Comment/Feedback and Contact Section -->
-    <div class="cc-box">
-        <div class="comment-box">
-            <h2>Comment</h2>
-            <form class="contact-form">
-                <input type="text" placeholder="Your Name" required>
-                <input type="email" placeholder="Your Email" required>
-                <textarea placeholder="Your Comment or Feedback..." rows="5" required></textarea>
-                <button type="submit">Post Comment</button>
-            </form>
+            <!-- Section 12: Python Best Practices (Advanced) -->
+            <section>
+                <h2>12. Python Best Practices (Advanced)</h2>
+                <ul>
+                    <li onclick="toggleItemHello(this)">
+                        PEP 8 and Code Style
+                        <div class="hello-message">Follow PEP 8 guidelines for readable and consistent Python code.</div>
+                    </li>
+                    <li onclick="toggleItemHello(this)">
+                        Code Documentation
+                        <div class="hello-message">Write clear docstrings and comments to explain your code.</div>
+                    </li>
+                    <li onclick="toggleItemHello(this)">
+                        Efficient Python Code
+                        <div class="hello-message">Optimize code for performance using best practices and tools.</div>
+                    </li>
+                </ul>
+            </section>
+    
+            <!-- Section 13: Python in Real-World Applications (Expert) -->
+            <section>
+                <h2>13. Python in Real-World Applications (Expert)</h2>
+                <ul>
+                    <li onclick="toggleItemHello(this)">
+                        Web Scraping with BeautifulSoup, Scrapy
+                        <div class="hello-message">Extract data from websites using BeautifulSoup or Scrapy.</div>
+                    </li>
+                    <li onclick="toggleItemHello(this)">
+                        Working with APIs (RESTful APIs)
+                        <div class="hello-message">Fetch and send data using RESTful APIs with Python’s `requests`.</div>
+                    </li>
+                    <li onclick="toggleItemHello(this)">
+                        Automation (Selenium, PyAutoGUI)
+                        <div class="hello-message">Automate browser tasks with Selenium or GUI interactions with PyAutoGUI.</div>
+                    </li>
+                    <li onclick="toggleItemHello(this)">
+                        Data Science, Machine Learning, and AI
+                        <div class="hello-message">Apply Python to analyze data and build AI models for real-world solutions.</div>
+                    </li>
+                </ul>
+            </section>
+    
+            <!-- Section 14: Final Projects (Expert) -->
+            <section>
+                <h2>14. Final Projects (Expert)</h2>
+                <ul>
+                    <li onclick="toggleItemHello(this)">
+                        Capstone Projects (Web Applications, Data Analysis, Machine Learning Models)
+                        <div class="hello-message">Build complete projects like web apps, data dashboards, or ML models to showcase skills.</div>
+                    </li>
+                </ul>
+            </section>
         </div>
 
-        <div class="contact-box" id="contact">
-            <h2>Contact Information</h2>
-            <p><i class="fas fa-envelope"></i> mr.dhanushbohara@gmail.com</p>
-            <p><i class="fas fa-phone"></i> +977-9842172080</p>
-            <p><i class="fas fa-map-marker-alt"></i> Sudurpaschim, Nepal</p>
-            <p><i class="fas fa-code"></i> Aspiring Developer | Python, Java & Web Enthusiast</p>
-            <p><i class="fas fa-lightbulb"></i> Passionate about real-world projects and continuous learning.</p>
-            <div class="social-links">
-                <a href="https://wa.me/9779842172080" target="_blank" title="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
-                <a href="https://youtube.com/@kaleproff" target="_blank"><i class="fab fa-youtube"></i></a>
-                <a href="https://facebook.com/dhanushbohara" target="_blank"><i class="fab fa-facebook"></i></a>
-                <a href="https://www.linkedin.com/in/dhanush-bohara-660732358/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/kale-pro" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://www.tiktok.com/@dhanushchhetree?_t=ZS-8vAFoD0k4nq&_r=1" target="_blank"><i class="fab fa-tiktok"></i></a>
+
+        <!-- Comment/Feedback and Contact Section -->
+        <div class="cc-box">
+            <div class="comment-box">
+                <h2>Comment</h2>
+                <!-- Comment form submits directly to Formspree -->
+                <form class="contact-form" id="commentForm" action="https://formspree.io/f/xldbedaz" method="POST">
+                    <label for="name">Your Name</label>
+                    <input id="name" type="text" name="name" placeholder="Your Name" required>
+                    <label for="email">Your Email</label>
+                    <input id="email" type="email" name="email" placeholder="Your Email" required>
+                    <label for="comment">Your Comment or Feedback</label>
+                    <textarea id="comment" name="comment" placeholder="Your Comment or Feedback..." rows="5" required></textarea>
+                    <button type="submit">Post Comment</button>
+                </form>
+            </div>
+
+            <div class="contact-box" id="contact">
+                <h2>Contact Information</h2>
+                <p><i class="fas fa-envelope"></i> mr.dhanushbohara@gmail.com</p>
+                <p><i class="fas fa-phone"></i> +977-9842172080</p>
+                <p><i class="fas fa-map-marker-alt"></i> Sudurpaschim, Nepal</p>
+                <p><i class="fas fa-code"></i> Aspiring Developer | Python, Java & Web Enthusiast</p>
+                <p><i class="fas fa-lightbulb"></i> Passionate about real-world projects and continuous learning.</p>
+                <div class="social-links">
+                    <a href="https://wa.me/9779842172080" target="_blank" title="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://youtube.com/@kaleproff" target="_blank"><i class="fab fa-youtube"></i></a>
+                    <a href="https://facebook.com/dhanushbohara" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.linkedin.com/in/dhanush-bohara-660732358/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/kale-pro" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://www.tiktok.com/@dhanushchhetree?_t=ZS-8vAFoD0k4nq&_r=1" target="_blank"><i class="fab fa-tiktok"></i></a>
+                </div>
             </div>
         </div>
-    </div>
+    
+        <!-- Footer Section -->
+        <footer>
+            <a href="https://kale-pro.github.io/dhanushbohara/" class="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></a>
+            <p>Designed by <span style="color: #ea2525;">Kale Pro</span></p>
+            <p>© 2025 <strong>Kale Pro by Dhanush Bohara</strong>. All rights reserved.</p>
+        </footer>
 
-    <!-- Footer Section -->
-    <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-left">
-                <p>&copy; 2025 Designed By Kale pro || All Rights Reserved</p>
-            </div>
-        </div>
-    </footer>
+        <!-- Scripts -->
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script>
+            // Theme Toggle Functionality
+            const themeToggle = document.getElementById('themeToggle');
+            const body = document.body;
 
-<!-- JavaScript to handle toggle behavior -->
-<script>
-    function toggleHello(button) {
-        // Find the nearest section of the clicked button
-        const section = button.closest('section');
-        // Find the hello message in that section
-        const helloMessage = section.querySelector('.hello-message');
-        // Toggle visibility
-        helloMessage.style.display = 
-            helloMessage.style.display === 'block' ? 'none' : 'block';
-    }
-// topics heading discribe. 
-    function toggleItemHello(item) {
-        const msg = item.querySelector('.hello-message');
-        msg.style.display = msg.style.display === 'none' ? 'block' : 'none';
-    }
+            // Load saved theme from localStorage on page load
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            body.setAttribute('data-theme', savedTheme);
+            themeToggle.innerHTML = savedTheme === 'light' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
 
-    function toggleItemHello(el) {
-        const msg = el.querySelector('.hello-message');
-        msg.style.display = msg.style.display === 'none' ? 'block' : 'none';
-    }
-</script>
+            // Toggle theme on button click
+            themeToggle.addEventListener('click', () => {
+                const currentTheme = body.getAttribute('data-theme');
+                const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+                body.setAttribute('data-theme', newTheme);
+                themeToggle.innerHTML = newTheme === 'light' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+                localStorage.setItem('theme', newTheme); // Save theme preference
+            });
 
-</body>
+
+            // AOS Initialization
+            AOS.init({
+                duration: 1000,
+                once: true
+            });
+
+            // Mobile Menu Toggle
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navLinks = document.querySelector('.nav-links');
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+
+            // Smooth Scroll
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // Particle Background
+            particlesJS('particles-js', {
+                particles: {
+                    number: { value: 80 },
+                    color: { value: '#ffffff' },
+                    shape: { type: 'circle' },
+                    opacity: { value: 0.5 },
+                    size: { value: 3 },
+                    move: {
+                        enable: true,
+                        speed: 2,
+                        direction: 'none',
+                        random: false,
+                        straight: false,
+                        out_mode: 'out',
+                    }
+                },
+                interactivity: {
+                    detect_on: 'canvas',
+                    events: {
+                        onhover: { enable: true, mode: 'repulse' },
+                        resize: true
+                    }
+                }
+            });
+
+                    // Toggle Hello Message
+        function toggleItemHello(element) {
+            const message = element.querySelector('.hello-message');
+            if (message.style.display === 'none') {
+                message.style.display = 'block';
+            } else {
+                message.style.display = 'none';
+            }
+        }
+
+                    
+           
+            // Comment Form Submission
+            const commentForm = document.getElementById('commentForm');
+
+            commentForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const submitButton = commentForm.querySelector('button[type="submit"]');
+                submitButton.disabled = true;
+
+                // Submit form directly to Formspree
+                commentForm.submit();
+                // Reset form and re-enable button after submission
+                setTimeout(() => {
+                    commentForm.reset();
+                    submitButton.disabled = false;
+                    alert('Comment submitted successfully!'); // User feedback
+                }, 1000);
+            });
+        </script>
+    </body>
 </html>
