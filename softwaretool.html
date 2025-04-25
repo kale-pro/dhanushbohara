@@ -1,106 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-        <title>Dhanush Bohara - Official Website</title>
-        <meta name="description" content="Welcome to the official website of Dhanush Bohara. Explore his projects, blogs, and more.">
-        <meta name="keywords" content="Dhanush Bohara, dhanushbohara.com.np, Kale Pro, Python Developer, Student from Bajhang">
-          <!--         web logo icon -->
-        <link rel="icon" type="image/png" sizes="32x32" href="https://raw.githubusercontent.com/kale-pro/dhanushbohara/main/web%20logo.png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <style>
-        :root {
-            --primary: #1a1a1a;
-            --secondary: #ff4655;
-            --text: #ffffff;
-            --bg: #0a0a0a;
-        }
+    <head>
+        <!-- Required Meta Tags -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            transition: all 0.3s ease;
-        }
+        <!-- Title (Shown in Browser Tab) -->
+        <title>Dhanush Bohara</title>
 
-        body {
-            font-family: 'Arial', sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
-        }
+        <!-- Description and Keywords (SEO) -->
+        <meta name="description" content="Official website of Dhanush Bohara — Python, Java & Web Developer from Nepal. Explore projects, skills and connect.">
+        <meta name="keywords" content="Dhanush Bohara, dhanushbohara.com.np, Kale Pro, Python Developer, Software Developer, Portfolio, Nepal, Web Developer">
 
-        /* Navigation Bar */
-        .navbar {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            padding: 1rem 2rem;
-        }
+        <!-- Author (Recommended) -->
+        <meta name="author" content="Dhanush Bohara">
 
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+        <!-- Open Graph Meta Tags (for social sharing) -->
+        <meta property="og:title" content="Dhanush Bohara">
+        <meta property="og:description" content="Visit the official site of Dhanush Bohara, Python & Java Developer from Nepal. Check out his skills, projects and contact.">
+        <meta property="og:image" content="https://raw.githubusercontent.com/kale-pro/dhanushbohara/main/web%20logo.png">
+        <meta property="og:url" content="https://www.dhanushbohara.com.np">
+        <meta property="og:type" content="website">
 
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-        }
+        <!-- Twitter Card Tags -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Dhanush Bohara">
+        <meta name="twitter:description" content="Official Website of Dhanush Bohara – Aspiring Developer from Nepal.">
+        <meta name="twitter:image" content="https://raw.githubusercontent.com/kale-pro/dhanushbohara/main/web%20logo.png">
 
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
+        <!-- Favicon (Browser Tab Icon) -->
+        <link rel="icon" type="image/png" href="https://github.com/kale-pro/dhanushbohara/blob/main/web%20logo.png">
 
-        .nav-links a:hover {
-            color: var(--secondary);
-        }
+        <!-- Fonts and Icons -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-        .social-icons {
-            display: flex;
-            gap: 1rem;
-        }
+        <!-- Animation on Scroll -->
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-        .social-icons a {
-            color: white;
-            font-size: 1.5rem;
-            transition: color 0.3s ease;
-        }
+        <!-- Particles.js -->
+        <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+        <style>
+            /* CSS Variables for Theme Support */
+            :root {
+                --primary: #1a1a1a; 
+                --secondary: #ff4655; 
+                --text: #ffffff; 
+                --bg: #0a0a0a;
+            }
 
-        .social-icons a:hover {
-            color: var(--secondary);
-        }
+            /* Light Mode Variables */
+            [data-theme="light"] {
+                --primary: #ffffff; 
+                --text: #1a1a1a; 
+                --bg: #f0f0f0; 
+            }
 
-        .menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.5rem;
-        }
+            /* Global Reset and Transitions */
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                transition: all 0.3s ease;
+            }
 
-        /* Logo Section */
-        .logo {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin: 10px;
-        }
+            body {
+                font-family: 'Arial', sans-serif;
+                background: #0a0a0a; /* Fallback */
+                background: var(--bg);
+                color: #ffffff; /* Fallback */
+                color: var(--text);
+                line-height: 1.6;
+            }
 
-        /* Header section */
+            /* Navigation Bar */
+            .navbar {
+                position: fixed;
+                top: 0;
+                width: 100%;
+                background: rgba(0, 0, 0, 0.8); /* Fallback */
+                backdrop-filter: blur(10px);
+                z-index: 1000;
+                padding: 1rem 2rem;
+            }
+
+            [data-theme="light"] .navbar {
+                background: rgba(255, 255, 255, 0.8);
+            }
+
+            .nav-container {
+                max-width: 1200px;
+                margin: 0 auto;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .nav-links {
+                display: flex;
+                gap: 2rem;
+            }
+
+            .nav-links a {
+                color: var(--text);
+                text-decoration: none;
+                font-weight: 500;
+            }
+
+            .nav-links a:hover {
+                color: var(--secondary);
+            }
+
+            .social-icons {
+                display: flex;
+                gap: 1rem;
+            }
+
+            .social-icons a {
+                color: var(--text);
+                font-size: 1.5rem;
+            }
+
+            .social-icons a:hover {
+                color: var(--secondary);
+            }
+
+            .menu-toggle {
+                display: none;
+                background: none;
+                border: none;
+                color: var(--text);
+                font-size: 1.5rem;
+            }
+                 /* Logo Section */
+                .logo {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                object-fit: cover;
+                margin: 10px;
+            }
+
+
+            /* Theme Toggle Button */
+            .theme-toggle {
+                background: none;
+                border: none;
+                color: var(--text);
+                font-size: 1.5rem;
+                cursor: pointer;
+            }
+
+            .theme-toggle:hover {
+                color: var(--secondary);
+            }
+         /* Header section */
         header {
-            background-color: #070707;
             text-align: center;
             padding: 20px;
         }
@@ -118,7 +172,6 @@
         }
 
         section {
-            background-color: #1e1e1e;
             padding: 20px;
             margin-bottom: 20px;
             border-radius: 8px;
@@ -129,16 +182,15 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            color: #ffffff;
+           
         }
 
         h2 button {
-            background-color: #000000;
-            color: white;
             border: none;
             padding: 6px 12px;
             border-radius: 4px;
             cursor: pointer;
+            border: 1px solid #444;
         }
 
         h2 button:hover {
@@ -151,52 +203,23 @@
         }
 
         ul li {
-            background-color: #2c2c2c;
             margin: 10px 0;
             padding: 10px;
             border-radius: 4px;
             border: 1px solid #444;
             cursor: pointer;
-            color: #ffffff;
+            
         }
 
         .hello-message {
             display: none;
             margin-top: 15px;
-            background-color: #333;
             padding: 10px;
             border-radius: 4px;
-            color: #f3f5f3;
         }
 
-        /* Footer */
-        .footer {
-            background-color: black;
-            color: white;
-            padding: 20px 0;
-        }
-
-        .footer-container {
-            max-width: 1200px;
-            margin: auto;
-            padding: 0 20px;
-            text-align: center;
-        }
-
-        .footer-left h2 {
-            margin: 0;
-            font-size: 1.5rem;
-        }
-
-        .footer-left p {
-            margin: 5px 0;
-            color: #9ca3af;
-            font-size: 0.875rem;
-        }
-
-        /* Contact and Comment Box */
-        .cc-box {
-            background-color: black;
+              /* Contact and Comment Box */
+            .cc-box {    
             font-family: Arial, sans-serif;
             display: flex;
             flex-direction: column;
@@ -206,14 +229,19 @@
         }
 
         .contact-box, .comment-box {
-            background-color: black;
-            color: white;
+          
+          
             padding: 30px;
             border-radius: 12px;
             width: 530px;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
             text-align: left;
             margin: 30px 0;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
         }
 
         .contact-box p {
@@ -262,8 +290,7 @@
         .contact-form button {
             width: 100%;
             padding: 1rem;
-            background: hsl(45, 14%, 95%);
-            color: black;
+            background: hsl(214, 83%, 46%);
             border: none;
             border-radius: 5px;
             cursor: pointer;
@@ -274,395 +301,434 @@
             background: #b30000;
         }
 
-        /* ChatBot section css */
-        .chatbot-container {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 1000;
-        }
+            /* ChatBot Section */
+            .chatbot-container {
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                z-index: 1000;
+            }
 
-        .df-messenger-dialog {
-            width: 350px !important;
-            height: 430px !important;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            border-radius: 10px;
-        }
+            .df-messenger-dialog {
+                width: 350px !important;
+                height: 430px !important;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                border-radius: 10px;
+            }
 
-        df-messenger {
-            --df-messenger-button-visibility: visible !important;
-        }
+            df-messenger {
+                --df-messenger-button-visibility: visible !important;
+            }
 
-        df-messenger .df-messenger-button {
-            width: 50px !important;
-            height: 50px !important;
-        }
-    </style>
-</head>
-<body>
-    <!-- Navigation Bar -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="https://kale-pro.github.io/dhanushbohara/profile.html">
-                <img src="https://raw.githubusercontent.com/kale-pro/dhanushbohara/main/d-lofo.jpg" alt="Logo" class="logo">
-            </a>
-            <button class="menu-toggle"><i class="fas fa-bars"></i></button>
-            <div class="nav-links">
-                <a href="#home">Home</a>
-                <a href="#about">About</a>
-                <a href="#projects">Projects</a>
-                <a href="#skills">Skills</a>
-                <a href="#contact">Contact</a>
+            df-messenger .df-messenger-button {
+                width: 50px !important;
+                height: 50px !important;
+            }
+
+            /* Footer */
+            footer {
+                text-align: center;
+                padding: 20px;
+            }
+
+            .back-to-top {
+                display: inline-block;
+                margin-top: 10px;
+                color: var(--text);
+                font-size: 1.5rem;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Navigation Bar -->
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="https://kale-pro.github.io/dhanushbohara/profile.html">
+                    <img src="https://raw.githubusercontent.com/kale-pro/dhanushbohara/main/d-lofo.jpg" alt="Logo" class="logo">
+                </a>
+                <button class="menu-toggle"><i class="fas fa-bars"></i></button>
+                <div class="nav-links">
+                    <a href="https://kale-pro.github.io/dhanushbohara/">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#skills">Skills</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="social-icons">
+                    <a href="https://www.linkedin.com/in/dhanush-bohara-660732358/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/kale-pro" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=100082124208815" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="https://youtube.com/@kaleproff" target="_blank"><i class="fab fa-youtube"></i></a>
+                </div>
+                <!-- Theme toggle button added to navbar -->
+                <button class="theme-toggle" id="themeToggle" title="Toggle Theme">
+                    <i class="fas fa-moon"></i> <!-- Default icon for dark mode -->
+                </button>
             </div>
-            <div class="social-icons">
-                <a href="https://www.linkedin.com/in/dhanush-bohara-660732358/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/kale-pro" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://www.facebook.com/profile.php?id=100082124208815" target="_blank"><i class="fab fa-facebook"></i></a>
-                <a href="https://youtube.com/@kaleproff" target="_blank"><i class="fab fa-youtube"></i></a>
+        </nav><br><br><br>
+
+        <header>
+            <h1>Software Tools Course</h1>
+            <p>Learn Essential Software Tools for Development and Productivity</p>
+        </header>
+    
+        <!-- Beginner Level -->
+        <section>
+            <h2>1. Introduction to Software Tools <button>Expand</button></h2>
+            <ul>
+                <li onclick="toggleItemHello(this)">What are Software Development Tools?
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Software development tools are programs that assist developers in coding, testing, and deploying applications.</div>
+                </li>
+                <li onclick="toggleItemHello(this)">Categories of Development Tools
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Development tools include editors, version control, testing tools, and CI/CD systems for various tasks.</div>
+                </li>
+                <li onclick="toggleItemHello(this)">Setting Up Your Development Environment
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Configure your system with necessary tools like editors, runtimes, and version control for efficient coding.</div>
+                </li>
+            </ul>
+        </section>
+    
+        <section>
+            <h2>2. Text Editors and IDEs <button>Expand</button></h2>
+            <ul>
+                <li onclick="toggleItemHello(this)">Visual Studio Code Basics
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Use Visual Studio Code for lightweight coding with extensions for multiple languages.</div>
+                </li>
+                <li onclick="toggleItemHello(this)">Sublime Text and Atom
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Explore Sublime Text and Atom for fast, customizable text editing for developers.</div>
+                </li>
+                <li onclick="toggleItemHello(this)">Using IntelliJ IDEA or PyCharm
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Leverage IntelliJ IDEA or PyCharm for powerful Java and Python development with advanced features.</div>
+                </li>
+            </ul>
+        </section>
+    
+        <section>
+            <h2>3. Version Control Tools <button>Expand</button></h2>
+            <ul>
+                <li onclick="toggleItemHello(this)">Introduction to Git
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Git is a distributed version control system for tracking code changes collaboratively.</div>
+                </li>
+                <li onclick="toggleItemHello(this)">GitHub Desktop and SourceTree
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Use GitHub Desktop or SourceTree for a graphical interface to manage Git repositories.</div>
+                </li>
+                <li onclick="toggleItemHello(this)">Command Line Git Basics
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Execute Git commands like `commit` and `push` via the terminal for version control.</div>
+                </li>
+            </ul>
+        </section>
+    
+        <section>
+            <h2>4. Package Managers <button>Expand</button></h2>
+            <ul>
+                <li onclick="toggleItemHello(this)">npm and Yarn for JavaScript
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Manage JavaScript libraries and dependencies with npm or Yarn for efficient project setup.</div>
+                </li>
+                <li onclick="toggleItemHello(this)">pip for Python
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Install and manage Python packages using pip to enhance project functionality.</div>
+                </li>
+                <li onclick="toggleItemHello(this)">Managing Dependencies
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Track and update project dependencies with package managers to avoid conflicts.</div>
+                </li>
+            </ul>
+        </section>
+    
+        <section>
+            <h2>5. Terminal and Command Line Tools <button>Expand</button></h2>
+            <ul>
+                <li onclick="toggleItemHello(this)">Bash and Zsh Basics
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Navigate and automate tasks in Unix-like systems using Bash or Zsh shells.</div>
+                </li>
+                <li onclick="toggleItemHello(this)">Windows PowerShell and Command Prompt
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Use PowerShell or Command Prompt for file management and scripting on Windows.</div>
+                </li>
+                <li onclick="toggleItemHello(this)">Common Commands (ls, cd, mkdir)
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Master commands like `ls`, `cd`, and `mkdir` for efficient terminal navigation.</div>
+                </li>
+            </ul>
+        </section>
+    
+        <section>
+            <h2>6. Browser Developer Tools <button>Expand</button></h2>
+            <ul>
+                <li onclick="toggleItemHello(this)">Chrome DevTools Basics
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Inspect and debug web pages with Chrome DevTools for CSS, JavaScript, and performance.</div>
+                </li>
+                <li onclick="toggleItemHello(this)">Firefox Developer Tools
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Use Firefox Developer Tools to analyze and troubleshoot web application issues.</div>
+                </li>
+                <li onclick="toggleItemHello(this)">Debugging JavaScript and CSS
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Debug code and styles in browser tools to identify and fix front-end errors.</div>
+                </li>
+            </ul>
+        </section>
+    
+        <!-- Intermediate Level -->
+        <section>
+            <h2>7. Build Tools <button>Expand</button></h2>
+            <ul>
+                <li onclick="toggleItemHello(this)">Webpack for Module Bundling
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Bundle JavaScript modules and assets with Webpack for optimized web applications.</div>
+                </li>
+                <li onclick="toggleItemHello(this)">Vite for Faster Builds
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Use Vite for rapid development and fast builds with modern JavaScript frameworks.</div>
+                </li>
+                <li onclick="toggleItemHello(this)">Gulp and Grunt Basics
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Automate tasks like minification with Gulp or Grunt for streamlined workflows.</div>
+                </li>
+            </ul>
+        </section>
+    
+        <section>
+            <h2>8. Testing Tools <button>Expand</button></h2>
+            <ul>
+                <li onclick="toggleItemHello(this)">Jest for Unit Testing
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Write and run unit tests for JavaScript code using Jest for reliability.</div>
+                </li>
+                <li onclick="toggleItemHello(this)">Cypress for End-to-End Testing
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Perform end-to-end testing with Cypress to ensure web applications function correctly.</div>
+                </li>
+                <li onclick="toggleItemHello(this)">Mocha and Chai for Testing
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Use Mocha and Chai for flexible JavaScript testing with assertions.</div>
+                </li>
+            </ul>
+        </section>
+    
+        <section>
+            <h2>9. Containerization Tools <button>Expand</button></h2>
+            <ul>
+                <li onclick="toggleItemHello(this)">Docker Basics
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Containerize applications with Docker for consistent development and deployment.</div>
+                </li>
+                <li onclick="toggleItemHello(this)">Docker Compose for Multi-Container Apps
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Manage multi-container applications with Docker Compose for simplified orchestration.</div>
+                </li>
+                <li onclick="toggleItemHello(this)">Podman as a Docker Alternative
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Use Podman for daemonless container management as an alternative to Docker.</div>
+                </li>
+            </ul>
+        </section>
+    
+        <section>
+            <h2>10. CI/CD Tools <button>Expand</button></h2>
+            <ul>
+                <li onclick="toggleItemHello(this)">GitHub Actions for Automation
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Automate workflows like testing and deployment with GitHub Actions.</div>
+                </li>
+                <li onclick="toggleItemHello(this)">Jenkins Basics
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Set up Jenkins for continuous integration and deployment of software projects.</div>
+                </li>
+                <li onclick="toggleItemHello(this)">GitLab CI/CD Pipelines
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Configure GitLab CI/CD pipelines for automated building, testing, and deployment.</div>
+                </li>
+            </ul>
+        </section>
+    
+        <section>
+            <h2>11. API Testing and Development Tools <button>Expand</button></h2>
+            <ul>
+                <li onclick="toggleItemHello(this)">Postman for API Testing
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Test and debug APIs with Postman for reliable endpoint functionality.</div>
+                </li>
+                <li onclick="toggleItemHello(this)">Swagger for API Documentation
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Document APIs with Swagger for clear, interactive endpoint specifications.</div>
+                </li>
+                <li onclick="toggleItemHello(this)">Insomnia as a Postman Alternative
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Use Insomnia for API testing and debugging with a lightweight interface.</div>
+                </li>
+            </ul>
+        </section>
+    
+        <!-- Advanced Level -->
+        <section>
+            <h2>12. Cloud Development Tools <button>Expand</button></h2>
+            <ul>
+                <li onclick="toggleItemHello(this)">AWS CLI for Cloud Management
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Manage AWS cloud services using the AWS Command Line Interface for automation.</div>
+                </li>
+                <li onclick="toggleItemHello(this)">Azure CLI Basics
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Control Azure resources with the Azure CLI for cloud development tasks.</div>
+                </li>
+                <li onclick="toggleItemHello(this)">Google Cloud SDK
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Use Google Cloud SDK to manage and deploy applications on Google Cloud.</div>
+                </li>
+            </ul>
+        </section>
+    
+        <section>
+            <h2>13. Monitoring and Debugging Tools <button>Expand</button></h2>
+            <ul>
+                <li onclick="toggleItemHello(this)">Sentry for Error Tracking
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Track and resolve application errors with Sentry for real-time monitoring.</div>
+                </li>
+                <li onclick="toggleItemHello(this)">New Relic for Performance Monitoring
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Monitor application performance with New Relic to optimize user experience.</div>
+                </li>
+                <li onclick="toggleItemHello(this)">LogRocket for Session Replay
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Replay user sessions with LogRocket to debug issues and improve usability.</div>
+                </li>
+            </ul>
+        </section>
+    
+        <section>
+            <h2>14. Database Management Tools <button>Expand</button></h2>
+            <ul>
+                <li onclick="toggleItemHello(this)">DBeaver for SQL Databases
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Manage SQL databases with DBeaver for querying and administration.</div>
+                </li>
+                <li onclick="toggleItemHello(this)">MongoDB Compass for NoSQL
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Visualize and manage MongoDB databases with Compass for NoSQL workflows.</div>
+                </li>
+                <li onclick="toggleItemHello(this)">pgAdmin for PostgreSQL
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Administer PostgreSQL databases with pgAdmin for efficient data management.</div>
+                </li>
+            </ul>
+        </section>
+    
+        <section>
+            <h2>15. Collaboration and Productivity Tools <button>Expand</button></h2>
+            <ul>
+                <li onclick="toggleItemHello(this)">Slack for Team Communication
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Use Slack for real-time team communication and project coordination.</div>
+                </li>
+                <li onclick="toggleItemHello(this)">Trello and Jira for Project Management
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Organize tasks with Trello or Jira for efficient project tracking.</div>
+                </li>
+                <li onclick="toggleItemHello(this)">Notion for Documentation
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Create and manage project documentation with Notion for collaboration.</div>
+                </li>
+            </ul>
+        </section>
+    
+        <section>
+            <h2>16. Security Tools <button>Expand</button></h2>
+            <ul>
+                <li onclick="toggleItemHello(this)">OWASP ZAP for Security Testing
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Test web applications for vulnerabilities using OWASP ZAP security tool.</div>
+                </li>
+                <li onclick="toggleItemHello(this)">Snyk for Dependency Scanning
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Scan dependencies for security issues with Snyk to protect applications.</div>
+                </li>
+                <li onclick="toggleItemHello(this)">Burp Suite Basics
+                    <div class="hello-message" style="display:none; margin-top: 5px;">Use Burp Suite for advanced security testing and penetration testing.</div>
+                </li>
+            </ul>
+        </section>
+
+
+        <!-- Comment/Feedback and Contact Section -->
+        <div class="cc-box">
+            <div class="comment-box">
+                <h2>Comment</h2>
+                <!-- Comment form submits directly to Formspree -->
+                <form class="contact-form" id="commentForm" action="https://formspree.io/f/xldbedaz" method="POST">
+                    <label for="name">Your Name</label>
+                    <input id="name" type="text" name="name" placeholder="Your Name" required>
+                    <label for="email">Your Email</label>
+                    <input id="email" type="email" name="email" placeholder="Your Email" required>
+                    <label for="comment">Your Comment or Feedback</label>
+                    <textarea id="comment" name="comment" placeholder="Your Comment or Feedback..." rows="5" required></textarea>
+                    <button type="submit">Post Comment</button>
+                </form>
+            </div>
+
+            <div class="contact-box" id="contact">
+                <h2>Contact Information</h2>
+                <p><i class="fas fa-envelope"></i> mr.dhanushbohara@gmail.com</p>
+                <p><i class="fas fa-phone"></i> +977-9842172080</p>
+                <p><i class="fas fa-map-marker-alt"></i> Sudurpaschim, Nepal</p>
+                <p><i class="fas fa-code"></i> Aspiring Developer | Python, Java & Web Enthusiast</p>
+                <p><i class="fas fa-lightbulb"></i> Passionate about real-world projects and continuous learning.</p>
+                <div class="social-links">
+                    <a href="https://wa.me/9779842172080" target="_blank" title="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://youtube.com/@kaleproff" target="_blank"><i class="fab fa-youtube"></i></a>
+                    <a href="https://facebook.com/dhanushbohara" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.linkedin.com/in/dhanush-bohara-660732358/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/kale-pro" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://www.tiktok.com/@dhanushchhetree?_t=ZS-8vAFoD0k4nq&_r=1" target="_blank"><i class="fab fa-tiktok"></i></a>
+                </div>
             </div>
         </div>
-    </nav><br><br><br><br>
+    
+        <!-- Footer Section -->
+        <footer>
+            <a href="https://kale-pro.github.io/dhanushbohara/" class="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></a>
+            <p>Designed by <span style="color: #ea2525;">Kale Pro</span></p>
+            <p>© 2025 <strong>Kale Pro by Dhanush Bohara</strong>. All rights reserved.</p>
+        </footer>
 
-    <header>
-        <h1>Software Tools Course</h1>
-        <p>Learn Essential Software Tools for Development and Productivity</p>
-    </header>
+        <!-- Scripts -->
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script>
+            // Theme Toggle Functionality
+            const themeToggle = document.getElementById('themeToggle');
+            const body = document.body;
 
-    <!-- Beginner Level -->
-    <section>
-        <h2>1. Introduction to Software Tools <button>Expand</button></h2>
-        <ul>
-            <li onclick="toggleItemHello(this)">What are Software Development Tools?
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">Categories of Development Tools
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">Setting Up Your Development Environment
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-        </ul>
-    </section>
+            // Load saved theme from localStorage on page load
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            body.setAttribute('data-theme', savedTheme);
+            themeToggle.innerHTML = savedTheme === 'light' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
 
-    <section>
-        <h2>2. Text Editors and IDEs <button>Expand</button></h2>
-        <ul>
-            <li onclick="toggleItemHello(this)">Visual Studio Code Basics
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">Sublime Text and Atom
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">Using IntelliJ IDEA or PyCharm
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-        </ul>
-    </section>
+            // Toggle theme on button click
+            themeToggle.addEventListener('click', () => {
+                const currentTheme = body.getAttribute('data-theme');
+                const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+                body.setAttribute('data-theme', newTheme);
+                themeToggle.innerHTML = newTheme === 'light' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+                localStorage.setItem('theme', newTheme); // Save theme preference
+            });
 
-    <section>
-        <h2>3. Version Control Tools <button>Expand</button></h2>
-        <ul>
-            <li onclick="toggleItemHello(this)">Introduction to Git
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">GitHub Desktop and SourceTree
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">Command Line Git Basics
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-        </ul>
-    </section>
 
-    <section>
-        <h2>4. Package Managers <button>Expand</button></h2>
-        <ul>
-            <li onclick="toggleItemHello(this)">npm and Yarn for JavaScript
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">pip for Python
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">Managing Dependencies
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-        </ul>
-    </section>
+            // AOS Initialization
+            AOS.init({
+                duration: 1000,
+                once: true
+            });
 
-    <section>
-        <h2>5. Terminal and Command Line Tools <button>Expand</button></h2>
-        <ul>
-            <li onclick="toggleItemHello(this)">Bash and Zsh Basics
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">Windows PowerShell and Command Prompt
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">Common Commands (ls, cd, mkdir)
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-        </ul>
-    </section>
+            // Mobile Menu Toggle
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navLinks = document.querySelector('.nav-links');
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
 
-    <section>
-        <h2>6. Browser Developer Tools <button>Expand</button></h2>
-        <ul>
-            <li onclick="toggleItemHello(this)">Chrome DevTools Basics
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">Firefox Developer Tools
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">Debugging JavaScript and CSS
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-        </ul>
-    </section>
-
-    <!-- Intermediate Level -->
-    <section>
-        <h2>7. Build Tools <button>Expand</button></h2>
-        <ul>
-            <li onclick="toggleItemHello(this)">Webpack for Module Bundling
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">Vite for Faster Builds
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">Gulp and Grunt Basics
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-        </ul>
-    </section>
-
-    <section>
-        <h2>8. Testing Tools <button>Expand</button></h2>
-        <ul>
-            <li onclick="toggleItemHello(this)">Jest for Unit Testing
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">Cypress for End-to-End Testing
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">Mocha and Chai for Testing
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-        </ul>
-    </section>
-
-    <section>
-        <h2>9. Containerization Tools <button>Expand</button></h2>
-        <ul>
-            <li onclick="toggleItemHello(this)">Docker Basics
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">Docker Compose for Multi-Container Apps
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">Podman as a Docker Alternative
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-        </ul>
-    </section>
-
-    <section>
-        <h2>10. CI/CD Tools <button>Expand</button></h2>
-        <ul>
-            <li onclick="toggleItemHello(this)">GitHub Actions for Automation
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">Jenkins Basics
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">GitLab CI/CD Pipelines
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-        </ul>
-    </section>
-
-    <section>
-        <h2>11. API Testing and Development Tools <button>Expand</button></h2>
-        <ul>
-            <li onclick="toggleItemHello(this)">Postman for API Testing
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">Swagger for API Documentation
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">Insomnia as a Postman Alternative
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-        </ul>
-    </section>
-
-    <!-- Advanced Level -->
-    <section>
-        <h2>12. Cloud Development Tools <button>Expand</button></h2>
-        <ul>
-            <li onclick="toggleItemHello(this)">AWS CLI for Cloud Management
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">Azure CLI Basics
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">Google Cloud SDK
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-        </ul>
-    </section>
-
-    <section>
-        <h2>13. Monitoring and Debugging Tools <button>Expand</button></h2>
-        <ul>
-            <li onclick="toggleItemHello(this)">Sentry for Error Tracking
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">New Relic for Performance Monitoring
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">LogRocket for Session Replay
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-        </ul>
-    </section>
-
-    <section>
-        <h2>14. Database Management Tools <button>Expand</button></h2>
-        <ul>
-            <li onclick="toggleItemHello(this)">DBeaver for SQL Databases
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">MongoDB Compass for NoSQL
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">pgAdmin for PostgreSQL
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-        </ul>
-    </section>
-
-    <section>
-        <h2>15. Collaboration and Productivity Tools <button>Expand</button></h2>
-        <ul>
-            <li onclick="toggleItemHello(this)">Slack for Team Communication
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">Trello and Jira for Project Management
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">Notion for Documentation
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-        </ul>
-    </section>
-
-    <section>
-        <h2>16. Security Tools <button>Expand</button></h2>
-        <ul>
-            <li onclick="toggleItemHello(this)">OWASP ZAP for Security Testing
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">Snyk for Dependency Scanning
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">Burp Suite Basics
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-        </ul>
-    </section>
-
-    <!-- Comment/Feedback and Contact Section -->
-    <div class="cc-box">
-        <div class="comment-box">
-            <h2>Comment</h2>
-            <form class="contact-form">
-                <input type="text" placeholder="Your Name" required>
-                <input type="email" placeholder="Your Email" required>
-                <textarea placeholder="Your Comment or Feedback..." rows="5" required></textarea>
-                <button type="submit">Post Comment</button>
-            </form>
-        </div>
-
-        <div class="contact-box" id="contact">
-            <h2>Contact Information</h2>
-            <p><i class="fas fa-envelope"></i> mr.dhanushbohara@gmail.com</p>
-            <p><i class="fas fa-phone"></i> +977-9842172080</p>
-            <p><i class="fas fa-map-marker-alt"></i> Sudurpaschim, Nepal</p>
-            <p><i class="fas fa-code"></i> Aspiring Developer | Python, Java & Web Enthusiast</p>
-            <p><i class="fas fa-lightbulb"></i> Passionate about real-world projects and continuous learning.</p>
-            <div class="social-links">
-                <a href="https://wa.me/9779842172080" target="_blank" title="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
-                <a href="https://youtube.com/@kaleproff" target="_blank"><i class="fab fa-youtube"></i></a>
-                <a href="https://facebook.com/dhanushbohara" target="_blank"><i class="fab fa-facebook"></i></a>
-                <a href="https://www.linkedin.com/in/dhanush-bohara-660732358/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/kale-pro" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://www.tiktok.com/@dhanushchhetree?_t=ZS-8vAFoD0k4nq&_r=1" target="_blank"><i class="fab fa-tiktok"></i></a>
-            </div>
-        </div>
-    </div>
-
-    <!-- Footer Section -->
-    <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-left">
-                <p>Designed By Kale Pro || © 2025 All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Scripts -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        // AOS Initialization
-        AOS.init({
-            duration: 1000,
-            once: true
-        });
-
-        // Mobile Menu Toggle
-        const menuToggle = document.querySelector('.menu-toggle');
-        const navLinks = document.querySelector('.nav-links');
-        menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-
-        // Smooth Scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
+            // Smooth Scroll
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
                 });
             });
-        });
 
-        // Particle Background
-        particlesJS('particles-js', {
-            particles: {
-                number: { value: 80 },
-                color: { value: '#ffffff' },
-                shape: { type: 'circle' },
-                opacity: { value: 0.5 },
-                size: { value: 3 },
-                move: {
-                    enable: true,
-                    speed: 2,
-                    direction: 'none',
-                    random: false,
-                    straight: false,
-                    out_mode: 'out',
+            // Particle Background
+            particlesJS('particles-js', {
+                particles: {
+                    number: { value: 80 },
+                    color: { value: '#ffffff' },
+                    shape: { type: 'circle' },
+                    opacity: { value: 0.5 },
+                    size: { value: 3 },
+                    move: {
+                        enable: true,
+                        speed: 2,
+                        direction: 'none',
+                        random: false,
+                        straight: false,
+                        out_mode: 'out',
+                    }
+                },
+                interactivity: {
+                    detect_on: 'canvas',
+                    events: {
+                        onhover: { enable: true, mode: 'repulse' },
+                        resize: true
+                    }
                 }
-            },
-            interactivity: {
-                detect_on: 'canvas',
-                events: {
-                    onhover: { enable: true, mode: 'repulse' },
-                    resize: true
-                }
-            }
-        });
+            });
 
-        // Toggle Hello Message
+                    // Toggle Hello Message
         function toggleItemHello(element) {
             const message = element.querySelector('.hello-message');
             if (message.style.display === 'none') {
@@ -671,6 +737,26 @@
                 message.style.display = 'none';
             }
         }
-    </script>
-</body>
+
+                    
+           
+            // Comment Form Submission
+            const commentForm = document.getElementById('commentForm');
+
+            commentForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const submitButton = commentForm.querySelector('button[type="submit"]');
+                submitButton.disabled = true;
+
+                // Submit form directly to Formspree
+                commentForm.submit();
+                // Reset form and re-enable button after submission
+                setTimeout(() => {
+                    commentForm.reset();
+                    submitButton.disabled = false;
+                    alert('Comment submitted successfully!'); // User feedback
+                }, 1000);
+            });
+        </script>
+    </body>
 </html>
