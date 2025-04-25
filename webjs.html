@@ -1,106 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-        <title>Dhanush Bohara - Official Website</title>
-        <meta name="description" content="Welcome to the official website of Dhanush Bohara. Explore his projects, blogs, and more.">
-        <meta name="keywords" content="Dhanush Bohara, dhanushbohara.com.np, Kale Pro, Python Developer, Student from Bajhang">
-          <!--         web logo icon -->
-        <link rel="icon" type="image/png" sizes="32x32" href="https://raw.githubusercontent.com/kale-pro/dhanushbohara/main/web%20logo.png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <style>
-        :root {
-            --primary: #1a1a1a;
-            --secondary: #ff4655;
-            --text: #ffffff;
-            --bg: #0a0a0a;
-        }
+    <head>
+        <!-- Required Meta Tags -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            transition: all 0.3s ease;
-        }
+        <!-- Title (Shown in Browser Tab) -->
+        <title>Dhanush Bohara</title>
 
-        body {
-            font-family: 'Arial', sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
-        }
+        <!-- Description and Keywords (SEO) -->
+        <meta name="description" content="Official website of Dhanush Bohara — Python, Java & Web Developer from Nepal. Explore projects, skills and connect.">
+        <meta name="keywords" content="Dhanush Bohara, dhanushbohara.com.np, Kale Pro, Python Developer, Software Developer, Portfolio, Nepal, Web Developer">
 
-        /* Navigation Bar */
-        .navbar {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            padding: 1rem 2rem;
-        }
+        <!-- Author (Recommended) -->
+        <meta name="author" content="Dhanush Bohara">
 
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+        <!-- Open Graph Meta Tags (for social sharing) -->
+        <meta property="og:title" content="Dhanush Bohara">
+        <meta property="og:description" content="Visit the official site of Dhanush Bohara, Python & Java Developer from Nepal. Check out his skills, projects and contact.">
+        <meta property="og:image" content="https://raw.githubusercontent.com/kale-pro/dhanushbohara/main/web%20logo.png">
+        <meta property="og:url" content="https://www.dhanushbohara.com.np">
+        <meta property="og:type" content="website">
 
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-        }
+        <!-- Twitter Card Tags -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Dhanush Bohara">
+        <meta name="twitter:description" content="Official Website of Dhanush Bohara – Aspiring Developer from Nepal.">
+        <meta name="twitter:image" content="https://raw.githubusercontent.com/kale-pro/dhanushbohara/main/web%20logo.png">
 
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
+        <!-- Favicon (Browser Tab Icon) -->
+        <link rel="icon" type="image/png" href="https://github.com/kale-pro/dhanushbohara/blob/main/web%20logo.png">
 
-        .nav-links a:hover {
-            color: var(--secondary);
-        }
+        <!-- Fonts and Icons -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-        .social-icons {
-            display: flex;
-            gap: 1rem;
-        }
+        <!-- Animation on Scroll -->
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-        .social-icons a {
-            color: white;
-            font-size: 1.5rem;
-            transition: color 0.3s ease;
-        }
+        <!-- Particles.js -->
+        <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+        <style>
+            /* CSS Variables for Theme Support */
+            :root {
+                --primary: #1a1a1a; 
+                --secondary: #ff4655; 
+                --text: #ffffff; 
+                --bg: #0a0a0a;
+            }
 
-        .social-icons a:hover {
-            color: var(--secondary);
-        }
+            /* Light Mode Variables */
+            [data-theme="light"] {
+                --primary: #ffffff; 
+                --text: #1a1a1a; 
+                --bg: #f0f0f0; 
+            }
 
-        .menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.5rem;
-        }
+            /* Global Reset and Transitions */
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                transition: all 0.3s ease;
+            }
 
-        /* Logo Section */
-        .logo {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin: 10px;
-        }
+            body {
+                font-family: 'Arial', sans-serif;
+                background: #0a0a0a; /* Fallback */
+                background: var(--bg);
+                color: #ffffff; /* Fallback */
+                color: var(--text);
+                line-height: 1.6;
+            }
 
-        /* Header section */
+            /* Navigation Bar */
+            .navbar {
+                position: fixed;
+                top: 0;
+                width: 100%;
+                background: rgba(0, 0, 0, 0.8); /* Fallback */
+                backdrop-filter: blur(10px);
+                z-index: 1000;
+                padding: 1rem 2rem;
+            }
+
+            [data-theme="light"] .navbar {
+                background: rgba(255, 255, 255, 0.8);
+            }
+
+            .nav-container {
+                max-width: 1200px;
+                margin: 0 auto;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .nav-links {
+                display: flex;
+                gap: 2rem;
+            }
+
+            .nav-links a {
+                color: var(--text);
+                text-decoration: none;
+                font-weight: 500;
+            }
+
+            .nav-links a:hover {
+                color: var(--secondary);
+            }
+
+            .social-icons {
+                display: flex;
+                gap: 1rem;
+            }
+
+            .social-icons a {
+                color: var(--text);
+                font-size: 1.5rem;
+            }
+
+            .social-icons a:hover {
+                color: var(--secondary);
+            }
+
+            .menu-toggle {
+                display: none;
+                background: none;
+                border: none;
+                color: var(--text);
+                font-size: 1.5rem;
+            }
+                 /* Logo Section */
+                .logo {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                object-fit: cover;
+                margin: 10px;
+            }
+
+
+            /* Theme Toggle Button */
+            .theme-toggle {
+                background: none;
+                border: none;
+                color: var(--text);
+                font-size: 1.5rem;
+                cursor: pointer;
+            }
+
+            .theme-toggle:hover {
+                color: var(--secondary);
+            }
+         /* Header section */
         header {
-            background-color: #070707;
             text-align: center;
             padding: 20px;
         }
@@ -118,7 +172,6 @@
         }
 
         section {
-            background-color: #1e1e1e;
             padding: 20px;
             margin-bottom: 20px;
             border-radius: 8px;
@@ -129,16 +182,15 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            color: #ffffff;
+           
         }
 
         h2 button {
-            background-color: #000000;
-            color: white;
             border: none;
             padding: 6px 12px;
             border-radius: 4px;
             cursor: pointer;
+            border: 1px solid #444;
         }
 
         h2 button:hover {
@@ -151,52 +203,23 @@
         }
 
         ul li {
-            background-color: #2c2c2c;
             margin: 10px 0;
             padding: 10px;
             border-radius: 4px;
             border: 1px solid #444;
             cursor: pointer;
-            color: #ffffff;
+            
         }
 
         .hello-message {
             display: none;
             margin-top: 15px;
-            background-color: #333;
             padding: 10px;
             border-radius: 4px;
-            color: #f3f5f3;
         }
 
-        /* Footer */
-        .footer {
-            background-color: black;
-            color: white;
-            padding: 20px 0;
-        }
-
-        .footer-container {
-            max-width: 1200px;
-            margin: auto;
-            padding: 0 20px;
-            text-align: center;
-        }
-
-        .footer-left h2 {
-            margin: 0;
-            font-size: 1.5rem;
-        }
-
-        .footer-left p {
-            margin: 5px 0;
-            color: #9ca3af;
-            font-size: 0.875rem;
-        }
-
-        /* Contact and Comment Box */
-        .cc-box {
-            background-color: black;
+              /* Contact and Comment Box */
+            .cc-box {    
             font-family: Arial, sans-serif;
             display: flex;
             flex-direction: column;
@@ -206,14 +229,19 @@
         }
 
         .contact-box, .comment-box {
-            background-color: black;
-            color: white;
+          
+          
             padding: 30px;
             border-radius: 12px;
             width: 530px;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
             text-align: left;
             margin: 30px 0;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
         }
 
         .contact-box p {
@@ -262,8 +290,7 @@
         .contact-form button {
             width: 100%;
             padding: 1rem;
-            background: hsl(45, 14%, 95%);
-            color: black;
+            background: hsl(214, 83%, 46%);
             border: none;
             border-radius: 5px;
             cursor: pointer;
@@ -274,336 +301,409 @@
             background: #b30000;
         }
 
-        /* ChatBot section css */
-        .chatbot-container {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 1000;
-        }
+            /* ChatBot Section */
+            .chatbot-container {
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                z-index: 1000;
+            }
 
-        .df-messenger-dialog {
-            width: 350px !important;
-            height: 430px !important;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            border-radius: 10px;
-        }
+            .df-messenger-dialog {
+                width: 350px !important;
+                height: 430px !important;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                border-radius: 10px;
+            }
 
-        df-messenger {
-            --df-messenger-button-visibility: visible !important;
-        }
+            df-messenger {
+                --df-messenger-button-visibility: visible !important;
+            }
 
-        df-messenger .df-messenger-button {
-            width: 50px !important;
-            height: 50px !important;
-        }
-    </style>
-</head>
-<body>
-    <!-- Navigation Bar -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="https://kale-pro.github.io/dhanushbohara/profile.html">
-                <img src="https://raw.githubusercontent.com/kale-pro/dhanushbohara/main/d-lofo.jpg" alt="Logo" class="logo">
-            </a>
-            <button class="menu-toggle"><i class="fas fa-bars"></i></button>
-            <div class="nav-links">
-                <a href="#home">Home</a>
-                <a href="#about">About</a>
-                <a href="#projects">Projects</a>
-                <a href="#skills">Skills</a>
-                <a href="#contact">Contact</a>
+            df-messenger .df-messenger-button {
+                width: 50px !important;
+                height: 50px !important;
+            }
+
+            /* Footer */
+            footer {
+                text-align: center;
+                padding: 20px;
+            }
+
+            .back-to-top {
+                display: inline-block;
+                margin-top: 10px;
+                color: var(--text);
+                font-size: 1.5rem;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Navigation Bar -->
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="https://kale-pro.github.io/dhanushbohara/profile.html">
+                    <img src="https://raw.githubusercontent.com/kale-pro/dhanushbohara/main/d-lofo.jpg" alt="Logo" class="logo">
+                </a>
+                <button class="menu-toggle"><i class="fas fa-bars"></i></button>
+                <div class="nav-links">
+                    <a href="https://kale-pro.github.io/dhanushbohara/">Home</a>
+                </div>
+                <div class="social-icons">
+                    <a href="https://www.linkedin.com/in/dhanush-bohara-660732358/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/kale-pro" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=100082124208815" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="https://youtube.com/@kaleproff" target="_blank"><i class="fab fa-youtube"></i></a>
+                </div>
+                <!-- Theme toggle button added to navbar -->
+                <button class="theme-toggle" id="themeToggle" title="Toggle Theme">
+                    <i class="fas fa-moon"></i> <!-- Default icon for dark mode -->
+                </button>
             </div>
-            <div class="social-icons">
-                <a href="https://www.linkedin.com/in/dhanush-bohara-660732358/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/kale-pro" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://www.facebook.com/profile.php?id=100082124208815" target="_blank"><i class="fab fa-facebook"></i></a>
-                <a href="https://youtube.com/@kaleproff" target="_blank"><i class="fab fa-youtube"></i></a>
-            </div>
-        </div>
-    </nav><br><br><br><br>
+        </nav><br><br><br>
 
-    <header>
+    <!-- Header Section -->
+    <header data-aos="fade-down">
         <h1>JavaScript Course</h1>
         <p>Learn JavaScript from Basic to Advanced Concepts</p>
     </header>
 
-    <!-- Beginner Level -->
-    <section>
-        <h2>1. Introduction to JavaScript <button>Expand</button></h2>
-        <ul>
-            <li onclick="toggleItemHello(this)">What is JavaScript?
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">JavaScript in Browsers and Beyond
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">Setting Up a Development Environment
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-        </ul>
-    </section>
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Beginner Level -->
+        <section data-aos="fade-up">
+            <h2>1. Introduction to JavaScript <button>Expand</button></h2>
+            <ul>
+                <li onclick="toggleItemHello(this)">
+                    What is JavaScript?
+                    <div class="hello-message">JavaScript is a versatile language for adding interactivity to websites, powering server-side apps, and building mobile applications.</div>
+                </li>
+                <li onclick="toggleItemHello(this)">
+                    JavaScript in Browsers and Beyond
+                    <div class="hello-message">JavaScript enhances web pages in browsers and runs on servers via Node.js, supporting diverse applications like IoT and desktop apps.</div>
+                </li>
+                <li onclick="toggleItemHello(this)">
+                    Setting Up a Development Environment
+                    <div class="hello-message">Set up a code editor like VS Code, use browser dev tools for debugging, and install Node.js for non-browser JavaScript.</div>
+                </li>
+            </ul>
+        </section>
 
-    <section>
-        <h2>2. Basic Syntax <button>Expand</button></h2>
-        <ul>
-            <li onclick="toggleItemHello(this)">Variables (var, let, const)
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">Data Types and Type Coercion
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">Comments and Console Output
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-        </ul>
-    </section>
+        <section data-aos="fade-up">
+            <h2>2. Basic Syntax <button>Expand</button></h2>
+            <ul>
+                <li onclick="toggleItemHello(this)">
+                    Variables (var, let, const)
+                    <div class="hello-message">Use `var` for function-scoped variables, `let` for block-scoped reassignable variables, and `const` for block-scoped constants.</div>
+                </li>
+                <li onclick="toggleItemHello(this)">
+                    Data Types and Type Coercion
+                    <div class="hello-message">JavaScript includes types like strings and numbers; type coercion converts types during operations, requiring careful handling.</div>
+                </li>
+                <li onclick="toggleItemHello(this)">
+                    Comments and Console Output
+                    <div class="hello-message">Add comments with `//` or `/* */` and use `console.log()` to output data for debugging and testing.</div>
+                </li>
+            </ul>
+        </section>
 
-    <section>
-        <h2>3. Operators <button>Expand</button></h2>
-        <ul>
-            <li onclick="toggleItemHello(this)">Arithmetic and Comparison Operators
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">Logical and Assignment Operators
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">Ternary Operator
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-        </ul>
-    </section>
+        <section data-aos="fade-up">
+            <h2>3. Operators <button>Expand</button></h2>
+            <ul>
+                <li onclick="toggleItemHello(this)">
+                    Arithmetic and Comparison Operators
+                    <div class="hello-message">Arithmetic operators (`+`, `-`, `*`) perform math; comparison operators (`===`, `>`) evaluate conditions.</div>
+                </li>
+                <li onclick="toggleItemHello(this)">
+                    Logical and Assignment Operators
+                    <div class="hello-message">Logical operators (`&&`, `||`) combine conditions; assignment operators (`=`, `+=`) update values efficiently.</div>
+                </li>
+                <li onclick="toggleItemHello(this)">
+                    Ternary Operator
+                    <div class="hello-message">The ternary operator (`condition ? value1 : value2`) simplifies conditional expressions for concise code.</div>
+                </li>
+            </ul>
+        </section>
 
-    <section>
-        <h2>4. Control Flow <button>Expand</button></h2>
-        <ul>
-            <li onclick="toggleItemHello(this)">Conditional Statements (if, switch)
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">Loops (for, while, do-while)
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">Break and Continue
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-        </ul>
-    </section>
+        <section data-aos="fade-up">
+            <h2>4. Control Flow <button>Expand</button></h2>
+            <ul>
+                <li onclick="toggleItemHello(this)">
+                    Conditional Statements (if, switch)
+                    <div class="hello-message">Use `if` or `switch` statements to make decisions based on conditions, enhancing code logic.</div>
+                </li>
+                <li onclick="toggleItemHello(this)">
+                    Loops (for, while, do-while)
+                    <div class="hello-message">Automate tasks with `for`, `while`, or `do-while` loops for repeated code execution.</div>
+                </li>
+                <li onclick="toggleItemHello(this)">
+                    Break and Continue
+                    <div class="hello-message">Control loops with `break` to exit early or `continue` to skip iterations.</div>
+                </li>
+            </ul>
+        </section>
 
-    <section>
-        <h2>5. Functions <button>Expand</button></h2>
-        <ul>
-            <li onclick="toggleItemHello(this)">Function Declarations and Expressions
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">Parameters and Return Statements
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">Arrow Functions
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-        </ul>
-    </section>
+        <section data-aos="fade-up">
+            <h2>5. Functions <button>Expand</button></h2>
+            <ul>
+                <li onclick="toggleItemHello(this)">
+                    Function Declarations and Expressions
+                    <div class="hello-message">Define functions with declarations (`function name() {}`) or expressions (`const name = function() {}`) for reusable code.</div>
+                </li>
+                <li onclick="toggleItemHello(this)">
+                    Parameters and Return Statements
+                    <div class="hello-message">Pass parameters to functions and use `return` to output results for flexible processing.</div>
+                </li>
+                <li onclick="toggleItemHello(this)">
+                    Arrow Functions
+                    <div class="hello-message">Arrow functions (`() => {}`) offer concise syntax and lexical `this` binding for callbacks.</div>
+                </li>
+            </ul>
+        </section>
 
-    <section>
-        <h2>6. Objects and Arrays <button>Expand</button></h2>
-        <ul>
-            <li onclick="toggleItemHello(this)">Creating and Accessing Objects
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">Array Methods (push, pop, map, filter)
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">Destructuring Objects and Arrays
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-        </ul>
-    </section>
+        <section data-aos="fade-up">
+            <h2>6. Objects and Arrays <button>Expand</button></h2>
+            <ul>
+                <li onclick="toggleItemHello(this)">
+                    Creating and Accessing Objects
+                    <div class="hello-message">Create objects (`{key: value}`) and access properties with dot (`obj.key`) or bracket (`obj['key']`) notation.</div>
+                </li>
+                <li onclick="toggleItemHello(this)">
+                    Array Methods (push, pop, map, filter)
+                    <div class="hello-message">Use array methods like `push`, `pop`, `map`, and `filter` to manipulate data efficiently.</div>
+                </li>
+                <li onclick="toggleItemHello(this)">
+                    Destructuring Objects and Arrays
+                    <div class="hello-message">Destructure objects (`const {key} = obj`) or arrays (`const [a, b] = arr`) for concise variable assignment.</div>
+                </li>
+            </ul>
+        </section>
 
-    <section>
-        <h2>7. DOM Manipulation <button>Expand</button></h2>
-        <ul>
-            <li onclick="toggleItemHello(this)">Selecting and Modifying Elements
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">Event Listeners
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">Creating and Removing Elements
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-        </ul>
-    </section>
+        <section data-aos="fade-up">
+            <h2>7. DOM Manipulation <button>Expand</button></h2>
+            <ul>
+                <li onclick="toggleItemHello(this)">
+                    Selecting and Modifying Elements
+                    <div class="hello-message">Select elements with `querySelector` and modify content or styles dynamically.</div>
+                </li>
+                <li onclick="toggleItemHello(this)">
+                    Event Listeners
+                    <div class="hello-message">Add interactivity with `addEventListener` to handle user events like clicks or keypresses.</div>
+                </li>
+                <li onclick="toggleItemHello(this)">
+                    Creating and Removing Elements
+                    <div class="hello-message">Create elements with `createElement` or remove them with `remove()` for dynamic UI updates.</div>
+                </li>
+            </ul>
+        </section>
 
-    <section>
-        <h2>8. Error Handling <button>Expand</button></h2>
-        <ul>
-            <li onclick="toggleItemHello(this)">Try, Catch, and Finally
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">Throwing Custom Errors
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">Error Objects
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-        </ul>
-    </section>
+        <section data-aos="fade-up">
+            <h2>8. Error Handling <button>Expand</button></h2>
+            <ul>
+                <li onclick="toggleItemHello(this)">
+                    Try, Catch, and Finally
+                    <div class="hello-message">Use `try`, `catch`, and `finally` to handle errors and ensure cleanup in code execution.</div>
+                </li>
+                <li onclick="toggleItemHello(this)">
+                    Throwing Custom Errors
+                    <div class="hello-message">Throw custom errors with `throw new Error()` to signal specific issues for debugging.</div>
+                </li>
+                <li onclick="toggleItemHello(this)">
+                    Error Objects
+                    <div class="hello-message">Leverage `Error` objects to capture detailed error data, including messages and stack traces.</div>
+                </li>
+            </ul>
+        </section>
 
-    <!-- Intermediate Level -->
-    <section>
-        <h2>9. Scope and Closures <button>Expand</button></h2>
-        <ul>
-            <li onclick="toggleItemHello(this)">Global and Local Scope
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">Block Scope with let/const
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">Closures and Their Applications
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-        </ul>
-    </section>
+        <!-- Intermediate Level -->
+        <section data-aos="fade-up">
+            <h2>9. Scope and Closures <button>Expand</button></h2>
+            <ul>
+                <li onclick="toggleItemHello(this)">
+                    Global and Local Scope
+                    <div class="hello-message">Global scope is universally accessible; local scope within functions prevents variable conflicts.</div>
+                </li>
+                <li onclick="toggleItemHello(this)">
+                    Block Scope with let/const
+                    <div class="hello-message">Use `let` and `const` for block scope within `{}` to limit variable access and reduce errors.</div>
+                </li>
+                <li onclick="toggleItemHello(this)">
+                    Closures and Their Applications
+                    <div class="hello-message">Closures allow functions to retain outer scope variables, enabling private data and memoization.</div>
+                </li>
+            </ul>
+        </section>
 
-    <section>
-        <h2>10. Asynchronous JavaScript <button>Expand</button></h2>
-        <ul>
-            <li onclick="toggleItemHello(this)">Callbacks
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">Promises
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">Async/Await
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-        </ul>
-    </section>
+        <section data-aos="fade-up">
+            <h2>10. Asynchronous JavaScript <button>Expand</button></h2>
+            <ul>
+                <li onclick="toggleItemHello(this)">
+                    Callbacks
+                    <div class="hello-message">Callbacks pass functions to handle asynchronous tasks, but nested callbacks can complicate code.</div>
+                </li>
+                <li onclick="toggleItemHello(this)">
+                    Promises
+                    <div class="hello-message">Promises manage asynchronous operations with `.then()` and `.catch()` for success or failure.</div>
+                </li>
+                <li onclick="toggleItemHello(this)">
+                    Async/Await
+                    <div class="hello-message">Use `async` and `await` for readable asynchronous code, pausing until promises resolve.</div>
+                </li>
+            </ul>
+        </section>
 
-    <section>
-        <h2>11. Modules <button>Expand</button></h2>
-        <ul>
-            <li onclick="toggleItemHello(this)">ES6 Modules (import/export)
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">CommonJS Modules
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">Dynamic Imports
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-        </ul>
-    </section>
+        <section data-aos="fade-up">
+            <h2>11. Modules <button>Expand</button></h2>
+            <ul>
+                <li onclick推出的: toggleItemHello(this)">
+                    ES6 Modules (import/export)
+                    <div class="hello-message">Use `import` and `export` in ES6 modules to organize and share code across files.</div>
+                </li>
+                <li onclick="toggleItemHello(this)">
+                    CommonJS Modules
+                    <div class="hello-message">CommonJS modules in Node.js use `require()` and `module.exports` for dependency management.</div>
+                </li>
+                <li onclick="toggleItemHello(this)">
+                    Dynamic Imports
+                    <div class="hello-message">Dynamically load modules with `import()` for optimized, on-demand code loading.</div>
+                </li>
+            </ul>
+        </section>
 
-    <section>
-        <h2>12. Advanced Functions <button>Expand</button></h2>
-        <ul>
-            <li onclick="toggleItemHello(this)">Higher-Order Functions
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">Function Binding (call, apply, bind)
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">Currying and Partial Application
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-        </ul>
-    </section>
+        <section data-aos="fade-up">
+            <h2>12. Advanced Functions <button>Expand</button></h2>
+            <ul>
+                <li onclick="toggleItemHello(this)">
+                    Higher-Order Functions
+                    <div class="hello-message">Higher-order functions accept or return functions, enabling reusable patterns like `map`.</div>
+                </li>
+                <li onclick="toggleItemHello(this)">
+                    Function Binding (call, apply, bind)
+                    <div class="hello-message">Use `call`, `apply`, or `bind` to control the `this` context in functions.</div>
+                </li>
+                <li onclick="toggleItemHello(this)">
+                    Currying and Partial Application
+                    <div class="hello-message">Curry functions to take arguments sequentially or pre-set arguments for reuse.</div>
+                </li>
+            </ul>
+        </section>
 
-    <section>
-        <h2>13. Prototypes and Inheritance <button>Expand</button></h2>
-        <ul>
-            <li onclick="toggleItemHello(this)">Prototype Chain
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">Prototypal Inheritance
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">ES6 Classes
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-        </ul>
-    </section>
+        <section data-aos="fade-up">
+            <h2>13. Prototypes and Inheritance <button>Expand</button></h2>
+            <ul>
+                <li onclick="toggleItemHello(this)">
+                    Prototype Chain
+                    <div class="hello-message">Objects inherit properties through the prototype chain, linking to their prototypes.</div>
+                </li>
+                <li onclick="toggleItemHello(this)">
+                    Prototypal Inheritance
+                    <div class="hello-message">Inherit properties directly from objects using prototypes for code reuse.</div>
+                </li>
+                <li onclick="toggleItemHello(this)">
+                    ES6 Classes
+                    <div class="hello-message">ES6 classes simplify prototypal inheritance with `class`, `extends`, and `super`.</div>
+                </li>
+            </ul>
+        </section>
 
-    <!-- Advanced Level -->
-    <section>
-        <h2>14. Advanced DOM Manipulation <button>Expand</button></h2>
-        <ul>
-            <li onclick="toggleItemHello(this)">Event Delegation
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">Custom Events
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">Mutation Observers
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-        </ul>
-    </section>
+        <!-- Advanced Level -->
+        <section data-aos="fade-up">
+            <h2>14. Advanced DOM Manipulation <button>Expand</button></h2>
+            <ul>
+                <li onclick="toggleItemHello(this)">
+                    Event Delegation
+                    <div class="hello-message">Use event delegation to handle child element events via a parent listener.</div>
+                </li>
+                <li onclick="toggleItemHello(this)">
+                    Custom Events
+                    <div class="hello-message">Create and dispatch custom events with `CustomEvent` for app-specific triggers.</div>
+                </li>
+                <li onclick="toggleItemHello(this)">
+                    Mutation Observers
+                    <div class="hello-message">Monitor DOM changes with `MutationObserver` for dynamic UI updates.</div>
+                </li>
+            </ul>
+        </section>
 
-    <section>
-        <h2>15. Web APIs <button>Expand</button></h2>
-        <ul>
-            <li onclick="toggleItemHello(this)">Fetch API for HTTP Requests
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">Web Storage (localStorage, sessionStorage)
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">Geolocation API
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-        </ul>
-    </section>
+        <section data-aos="fade-up">
+            <h2>15. Web APIs <button>Expand</button></h2>
+            <ul>
+                <li onclick="toggleItemHello(this)">
+                    Fetch API for HTTP Requests
+                    <div class="hello-message">Make HTTP requests with `fetch` for server data, using promises for responses.</div>
+                </li>
+                <li onclick="toggleItemHello(this)">
+                    Web Storage (localStorage, sessionStorage)
+                    <div class="hello-message">Store data with `localStorage` (persistent) or `sessionStorage` (session-based).</div>
+                </li>
+                <li onclick="toggleItemHello(this)">
+                    Geolocation API
+                    <div class="hello-message">Access user location with the Geolocation API for location-based features.</div>
+                </li>
+            </ul>
+        </section>
 
-    <section>
-        <h2>16. Functional Programming <button>Expand</button></h2>
-        <ul>
-            <li onclick="toggleItemHello(this)">Pure Functions
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">Immutability
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">Function Composition
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-        </ul>
-    </section>
+        <section data-aos="fade-up">
+            <h2>16. Functional Programming <button>Expand</button></h2>
+            <ul>
+                <li onclick="toggleItemHello(this)">
+                    Pure Functions
+                    <div class="hello-message">Pure functions produce consistent outputs without side effects for predictability.</div>
+                </li>
+                <li onclick="toggleItemHello(this)">
+                    Immutability
+                    <div class="hello-message">Ensure immutability by copying data with spread operators or `Object.assign`.</div>
+                </li>
+                <li onclick="toggleItemHello(this)">
+                    Function Composition
+                    <div class="hello-message">Combine functions to build complex logic by chaining outputs to inputs.</div>
+                </li>
+            </ul>
+        </section>
 
-    <section>
-        <h2>17. Performance Optimization <button>Expand</button></h2>
-        <ul>
-            <li onclick="toggleItemHello(this)">Debouncing and Throttling
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">Lazy Loading Functions
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">Memory Management
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-        </ul>
-    </section>
+        <section data-aos="fade-up">
+            <h2>17. Performance Optimization <button>Expand</button></h2>
+            <ul>
+                <li onclick="toggleItemHello(this)">
+                    Debouncing and Throttling
+                    <div class="hello-message">Debounce delays or throttle limits function calls for performance in events.</div>
+                </li>
+                <li onclick="toggleItemHello(this)">
+                    Lazy Loading Functions
+                    <div class="hello-message">Load functions on demand with dynamic imports to reduce initial load time.</div>
+                </li>
+                <li onclick="toggleItemHello(this)">
+                    Memory Management
+                    <div class="hello-message">Prevent leaks by removing listeners and optimizing data for efficient apps.</div>
+                </li>
+            </ul>
+        </section>
 
-    <section>
-        <h2>18. Testing JavaScript <button>Expand</button></h2>
-        <ul>
-            <li onclick="toggleItemHello(this)">Unit Testing with Jest
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">Integration Testing
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-            <li onclick="toggleItemHello(this)">Mocking and Spies
-                <div class="hello-message" style="display:none; margin-top: 5px;">Hi Hello</div>
-            </li>
-        </ul>
-    </section>
+        <section data-aos="fade-up">
+            <h2>18. Testing JavaScript <button>Expand</button></h2>
+            <ul>
+                <li onclick="toggleItemHello(this)">
+                    Unit Testing with Jest
+                    <div class="hello-message">Use Jest for unit tests to ensure individual functions work as expected.</div>
+                </li>
+                <li onclick="toggleItemHello(this)">
+                    Integration Testing
+                    <div class="hello-message">Test component interactions to verify seamless functionality in applications.</div>
+                </li>
+                <li onclick="toggleItemHello(this)">
+                    Mocking and Spies
+                    <div class="hello-message">Mock dependencies and track function calls with spies for isolated testing.</div>
+                </li>
+            </ul>
+        </section>
+    </div>
 
-    <!-- Comment/Feedback and Contact Section -->
-    <div class="cc-box">
-        <div class="comment-box">
+
+
+        <!-- Comment/Feedback and Contact Section -->
+        <div class="cc-box">
+            <div class="comment-box">
                 <h2>Comment</h2>
                 <!-- Comment form submits directly to Formspree -->
                 <form class="contact-form" id="commentForm" action="https://formspree.io/f/xldbedaz" method="POST">
@@ -617,86 +717,103 @@
                 </form>
             </div>
 
-        <div class="contact-box" id="contact">
-            <h2>Contact Information</h2>
-            <p><i class="fas fa-envelope"></i> mr.dhanushbohara@gmail.com</p>
-            <p><i class="fas fa-phone"></i> +977-9842172080</p>
-            <p><i class="fas fa-map-marker-alt"></i> Sudurpaschim, Nepal</p>
-            <p><i class="fas fa-code"></i> Aspiring Developer | Python, Java & Web Enthusiast</p>
-            <p><i class="fas fa-lightbulb"></i> Passionate about real-world projects and continuous learning.</p>
-            <div class="social-links">
-                <a href="https://wa.me/9779842172080" target="_blank" title="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
-                <a href="https://youtube.com/@kaleproff" target="_blank"><i class="fab fa-youtube"></i></a>
-                <a href="https://facebook.com/dhanushbohara" target="_blank"><i class="fab fa-facebook"></i></a>
-                <a href="https://www.linkedin.com/in/dhanush-bohara-660732358/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/kale-pro" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://www.tiktok.com/@dhanushchhetree?_t=ZS-8vAFoD0k4nq&_r=1" target="_blank"><i class="fab fa-tiktok"></i></a>
+            <div class="contact-box" id="contact">
+                <h2>Contact Information</h2>
+                <p><i class="fas fa-envelope"></i> mr.dhanushbohara@gmail.com</p>
+                <p><i class="fas fa-phone"></i> +977-9842172080</p>
+                <p><i class="fas fa-map-marker-alt"></i> Sudurpaschim, Nepal</p>
+                <p><i class="fas fa-code"></i> Aspiring Developer | Python, Java & Web Enthusiast</p>
+                <p><i class="fas fa-lightbulb"></i> Passionate about real-world projects and continuous learning.</p>
+                <div class="social-links">
+                    <a href="https://wa.me/9779842172080" target="_blank" title="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://youtube.com/@kaleproff" target="_blank"><i class="fab fa-youtube"></i></a>
+                    <a href="https://facebook.com/dhanushbohara" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.linkedin.com/in/dhanush-bohara-660732358/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/kale-pro" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://www.tiktok.com/@dhanushchhetree?_t=ZS-8vAFoD0k4nq&_r=1" target="_blank"><i class="fab fa-tiktok"></i></a>
+                </div>
             </div>
         </div>
-    </div>
+    
+        <!-- Footer Section -->
+        <footer>
+            <a href="https://kale-pro.github.io/dhanushbohara/" class="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></a>
+            <p>Designed by <span style="color: #ea2525;">Kale Pro</span></p>
+            <p>© 2025 <strong>Kale Pro by Dhanush Bohara</strong>. All rights reserved.</p>
+        </footer>
 
-    <!-- Footer Section -->
-    <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-left">
-                <p>Designed By Kale Pro || © 2025 All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
+        <!-- Scripts -->
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script>
+            // Theme Toggle Functionality
+            const themeToggle = document.getElementById('themeToggle');
+            const body = document.body;
 
-    <!-- Scripts -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        // AOS Initialization
-        AOS.init({
-            duration: 1000,
-            once: true
-        });
+            // Load saved theme from localStorage on page load
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            body.setAttribute('data-theme', savedTheme);
+            themeToggle.innerHTML = savedTheme === 'light' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
 
-        // Mobile Menu Toggle
-        const menuToggle = document.querySelector('.menu-toggle');
-        const navLinks = document.querySelector('.nav-links');
-        menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
+            // Toggle theme on button click
+            themeToggle.addEventListener('click', () => {
+                const currentTheme = body.getAttribute('data-theme');
+                const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+                body.setAttribute('data-theme', newTheme);
+                themeToggle.innerHTML = newTheme === 'light' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+                localStorage.setItem('theme', newTheme); // Save theme preference
+            });
 
-        // Smooth Scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
+
+            // AOS Initialization
+            AOS.init({
+                duration: 1000,
+                once: true
+            });
+
+            // Mobile Menu Toggle
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navLinks = document.querySelector('.nav-links');
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+
+            // Smooth Scroll
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
                 });
             });
-        });
 
-        // Particle Background
-        particlesJS('particles-js', {
-            particles: {
-                number: { value: 80 },
-                color: { value: '#ffffff' },
-                shape: { type: 'circle' },
-                opacity: { value: 0.5 },
-                size: { value: 3 },
-                move: {
-                    enable: true,
-                    speed: 2,
-                    direction: 'none',
-                    random: false,
-                    straight: false,
-                    out_mode: 'out',
+            // Particle Background
+            particlesJS('particles-js', {
+                particles: {
+                    number: { value: 80 },
+                    color: { value: '#ffffff' },
+                    shape: { type: 'circle' },
+                    opacity: { value: 0.5 },
+                    size: { value: 3 },
+                    move: {
+                        enable: true,
+                        speed: 2,
+                        direction: 'none',
+                        random: false,
+                        straight: false,
+                        out_mode: 'out',
+                    }
+                },
+                interactivity: {
+                    detect_on: 'canvas',
+                    events: {
+                        onhover: { enable: true, mode: 'repulse' },
+                        resize: true
+                    }
                 }
-            },
-            interactivity: {
-                detect_on: 'canvas',
-                events: {
-                    onhover: { enable: true, mode: 'repulse' },
-                    resize: true
-                }
-            }
-        });
+            });
 
-        // Toggle Hello Message
+                    // Toggle Hello Message
         function toggleItemHello(element) {
             const message = element.querySelector('.hello-message');
             if (message.style.display === 'none') {
@@ -705,6 +822,26 @@
                 message.style.display = 'none';
             }
         }
-    </script>
-</body>
+
+                    
+           
+            // Comment Form Submission
+            const commentForm = document.getElementById('commentForm');
+
+            commentForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const submitButton = commentForm.querySelector('button[type="submit"]');
+                submitButton.disabled = true;
+
+                // Submit form directly to Formspree
+                commentForm.submit();
+                // Reset form and re-enable button after submission
+                setTimeout(() => {
+                    commentForm.reset();
+                    submitButton.disabled = false;
+                    alert('Comment submitted successfully!'); // User feedback
+                }, 1000);
+            });
+        </script>
+    </body>
 </html>
