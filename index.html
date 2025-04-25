@@ -1,43 +1,44 @@
-<head>
-    <!-- Required Meta Tags -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Required Meta Tags -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Title (Shown in Browser Tab) -->
-    <title>Dhanush Bohara</title>
+        <!-- Title (Shown in Browser Tab) -->
+        <title>Dhanush Bohara</title>
 
-    <!-- Description and Keywords (SEO) -->
-    <meta name="description" content="Official website of Dhanush Bohara — Python, Java & Web Developer from Nepal. Explore projects, skills and connect.">
-    <meta name="keywords" content="Dhanush Bohara, dhanushbohara.com.np, Kale Pro, Python Developer, Software Developer, Portfolio, Nepal, Web Developer">
+        <!-- Description and Keywords (SEO) -->
+        <meta name="description" content="Official website of Dhanush Bohara — Python, Java & Web Developer from Nepal. Explore projects, skills and connect.">
+        <meta name="keywords" content="Dhanush Bohara, dhanushbohara.com.np, Kale Pro, Python Developer, Software Developer, Portfolio, Nepal, Web Developer">
 
-    <!-- Author (Recommended) -->
-    <meta name="author" content="Dhanush Bohara">
+        <!-- Author (Recommended) -->
+        <meta name="author" content="Dhanush Bohara">
 
-    <!-- Open Graph Meta Tags (for social sharing) -->
-    <meta property="og:title" content="Dhanush Bohara">
-    <meta property="og:description" content="Visit the official site of Dhanush Bohara, Python & Java Developer from Nepal. Check out his skills, projects and contact.">
-    <meta property="og:image" content="https://raw.githubusercontent.com/kale-pro/dhanushbohara/main/web%20logo.png">
-    <meta property="og:url" content="https://www.dhanushbohara.com.np">
-    <meta property="og:type" content="website">
+        <!-- Open Graph Meta Tags (for social sharing) -->
+        <meta property="og:title" content="Dhanush Bohara">
+        <meta property="og:description" content="Visit the official site of Dhanush Bohara, Python & Java Developer from Nepal. Check out his skills, projects and contact.">
+        <meta property="og:image" content="https://raw.githubusercontent.com/kale-pro/dhanushbohara/main/web%20logo.png">
+        <meta property="og:url" content="https://www.dhanushbohara.com.np">
+        <meta property="og:type" content="website">
 
-    <!-- Twitter Card Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Dhanush Bohara">
-    <meta name="twitter:description" content="Official Website of Dhanush Bohara – Aspiring Developer from Nepal.">
-    <meta name="twitter:image" content="https://raw.githubusercontent.com/kale-pro/dhanushbohara/main/web%20logo.png">
+        <!-- Twitter Card Tags -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Dhanush Bohara">
+        <meta name="twitter:description" content="Official Website of Dhanush Bohara – Aspiring Developer from Nepal.">
+        <meta name="twitter:image" content="https://raw.githubusercontent.com/kale-pro/dhanushbohara/main/web%20logo.png">
 
-    <!-- Favicon (Browser Tab Icon) -->
-    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/kale-pro/dhanushbohara/main/web%20logo.png">
+        <!-- Favicon (Browser Tab Icon) -->
+        <link rel="icon" type="image/png" href="https://github.com/kale-pro/dhanushbohara/blob/main/web%20logo.png">
 
+        <!-- Fonts and Icons -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-    <!-- Fonts and Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+        <!-- Animation on Scroll -->
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-    <!-- Animation on Scroll -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-    <!-- Particles.js -->
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+        <!-- Particles.js -->
+        <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
         <style>
             /* CSS Variables for Theme Support */
             :root {
@@ -130,6 +131,15 @@
                 color: var(--text);
                 font-size: 1.5rem;
             }
+                 /* Logo Section */
+                .logo {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                object-fit: cover;
+                margin: 10px;
+            }
+
 
             /* Theme Toggle Button */
             .theme-toggle {
@@ -217,6 +227,108 @@
 
             #welcome {
                 font-size: 20px;
+            }
+                        /* Search Container Styling */
+                        .search-container {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 10px;
+                max-width: 500px;
+                margin: 20px auto;
+                position: relative;
+            }
+
+            /* Search Input Styling */
+            #search {
+                width: 70%;
+                padding: 12px 20px;
+                border: 2px solid #2a1b3d;
+                border-radius: 25px;
+                background: rgba(255, 255, 255, 0.1);
+                color: #ffffff;
+                font-size: 16px;
+                outline: none;
+                transition: all 0.3s ease;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            }
+
+            /* Placeholder Styling */
+            #search::placeholder {
+                color: #ccc;
+            }
+
+            /* Search Input Focus and Hover Effects */
+            #search:focus, #search:hover {
+                border-color: #6a1b9a;
+                background: rgba(255, 255, 255, 0.2);
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+                transform: scale(1.02);
+            }
+
+            /* Search Button Styling */
+            #buttons {
+                background: linear-gradient(135deg, #2a1b3d, #6a1b9a);
+                padding: 12px 20px;
+                border: none;
+                border-radius: 25px;
+                cursor: pointer;
+                color: #ffffff;
+                font-size: 16px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: all 0.3s ease;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            }
+
+            /* Button Hover Effect */
+            #buttons:hover {
+                background: linear-gradient(135deg, #6a1b9a, #2a1b3d);
+                transform: scale(1.1);
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            }
+
+            /* Search Results Styling */
+            .search-results {
+                max-width: 500px;
+                margin: 20px auto;
+                padding: 15px;
+                background: rgba(255, 255, 255, 0.05);
+                border-radius: 10px;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+                color: #ffffff;
+                font-size: 16px;
+                line-height: 1.6;
+                display: none;
+                transition: all 0.3s ease;
+            }
+
+            /* Styling for Individual Search Result Items */
+            .search-results p {
+                margin: 10px 0;
+                padding: 10px;
+                background: rgba(255, 255, 255, 0.1);
+                border-radius: 5px;
+                transition: all 0.3s ease;
+            }
+
+            /* Hover Effect for Search Result Items */
+            .search-results p:hover {
+                background: rgba(255, 255, 255, 0.2);
+                transform: translateX(5px);
+            }
+
+            /* No Results Styling */
+            .search-results .no-results {
+                color: #ff4655;
+                text-align: center;
+                font-style: italic;
+            }
+
+            /* Show Results When Populated */
+            .search-results.active {
+                display: block;
             }
 
             /* About Section */
@@ -439,6 +551,9 @@
                 max-width: 1000px;
                 margin: 2rem auto;
             }
+            #skill {
+                text-align: center;
+            }
 
             .skill {
                 display: flex;
@@ -460,63 +575,74 @@
                 height: 24px;
                 margin-bottom: 1rem;
             }
-
-            /* Search Section */
-            .search-container {
-                display: flex;
-                align-items: center;
-                gap: 10px;
-                max-width: 500px;
-                margin: 20px auto;
+            /* Project section */
+            .projects-section {
+                padding: 4rem 2rem;
+                max-width: 1400px;
+                margin: 0 auto;
             }
 
-            #search {
-                height: 35px;
-                width: 70%;
-                padding: 0 10px;
-                border: 2px solid rgb(19, 5, 29);
-                border-radius: 25px;
-                color: black;
-                font-size: 16px;
-                outline: none;
+            .projects-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 2.5rem;
+                position: relative;
             }
 
-            #search:focus {
-                border-color: rgb(50, 20, 70);
-            }
-
-            #buttons {
-                background-color: rgb(19, 5, 29);
-                padding: 10px 20px;
-                border: none;
-                border-radius: 25px;
+            .project-card {
+                background: linear-gradient(145deg, var(--card-bg-start), var(--card-bg-end));
+                border-radius: 20px;
+                padding: 2rem;
+                position: relative;
+                overflow: hidden;
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
                 cursor: pointer;
-                color: rgb(244, 235, 235);
-                font-size: 16px;
+                border: 1px solid var(--card-border);
             }
 
-            #buttons:hover {
-                background-color: rgb(50, 20, 70);
-                transform: scale(1.05);
+            .project-card::before {
+                content: '';
+                position: absolute;
+                inset: 0;
+                background: linear-gradient(45deg, #0ed87a 0%, #51d1f5 100%);
+                opacity: 0;
+                transition: opacity 0.3s ease;
+                z-index: -1;
             }
 
-            #searchResults {
-                margin: 20px;
-                padding: 10px;
-                border-radius: 5px;
+            .project-card:hover {
+                box-shadow: 0 8px 32px var(--shadow-color);
             }
 
-            /* Logo Section */
-            .logo {
-                width: 40px;
-                height: 40px;
-                border-radius: 50%;
-                object-fit: cover;
-                margin: 10px;
+            .project-card:hover::before {
+                opacity: 0.1;
             }
 
-            #project, #skill {
-                text-align: center;
+            .project-title {
+                color: var(--title-color);
+                font-size: 1.5rem;
+                margin-bottom: 1rem;
+                background: linear-gradient(45deg, #4800fd, #011f2c);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+
+            .project-description {
+                color: var(--text-color);
+                line-height: 1.6;
+                font-size: 0.95rem;
+            }
+
+            /* 3D Hover Effect */
+            .project-card {
+                transform: perspective(1000px) rotateX(0) rotateY(0) scale(1);
+                transition: all 0.5s cubic-bezier(0.03, 0.98, 0.52, 0.99);
+            }
+
+            @media (min-width: 768px) {
+                .projects-grid {
+                    grid-template-columns: repeat(3, 1fr);
+                }
             }
 
             /* Contact and Comment Box */
@@ -673,10 +799,16 @@
                 <h1 id="welcome">Welcome To Website</h1>
                 <h1>Dhanush Bohara</h1>
                 <p class="tagline">Aspiring Software Developer | IT Enthusiast</p>
+                <!-- Search Bar Container -->
                 <div class="search-container">
-                    <input id="search" placeholder="Search..." type="text">
-                    <button id="buttons">Search</button>
+                    <input id="search" type="text" placeholder="Search here...">
+                    <button id="buttons"><i class="fas fa-search"></i></button>
                 </div>
+                <!-- Search Results Container -->
+                <div id="searchResults" class="search-results"></div>
+
+                <!-- Font Awesome for Search Icon -->
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
             </div>
         </section>
 
@@ -721,19 +853,40 @@
         </div>
 
         <!-- Projects Section -->
-        <section id="projects" data-aos="fade-up">
-            <div class="container">
-                <h2 id="project">Projects</h2><br><br>
-                <div class="project">
-                    <h3>Personal Website</h3>
-                    <p style="text-align: justify;">A fully responsive personal website developed with HTML, CSS, and JavaScript. It includes animations, smooth scroll, and a contact form. I am constantly adding more features to enhance the user experience.</p>
-                </div><br><br>
-                <div class="project">
-                    <h3>Python Projects</h3>
-                    <p style="text-align: justify;">I have worked on various Python-based projects including automation scripts, web scraping, and small applications. These projects helped me hone my problem-solving skills and knowledge of Python libraries.</p>
+        <section class="projects-section">
+            <h2 id="projects">Project</h2>
+            <div class="projects-grid">
+                <!-- Project Card 1 -->
+                <div class="project-card">
+                    <h3 class="project-title">Personal Website</h3>
+                    <p class="project-description">
+                        A fully responsive personal portfolio website built using HTML, CSS, and JavaScript. 
+                        Features smooth animations, modern design, and a contact form. Constantly updated 
+                        to improve user experience.
+                    </p>
+                </div>
+    
+                <!-- Project Card 2 -->
+                <div class="project-card">
+                    <h3 class="project-title">KaleProBot</h3>
+                    <p class="project-description">
+                        Smart virtual assistant built using Google Dialogflow. Supports both English and Nepali, 
+                        helping users interact with the Kale Pro brand in a friendly and intelligent way.
+                    </p>
+                </div>
+    
+                <!-- Project Card 3 -->
+                <div class="project-card">
+                    <h3 class="project-title">Programming Courses</h3>
+                    <p class="project-description">
+                        Clean course listing website made with HTML, CSS, and JavaScript. Organizes beginner 
+                        to advanced level Java and Python topics in a structured and user-friendly format.
+                    </p>
                 </div>
             </div>
         </section>
+    
+    
 
         <!-- Skills Section -->
         <section id="skills" data-aos="fade-up">
@@ -1060,26 +1213,86 @@
                 }
             });
 
+                        // Sample content to search from (replace this with your actual content source)
+            const contentData = [
+                "Dhanush Bohara is a motivated and self-driven tech enthusiast with a growing interest in software development and modern programming.",
+                "He is passionate about building practical projects and experimenting with code.",
+                "Recently, he completed a step-wise HTML-based mini project and is currently developing his own advanced personal portfolio website.",
+                "Dhanush believes in learning by doing and enjoys breaking down complex problems into simple solutions.",
+                "In addition to programming, he follows technology trends and takes inspiration from open-source communities."
+            ];
+
             // Search Functionality
             document.getElementById('buttons').addEventListener('click', function() {
-                const query = document.getElementById('search').value.toLowerCase();
-                const content = document.getElementById('content').getElementsByTagName('p');
-                let results = '';
-                let found = false;
+                const query = document.getElementById('search').value.toLowerCase().trim();
+                const searchResults = document.getElementById('searchResults');
+                
+                // Clear previous results
+                searchResults.innerHTML = '';
+                
+                // Check if query is empty
+                if (!query) {
+                    searchResults.innerHTML = '<p class="no-results">Please enter a search term.</p>';
+                    searchResults.classList.add('active');
+                    return;
+                }
 
-                for (let i = 0; i < content.length; i++) {
-                    if (content[i].textContent.toLowerCase().includes(query)) {
-                        results += `<p style="color: rgb(19, 5, 29);">${content[i].textContent}</p>`;
-                        found = true;
+                // Search through content
+                let resultsFound = false;
+                contentData.forEach((item, index) => {
+                    if (item.toLowerCase().includes(query)) {
+                        searchResults.innerHTML += `<p>${item}</p>`;
+                        resultsFound = true;
                     }
-                }
+                });
 
-                if (!found) {
-                    results = 'Sorry!! कुनै नतिजा भेटिएन।';
+                // Display results or no-results message
+                if (!resultsFound) {
+                    searchResults.innerHTML = '<p class="no-results">Sorry!! No results found.</p>';
                 }
-
-                alert(results);
+                
+                // Show the results container
+                searchResults.classList.add('active');
             });
+
+            // Clear results when clicking outside the search bar or results
+            document.addEventListener('click', function(e) {
+                const searchContainer = document.querySelector('.search-container');
+                const searchResults = document.getElementById('searchResults');
+                if (!searchContainer.contains(e.target) && !searchResults.contains(e.target)) {
+                    searchResults.classList.remove('active');
+                }
+            });
+            // project section 
+            document.querySelectorAll('.project-card').forEach(card => {
+            const rect = card.getBoundingClientRect();
+            
+            card.addEventListener('mousemove', (e) => {
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const rotateY = (x - centerX) / 25;
+                const rotateX = (centerY - y) / 25;
+                
+                card.style.transform = `
+                    perspective(1000px)
+                    rotateX(${rotateX}deg)
+                    rotateY(${rotateY}deg)
+                    scale(1.05)
+                `;
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = `
+                    perspective(1000px)
+                    rotateX(0)
+                    rotateY(0)
+                    scale(1)
+                `;
+            });
+        });
 
             // Comment Form Submission
             const commentForm = document.getElementById('commentForm');
