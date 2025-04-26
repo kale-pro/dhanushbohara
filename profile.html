@@ -4,37 +4,38 @@
         <!-- Required Meta Tags -->
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    
         <!-- Title (Shown in Browser Tab) -->
         <title>Dhanush Bohara</title>
-
+    
         <!-- Description and Keywords (SEO) -->
-        <meta name="description" content="Official website of Dhanush Bohara — Python, Java & Web Developer from Nepal. Explore projects, skills and connect.">
+        <meta name="description" content="Dhanush Bohara — Programming enthusiast and Web Developer from Nepal. Explore innovative projects, technical skills, and collaboration opportunities.">
         <meta name="keywords" content="Dhanush Bohara, dhanushbohara.com.np, Kale Pro, Python Developer, Software Developer, Portfolio, Nepal, Web Developer">
-
-        <!-- Author (Recommended) -->
+    
+        <!-- Author -->
         <meta name="author" content="Dhanush Bohara">
-
+    
         <!-- Open Graph Meta Tags (for social sharing) -->
         <meta property="og:title" content="Dhanush Bohara">
+        <meta property="og:site_name" content="Dhanush Bohara">
         <meta property="og:description" content="Visit the official site of Dhanush Bohara, Python & Java Developer from Nepal. Check out his skills, projects and contact.">
         <meta property="og:image" content="https://raw.githubusercontent.com/kale-pro/dhanushbohara/main/web%20logo.png">
         <meta property="og:url" content="https://www.dhanushbohara.com.np">
         <meta property="og:type" content="website">
-
+    
         <!-- Twitter Card Tags -->
         <meta name="twitter:card" content="summary_large_image">
-        <meta name="twitter:title" content="Dhanush Bohara">
-        <meta name="twitter:description" content="Official Website of Dhanush Bohara – Aspiring Developer from Nepal.">
+        <meta name="twitter:site" content="@mrdhanushbohara">
+        <meta name="twitter:creator" content="@mrdhanushbohara">
+        <meta name="twitter:title" content="Dhanush Bohara | Developer & Creator from Nepal">
+        <meta name="twitter:description" content="Explore the official website of Dhanush Bohara — Aspiring Developer, Programmer, and Tech Enthusiast from Nepal.">
         <meta name="twitter:image" content="https://raw.githubusercontent.com/kale-pro/dhanushbohara/main/web%20logo.png">
-
+    
         <!-- Favicon (Browser Tab Icon) -->
-        <link rel="icon" type="image/png" href="https://github.com/kale-pro/dhanushbohara/blob/main/web%20logo.png">
-
+        <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/kale-pro/dhanushbohara/main/website-logo.ico">
+    
         <!-- Fonts and Icons -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-          <!--         web logo icon -->
-        <link rel="icon" type="image/png" sizes="32x32" href="https://raw.githubusercontent.com/kale-pro/dhanushbohara/main/web%20logo.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
@@ -168,7 +169,7 @@
             position: absolute;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, #1a4b8c, #2ecc71);
+            background: linear-gradient(135deg, #1a4b8c, #f9fffb);
             border-radius: 50%;
             box-shadow: 0 0 25px var(--shadow-color);
         }
@@ -182,13 +183,42 @@
             height: 85%;
             border-radius: 50%;
             overflow: hidden;
-            border: 2px solid rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2); /* Reduced border thickness */
+            cursor: pointer; /* Indicate clickability */
         }
 
         .logo-inner img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: cover; /* Ensure image fits without distortion */
+            object-position: center; /* Center the image */
+        }
+
+        .fullscreen-image {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .fullscreen-image.active {
+            opacity: 1;
+        }
+
+        .fullscreen-image img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain; /* Ensure full image is visible in full-screen */
+            border-radius: 10px;
         }
 
         .profile-info {
@@ -277,14 +307,6 @@
             box-shadow: 0 5px 15px rgba(46, 204, 113, 0.3);
         }
 
-        .footer {
-            text-align: center;
-            padding: 20px 0 10px;
-            font-size: 0.9rem;
-            opacity: 0.7;
-            margin-top: 20px;
-        }
-
         @media (max-width: 768px) {
             .container {
                 margin: 60px auto 30px;
@@ -363,6 +385,19 @@
             .mars-orbit { width: 60vw; height: 60vw; }
             .jupiter-orbit { width: 75vw; height: 75vw; }
         }
+        
+        /* Footer */
+        footer {
+                text-align: center;
+                padding: 20px;
+            }
+
+            .back-to-top {
+                display: inline-block;
+                margin-top: 10px;
+                color: var(--text);
+                font-size: 1.5rem;
+            }
     </style>
 </head>
 <body>
@@ -372,7 +407,7 @@
             <div class="profile-photo">
                 <div class="logo-container">
                     <div class="logo-bg"></div>
-                    <div class="logo-inner">
+                    <div class="logo-inner" onclick="toggleFullScreen(this)">
                         <img src="https://raw.githubusercontent.com/kale-pro/dhanushbohara/main/d-lofo.jpg" alt="Dhanush Bohara">
                     </div>
                 </div>
@@ -395,22 +430,25 @@
                     <a href="https://youtube.com/@kaleproff" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
                     <a href="https://facebook.com/dhanushbohara" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
                     <a href="https://www.linkedin.com/in/dhanush-bohara-660732358/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://github.com/kale-pro" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
                     <a href="https://www.tiktok.com/@dhanushchhetree?_t=ZS-8vAFoD0k4nq&_r=1" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
                 </div>
             </div>
         </div>
-        <div class="footer">
-            <p>Designed by Kale Pro | © 2025 All rights reserved</p>
-        </div>
+        <!-- Footer Section -->
+        <footer>
+            <a href="https://kale-pro.github.io/dhanushbohara/" class="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></a>
+            <p>Designed by <span style="color: #ea2525;">Kale Pro</span></p>
+            <p>© 2025 <strong>Kale Pro by Dhanush Bohara</strong>. All rights reserved.</p>
+        </footer>
     </div>
 
     <script>
+        // Initialize the page when DOM is fully loaded
         document.addEventListener('DOMContentLoaded', () => {
             const universe = document.querySelector('.universe');
             const numStars = 300;
-            
-            // Create stars
+
+            // Create stars with random positions and twinkling effect
             for (let i = 0; i < numStars; i++) {
                 const star = document.createElement('div');
                 star.className = 'star';
@@ -452,7 +490,7 @@
                 orbit.appendChild(planetDiv);
                 universe.appendChild(orbit);
             });
-            
+
             // Add subtle parallax effect on mouse move
             document.addEventListener('mousemove', (e) => {
                 const x = e.clientX / window.innerWidth;
@@ -466,6 +504,29 @@
                 });
             });
         });
+
+        // Toggle full-screen view for profile photo
+        function toggleFullScreen(element) {
+            const imgSrc = element.querySelector('img').src;
+            let fullscreenDiv = document.querySelector('.fullscreen-image');
+            
+            if (!fullscreenDiv) {
+                // Create full-screen div if it doesn't exist
+                fullscreenDiv = document.createElement('div');
+                fullscreenDiv.className = 'fullscreen-image';
+                fullscreenDiv.innerHTML = `<img src="${imgSrc}" alt="Full-screen profile">`;
+                document.body.appendChild(fullscreenDiv);
+                
+                // Close full-screen on click
+                fullscreenDiv.addEventListener('click', () => {
+                    fullscreenDiv.classList.remove('active');
+                    setTimeout(() => fullscreenDiv.remove(), 300);
+                });
+            }
+            
+            // Toggle active class for fade-in effect
+            fullscreenDiv.classList.toggle('active');
+        }
     </script>
 </body>
 </html>
