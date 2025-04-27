@@ -4,18 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login & Register</title>
-    <!-- Include Tailwind CSS via CDN for styling -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Include Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
-        /* Galaxy background styling */
         body {
             background: linear-gradient(135deg, #0A0A23 0%, #1A1A3A 100%);
             position: relative;
             overflow: hidden;
         }
-        /* Container for stars and nebula */
         .galaxy-bg {
             position: fixed;
             top: 0;
@@ -24,7 +20,6 @@
             height: 100%;
             z-index: -1;
         }
-        /* Nebula effect with subtle movement and color shift */
         .galaxy-bg::before {
             content: '';
             position: absolute;
@@ -41,7 +36,6 @@
             50% { background: radial-gradient(circle, rgba(0, 0, 150, 0.2) 0%, rgba(0, 0, 50, 0) 70%); }
             100% { transform: translate(-50%, -50%); background: radial-gradient(circle, rgba(75, 0, 130, 0.2) 0%, rgba(0, 0, 50, 0) 70%); }
         }
-        /* Stars styling */
         .stars {
             position: absolute;
             top: 0;
@@ -56,7 +50,6 @@
             animation: twinkle 5s infinite, moveStar 30s linear infinite;
             opacity: 0.8;
         }
-        /* Generate 20 stars with random positions, sizes, and delays */
         .stars span:nth-child(1) { width: 2px; height: 2px; top: 5%; left: 10%; animation-delay: 0.1s; }
         .stars span:nth-child(2) { width: 3px; height: 3px; top: 15%; left: 20%; animation-delay: 0.5s; }
         .stars span:nth-child(3) { width: 1px; height: 1px; top: 25%; left: 30%; animation-delay: 1s; }
@@ -77,47 +70,39 @@
         .stars span:nth-child(18) { width: 2px; height: 2px; top: 80%; left: 85%; animation-delay: 3.7s; }
         .stars span:nth-child(19) { width: 3px; height: 3px; top: 90%; left: 95%; animation-delay: 4.2s; }
         .stars span:nth-child(20) { width: 1px; height: 1px; top: 5%; left: 25%; animation-delay: 4.7s; }
-        /* Twinkle animation for stars */
         @keyframes twinkle {
             0%, 100% { opacity: 0.8; }
             50% { opacity: 0.2; }
         }
-        season/* Move stars across the screen */
         @keyframes moveStar {
             0% { transform: translate(0, 0); }
             100% { transform: translate(-100vw, 100vh); }
         }
-        /* Slide-in animation for forms */
         @keyframes slideIn {
             from { opacity: 0; transform: translateX(100%); }
             to { opacity: 1; transform: translateX(0); }
         }
-        /* Slide-out animation for forms */
         @keyframes slideOut {
             from { opacity: 1; transform: translateX(0); }
             to { opacity: 0; transform: translateX(-100%); }
         }
-        /* Fade-in animation for forgot password form */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
         .slide-in { animation: slideIn 0.5s ease-out forwards; }
-        .slide-out { animation: slideOut 0.5s ease-out forwards; } /* Fixed typo in original code (PortsmouthOut to slideOut) */
+        .slide-out { animation: slideOut 0.5s ease-out forwards; }
         .fade-in { animation: fadeIn 0.5s ease-out forwards; }
-        /* Button hover animation */
         .btn-hover:hover {
             transition: all 0.3s ease-in-out;
             transform: scale(1.05);
             background-color: #111827;
         }
-        /* Social button hover animation */
         .social-btn-hover:hover {
             transition: all 0.3s ease-in-out;
             transform: scale(1.05);
             background-color: #f3f4f6;
         }
-        /* Divider with text */
         .divider {
             display: flex;
             align-items: center;
@@ -133,26 +118,26 @@
         }
         .divider::before { margin-right: 10px; }
         .divider::after { margin-left: 10px; }
-        /* Input field style */
         .input-field {
             border-radius: 8px;
             padding: 12px;
             border: 1px solid #d1d5db;
             width: 100%;
         }
-        /* Pink border for username/email field */
         .input-pink {
             border: 1px solid #f9a8d4;
         }
-        /* Form container background */
         .form-container {
             background: rgba(255, 255, 255, 0.9);
             border-radius: 12px;
         }
+        .register-container {
+            max-height: 80vh;
+            overflow-y: auto;
+        }
     </style>
 </head>
 <body class="flex items-center justify-center min-h-screen">
-    <!-- Galaxy Background with stars and nebula effects -->
     <div class="galaxy-bg">
         <div class="stars">
             <span></span><span></span><span></span><span></span><span></span>
@@ -165,24 +150,19 @@
     <!-- Login Form -->
     <div id="loginForm" class="w-full max-w-sm">
         <div class="form-container p-6">
-            <!-- Changed "Sign in" to "Login" as per requirement -->
             <h2 class="text-2xl font-bold text-gray-900 mb-6">Login</h2>
-            <!-- Social Login Buttons -->
             <button onclick="handleGoogleLogin()" class="w-full bg-gray-100 text-gray-700 py-3 rounded-lg social-btn-hover flex items-center justify-center gap-2 mb-3">
                 <i class="fab fa-google text-red-500"></i> Continue with Google
             </button>
             <button onclick="handleFacebookLogin()" class="w-full bg-gray-100 text-gray-700 py-3 rounded-lg social-btn-hover flex items-center justify-center gap-2 mb-3">
                 <i class="fab fa-facebook-f text-blue-600"></i> Continue with Facebook
             </button>
-            <!-- Divider -->
             <div class="divider text-sm">or login with email</div>
             <form id="login" onsubmit="handleLogin(event)">
-                <!-- Username or Email input -->
                 <div class="mb-4">
                     <label class="block text-gray-700 text-sm mb-2" for="loginUsernameOrEmail">Username or Email</label>
                     <input type="text" id="loginUsernameOrEmail" class="input-field input-pink" required>
                 </div>
-                <!-- Password input with Forgot link -->
                 <div class="mb-6 flex justify-between items-center">
                     <div class="w-full">
                         <label class="block text-gray-700 text-sm mb-2" for="loginPassword">Password</label>
@@ -190,12 +170,9 @@
                     </div>
                     <a href="#" onclick="showForgotPassword()" class="text-sm text-blue-600 hover:underline ml-2 mt-6">Forgot?</a>
                 </div>
-                <!-- Changed "Sign In" button text to "Login" -->
                 <button type="submit" class="w-full bg-gray-900 text-white py-3 rounded-lg btn-hover">Login</button>
             </form>
-            <!-- Login Status Message: Displays "Success" or "Try Again" after login attempt -->
             <div id="loginStatus" class="text-center mt-4 text-lg font-semibold"></div>
-            <!-- Register button -->
             <div class="text-center mt-4">
                 <button onclick="showRegister()" class="w-full bg-gray-600 text-white py-3 rounded-lg btn-hover">Register</button>
             </div>
@@ -204,43 +181,35 @@
 
     <!-- Register Form (hidden by default) -->
     <div id="registerForm" class="w-full max-w-sm hidden">
-        <div class="form-container p-6">
+        <div class="form-container p-6 register-container">
             <h2 class="text-2xl font-bold text-gray-900 mb-6">Register</h2>
             <form id="register" onsubmit="handleRegister(event)">
-                <!-- Full Name input -->
-                <div class="mb-4">
-                    <label class="block text-gray-700 text-sm mb-2" for="registerFullName">Full Name</label>
+                <div class="mb-3">
+                    <label class="block text-gray-700 text-sm mb-1" for="registerFullName">Full Name</label>
                     <input type="text" id="registerFullName" class="input-field" required>
                 </div>
-                <!-- Username input -->
-                <div class="mb-4">
-                    <label class="block text-gray-700 text-sm mb-2" for="registerUsername">Username</label>
+                <div class="mb-3">
+                    <label class="block text-gray-700 text-sm mb-1" for="registerUsername">Username</label>
                     <input type="text" id="registerUsername" class="input-field" required>
                 </div>
-                <!-- Email input -->
-                <div class="mb-4">
-                    <label class="block text-gray-700 text-sm mb-2" for="registerEmail">Email</label>
+                <div class="mb-3">
+                    <label class="block text-gray-700 text-sm mb-1" for="registerEmail">Email</label>
                     <input type="email" id="registerEmail" class="input-field" required>
                 </div>
-                <!-- Phone Number input -->
-                <div class="mb-4">
-                    <label class="block text-gray-700 text-sm mb-2" for="registerPhone">Phone Number</label>
+                <div class="mb-3">
+                    <label class="block text-gray-700 text-sm mb-1" for="registerPhone">Phone Number</label>
                     <input type="tel" id="registerPhone" class="input-field" pattern="[0-9]{10}" required>
                 </div>
-                <!-- Password input -->
-                <div class="mb-4">
-                    <label class="block text-gray-700 text-sm mb-2" for="registerPassword">Password</label>
+                <div class="mb-3">
+                    <label class="block text-gray-700 text-sm mb-1" for="registerPassword">Password</label>
                     <input type="password" id="registerPassword" class="input-field" required>
                 </div>
-                <!-- Confirm Password input -->
-                <div class="mb-6">
-                    <label class="block text-gray-700 text-sm mb-2" for="registerConfirmPassword">Confirm Password</label>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm mb-1" for="registerConfirmPassword">Confirm Password</label>
                     <input type="password" id="registerConfirmPassword" class="input-field" required>
                 </div>
-                <!-- Submit button -->
                 <button type="submit" class="w-full bg-gray-900 text-white py-3 rounded-lg btn-hover">Register</button>
             </form>
-            <!-- Link to return to login -->
             <div class="text-center mt-4">
                 <a href="#" onclick="showLogin()" class="text-sm text-blue-600 hover:underline">Already have an account? Login</a>
             </div>
@@ -252,15 +221,12 @@
         <div class="form-container p-6">
             <h2 class="text-2xl font-bold text-gray-900 mb-6">Forgot Password</h2>
             <form id="forgotPassword" onsubmit="handleForgotPassword(event)">
-                <!-- Email input -->
                 <div class="mb-6">
                     <label class="block text-gray-700 text-sm mb-2" for="forgotEmail">Email</label>
                     <input type="email" id="forgotEmail" class="input-field" required>
                 </div>
-                <!-- Submit button -->
                 <button type="submit" class="w-full bg-gray-900 text-white py-3 rounded-lg btn-hover">Send Reset Link</button>
             </form>
-            <!-- Link to return to login -->
             <div class="text-center mt-4">
                 <a href="#" onclick="showLogin()" class="text-sm text-blue-600 hover:underline">Back to Login</a>
             </div>
@@ -272,25 +238,20 @@
         <div class="form-container p-6">
             <h2 class="text-2xl font-bold text-gray-900 mb-6">Reset Password</h2>
             <form id="resetPassword" onsubmit="handleResetPassword(event)">
-                <!-- Code input -->
                 <div class="mb-4">
                     <label class="block text-gray-700 text-sm mb-2" for="resetCode">Verification Code</label>
                     <input type="text" id="resetCode" class="input-field" required>
                 </div>
-                <!-- New Password input -->
                 <div class="mb-4">
                     <label class="block text-gray-700 text-sm mb-2" for="newPassword">New Password</label>
                     <input type="password" id="newPassword" class="input-field" required>
                 </div>
-                <!-- Confirm New Password input -->
                 <div class="mb-6">
                     <label class="block text-gray-700 text-sm mb-2" for="confirmNewPassword">Confirm New Password</label>
                     <input type="password" id="confirmNewPassword" class="input-field" required>
                 </div>
-                <!-- Submit button -->
                 <button type="submit" class="w-full bg-gray-900 text-white py-3 rounded-lg btn-hover">Reset Password</button>
             </form>
-            <!-- Link to return to login -->
             <div class="text-center mt-4">
                 <a href="#" onclick="showLogin()" class="text-sm text-blue-600 hover:underline">Back to Login</a>
             </div>
@@ -306,10 +267,10 @@
         // Predefined credentials for Google and Facebook (for demo purposes)
         const googleCredentials = { email: "user@google.com", password: "google123" };
         const facebookCredentials = { email: "user@fb.com", password: "fb123" };
-        let resetCode = null; // Stores verification code for password reset
-        let resetEmail = null; // Stores email for password reset
+        let resetCode = null;
+        let resetEmail = null;
 
-        // Show login form by default and clear login status
+        // Show login form by default
         function showLogin() {
             const forms = [
                 document.getElementById('loginForm'),
@@ -325,14 +286,13 @@
                         form.classList.remove('slide-out');
                         forms[0].classList.remove('hidden');
                         forms[0].classList.add('slide-in');
-                        // Clear login status message when returning to login form
                         document.getElementById('loginStatus').textContent = '';
                     }, 500);
                 }
             });
         }
 
-        // Show register form with slide animation
+        // Show register form
         function showRegister() {
             const forms = [
                 document.getElementById('loginForm'),
@@ -353,7 +313,7 @@
             });
         }
 
-        // Show forgot password form with fade animation
+        // Show forgot password form
         function showForgotPassword() {
             const forms = [
                 document.getElementById('loginForm'),
@@ -374,7 +334,7 @@
             });
         }
 
-        // Show reset password form with fade animation
+        // Show reset password form
         function showResetPassword() {
             const forms = [
                 document.getElementById('loginForm'),
@@ -397,56 +357,28 @@
 
         // Handle login form submission
         function handleLogin(event) {
-            event.preventDefault(); // Prevent form from submitting traditionally
+            event.preventDefault();
             const usernameOrEmail = document.getElementById('loginUsernameOrEmail').value;
             const password = document.getElementById('loginPassword').value;
-            const loginStatus = document.getElementById('loginStatus'); // Div to display status
+            const loginStatus = document.getElementById('loginStatus');
 
-            // Validate that both fields are filled
             if (!usernameOrEmail || !password) {
                 loginStatus.textContent = 'Please fill in both fields!';
                 loginStatus.className = 'text-center mt-4 text-lg font-semibold text-red-600';
                 return;
             }
 
-            // Retrieve users from localStorage
             const users = JSON.parse(localStorage.getItem('users'));
-            // Check if username or email exists and password matches
             const user = users.find(
                 user => (user.username === usernameOrEmail || user.email === usernameOrEmail) && user.password === password
             );
 
-            // Display success or failure message and redirect on success
-            if (user) {
-                loginStatus.textContent = 'Success'; // Show success message
-                loginStatus.className = 'text-center mt-4 text-lg font-semibold text-green-600';
-                document.getElementById('login').reset(); // Clear form for better UX
-                // Redirect to homepage after a short delay to show success message
-                setTimeout(() => {
-                    window.location.href = 'index.html'; // Redirect to homepage
-                }, 1000);
-            } else {
-                loginStatus.textContent = 'Try Again'; // Show failure message
-                loginStatus.className = 'text-center mt-4 text-lg font-semibold text-red-600';
-            }
-        }
-
-        // Handle Google login (demo, checks predefined credentials)
-        function handleGoogleLogin() {
-            const loginStatus = document.getElementById('loginStatus');
-            const users = JSON.parse(localStorage.getItem('users'));
-            // Check if Google credentials exist in registered users
-            const user = users.find(
-                user => user.email === googleCredentials.email && user.password === googleCredentials.password
-            );
-
-            // Display success or failure message and redirect on success
             if (user) {
                 loginStatus.textContent = 'Success';
                 loginStatus.className = 'text-center mt-4 text-lg font-semibold text-green-600';
-                // Redirect to homepage after a short delay
+                document.getElementById('login').reset();
                 setTimeout(() => {
-                    window.location.href = 'index.html'; // Redirect to homepage
+                    window.location.href = 'account.html'; // Redirect to account page
                 }, 1000);
             } else {
                 loginStatus.textContent = 'Try Again';
@@ -454,22 +386,39 @@
             }
         }
 
-        // Handle Facebook login (demo, checks predefined credentials)
-        function handleFacebookLogin() {
+        // Handle Google login
+        function handleGoogleLogin() {
             const loginStatus = document.getElementById('loginStatus');
             const users = JSON.parse(localStorage.getItem('users'));
-            // Check if Facebook credentials exist in registered users
             const user = users.find(
-                user => user.email === facebookCredentials.email && user.password === facebookCredentials.password
+                user => user.email === googleCredentials.email && user.password === googleCredentials.password
             );
 
-            // Display success or failure message and redirect on success
             if (user) {
                 loginStatus.textContent = 'Success';
                 loginStatus.className = 'text-center mt-4 text-lg font-semibold text-green-600';
-                // Redirect to homepage after a short delay
                 setTimeout(() => {
-                    window.location.href = 'index.html'; // Redirect to homepage
+                    window.location.href = 'account.html'; // Redirect to account page
+                }, 1000);
+            } else {
+                loginStatus.textContent = 'Try Again';
+                loginStatus.className = 'text-center mt-4 text-lg font-semibold text-red-600';
+            }
+        }
+
+        // Handle Facebook login
+        function handleFacebookLogin() {
+            const loginStatus = document.getElementById('loginStatus');
+            const users = JSON.parse(localStorage.getItem('users'));
+            const user = users.find(
+                user => user.email === facebookCredentials.email && user.password === facebookPassword
+            );
+
+            if (user) {
+                loginStatus.textContent = 'Success';
+                loginStatus.className = 'text-center mt-4 text-lg font-semibold text-green-600';
+                setTimeout(() => {
+                    window.location.href = 'account.html'; // Redirect to account page
                 }, 1000);
             } else {
                 loginStatus.textContent = 'Try Again';
@@ -487,27 +436,22 @@
             const password = document.getElementById('registerPassword').value;
             const confirmPassword = document.getElementById('registerConfirmPassword').value;
 
-            // Validate password match
             if (password !== confirmPassword) {
                 alert("Passwords do not match!");
                 return;
             }
 
-            // Get users from localStorage
             const users = JSON.parse(localStorage.getItem('users'));
-
-            // Check if email already exists
             if (users.some(user => user.email === email)) {
                 alert("Email already registered!");
                 return;
             }
 
-            // Save user data to localStorage
             users.push({ fullName, username, email, phone, password });
             localStorage.setItem('users', JSON.stringify(users));
 
             alert("Registration successful! Please login.");
-            showLogin(); // Switch to login form
+            showLogin();
         }
 
         // Handle forgot password form submission
@@ -517,7 +461,6 @@
             const users = JSON.parse(localStorage.getItem('users'));
             const user = users.find(user => user.email === email);
 
-            // If email exists, generate and "send" a verification code
             if (user) {
                 resetCode = Math.floor(100000 + Math.random() * 900000).toString();
                 resetEmail = email;
@@ -535,19 +478,16 @@
             const newPassword = document.getElementById('newPassword').value;
             const confirmNewPassword = document.getElementById('confirmNewPassword').value;
 
-            // Validate verification code
             if (code !== resetCode) {
                 alert("Invalid verification code!");
                 return;
             }
 
-            // Validate password match
             if (newPassword !== confirmNewPassword) {
                 alert("New passwords do not match!");
                 return;
             }
 
-            // Update password in localStorage
             const users = JSON.parse(localStorage.getItem('users'));
             const userIndex = users.findIndex(user => user.email === resetEmail);
             if (userIndex !== -1) {
