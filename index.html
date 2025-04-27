@@ -273,7 +273,7 @@
         }
 
         #buttons {
-            background: linear-gradient(135deg, #2a1b3d, #6a1b9a);
+            background: linear-gradient/135deg, #2a1b3d, #6a1b9a);
             padding: 12px 20px;
             border: none;
             border-radius: 25px;
@@ -380,180 +380,191 @@
             padding: 10px;
         }
 
-                       /* iPhone Frame */
-                       .photo-frame {
-                position: relative;
-                width: 280px;
-                height: 580px;
-                border-radius: 35px;
-                background: #000;
-                box-shadow: 
-                    0 0 0 6px #d2d3d5,
-                    0 0 30px rgba(0, 0, 0, 0.5),
-                    0 0 60px rgba(0, 0, 0, 0.3);
-                overflow: hidden;
-                z-index: 1;
-                flex: 0 0 auto;
-                animation: fadeIn 0.5s ease-in-out;
-            }
+        /* iPhone Frame */
+        .photo-frame {
+            position: relative;
+            width: 280px;
+            height: 464px; /* Reduced height by 20% from 580px to make iPhone frame smaller */
+            border-radius: 35px;
+            background: #000;
+            box-shadow: 
+                0 0 0 6px #d2d3d5,
+                0 0 30px rgba(0, 0, 0, 0.5),
+                0 0 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            z-index: 1;
+            flex: 0 0 auto;
+            animation: fadeIn 0.5s ease-in-out;
+        }
 
-            /* Caption Area (Styled like Facebook Post) */
-            .caption-area {
-                position: absolute;
-                top: 6px;
-                left: 6px;
-                right: 6px;
-                background: rgba(0, 0, 0, 0.8);
-                padding: 10px;
-                border-radius: 10px 10px 0 0;
-                display: flex;
-                align-items: center;
-                gap: 10px;
-                z-index: 3;
-            }
+        /* Commented out hover effect to prevent iPhone frame movement/rotation on click or hover */
+        /* .photo-frame:hover {
+            transform: translateY(-10px) rotate(2deg);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+        } */
 
-            .caption-area .profile-pic {
-                width: 40px;
-                height: 40px;
-                border-radius: 50%;
-                object-fit: cover;
-                cursor: pointer; /* Indicate it's clickable */
-            }
+        .photo-frame:hover .screen-content img {
+            transform: scale(1.1);
+        }
 
-            .caption-area .profile-pic:hover {
-                opacity: 0.9;
-            }
+        /* Caption Area (Styled like Facebook Post) */
+        .caption-area {
+            position: absolute;
+            top: 6px;
+            left: 6px;
+            right: 6px;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 10px;
+            border-radius: 10px 10px 0 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 3;
+        }
 
-            .caption-area .caption-content {
-                flex: 1;
-            }
+        .caption-area .profile-pic {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            cursor: pointer; /* Indicate it's clickable */
+        }
 
-            .caption-area .caption-content p {
-                font-size: 14px;
-                margin: 0;
-                color: #ffffff;
-            }
+        .caption-area .profile-pic:hover {
+            opacity: 0.9;
+        }
 
-            .caption-area .caption-content .caption-meta {
-                font-size: 12px;
-                color: #cccccc;
-                margin-top: 2px; /* Reduced gap between caption and date */
-            }
+        .caption-area .caption-content {
+            flex: 1;
+        }
 
-            /* iPhone Screen Area (Adjusted for caption area) */
-            .photo-frame .screen-content {
-                position: absolute;
-                top: 70px; /* Adjusted to make space for caption */
-                left: 6px;
-                right: 6px;
-                bottom: 6px;
-                border-radius: 0 0 30px 30px;
-                overflow: hidden;
-                z-index: 2;
-            }
+        .caption-area .caption-content p {
+            font-size: 14px;
+            margin: 0;
+            color: #ffffff;
+        }
 
-            .photo-frame .screen-content img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                border-radius: 0 0 30px 30px;
-                cursor: pointer;
-            }
+        .caption-area .caption-content .caption-meta {
+            font-size: 12px;
+            color: #cccccc;
+            margin-top: 2px; /* Reduced gap between caption and date */
+        }
 
-            /* iPhone Notch */
-            .photo-frame .iphone-notch {
-                position: absolute;
-                top: 0;
-                left: 50%;
-                transform: translateX(-50%);
-                width: 110px;
-                height: 22px;
-                background-color: #000;
-                border-bottom-left-radius: 10px;
-                border-bottom-right-radius: 10px;
-                z-index: 3;
-            }
+        /* iPhone Screen Area (Adjusted for caption area) */
+        .photo-frame .screen-content {
+            position: absolute;
+            top: 70px; /* Adjusted to make space for caption */
+            left: 6px;
+            right: 6px;
+            bottom: 6px;
+            border-radius: 0 0 30px 30px;
+            overflow: hidden;
+            z-index: 2;
+        }
 
-            /* iPhone Speaker */
-            .photo-frame .iphone-speaker {
-                position: absolute;
-                top: 5px;
-                left: 50%;
-                transform: translateX(-50%);
-                width: 44px;
-                height: 4px;
-                background-color: #333;
-                border-radius: 2px;
-                z-index: 4;
-            }
+        .photo-frame .screen-content img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 0 0 30px 30px;
+            cursor: pointer;
+        }
 
-            /* iPhone Camera */
-            .photo-frame .iphone-camera {
-                position: absolute;
-                top: 5px;
-                right: 22px;
-                width: 9px;
-                height: 9px;
-                background-color: #333;
-                border-radius: 4.5px;
-                z-index: 4;
-            }
+        /* iPhone Notch */
+        .photo-frame .iphone-notch {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 110px;
+            height: 22px;
+            background-color: #000;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            z-index: 3;
+        }
 
-            /* iPhone Power Button */
-            .photo-frame .iphone-power-button {
-                position: absolute;
-                right: -3px;
-                top: 75px;
-                width: 3px;
-                height: 60px;
-                background-color: #d2d3d5;
-                border-top-right-radius: 2px;
-                border-bottom-right-radius: 2px;
-                z-index: 1;
-            }
+        /* iPhone Speaker */
+        .photo-frame .iphone-speaker {
+            position: absolute;
+            top: 5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 44px;
+            height: 4px;
+            background-color: #333;
+            border-radius: 2px;
+            z-index: 4;
+        }
 
-            /* iPhone Volume Buttons */
-            .photo-frame .iphone-volume-buttons {
-                position: absolute;
-                left: -3px;
-                top: 75px;
-                width: 3px;
-                height: 90px;
-                z-index: 1;
-            }
+        /* iPhone Camera */
+        .photo-frame .iphone-camera {
+            position: absolute;
+            top: 5px;
+            right: 22px;
+            width: 9px;
+            height: 9px;
+            background-color: #333;
+            border-radius: 4.5px;
+            z-index: 4;
+        }
 
-            .photo-frame .iphone-volume-up {
-                position: absolute;
-                top: 0;
-                width: 100%;
-                height: 30px;
-                background-color: #d2d3d5;
-                border-top-left-radius: 2px;
-                border-bottom-left-radius: 2px;
-            }
+        /* iPhone Power Button */
+        .photo-frame .iphone-power-button {
+            position: absolute;
+            right: -3px;
+            top: 75px;
+            width: 3px;
+            height: 60px;
+            background-color: #d2d3d5;
+            border-top-right-radius: 2px;
+            border-bottom-right-radius: 2px;
+            z-index: 1;
+        }
 
-            .photo-frame .iphone-volume-down {
-                position: absolute;
-                top: 45px;
-                width: 100%;
-                height: 30px;
-                background-color: #d2d3d5;
-                border-top-left-radius: 2px;
-                border-bottom-left-radius: 2px;
-            }
+        /* iPhone Volume Buttons */
+        .photo-frame .iphone-volume-buttons {
+            position: absolute;
+            left: -3px;
+            top: 75px;
+            width: 3px;
+            height: 90px;
+            z-index: 1;
+        }
 
-            /* iPhone Silent Switch */
-            .photo-frame .iphone-silent-switch {
-                position: absolute;
-                left: -3px;
-                top: 30px;
-                width: 3px;
-                height: 22px;
-                background-color: #d2d3d5;
-                border-top-left-radius: 2px;
-                border-bottom-left-radius: 2px;
-                z-index: 1;
-            }
+        .photo-frame .iphone-volume-up {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 30px;
+            background-color: #d2d3d5;
+            border-top-left-radius: 2px;
+            border-bottom-left-radius: 2px;
+        }
+
+        .photo-frame .iphone-volume-down {
+            position: absolute;
+            top: 45px;
+            width: 100%;
+            height: 30px;
+            background-color: #d2d3d5;
+            border-top-left-radius: 2px;
+            border-bottom-left-radius: 2px;
+        }
+
+        /* iPhone Silent Switch */
+        .photo-frame .iphone-silent-switch {
+            position: absolute;
+            left: -3px;
+            top: 30px;
+            width: 3px;
+            height: 22px;
+            background-color: #d2d3d5;
+            border-top-left-radius: 2px;
+            border-bottom-left-radius: 2px;
+            z-index: 1;
+        }
+
         /* Social Interaction Buttons */
         /* Like, Comment, Favorite buttons */
         .social-interaction {
@@ -611,7 +622,7 @@
         /* Comment Section */
         /* Adjusted for mobile with close button and edit/delete options */
         .comment-section {
-            display: none;
+            display: none; /* Hidden by default, shown only for logged-in users */
             position: absolute;
             bottom: clamp(40px, 4vw, 50px);
             left: 0;
@@ -724,16 +735,6 @@
             background: #cc3b47;
         }
 
-        /* Hover Effects for Frames */
-        .photo-frame:hover {
-            transform: translateY(-10px) rotate(2deg);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
-        }
-
-        .photo-frame:hover .screen-content img {
-            transform: scale(1.1);
-        }
-
         .photo-gallery.dragging {
             cursor: grab;
             user-select: none;
@@ -780,6 +781,7 @@
             }
             .photo-frame {
                 width: clamp(160px, 22vw, 220px); /* Slightly smaller for tablets */
+                height: clamp(256px, 35.2vw, 352px); /* Maintain aspect ratio for smaller height */
             }
         }
 
@@ -790,6 +792,7 @@
             }
             .photo-frame {
                 width: clamp(160px, 55vw, 240px); /* Adjusted for mobile screens */
+                height: clamp(256px, 88vw, 384px); /* Adjusted for mobile */
             }
             .photo-gallery-container {
                 max-width: clamp(180px, 65vw, 280px);
@@ -805,6 +808,7 @@
         @media (max-width: 480px) {
             .photo-frame {
                 width: clamp(150px, 80vw, 200px); /* Optimized for small mobile devices */
+                height: clamp(240px, 128vw, 320px); /* Optimized for small mobile */
             }
             .photo-gallery-container {
                 max-width: 90vw;
@@ -880,8 +884,28 @@
 
         .social-links a:hover {
             color: var(--secondary);
-        } /* Skills Section */
-            .skills-grid {
+        }
+
+        /* Login Prompt for Commenting */
+        .login-prompt {
+            color: #ff4655;
+            font-size: clamp(10px, 1vw, 12px);
+            text-align: center;
+            padding: 0.4vw;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+        }
+
+        .login-prompt a {
+            color: #00aaff;
+            text-decoration: none;
+        }
+
+        .login-prompt a:hover {
+            text-decoration: underline;
+        }
+ /* Skills Section */
+ .skills-grid {
                 display: grid;
                 grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
                 gap: 2rem;
@@ -1174,7 +1198,7 @@
             <p style="text-align: justify;">Dhanush believes in learning by doing. Most of his growth comes from consistent practice, online tutorials, and experimenting with small-scale web and software development projects. He enjoys breaking down complex problems and turning them into simple, working solutions — a trait that reflects his logical mindset and patience.</p>
             <p style="text-align: justify;">In addition to programming, he follows technology trends and takes inspiration from open-source communities and online creators. He also finds balance through hobbies like watching cricket, exploring digital tools, and spending time improving his personal projects.</p>
             <p style="text-align: justify;">With a curious mind and a goal-oriented approach, Dhanush is on a journey to grow as a developer, contribute to the tech world, and build a meaningful career in software engineering.</p>
-             <!-- Photo Gallery Section -->
+              <!-- Photo Gallery Section -->
         <div class="photo-gallery-container">
             <button class="arrow arrow-left" onclick="previousPhotos()" aria-label="Previous Photos">‹</button>
             <div class="photo-gallery" id="photoGallery"></div>
@@ -1336,14 +1360,13 @@
             <a href="#home" class="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></a>
 
             <div style="margin-top: 10px;">
-                <a href="https://kale-pro.github.io/dhanushbohara/privacy-policy.html" target="_blank" style="margin-right: 10px; color: #aaa; text-decoration: none;">Privacy Policy</a> | 
-                <a href="https://kale-pro.github.io/dhanushbohara/terms%26condition.html" target="_blank" style="margin-left: 10px; color: #aaa; text-decoration: none;">Terms & Conditions</a>
-            </div><br>
+                <a href="https://kale-pro.github.io/dhanushbohara/privacy-policy.html" target="_blank" style="margin-right: 10px; color: #bca2a2; text-decoration: none;">Privacy Policy</a> | 
+                <a href="https://kale-pro.github.io/dhanushbohara/terms%26condition.html" target="_blank" style="margin-left: 10px; color: #bca2a2; text-decoration: none;">Terms & Conditions</a>
+            </div>
 
             <p data-translate="footer-designed">Designed by <span style="color: #ea2525;">Kale Pro</span></p>
             <p data-translate="footer-copyright">© 2025 <strong>Kale Pro by Dhanush Bohara</strong>. All rights reserved.</p>
             </footer>
-
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
@@ -1379,17 +1402,17 @@
         ];
 
         const captions = [
-            "Thinking about my future with C TN Bohara and 11 others at Bajhang Nepal.",
-            "Chilling with friends! 🌟",
-            "Exploring nature today! 🌳",
-            "Feeling on top of the world! 🏔️",
-            "A moment of peace. ☮️",
-            "Enjoying a sunny day! ☀️",
-            "Memories that last forever. 📸",
-            "Taking a break from coding! 💻",
-            "Adventure awaits! 🚀",
-            "Just another day in paradise. 🏝️",
-            "Living my best life! 😊"
+            "Thinking about my future.",
+            "Chilling with friends!",
+            "Exploring nature today!",
+            "Feeling on top of the world!",
+            "A moment of peace.",
+            "Enjoying a sunny day!",
+            "Memories that last forever.",
+            "Taking a break from coding!",
+            "Adventure awaits!",
+            "Just another day in paradise.",
+            "Living my best life!"
         ];
 
         let currentIndex = 0;
@@ -1414,7 +1437,7 @@
             hasLiked: false,
             favorites: 0,
             favorited: false,
-            comments: []
+            comments: [] // Now stores { text: string, user: string }
         }));
 
         // Load interaction data from localStorage
@@ -1435,6 +1458,16 @@
 
         loadInteractionData();
 
+        // Check if user is logged in
+        function isLoggedIn() {
+            return !!localStorage.getItem('loggedInUser');
+        }
+
+        // Get current logged-in user
+        function getCurrentUser() {
+            return localStorage.getItem('loggedInUser') || null;
+        }
+
         // Display photos in the gallery
         function displayPhotos() {
             maxFrames = getMaxFrames();
@@ -1448,6 +1481,26 @@
                         const frame = document.createElement("div");
                         frame.className = "photo-frame";
                         frame.setAttribute("data-index", index);
+                        // Check login status to determine comment section visibility
+                        const isUserLoggedIn = isLoggedIn();
+                        const commentSectionContent = isUserLoggedIn
+                            ? `
+                                <!-- Comment Section with Close Button -->
+                                <div class="comment-section">
+                                    <div class="comments-list"></div>
+                                    <div class="comment-input-container">
+                                        <input type="text" class="comment-input" placeholder="Write a comment...">
+                                        <button class="comment-post-btn">Post</button>
+                                        <button class="comment-close-btn">Close</button>
+                                    </div>
+                                </div>
+                            `
+                            : `
+                                <!-- Login Prompt for Non-Logged-In Users -->
+                                <div class="login-prompt">
+                                    Please <a href="https://kale-pro.github.io/dhanushbohara/login.html">log in</a> to comment.
+                                </div>
+                            `;
                         frame.innerHTML = `
                             <!-- Caption Area -->
                             <div class="caption-area">
@@ -1475,7 +1528,7 @@
                                     <i class="fas fa-heart"></i>
                                     <span>${interactionData[index].likes}</span>
                                 </button>
-                                <button class="interaction-btn comment-btn">
+                                <button class="interaction-btn comment-btn ${!isUserLoggedIn ? 'disabled' : ''}">
                                     <i class="fas fa-comment"></i>
                                     <span>${interactionData[index].comments.length}</span>
                                 </button>
@@ -1484,15 +1537,7 @@
                                     <span>${interactionData[index].favorites}</span>
                                 </button>
                             </div>
-                            <!-- Comment Section with Close Button -->
-                            <div class="comment-section">
-                                <div class="comments-list"></div>
-                                <div class="comment-input-container">
-                                    <input type="text" class="comment-input" placeholder="Write a comment...">
-                                    <button class="comment-post-btn">Post</button>
-                                    <button class="comment-close-btn">Close</button>
-                                </div>
-                            </div>
+                            ${commentSectionContent}
                         `;
                         const img = frame.querySelector(".screen-content img");
                         img.addEventListener('click', () => {
@@ -1517,125 +1562,155 @@
                             });
                         }
 
-                        // Comment Button Functionality
+                        // Comment Button Functionality (Only for logged-in users)
                         const commentBtn = frame.querySelector(".comment-btn");
-                        const commentSection = frame.querySelector(".comment-section");
-                        const commentInput = frame.querySelector(".comment-input");
-                        const commentPostBtn = frame.querySelector(".comment-post-btn");
-                        const commentCloseBtn = frame.querySelector(".comment-close-btn");
-                        const commentsList = frame.querySelector(".comments-list");
+                        if (isUserLoggedIn) {
+                            const commentSection = frame.querySelector(".comment-section");
+                            const commentInput = frame.querySelector(".comment-input");
+                            const commentPostBtn = frame.querySelector(".comment-post-btn");
+                            const commentCloseBtn = frame.querySelector(".comment-close-btn");
+                            const commentsList = frame.querySelector(".comments-list");
 
-                        commentBtn.addEventListener('click', (e) => {
-                            e.stopPropagation();
-                            commentSection.classList.add("active");
-                        });
+                            commentBtn.addEventListener('click', (e) => {
+                                e.stopPropagation();
+                                commentSection.classList.add("active");
+                            });
 
-                        commentCloseBtn.addEventListener('click', (e) => {
-                            e.stopPropagation();
-                            commentSection.classList.remove("active");
-                            commentInput.value = "";
-                        });
-
-                        // Add Comment with Edit/Delete Options
-                        const addComment = () => {
-                            if (commentInput.value.trim()) {
-                                interactionData[index].comments.push(commentInput.value.trim());
-                                const comment = document.createElement("div");
-                                comment.className = "comment";
-                                const commentText = commentInput.value.trim();
-                                comment.innerHTML = `
-                                    <span class="comment-text">${commentText}</span>
-                                    <div class="comment-actions">
-                                        <button class="comment-action-btn edit-btn">Edit</button>
-                                        <button class="comment-action-btn delete-btn">Delete</button>
-                                    </div>
-                                `;
-                                commentsList.appendChild(comment);
-                                commentBtn.querySelector("span").textContent = interactionData[index].comments.length;
+                            commentCloseBtn.addEventListener('click', (e) => {
+                                e.stopPropagation();
+                                commentSection.classList.remove("active");
                                 commentInput.value = "";
-                                saveInteractionData();
+                            });
 
-                                // Edit Comment Functionality
-                                const editBtn = comment.querySelector(".edit-btn");
-                                editBtn.addEventListener('click', () => {
-                                    commentInput.value = commentText;
-                                    commentPostBtn.textContent = "Update";
-                                    commentPostBtn.onclick = () => {
-                                        if (commentInput.value.trim()) {
-                                            const commentIndex = interactionData[index].comments.indexOf(commentText);
+                            // Add Comment with Edit/Delete Options (Restricted to Owner)
+                            const addComment = () => {
+                                if (commentInput.value.trim()) {
+                                    const currentUser = getCurrentUser();
+                                    interactionData[index].comments.push({
+                                        text: commentInput.value.trim(),
+                                        user: currentUser
+                                    });
+                                    const comment = document.createElement("div");
+                                    comment.className = "comment";
+                                    const commentText = commentInput.value.trim();
+                                    // Only show edit/delete buttons if the comment belongs to the current user
+                                    const commentActions = currentUser
+                                        ? `
+                                            <div class="comment-actions">
+                                                <button class="comment-action-btn edit-btn">Edit</button>
+                                                <button class="comment-action-btn delete-btn">Delete</button>
+                                            </div>
+                                        `
+                                        : '';
+                                    comment.innerHTML = `
+                                        <span class="comment-text">${commentText} (by ${currentUser})</span>
+                                        ${commentActions}
+                                    `;
+                                    commentsList.appendChild(comment);
+                                    commentBtn.querySelector("span").textContent = interactionData[index].comments.length;
+                                    commentInput.value = "";
+                                    commentSection.classList.remove("active"); // Hide comment section after posting
+                                    saveInteractionData();
+
+                                    // Edit Comment Functionality (Only for Owner)
+                                    if (currentUser) {
+                                        const editBtn = comment.querySelector(".edit-btn");
+                                        editBtn.addEventListener('click', () => {
+                                            commentInput.value = commentText;
+                                            commentPostBtn.textContent = "Update";
+                                            commentPostBtn.onclick = () => {
+                                                if (commentInput.value.trim()) {
+                                                    const commentIndex = interactionData[index].comments.findIndex(
+                                                        c => c.text === commentText && c.user === currentUser
+                                                    );
+                                                    if (commentIndex !== -1) {
+                                                        interactionData[index].comments[commentIndex].text = commentInput.value.trim();
+                                                        comment.querySelector(".comment-text").textContent = `${commentInput.value.trim()} (by ${currentUser})`;
+                                                        saveInteractionData();
+                                                    }
+                                                    commentInput.value = "";
+                                                    commentPostBtn.textContent = "Post";
+                                                    commentPostBtn.onclick = addComment;
+                                                    commentSection.classList.remove("active");
+                                                }
+                                            };
+                                        });
+
+                                        // Delete Comment Functionality (Only for Owner)
+                                        const deleteBtn = comment.querySelector(".delete-btn");
+                                        deleteBtn.addEventListener('click', () => {
+                                            const commentIndex = interactionData[index].comments.findIndex(
+                                                c => c.text === commentText && c.user === currentUser
+                                            );
                                             if (commentIndex !== -1) {
-                                                interactionData[index].comments[commentIndex] = commentInput.value.trim();
-                                                comment.querySelector(".comment-text").textContent = commentInput.value.trim();
+                                                interactionData[index].comments.splice(commentIndex, 1);
+                                                comment.remove();
+                                                commentBtn.queryLPrompt.querySelector("span").textContent = interactionData[index].comments.length;
                                                 saveInteractionData();
                                             }
-                                            commentInput.value = "";
-                                            commentPostBtn.textContent = "Post";
-                                            commentPostBtn.onclick = addComment;
-                                        }
-                                    };
-                                });
+                                        });
+                                    }
+                                }
+                            };
 
-                                // Delete Comment Functionality
-                                const deleteBtn = comment.querySelector(".delete-btn");
-                                deleteBtn.addEventListener('click', () => {
-                                    const commentIndex = interactionData[index].comments.indexOf(commentText);
-                                    if (commentIndex !== -1) {
-                                        interactionData[index].comments.splice(commentIndex, 1);
+                            commentInput.addEventListener('keypress', (e) => {
+                                if (e.key === 'Enter') {
+                                    addComment();
+                                }
+                            });
+
+                            commentPostBtn.addEventListener('click', addComment);
+
+                            // Load existing comments with Edit/Delete options (Restricted to Owner)
+                            interactionData[index].comments.forEach((commentObj, commentIdx) => {
+                                const comment = document.createElement("div");
+                                comment.className = "comment";
+                                const currentUser = getCurrentUser();
+                                // Only show edit/delete buttons if the comment belongs to the current user
+                                const commentActions = commentObj.user === currentUser
+                                    ? `
+                                        <div class="comment-actions">
+                                            <button class="comment-action-btn edit-btn">Edit</button>
+                                            <button class="comment-action-btn delete-btn">Delete</button>
+                                        </div>
+                                    `
+                                    : '';
+                                comment.innerHTML = `
+                                    <span class="comment-text">${commentObj.text} (by ${commentObj.user})</span>
+                                    ${commentActions}
+                                `;
+                                commentsList.appendChild(comment);
+
+                                // Edit Comment Functionality (Only for Owner)
+                                if (commentObj.user === currentUser) {
+                                    const editBtn = comment.querySelector(".edit-btn");
+                                    editBtn.addEventListener('click', () => {
+                                        commentInput.value = commentObj.text;
+                                        commentPostBtn.textContent = "Update";
+                                        commentPostBtn.onclick = () => {
+                                            if (commentInput.value.trim()) {
+                                                interactionData[index].comments[commentIdx].text = commentInput.value.trim();
+                                                comment.querySelector(".comment-text").textContent = `${commentInput.value.trim()} (by ${commentObj.user})`;
+                                                saveInteractionData();
+                                                commentInput.value = "";
+                                                commentPostBtn.textContent = "Post";
+                                                commentPostBtn.onclick = addComment;
+                                                commentSection.classList.remove("active");
+                                            }
+                                        };
+                                    });
+
+                                    // Delete Comment Functionality (Only for Owner)
+                                    const deleteBtn = comment.querySelector(".delete-btn");
+                                    deleteBtn.addEventListener('click', () => {
+                                        interactionData[index].comments.splice(commentIdx, 1);
                                         comment.remove();
                                         commentBtn.querySelector("span").textContent = interactionData[index].comments.length;
                                         saveInteractionData();
-                                    }
-                                });
-                            }
-                        };
-
-                        commentInput.addEventListener('keypress', (e) => {
-                            if (e.key === 'Enter') {
-                                addComment();
-                            }
-                        });
-
-                        commentPostBtn.addEventListener('click', addComment);
-
-                        // Load existing comments with Edit/Delete options
-                        interactionData[index].comments.forEach((commentText, commentIdx) => {
-                            const comment = document.createElement("div");
-                            comment.className = "comment";
-                            comment.innerHTML = `
-                                <span class="comment-text">${commentText}</span>
-                                <div class="comment-actions">
-                                    <button class="comment-action-btn edit-btn">Edit</button>
-                                    <button class="comment-action-btn delete-btn">Delete</button>
-                                </div>
-                            `;
-                            commentsList.appendChild(comment);
-
-                            // Edit Comment Functionality
-                            const editBtn = comment.querySelector(".edit-btn");
-                            editBtn.addEventListener('click', () => {
-                                commentInput.value = commentText;
-                                commentPostBtn.textContent = "Update";
-                                commentPostBtn.onclick = () => {
-                                    if (commentInput.value.trim()) {
-                                        interactionData[index].comments[commentIdx] = commentInput.value.trim();
-                                        comment.querySelector(".comment-text").textContent = commentInput.value.trim();
-                                        saveInteractionData();
-                                        commentInput.value = "";
-                                        commentPostBtn.textContent = "Post";
-                                        commentPostBtn.onclick = addComment;
-                                    }
-                                };
+                                    });
+                                }
                             });
-
-                            // Delete Comment Functionality
-                            const deleteBtn = comment.querySelector(".delete-btn");
-                            deleteBtn.addEventListener('click', () => {
-                                interactionData[index].comments.splice(commentIdx, 1);
-                                comment.remove();
-                                commentBtn.querySelector("span").textContent = interactionData[index].comments.length;
-                                saveInteractionData();
-                            });
-                        });
+                        }
 
                         // Favorite Button Functionality
                         const favoriteBtn = frame.querySelector(".favorite-btn");
@@ -1785,8 +1860,7 @@
                     behavior: 'smooth'
                 });
             });
-        });
-
+        }); 
          // Particle Background
          particlesJS('particles-js', {
                 particles: {
