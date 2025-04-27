@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Required Meta Tags -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+        <!-- Title (Shown in Browser Tab) -->
+        <title>Dhanush Bohara</title>
+    
+        <!-- Description and Keywords (SEO) -->
+        <meta name="description" content="Dhanush Bohara — Programming enthusiast and Web Developer from Nepal. Explore innovative projects, technical skills, and collaboration opportunities.">
+        <meta name="keywords" content="Dhanush Bohara, dhanushbohara.com.np, Kale Pro, Python Developer, Software Developer, Portfolio, Nepal, Web Developer">
+    
+        <!-- Author -->
+        <meta name="author" content="Dhanush Bohara">
+    
+        <!-- Open Graph Meta Tags (for social sharing) -->
+        <meta property="og:title" content="Dhanush Bohara">
+        <meta property="og:site_name" content="Dhanush Bohara">
+        <meta property="og:description" content="Visit the official site of Dhanush Bohara, Python & Java Developer from Nepal. Check out his skills, projects and contact.">
+        <meta property="og:image" content="https://raw.githubusercontent.com/kale-pro/dhanushbohara/main/web%20logo.png">
+        <meta property="og:url" content="https://www.dhanushbohara.com.np">
+        <meta property="og:type" content="website">
+    
+        <!-- Twitter Card Tags -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:site" content="@mrdhanushbohara">
+        <meta name="twitter:creator" content="@mrdhanushbohara">
+        <meta name="twitter:title" content="Dhanush Bohara | Developer & Creator from Nepal">
+        <meta name="twitter:description" content="Explore the official website of Dhanush Bohara — Aspiring Developer, Programmer, and Tech Enthusiast from Nepal.">
+        <meta name="twitter:image" content="https://raw.githubusercontent.com/kale-pro/dhanushbohara/main/web%20logo.png">
+    
+        <!-- Favicon (Browser Tab Icon) -->
+        <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/kale-pro/dhanushbohara/main/website-logo.ico">
+    
+        <!-- Fonts and Icons -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+        <!-- Animation on Scroll -->
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+        <!-- Particles.js -->
+        <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+        <!-- Structured Data for Website (schema.org) -->
+        <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "name": "Dhanush Bohara",
+          "url": "https://www.dhanushbohara.com.np"
+        }
+        </script>
+        <style>
+        /* CSS Variables for Theme Support */
+        :root {
+            --primary: #1a1a1a; 
+            --secondary: #1843aa; 
+            --text: #ffffff; 
+            --bg: #0a0a0a;
+            --card-bg: rgba(255, 255, 255, 0.1);
+            --shadow: rgba(0, 0, 0, 0.2);
+            --gradient: linear-gradient(45deg, #ff4655, #b30000);
+        }
+
+        /* Light Mode Variables */
+        [data-theme="light"] {
+            --primary: #ffffff; 
+            --text: #1a1a1a; 
+            --bg: #f0f0f0; 
+            --card-bg: rgba(0, 0, 0, 0.05);
+            --shadow: rgba(0, 0, 0, 0.1);
+        }
+
+        /* Global Reset and Transitions */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Roboto', 'Arial', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 2rem;
+        }
+
+        [data-theme="light"] .navbar {
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+            animation: bounce 0.3s ease;
+        }
+
+        /* Enhanced Social Icons */
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-icons a, .theme-toggle, .language-toggle {
+            color: var(--text);
+            font-size: 1.8rem;
+            background: var(--card-bg);
+            padding: 0.5rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            transition: transform 0.3s ease, background 0.3s ease;
+            text-decoration: none; /* Explicitly remove underline */
+        }
+
+        .social-icons a:hover, .theme-toggle:hover, .language-toggle:hover {
+            color: var(--text);
+            background: var(--secondary);
+            transform: scale(1.1);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text);
+            font-size: 1.5rem;
+        }
+
+        /* Logo Section */
+        .logo {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 10px;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1000px;
+            margin: 6rem auto 2rem;
+            padding: 0 1rem;
+            display: flex;
+            gap: 2rem;
+        }
+
+        /* Privacy Section */
+        .privacy-content {
+            flex: 3;
+        }
+
+        .privacy-section {
+            padding: 1.5rem;
+            background: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 0 15px var(--shadow);
+            margin-bottom: 1.5rem;
+        }
+
+        .privacy-section summary {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--secondary);
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 8px;
+        }
+
+        .privacy-section summary:hover {
+            background: rgba(255, 70, 85, 0.1);
+        }
+
+        .privacy-section[open] summary {
+            color: var(--text);
+        }
+
+        .privacy-section h2 {
+            font-size: 2rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .privacy-section h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--text);
+            margin: 1rem 0 0.5rem;
+        }
+
+        .privacy-section p, .privacy-section ul {
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        .privacy-section ul {
+            list-style: disc;
+            padding-left: 1.5rem;
+        }
+
+        .privacy-section li {
+            margin-bottom: 0.5rem;
+        }
+
+        .privacy-section a {
+            color: var(--secondary);
+            text-decoration: none;
+        }
+
+        .privacy-section a:hover {
+            text-decoration: underline;
+        }
+
+        /* Progress Indicator */
+        .progress-nav {
+            flex: 1;
+            position: sticky;
+            top: 6rem;
+            align-self: flex-start;
+            background: var(--card-bg);
+            padding: 1rem;
+            border-radius: 12px;
+            box-shadow: 0 0 10px var(--shadow);
+        }
+
+        .progress-nav h4 {
+            font-size: 1.2rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+
+        .progress-nav ul {
+            list-style: none;
+        }
+
+        .progress-nav li {
+            margin-bottom: 0.5rem;
+        }
+
+        .progress-nav a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 1rem;
+            display: block;
+            padding: 0.5rem;
+            border-radius: 5px;
+        }
+
+        .progress-nav a:hover, .progress-nav a.active {
+            background: var(--secondary);
+            color: var(--text);
+        }
+
+        /* Comment and Contact Box */
+        .cc-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .contact-box, .comment-box {
+            padding: 30px;
+            border-radius: 12px;
+            width: 530px;
+            box-shadow: 0 0 15px var(--shadow);
+            text-align: left;
+            margin: 30px 0;
+            background: var(--card-bg);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: var(--text);
+        }
+
+        .contact-box p {
+            margin: 10px 0;
+            font-size: 16px;
+        }
+
+        .contact-box i {
+            margin-right: 10px;
+            color: var(--secondary);
+        }
+
+        .contact-form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: var(--text);
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border: none;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.2);
+            color: var(--text);
+        }
+
+        .contact-form input::placeholder,
+        .contact-form textarea::placeholder {
+            color: #ccc;
+        }
+
+        .contact-form button {
+            width: 100%;
+            padding: 1rem;
+            background: var(--gradient);
+            color: var(--text);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .contact-form button:hover {
+            background: #b30000;
+            transform: scale(1.05);
+        }
+
+        .contact-form button:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+
+        .contact-form button:disabled::after {
+            content: "Loading...";
+            animation: pulse 1.5s infinite;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: var(--card-bg);
+            box-shadow: 0 -2px 4px var(--shadow);
+        }
+
+        .back-to-top {
+            display: inline-block;
+            margin-top: 10px;
+            color: var(--text);
+            font-size: 1.5rem;
+        }
+
+        /* Animation Keyframes */
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 1rem;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                gap: 1rem;
+                width: 100%;
+                text-align: center;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .social-icons a, .theme-toggle, .language-toggle {
+                font-size: 1.5rem;
+                width: 35px;
+                height: 35px;
+            }
+
+            main {
+                flex-direction: column;
+            }
+
+            .progress-nav {
+                position: static;
+                margin-bottom: 1rem;
+            }
+
+            .privacy-section h2 {
+                font-size: 1.6rem;
+            }
+
+            .privacy-section summary {
+                font-size: 1.3rem;
+            }
+
+            .privacy-section p, .privacy-section ul {
+                font-size: 1rem;
+            }
+
+            .contact-box, .comment-box {
+                width: 100%;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="https://kale-pro.github.io/dhanushbohara/profile.html">
+                <img src="https://raw.githubusercontent.com/kale-pro/dhanushbohara/main/d-lofo.jpg" alt="Logo" class="logo">
+            </a>
+            <button class="menu-toggle"><i class="fas fa-bars"></i></button>
+            <div class="nav-links">
+                <a href="https://www.dhanushbohara.com.np" data-translate="nav-home">Home</a>
+                <a href="https://kale-pro.github.io/dhanushbohara/terms.html" data-translate="nav-terms">Terms & Condition</a>
+                <a href="#privacy" data-translate="nav-privacy">Privacy</a>
+                <a href="#contact" data-translate="nav-contact">Contact</a>
+            </div>
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/dhanush-bohara-660732358/" target="_blank" title="LinkedIn" aria-label="Visit LinkedIn Profile"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.tiktok.com/@dhanushchhetree?_t=ZS-8vAFoD0k4nq&_r=1" target="_blank" title="TikTok" aria-label="Visit TikTok Profile"><i class="fab fa-tiktok"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=100082124208815" target="_blank" title="Facebook" aria-label="Visit Facebook Profile"><i class="fab fa-facebook"></i></a>
+                <a href="https://youtube.com/@kaleproff" target="_blank" title="YouTube" aria-label="Visit YouTube Channel"><i class="fab fa-youtube"></i></a>
+            </div>
+            <!-- Theme toggle button -->
+            <button class="theme-toggle" id="themeToggle" title="Toggle Theme" aria-label="Toggle Light/Dark Theme">
+                <i class="fas fa-moon"></i>
+            </button>
+            <!-- Language toggle button -->
+            <button class="language-toggle" id="languageToggle" title="Toggle Language" aria-label="Toggle Language">
+                <i class="fas fa-globe"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Progress Indicator -->
+        <nav class="progress-nav">
+            <h4 data-translate="progress-title">Sections</h4>
+            <ul>
+                <li><a href="#introduction" data-translate="progress-introduction">Introduction</a></li>
+                <li><a href="#info-collection" data-translate="progress-info-collection">Information Collection</a></li>
+                <li><a href="#info-use" data-translate="progress-info-use">Use of Information</a></li>
+                <li><a href="#info-sharing" data-translate="progress-info-sharing">Sharing of Information</a></li>
+                <li><a href="#info-safety" data-translate="progress-info-safety">Information Safety</a></li>
+                <li><a href="#opt-out" data-translate="progress-opt-out">Choice/Opt-Out</a></li>
+                <li><a href="#policy-updates" data-translate="progress-policy-updates">Policy Updates</a></li>
+                <li><a href="#contact" data-translate="progress-contact">Contact</a></li>
+            </ul>
+        </nav>
+
+        <!-- Privacy Policy Content -->
+        <div class="privacy-content">
+            <section class="privacy-section" id="introduction" data-aos="zoom-in" data-aos-duration="800">
+                <h2 data-translate="privacy-title">Privacy Policy for Dhanush Bohara's Website</h2>
+                <details open>
+                    <summary data-translate="section-1-title">1. Introduction</summary>
+                    <p data-translate="section-1-text-1">
+                        This Privacy Policy governs the services provided on <a href="https://www.dhanushbohara.com.np">www.dhanushbohara.com.np</a> or the equivalent mobile application (“App”/“Website”). The App or Website may be collectively referred to as the “Platform.” By accessing or using the Platform, you agree to be bound by this Privacy Policy.
+                    </p>
+                    <p data-translate="section-1-text-2">
+                        We may update this Privacy Policy periodically. To stay informed about how we collect, use, and protect your information, please review this page regularly. If you do not agree with this policy, please discontinue use of the Platform. Effective date: <strong>April 27, 2025</strong>.
+                    </p>
+                </details>
+            </section>
+
+            <section class="privacy-section" id="info-collection" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="200">
+                <details>
+                    <summary data-translate="section-2-title">2. Collection of Personally Identifiable Information</summary>
+                    <h3 data-translate="section-2-1-title">2.1 Types of Information Collected</h3>
+                    <p data-translate="section-2-1-text">
+                        To provide and improve our services, we collect:
+                    </p>
+                    <ul>
+                        <li data-translate="section-2-1-item-1">Name</li>
+                        <li data-translate="section-2-1-item-2">Email Address</li>
+                        <li data-translate="section-2-1-item-3">Telephone Number</li>
+                        <li data-translate="section-2-1-item-4">IP Address</li>
+                        <li data-translate="section-2-1-item-5">Device Information</li>
+                        <li data-translate="section-2-1-item-6">Network Information</li>
+                        <li data-translate="section-2-1-item-7">User-uploaded photos or documents (e.g., for portfolio submissions)</li>
+                        <li data-translate="section-2-1-item-8">Demographic information (e.g., preferences, interests)</li>
+                        <li data-translate="section-2-1-item-9">Other information provided during inquiries or feedback</li>
+                    </ul>
+
+                    <h3 data-translate="section-2-2-title">2.2 Registration Information</h3>
+                    <p data-translate="section-2-2-text">
+                        When registering or submitting forms, you may provide:
+                    </p>
+                    <ul>
+                        <li data-translate="section-2-2-item-1">Username and Password</li>
+                        <li data-translate="section-2-2-item-2">Email Address</li>
+                        <li data-translate="section-2-2-item-3">Profile Picture (optional)</li>
+                        <li data-translate="section-2-2-item-4">Professional details (e.g., skills, project interests)</li>
+                    </ul>
+
+                    <h3 data-translate="section-2-3-title">2.3 Social Media Registration</h3>
+                    <p data-translate="section-2-3-text">
+                        If you register using a social media account (e.g., Facebook), you permit us to access profile information, subject to the respective platform’s Terms and Privacy Policy.
+                    </p>
+
+                    <h3 data-translate="section-2-4-title">2.4 Storage and Security</h3>
+                    <p data-translate="section-2-4-text">
+                        Your information is stored on secure servers. Passwords are hashed, and email addresses are encrypted. This “Personal User Information” is used to manage your account.
+                    </p>
+
+                    <h3 data-translate="section-2-5-title">2.5 Your Responsibilities</h3>
+                    <p data-translate="section-2-5-text">
+                        You are responsible for:
+                    </p>
+                    <ul>
+                        <li data-translate="section-2-5-item-1">Maintaining the confidentiality of your Personal User Information</li>
+                        <li data-translate="section-2-5-item-2">Preventing unauthorized use of your account</li>
+                        <li data-translate="section-2-5-item-3">Ensuring the accuracy of provided information</li>
+                        <li data-translate="section-2-5-item-4">Notifying us of security breaches at <a href="mailto:mr.dhanushbohara@gmail.com">mr.dhanushbohara@gmail.com</a></li>
+                    </ul>
+                    <p data-translate="section-2-5-text-2">
+                        We are not liable for harm from unauthorized use of your Personal User Information under your control.
+                    </p>
+
+                    <h3 data-translate="section-2-6-title">2.6 Optional Information</h3>
+                    <p data-translate="section-2-6-text">
+                        You may browse anonymously, but certain services require mandatory fields. If you do not provide required information, we may be unable to offer those services.
+                    </p>
+
+                    <h3 data-translate="section-2-7-title">2.7 Cookies and Tracking</h3>
+                    <p data-translate="section-2-7-text">
+                        We use cookies to analyze traffic and enhance user experience. You may disable cookies, but this may limit features. Third-party cookies may be used, which we do not control.
+                    </p>
+                </details>
+            </section>
+
+            <section class="privacy-section" id="info-use" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="400">
+                <details>
+                    <summary data-translate="section-3-title">3. Use of Personal Information</summary>
+                    <p data-translate="section-3-text-1">
+                        We use your information to:
+                    </p>
+                    <ul>
+                        <li data-translate="section-3-item-1">Respond to inquiries and provide services</li>
+                        <li data-translate="section-3-item-2">Maintain internal records</li>
+                        <li data-translate="section-3-item-3">Improve our Platform</li>
+                        <li data-translate="section-3-item-4">Send promotional emails or notifications</li>
+                        <li data-translate="section-3-item-5">Customize the Platform</li>
+                        <li data-translate="section-3-item-6">Resolve disputes and prevent fraud</li>
+                    </ul>
+                    <p data-translate="section-3-text-2">
+                        Your IP address helps diagnose server issues and gather demographic insights.
+                    </p>
+                </details>
+            </section>
+
+            <section class="privacy-section" id="info-sharing" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="600">
+                <details>
+                    <summary data-translate="section-4-title">4. Sharing of Personal Information</summary>
+                    <p data-translate="section-4-text-1">
+                        We may share your information with:
+                    </p>
+                    <ul>
+                        <li data-translate="section-4-item-1">Service providers (e.g., Formspree for form submissions)</li>
+                        <li data-translate="section-4-item-2">Authorities to comply with legal obligations</li>
+                        <li data-translate="section-4-item-3">Affiliates in case of business restructuring</li>
+                    </ul>
+                    <p data-translate="section-4-text-2">
+                        We do not sell personal information but may share anonymized data with advertisers.
+                    </p>
+                </details>
+            </section>
+
+            <section class="privacy-section" id="info-safety" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="800">
+                <details>
+                    <summary data-translate="section-5-title">5. Information Safety</summary>
+                    <p data-translate="section-5-text">
+                        Your information is stored on secure servers with encryption (AES-256) and access controls. We use TLS 1.3 for data in transit.
+                    </p>
+                </details>
+            </section>
+
+            <section class="privacy-section" id="opt-out" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="1000">
+                <details>
+                    <summary data-translate="section-6-title">6. Choice/Opt-Out</summary>
+                    <p data-translate="section-6-text">
+                        Opt out of promotional communications by emailing <a href="mailto:mr.dhanushbohara@gmail.com">mr.dhanushbohara@gmail.com</a>.
+                    </p>
+                </details>
+            </section>
+
+            <section class="privacy-section" id="policy-updates" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="1200">
+                <details>
+                    <summary data-translate="section-7-title">7. Updates to This Policy</summary>
+                    <p data-translate="section-7-text">
+                        Updates will be posted here. Effective date: <strong>April 27, 2025</strong>.
+                    </p>
+                </details>
+            </section>
+
+            <section class="privacy-section" id="contact" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="1400">
+                <details>
+                    <summary data-translate="section-8-title">8. Contact</summary>
+                    <p data-translate="section-8-text">
+                        For questions, contact:
+                    </p>
+                    <p>
+                        <span data-translate="section-8-email">Email</span>: <a href="mailto:mr.dhanushbohara@gmail.com">mr.dhanushbohara@gmail.com</a><br>
+                        <span data-translate="section-8-phone">Phone</span>: +977-9842172080<br>
+                        <span data-translate="section-8-address">Address</span>: Sudurpaschim, Nepal
+                    </p>
+                </details>
+            </section>
+        </div>
+    </main>
+
+    <!-- Comment/Feedback and Contact Section -->
+    <div class="cc-box">
+        <div class="comment-box">
+            <h2 data-translate="comment-title">Comment</h2>
+            <!-- Comment form submits directly to Formspree -->
+            <form class="contact-form" id="commentForm" action="https://formspree.io/f/xldbedaz" method="POST">
+                <label for="name" data-translate="comment-name-label">Your Name</label>
+                <input id="name" type="text" name="name" placeholder="Your Name" data-translate-placeholder="comment-name-placeholder" required>
+                <label for="email" data-translate="comment-email-label">Your Email</label>
+                <input id="email" type="email" name="email" placeholder="Your Email" data-translate-placeholder="comment-email-placeholder" required>
+                <label for="comment" data-translate="comment-comment-label">Your Comment or Feedback</label>
+                <textarea id="comment" name="comment" placeholder="Your Comment or Feedback..." data-translate-placeholder="comment-comment-placeholder" rows="5" required></textarea>
+                <button type="submit" data-translate="comment-submit">Post Comment</button>
+            </form>
+        </div>
+
+        <div class="contact-box" id="contact">
+            <h2 data-translate="contact-title">Contact Information</h2>
+            <p><i class="fas fa-envelope"></i> <span data-translate="contact-email">mr.dhanushbohara@gmail.com</span></p>
+            <p><i class="fas fa-phone"></i> <span data-translate="contact-phone">+977-9842172080</span></p>
+            <p><i class="fas fa-map-marker-alt"></i> <span data-translate="contact-address">Sudurpaschim, Nepal</span></p>
+            <p><i class="fas fa-code"></i> <span data-translate="contact-role">Aspiring Developer | Python, Java & Web Enthusiast</span></p>
+            <p><i class="fas fa-lightbulb"></i> <span data-translate="contact-passion">Passionate about real-world projects and continuous learning.</span></p>
+            <div class="social-links">
+                <a href="https://wa.me/9779842172080" target="_blank" title="Chat on WhatsApp" aria-label="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://youtube.com/@kaleproff" target="_blank" title="YouTube" aria-label="Visit YouTube Channel"><i class="fab fa-youtube"></i></a>
+                <a href="https://facebook.com/dhanushbohara" target="_blank" title="Facebook" aria-label="Visit Facebook Profile"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.linkedin.com/in/dhanush-bohara-660732358/" target="_blank" title="LinkedIn" aria-label="Visit LinkedIn Profile"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.tiktok.com/@dhanushchhetree?_t=ZS-8vAFoD0k4nq&_r=1" target="_blank" title="TikTok" aria-label="Visit TikTok Profile"><i class="fab fa-tiktok"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <a href="#home" class="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></a>
+        <p data-translate="footer-designed">Designed by <span style="color: #ea2525;">Kale Pro</span></p>
+        <p data-translate="footer-copyright">© 2025 <strong>Kale Pro by Dhanush Bohara</strong>. All rights reserved.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Translation Data
+        const translations = {
+            en: {
+                title: "Privacy Policy - Dhanush Bohara",
+                "nav-home": "Home",
+                "nav-terms": "Terms & Condition",
+                "nav-privacy": "Privacy",
+                "nav-contact": "Contact",
+                "progress-title": "Sections",
+                "progress-introduction": "Introduction",
+                "progress-info-collection": "Information Collection",
+                "progress-info-use": "Use of Information",
+                "progress-info-sharing": "Sharing of Information",
+                "progress-info-safety": "Information Safety",
+                "progress-opt-out": "Choice/Opt-Out",
+                "progress-policy-updates": "Policy Updates",
+                "progress-contact": "Contact",
+                "privacy-title": "Privacy Policy for www.dhanushbohara.com.np",
+                "section-1-title": "1. Introduction",
+                "section-1-text-1": "This Privacy Policy governs the services provided on <a href=\"https://www.dhanushbohara.com.np\">www.dhanushbohara.com.np</a> or the equivalent mobile application (“App”/“Website”). The App or Website may be collectively referred to as the “Platform.” By accessing or using the Platform, you agree to be bound by this Privacy Policy.",
+                "section-1-text-2": "We may update this Privacy Policy periodically. To stay informed about how we collect, use, and protect your information, please review this page regularly. If you do not agree with this policy, please discontinue use of the Platform. Effective date: <strong>April 27, 2025</strong>.",
+                "section-2-title": "2. Collection of Personally Identifiable Information",
+                "section-2-1-title": "2.1 Types of Information Collected",
+                "section-2-1-text": "To provide and improve our services, we collect:",
+                "section-2-1-item-1": "Name",
+                "section-2-1-item-2": "Email Address",
+                "section-2-1-item-3": "Telephone Number",
+                "section-2-1-item-4": "IP Address",
+                "section-2-1-item-5": "Device Information",
+                "section-2-1-item-6": "Network Information",
+                "section-2-1-item-7": "User-uploaded photos or documents (e.g., for portfolio submissions)",
+                "section-2-1-item-8": "Demographic information (e.g., preferences, interests)",
+                "section-2-1-item-9": "Other information provided during inquiries or feedback",
+                "section-2-2-title": "2.2 Registration Information",
+                "section-2-2-text": "When registering or submitting forms, you may provide:",
+                "section-2-2-item-1": "Username and Password",
+                "section-2-2-item-2": "Email Address",
+                "section-2-2-item-3": "Profile Picture (optional)",
+                "section-2-2-item-4": "Professional details (e.g., skills, project interests)",
+                "section-2-3-title": "2.3 Social Media Registration",
+                "section-2-3-text": "If you register using a social media account (e.g., Facebook), you permit us to access profile information, subject to the respective platform’s Terms and Privacy Policy.",
+                "section-2-4-title": "2.4 Storage and Security",
+                "section-2-4-text": "Your information is stored on secure servers. Passwords are hashed, and email addresses are encrypted. This “Personal User Information” is used to manage your account.",
+                "section-2-5-title": "2.5 Your Responsibilities",
+                "section-2-5-text": "You are responsible for:",
+                "section-2-5-item-1": "Maintaining the confidentiality of your Personal User Information",
+                "section-2-5-item-2": "Preventing unauthorized use of your account",
+                "section-2-5-item-3": "Ensuring the accuracy of provided information",
+                "section-2-5-item-4": "Notifying us of security breaches at <a href=\"mailto:mr.dhanushbohara@gmail.com\">mr.dhanushbohara@gmail.comp</a>",
+                "section-2-5-text-2": "We are not liable for harm from unauthorized use of your Personal User Information under your control.",
+                "section-2-6-title": "2.6 Optional Information",
+                "section-2-6-text": "You may browse anonymously, but certain services require mandatory fields. If you do not provide required information, we may be unable to offer those services.",
+                "section-2-7-title": "2.7 Cookies and Tracking",
+                "section-2-7-text": "We use cookies to analyze traffic and enhance user experience. You may disable cookies, but this may limit features. Third-party cookies may be used, which we do not control.",
+                "section-3-title": "3. Use of Personal Information",
+                "section-3-text-1": "We use your information to:",
+                "section-3-item-1": "Respond to inquiries and provide services",
+                "section-3-item-2": "Maintain internal records",
+                "section-3-item-3": "Improve our Platform",
+                "section-3-item-4": "Send promotional emails or notifications",
+                "section-3-item-5": "Customize the Platform",
+                "section-3-item-6": "Resolve disputes and prevent fraud",
+                "section-3-text-2": "Your IP address helps diagnose server issues and gather demographic insights.",
+                "section-4-title": "4. Sharing of Personal Information",
+                "section-4-text-1": "We may share your information with:",
+                "section-4-item-1": "Service providers (e.g., Formspree for form submissions)",
+                "section-4-item-2": "Authorities to comply with legal obligations",
+                "section-4-item-3": "Affiliates in case of business restructuring",
+                "section-4-text-2": "We do not sell personal information but may share anonymized data with advertisers.",
+                "section-5-title": "5. Information Safety",
+                "section-5-text": "Your information is stored on secure servers with encryption (AES-256) and access controls. We use TLS 1.3 for data in transit.",
+                "section-6-title": "6. Choice/Opt-Out",
+                "section-6-text": "Opt out of promotional communications by emailing <a href=\"mailto:mr.dhanushbohara@gmail.com\">mr.dhanushbohara@gmail.com</a>.",
+                "section-7-title": "7. Updates to This Policy",
+                "section-7-text": "Updates will be posted here. Effective date: <strong>April 27, 2025</strong>.",
+                "section-8-title": "8. Contact",
+                "section-8-text": "For questions, contact:",
+                "section-8-email": "Email",
+                "section-8-phone": "Phone",
+                "section-8-address": "Address",
+                "comment-title": "Comment",
+                "comment-name-label": "Your Name",
+                "comment-name-placeholder": "Your Name",
+                "comment-email-label": "Your Email",
+                "comment-email-placeholder": "Your Email",
+                "comment-comment-label": "Your Comment or Feedback",
+                "comment-comment-placeholder": "Your Comment or Feedback...",
+                "comment-submit": "Post Comment",
+                "contact-title": "Contact Information",
+                "contact-email": "mr.dhanushbohara@gmail.com",
+                "contact-phone": "+977-9842172080",
+                "contact-address": "Sudurpaschim, Nepal",
+                "contact-role": "Aspiring Developer | Python, Java & Web Enthusiast",
+                "contact-passion": "Passionate about real-world projects and continuous learning.",
+                "footer-designed": "Designed by <span style=\"color: #ea2525;\">Kale Pro</span>",
+                "footer-copyright": "© 2025 <strong>Kale Pro by Dhanush Bohara</strong>. All rights reserved."
+            },
+            np: {
+                title: "गोपनीयता नीति - धनुष बोहारा",
+                "nav-home": "होम",
+                "nav-terms": "नियम र सर्त",
+                "nav-privacy": "गोपनीयता",
+                "nav-contact": "सम्पर्क",
+                "progress-title": "खण्डहरू",
+                "progress-introduction": "परिचय",
+                "progress-info-collection": "जानकारी सङ्कलन",
+                "progress-info-use": "जानकारीको प्रयोग",
+                "progress-info-sharing": "जानकारीको साझेदारी",
+                "progress-info-safety": "जानकारीको सुरक्षा",
+                "progress-opt-out": "छनोट/अप्ट-आउट",
+                "progress-policy-updates": "नीति अपडेटहरू",
+                "progress-contact": "सम्पर्क",
+                "privacy-title": "www.dhanushbohara.com.np को लागि गोपनीयता नीति",
+                "section-1-title": "१. परिचय",
+                "section-1-text-1": "यो गोपनीयता नीतिले <a href=\"https://www.dhanushbohara.com.np\">www.dhanushbohara.com.np</a> वा समकक्ष मोबाइल एप्लिकेसन (“एप”/“वेबसाइट”) मा प्रदान गरिएका सेवाहरूलाई नियन्त्रित गर्छ। एप वा वेबसाइटलाई सामूहिक रूपमा “प्लेटफर्म” भनिन्छ। प्लेटफर्म पहुँच वा प्रयोग गरेर, तपाईं यो गोपनीयता नीतिद्वारा बाध्य हुने कुरामा सहमत हुनुहुन्छ।",
+                "section-1-text-2": "हामीले यो गोपनीयता नीतिलाई समय-समयमा अद्यावधिक गर्न सक्छौं। हामीले तपाईंको जानकारी कसरी सङ्कलन, प्रयोग, र संरक्षण गर्छौं भन्ने बारे जानकारी राख्न, कृपया यो पृष्ठ नियमित रूपमा समीक्षा गर्नुहोस्। यदि तपाईं यो नीतिसँग सहमत हुनुहुन्न भने, कृपया प्लेटफर्मको प्रयोग बन्द गर्नुहोस्। प्रभावकारी मिति: <strong>अप्रिल २७, २०२५</strong>।",
+                "section-2-title": "२. व्यक्तिगत पहिचान योग्य जानकारीको सङ्कलन",
+                "section-2-1-title": "२.१ सङ्कलन गरिएका जानकारीका प्रकारहरू",
+                "section-2-1-text": "हाम्रा सेवाहरू प्रदान गर्न र सुधार गर्न, हामी सङ्कलन गर्छौं:",
+                "section-2-1-item-1": "नाम",
+                "section-2-1-item-2": "इमेल ठेगाना",
+                "section-2-1-item-3": "टेलिफोन नम्बर",
+                "section-2-1-item-4": "आईपी ठेगाना",
+                "section-2-1-item-5": "उपकरण जानकारी",
+                "section-2-1-item-6": "नेटवर्क जानकारी",
+                "section-2-1-item-7": "प्रयोगकर्ताले अपलोड गरेका फोटोहरू वा कागजातहरू (जस्तै, पोर्टफोलियो प्रस्तुतिका लागि)",
+                "section-2-1-item-8": "जनसांख्यिकीय जानकारी (जस्तै, प्राथमिकताहरू, रुचिहरू)",
+                "section-2-1-item-9": "जांच वा प्रतिक्रियाको क्रममा प्रदान गरिएको अन्य जानकारी",
+                "section-2-2-title": "२.२ दर्ता जानकारी",
+                "section-2-2-text": "दर्ता वा फारमहरू पेश गर्दा, तपाईंले प्रदान गर्न सक्नुहुन्छ:",
+                "section-2-2-item-1": "प्रयोगकर्ता नाम र पासवर्ड",
+                "section-2-2-item-2": "इमेल ठेगाना",
+                "section-2-2-item-3": "प्रोफाइल तस्वीर (वैकल्पिक)",
+                "section-2-2-item-4": "पेशागत विवरणहरू (जस्तै, सीपहरू, प्रोजेक्ट रुचिहरू)",
+                "section-2-3-title": "२.३ सामाजिक मिडिया दर्ता",
+                "section-2-3-text": "यदि तपाईं सामाजिक मिडिया खाता (जस्तै, फेसबुक) प्रयोग गरेर दर्ता गर्नुहुन्छ भने, तपाईं हामीलाई सम्बन्धित प्लेटफर्मको नियम र गोपनीयता नीति अनुसार प्रोफाइल जानकारी पहुँच गर्न अनुमति दिनुहुन्छ।",
+                "section-2-4-title": "२.४ भण्डारण र सुरक्षा",
+                "section-2-4-text": "तपाईंको जानकारी सुरक्षित सर्भरहरूमा भण्डारण गरिन्छ। पासवर्डहरू ह्यास गरिन्छ, र इमेल ठेगानाहरू इन्क्रिप्ट गरिन्छ। यो “व्यक्तिगत प्रयोगकर्ता जानकारी” तपाईंको खाता व्यवस्थापन गर्न प्रयोग गरिन्छ।",
+                "section-2-5-title": "२.५ तपाईंको जिम्मेवारीहरू",
+                "section-2-5-text": "तपाईं जिम्मेवार हुनुहुन्छ:",
+                "section-2-5-item-1": "तपाईंको व्यक्तिगत प्रयोगकर्ता जानकारीको गोपनीयता कायम राख्न",
+                "section-2-5-item-2": "तपाईंको खाताको अनधिकृत प्रयोग रोक्न",
+                "section-2-5-item-3": "प्रदान गरिएको जानकारीको शुद्धता सुनिश्चित गर्न",
+                "section-2-5-item-4": "<a href=\"mailto:mr.dhanushbohara@gmail.com\">mr.dhanushbohara@gmail.com/a> मा सुरक्षा उल्लंघनहरूको सूचना दिन",
+                "section-2-5-text-2": "तपाईंको नियन्त्रणमा रहेको व्यक्तिगत प्रयोगकर्ता जानकारीको अनधिकृत प्रयोगबाट हुने हानिको लागि हामी जिम्मेवार छैनौं।",
+                "section-2-6-title": "२.६ वैकल्पिक जानकारी",
+                "section-2-6-text": "तपाईं गुमनाम रूपमा ब्राउज गर्न सक्नुहुन्छ, तर केही सेवाहरूले अनिवार्य क्षेत्रहरू आवश्यक पर्छ। यदि तपाईंले आवश्यक जानकारी प्रदान गर्नुभएन भने, हामी ती सेवाहरू प्रदान गर्न असमर्थ हुन सक्छौं।",
+                "section-2-7-title": "२.७ कुकीहरू र ट्र्याकिंग",
+                "section-2-7-text": "हामी ट्राफिक विश्लेषण गर्न र प्रयोगकर्ता अनुभव सुधार गर्न कुकीहरू प्रयोग गर्छौं। तपाईंले कुकीहरू अक्षम गर्न सक्नुहुन्छ, तर यसले सुविधाहरूलाई सीमित गर्न सक्छ। तेस्रो-पक्ष कुकीहरू प्रयोग हुन सक्छ, जुन हामीले नियन्त्रण गर्दैनौं।",
+                "section-3-title": "३. व्यक्तिगत जानकारीको प्रयोग",
+                "section-3-text-1": "हामी तपाईंको जानकारी प्रयोग गर्छौं:",
+                "section-3-item-1": "जांचहरूको जवाफ दिन र सेवाहरू प्रदान गर्न",
+                "section-3-item-2": "आन्तरिक रेकर्डहरू कायम राख्न",
+                "section-3-item-3": "हाम्रो प्लेटफर्म सुधार गर्न",
+                "section-3-item-4": "प्रचारात्मक इमेलहरू वा सूचनाहरू पठाउन",
+                "section-3-item-5": "प्लेटफर्म अनुकूलन गर्न",
+                "section-3-item-6": "विवादहरू समाधान गर्न र धोखाधडी रोक्न",
+                "section-3-text-2": "तपाईंको आईपी ठेगानाले सर्भर समस्याहरू निदान गर्न र जनसांख्यिकीय अन्तर्दृष्टि सङ्कलन गर्न मद्दत गर्छ।",
+                "section-4-title": "४. व्यक्तिगत जानकारीको साझेदारी",
+                "section-4-text-1": "हामी तपाईंको जानकारी साझेदारी गर्न सक्छौं:",
+                "section-4-item-1": "सेवा प्रदायकहरू (जस्तै, फारम पेशका लागि फर्मस्प्री)",
+                "section-4-item-2": "कानुनी दायित्वहरू पालना गर्न प्राधिकरणहरू",
+                "section-4-item-3": "व्यवसाय पुनर्संरचनाको अवस्थामा सम्बद्धहरू",
+                "section-4-text-2": "हामी व्यक्तिगत जानकारी बेच्दैनौं तर विज्ञापनदाताहरूसँग गुमनाम डाटा साझेदारी गर्न सक्छौं।",
+                "section-5-title": "५. जानकारीको सुरक्षा",
+                "section-5-text": "तपाईंको जानकारी इन्क्रिप्सन (AES-256) र पहुँच नियन्त्रणहरू सहित सुरक्षित सर्भरहरूमा भण्डारण गरिन्छ। हामी डाटा स्थानान्तरणको लागि TLS 1.3 प्रयोग गर्छौं।",
+                "section-6-title": "६. छनोट/अप्ट-आउट",
+                "section-6-text": "<a href=\"mr.dhanushbohara@gmail.com\">mr.dhanushbohara@gmail.com</a> मा इमेल गरेर प्रचारात्मक सञ्चारहरूबाट अप्ट-आउट गर्नुहोस्।",
+                "section-7-title": "७. यो नीतिको अपडेटहरू",
+                "section-7-text": "अपडेटहरू यहाँ पोस्ट गरिनेछ। प्रभावकारी मिति: <strong>अप्रिल २७, २०२५</strong>।",
+                "section-8-title": "८. सम्पर्क",
+                "section-8-text": "प्रश्नहरूको लागि, सम्पर्क गर्नुहोस्:",
+                "section-8-email": "इमेल",
+                "section-8-phone": "फोन",
+                "section-8-address": "ठेगाना",
+                "comment-title": "टिप्पणी",
+                "comment-name-label": "तपाईंको नाम",
+                "comment-name-placeholder": "तपाईंको नाम",
+                "comment-email-label": "तपाईंको इमेल",
+                "comment-email-placeholder": "तपाईंको इमेल",
+                "comment-comment-label": "तपाईंको टिप्पणी वा प्रतिक्रिया",
+                "comment-comment-placeholder": "तपाईंको टिप्पणी वा प्रतिक्रिया...",
+                "comment-submit": "टिप्पणी पोस्ट गर्नुहोस्",
+                "contact-title": "सम्पर्क जानकारी",
+                "contact-email": "mr.dhanushbohara@gmail.com",
+                "contact-phone": "+977-9842172080",
+                "contact-address": "सुदूरपश्चिम, नेपाल",
+                "contact-role": "उदीयमान विकासकर्ता | पाइथन, जाभा र वेब उत्साही",
+                "contact-passion": "वास्तविक-विश्व प्रोजेक्टहरू र निरन्तर सिकाइमा उत्साहित।",
+                "footer-designed": "<span style=\"color: #ea2525;\">काले प्रो</span> द्वारा डिजाइन गरिएको",
+                "footer-copyright": "© २०२५ <strong>धनुष बोहारा द्वारा काले प्रो</strong>। सबै अधिकार सुरक्षित।"
+            }
+        };
+
+        // Theme Toggle Functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+
+        // Load saved theme from localStorage
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        body.setAttribute('data-theme', savedTheme);
+        themeToggle.innerHTML = savedTheme === 'light' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+
+        // Toggle theme on button click
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            body.setAttribute('data-theme', newTheme);
+            themeToggle.innerHTML = newTheme === 'light' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+            localStorage.setItem('theme', newTheme);
+        });
+
+        // Language Toggle Functionality
+        const languageToggle = document.getElementById('languageToggle');
+        let currentLanguage = localStorage.getItem('language') || 'en';
+
+        // Update text based on selected language
+        function updateLanguage(lang) {
+            document.querySelectorAll('[data-translate]').forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translations[lang][key]) {
+                    element.innerHTML = translations[lang][key];
+                }
+            });
+            document.querySelectorAll('[data-translate-placeholder]').forEach(element => {
+                const key = element.getAttribute('data-translate-placeholder');
+                if (translations[lang][key]) {
+                    element.placeholder = translations[lang][key];
+                }
+            });
+            languageToggle.innerHTML = lang === 'en' ? '<i class="fas fa-globe"></i> NP' : '<i class="fas fa-globe"></i> EN';
+            localStorage.setItem('language', lang);
+            currentLanguage = lang;
+        }
+
+        // Initialize language on page load
+        updateLanguage(currentLanguage);
+
+        // Toggle language on button click
+        languageToggle.addEventListener('click', () => {
+            const newLanguage = currentLanguage === 'en' ? 'np' : 'en';
+            updateLanguage(newLanguage);
+        });
+
+        // AOS Initialization
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+
+        // Mobile Menu Toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Smooth Scroll for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Comment Form Submission with Error Handling
+        const commentForm = document.getElementById('commentForm');
+        commentForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const submitButton = commentForm.querySelector('button[type="submit"]');
+            submitButton.disabled = true;
+
+            try {
+                const response = await fetch(commentForm.action, {
+                    method: 'POST',
+                    body: new FormData(commentForm),
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    commentForm.reset();
+                    alert(currentLanguage === 'en' ? 'Comment submitted successfully!' : 'टिप्पणी सफलतापूर्वक पेश गरियो!');
+                } else {
+                    throw new Error('Form submission failed');
+                }
+            } catch (error) {
+                alert(currentLanguage === 'en' ? 'Failed to submit comment. Please try again.' : 'टिप्पणी पेश गर्न असफल भयो। कृपया फेरि प्रयास गर्नुहोस्।');
+            } finally {
+                submitButton.disabled = false;
+            }
+        });
+
+        // Progress Indicator Active Section
+        const sections = document.querySelectorAll('.privacy-section');
+        const progressLinks = document.querySelectorAll('.progress-nav a');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    progressLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${entry.target.id}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }, { threshold: 0.5 });
+
+        sections.forEach(section => observer.observe(section));
+    </script>
+</body>
+</html>
