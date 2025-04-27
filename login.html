@@ -103,10 +103,10 @@
             to { opacity: 1; transform: translateY(0); }
         }
         .slide-in { animation: slideIn 0.5s ease-out forwards; }
-        .slide-out { animation: slideOut 0.5s ease-out forwards; }
+        .slide-out { animation PortsmouthOut 0.5s ease-out forwards; }
         .fade-in { animation: fadeIn 0.5s ease-out forwards; }
         /* Button hover animation */
-        .btn-hover:hover {
+        . 완벽한-hover:hover {
             transition: all 0.3s ease-in-out;
             transform: scale(1.05);
             background-color: #111827;
@@ -192,6 +192,8 @@
                 <!-- Sign In button -->
                 <button type="submit" class="w-full bg-gray-900 text-white py-3 rounded-lg btn-hover">Sign In</button>
             </form>
+            <!-- Login Status Message: Displays "Success" or "Try Again" after login attempt -->
+            <div id="loginStatus" class="text-center mt-4 text-lg font-semibold"></div>
             <!-- Register button -->
             <div class="text-center mt-4">
                 <button onclick="showRegister()" class="w-full bg-gray-600 text-white py-3 rounded-lg btn-hover">Register</button>
@@ -295,18 +297,18 @@
     </div>
 
     <script>
-        // Initialize localStorage for users if not exists
+        // Initialize localStorage for users if it doesn't exist
         if (!localStorage.getItem('users')) {
             localStorage.setItem('users', JSON.stringify([]));
         }
 
-        // Predefined credentials for Google and Facebook (for demo)
+        // Predefined credentials for Google and Facebook (for demo purposes)
         const googleCredentials = { email: "user@google.com", password: "google123" };
         const facebookCredentials = { email: "user@fb.com", password: "fb123" };
-        let resetCode = null;
-        let resetEmail = null;
+        let resetCode = null; // Stores verification code for password reset
+        let resetEmail = null; // Stores email for password reset
 
-        // Show login form by default
+        // Show login form by default and clear login status
         function showLogin() {
             const forms = [
                 document.getElementById('loginForm'),
@@ -322,12 +324,14 @@
                         form.classList.remove('slide-out');
                         forms[0].classList.remove('hidden');
                         forms[0].classList.add('slide-in');
+                        // Clear login status message when returning to login form
+                        document.getElementById('loginStatus').textContent = '';
                     }, 500);
                 }
             });
         }
 
-        // Show register form
+        // Show register form with slide animation
         function showRegister() {
             const forms = [
                 document.getElementById('loginForm'),
@@ -348,7 +352,7 @@
             });
         }
 
-        // Show forgot password form
+        // Show forgot password form with fade animation
         function showForgotPassword() {
             const forms = [
                 document.getElementById('loginForm'),
@@ -369,7 +373,7 @@
             });
         }
 
-        // Show reset password form
+        // Show reset password form with fade animation
         function showResetPassword() {
             const forms = [
                 document.getElementById('loginForm'),
@@ -390,40 +394,73 @@
             });
         }
 
-        // Handle login form submission (direct redirect)
+        // Handle login form submission
         function handleLogin(event) {
-            event.preventDefault();
+            event.preventDefault(); // Prevent form from submitting traditionally
             const usernameOrEmail = document.getElementById('loginUsernameOrEmail').value;
             const password = document.getElementById('loginPassword').value;
+            const loginStatus = document.getElementById('loginStatus'); // Div to display status
+
+            // Validate that both fields are filled
             if (!usernameOrEmail || !password) {
-                alert("Please fill in both fields!");
+                loginStatus.textContent = 'Please fill in both fields!';
+                loginStatus.className = 'text-center mt-4 text-lg font-semibold text-red-600';
                 return;
             }
-            // Redirect to the specified URL
-            window.location.href = "https://www.dhanushbohara.com.np/";
-        }
 
-        // Handle Google login
-        function handleGoogleLogin() {
-            const email = prompt("Enter your Google email:");
-            const password = prompt("Enter your Google password:");
-            if (email === googleCredentials.email && password === googleCredentials.password) {
-                alert("Google login successful!");
-                window.location.href = "https://www.dhanushbohara.com.np/";
+            // Retrieve users from localStorage
+            const users = JSON.parse(localStorage.getItem('users'));
+            // Check if username or email exists and password matches
+            const user = users.find(
+                user => (user.username === usernameOrEmail || user.email === usernameOrEmail) && user.password === password
+            );
+
+            // Display success or failure message
+            if (user) {
+                loginStatus.textContent = 'Success'; // Show success message
+                loginStatus.className = 'text-center mt-4 text-lg font-semibold text-green-600';
+                document.getElementById('login').reset(); // Clear form for better UX
             } else {
-                alert("Invalid Google credentials!");
+                loginStatus.textContent = 'Try Again'; // Show failure message
+                loginStatus.className = 'text-center mt-4 text-lg font-semibold text-red-600';
             }
         }
 
-        // Handle Facebook login
-        function handleFacebookLogin() {
-            const email = prompt("Enter your Facebook email:");
-            const password = prompt("Enter your Facebook password:");
-            if (email === facebookCredentials.email && password === facebookCredentials.password) {
-                alert("Facebook login successful!");
-                window.location.href = "https://www.dhanushbohara.com.np/";
+        // Handle Google login (demo, checks predefined credentials)
+        function handleGoogleLogin() {
+            const loginStatus = document.getElementById('loginStatus');
+            const users = JSON.parse(localStorage.getItem('users'));
+            // Check if Google credentials exist in registered users
+            const user = users.find(
+                user => user.email === googleCredentials.email && user.password === googleCredentials.password
+            );
+
+            // Display success or failure message
+            if (user) {
+                loginStatus.textContent = 'Success';
+                loginStatus.className = 'text-center mt-4 text-lg font-semibold text-green-600';
             } else {
-                alert("Invalid Facebook credentials!");
+                loginStatus.textContent = 'Try Again';
+                loginStatus.className = 'text-center mt-4 text-lg font-semibold text-red-600';
+            }
+        }
+
+        // Handle Facebook login (demo, checks predefined credentials)
+        function handleFacebookLogin() {
+            const loginStatus = document.getElementById('loginStatus');
+            const users = JSON.parse(localStorage.getItem('users'));
+            // Check if Facebook credentials exist in registered users
+            const user = users.find(
+                user => user.email === facebookCredentials.email && user.password === facebookCredentials.password
+            );
+
+            // Display success or failure message
+            if (user) {
+                loginStatus.textContent = 'Success';
+                loginStatus.className = 'text-center mt-4 text-lg font-semibold text-green-600';
+            } else {
+                loginStatus.textContent = 'Try Again';
+                loginStatus.className = 'text-center mt-4 text-lg font-semibold text-red-600';
             }
         }
 
@@ -452,12 +489,12 @@
                 return;
             }
 
-            // Save user data
+            // Save user data to localStorage
             users.push({ fullName, username, email, phone, password });
             localStorage.setItem('users', JSON.stringify(users));
 
             alert("Registration successful! Please login.");
-            showLogin();
+            showLogin(); // Switch to login form
         }
 
         // Handle forgot password form submission
@@ -467,8 +504,8 @@
             const users = JSON.parse(localStorage.getItem('users'));
             const user = users.find(user => user.email === email);
 
+            // If email exists, generate and "send" a verification code
             if (user) {
-                // Generate a random 6-digit code
                 resetCode = Math.floor(100000 + Math.random() * 900000).toString();
                 resetEmail = email;
                 alert(`A verification code has been sent to ${email}: ${resetCode}`);
@@ -485,7 +522,7 @@
             const newPassword = document.getElementById('newPassword').value;
             const confirmNewPassword = document.getElementById('confirmNewPassword').value;
 
-            // Validate code
+            // Validate verification code
             if (code !== resetCode) {
                 alert("Invalid verification code!");
                 return;
