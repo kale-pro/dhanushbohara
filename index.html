@@ -355,6 +355,28 @@
             text-align: justify;
         }
 
+                /* Styling for the about photo */
+            .profile-img {
+            float: right; /* Moved photo to the right side */
+            width: 300px; /* Reduced size */
+            height: auto;
+            margin: 0 0 1px 1px; /* Adjusted margin for right alignment */
+            padding: 3px; /* Smaller padding */
+        }
+
+        /* Responsive design */
+        @media (max-width: 600px) {
+            .profile-img {
+                float: none;
+                display: block;
+                margin: 0 auto 15px;
+                width: 100px; /* Smaller size for mobile */
+            }
+            .container {
+                padding: 10px;
+            }
+        }
+
         /* Photo Gallery Container */
         /* Scales with viewport and centers content */
         .photo-gallery-container {
@@ -1241,6 +1263,7 @@
         <!-- About Section -->
         <div class="container" id="content">
             <h1 id="about">About Me</h1>
+            <img src="https://github.com/kale-pro/dhanushbohara/blob/main/about%20right%20photo%20frame.png?raw=true" class="profile-img">
             <p style="text-align: justify;">Dhanush Bohara is a motivated and self-driven tech enthusiast with a growing interest in software development and modern programming. With a strong foundation in computer science, he has been actively learning various programming languages like Python, Java, C, and C++ — continuously working to sharpen his skills and explore real-world applications.</p>
             <p style="text-align: justify;">He is passionate about building practical projects and experimenting with code. Recently, he completed a step-wise HTML-based mini project and is currently developing his own advanced personal portfolio website to showcase his work, skills, and creative ideas. His focus lies not only in writing functional code but also in designing clean, user-friendly interfaces.</p>
             <p style="text-align: justify;">Dhanush believes in learning by doing. Most of his growth comes from consistent practice, online tutorials, and experimenting with small-scale web and software development projects. He enjoys breaking down complex problems and turning them into simple, working solutions — a trait that reflects his logical mindset and patience.</p>
