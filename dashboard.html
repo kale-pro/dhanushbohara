@@ -1,0 +1,104 @@
+<script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+        </script><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Dhanush Bohara</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background: linear-gradient(135deg, #0A0A23 0%, #1A1A3A 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 2rem;
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-3xl font-bold mb-4">Welcome to Your Dashboard</h1>
+        <p class="text-xl mb-6">Hello, <span id="username">User</span>!</p>
+        <p class="mb-6">You are now logged in. Click below to visit the website.</p>
+        <button onclick="visitWebsite()" class="bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition mr-2">Visit Website</button>
+        <button onclick="logout()" class="bg-gray-900 text-white py-2 px-4 rounded-lg hover:bg-gray-800 transition">Logout</button>
+    </div>
+
+    <script>
+        // Check login state on page load
+        window.onload = function() {
+            if (localStorage.getItem('isLoggedIn') !== 'true') {
+                // Redirect to login page if not logged in
+                window.location.href = 'index.html';
+            } else {
+                // Display username
+                const username = localStorage.getItem('username') || 'User';
+                document.getElementById('username').textContent = username;
+            }
+        };
+
+        // Visit external website
+        function visitWebsite() {
+            window.location.href = 'https://github.com/kale-pro/dhanushbohara/blob/main/index.html';
+        }
+
+        // Logout function
+        function logout() {
+            // Clear localStorage
+            localStorage.removeItem('isLoggedIn');
+            localStorage.removeItem('username');
+            // Redirect to login page
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>
