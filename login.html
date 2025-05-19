@@ -276,6 +276,7 @@
                     <div class="password-toggle">
                         <label class="block text-gray-700 text-sm mb-2" for="loginPassword">Password</label>
                         <input type="password" id="loginPassword" name="loginPassword" class="input-field" required>
+                        <i class="fas fa-eye password-toggle-icon" onclick="togglePassword('loginPassword', this)"></i>
                     </div>
                     <a href="#" onclick="showForgotPassword()" class="text-sm text-blue-600 hover:underline block text-right mt-2">Forgot Password?</a>
                 </div>
@@ -326,12 +327,12 @@
                 <div class="mb-4 password-toggle">
                     <label class="block text-gray-700 text-sm mb-2" for="registerPassword">Password</label>
                     <input type="password" id="registerPassword" name="registerPassword" class="input-field" required>
-               
+                    <i class="fas fa-eye password-toggle-icon" onclick="togglePassword('registerPassword', this)"></i>
                 </div>
                 <div class="mb-6 password-toggle">
                     <label class="block text-gray-700 text-sm mb-2" for="registerConfirmPassword">Confirm Password</label>
                     <input type="password" id="registerConfirmPassword" name="registerConfirmPassword" class="input-field" required>
-                   
+                    <i class="fas fa-eye password-toggle-icon" onclick="togglePassword('registerConfirmPassword', this)"></i>
                 </div>
                 <button onclick="handleRegister()" class="w-full bg-gray-900 text-white py-3 rounded-lg btn-hover">Register</button>
             </div>
@@ -372,10 +373,12 @@
                 <div class="mb-4 password-toggle">
                     <label class="block text-gray-700 text-sm mb-2" for="newPassword">New Password</label>
                     <input type="password" id="newPassword" name="newPassword" class="input-field" required>
+                    <i class="fas fa-eye password-toggle-icon" onclick="togglePassword('newPassword', this)"></i>
                 </div>
                 <div class="mb-6 password-toggle">
                     <label class="block text-gray-700 text-sm mb-2" for="confirmNewPassword">Confirm New Password</label>
                     <input type="password" id="confirmNewPassword" name="confirmNewPassword" class="input-field" required>
+                    <i class="fas fa-eye password-toggle-icon" onclick="togglePassword('confirmNewPassword', this)"></i>
                 </div>
                 <button onclick="handleResetPassword()" class="w-full bg-gray-900 text-white py-3 rounded-lg btn-hover">Reset Password</button>
             </div>
@@ -386,6 +389,14 @@
     </div>
 
     <script>
+        // Check login state on page load
+        window.onload = function() {
+            if (localStorage.getItem('isLoggedIn') === 'true') {
+                window.location.href = 'dashboard.html'; // Redirect to dashboard if already logged in
+            }
+            initGoogleSignIn(); // Initialize Google Sign-In
+        };
+
         // Mock backend API simulation
         const mockBackend = {
             users: [],
@@ -407,7 +418,7 @@
                     u.email === identifier || u.username === identifier || u.phone === identifier
                 );
                 if (user && mockBackend.verifyPassword(password, user.password)) {
-                    return { success: true, userId: user.id };
+                    return { success: true, userId: user.id, username: user.username };
                 }
                 throw new Error('Invalid credentials');
             },
@@ -475,7 +486,7 @@
                     };
                     mockBackend.users.push(user);
                 }
-                return { success: true, userId: user.id };
+                return { success: true, userId: user.id, username: user.username };
             }
         };
 
@@ -493,7 +504,7 @@
             }, 5000);
         }
 
-        // Password toggle functionality (reverted to previous style)
+        // Password toggle functionality
         function togglePassword(inputId, icon) {
             const input = document.getElementById(inputId);
             if (input.type === 'password') {
@@ -530,8 +541,11 @@
                     login_type: 'google'
                 });
                 if (result.success) {
+                    // Store login state in localStorage
+                    localStorage.setItem('isLoggedIn', 'true');
+                    localStorage.setItem('username', result.username || profile.name);
                     showAlert('Google login successful!', 'success');
-                    window.location.href = 'https://www.dhanushbohara.com.np/';
+                    window.location.href = 'dashboard.html'; // Redirect to dashboard
                 }
             } catch (error) {
                 showAlert(error.message);
@@ -556,8 +570,11 @@
                                     login_type: 'facebook'
                                 });
                                 if (result.success) {
+                                    // Store login state in localStorage
+                                    localStorage.setItem('isLoggedIn', 'true');
+                                    localStorage.setItem('username', result.username || response.name);
                                     showAlert('Facebook login successful!', 'success');
-                                    window.location.href = 'https://www.dhanushbohara.com.np/';
+                                    window.location.href = 'dashboard.html'; // Redirect to dashboard
                                 }
                             } catch (error) {
                                 showAlert(error.message);
@@ -666,8 +683,11 @@
             try {
                 const result = await mockBackend.login(identifier, password);
                 if (result.success) {
+                    // Store login state in localStorage
+                    localStorage.setItem('isLoggedIn', 'true');
+                    localStorage.setItem('username', result.username);
                     showAlert('Login successful!', 'success');
-                    window.location.href = 'https://www.dhanushbohara.com.np/';
+                    window.location.href = 'dashboard.html'; // Redirect to dashboard
                 }
             } catch (error) {
                 showAlert(error.message);
@@ -752,11 +772,6 @@
                 showAlert(error.message);
             }
         }
-
-        // Initialize Google Sign-In on page load
-        window.onload = function() {
-            initGoogleSignIn();
-        };
     </script>
 </body>
 </html>
