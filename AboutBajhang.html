@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bajhang District, Nepal</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    :root {
+      --text: #ffffff;
+      --secondary: #60a5fa;
+    }
+
+    /* Custom styling for Google Translate dropdown */
+    .goog-te-combo {
+      background-color: #1e40af;
+      color: white;
+      border: none;
+      padding: 0.5rem;
+      border-radius: 0.25rem;
+      font-size: 0.875rem;
+      width: 120px;
+    }
+    .goog-te-combo:focus {
+      outline: none;
+      box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5);
+    }
+    .translate-dropdown {
+      display: none;
+      position: absolute;
+      right: 1rem;
+      top: 100%;
+      z-index: 1000;
+    }
+    .translate-dropdown.active {
+      display: block;
+    }
+
+    /* Primary Navigation Bar */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(30, 64, 175, 0.9);
+      backdrop-filter: blur(10px);
+      z-index: 1001;
+      padding: 1rem 2rem;
+    }
+
+    [data-theme="light"] .navbar {
+      background: rgba(255, 255, 255, 0.9);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1rem;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--secondary);
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .social-icons a {
+      color: var(--text);
+      font-size: 1.25rem;
+      transition: color 0.3s;
+    }
+
+    .social-icons a:hover {
+      color: var(--secondary);
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--text);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    .logo {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: rgba(30, 64, 175, 0.95);
+        padding: 1rem;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .social-icons {
+        display: none;
+      }
+
+      .social-icons.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: calc(100% + 6rem);
+        left: 0;
+        width: 100%;
+        background: rgba(30, 64, 175, 0.95);
+        padding: 1rem;
+        gap: 0.5rem;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .secondary-nav {
+        top: 60px;
+        padding: 0.5rem 1rem;
+      }
+
+      .secondary-nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+      }
+    }
+
+    /* Other Existing Styles */
+    .theme-toggle {
+      background: none;
+      border: none;
+      color: var(--text);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    .theme-toggle:hover {
+      color: var(--secondary);
+    }
+
+    .cc-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    .contact-box, .comment-box {
+      padding: 30px;
+      border-radius: 12px;
+      width: 530px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      text-align: left;
+      margin: 30px 0;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .contact-box p {
+      margin: 10px 0;
+      font-size: 16px;
+    }
+
+    .contact-box i {
+      margin-right: 10px;
+      color: #007bff;
+    }
+
+    .contact-form label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border: none;
+      border-radius: 5px;
+      background: rgba(255, 255, 255, 0.2);
+      color: var(--text);
+    }
+
+    .contact-form input::placeholder,
+    .contact-form textarea::placeholder {
+      color: #ccc;
+    }
+
+    .contact-form button {
+      width: 100%;
+      padding: 1rem;
+      background: linear-gradient(45deg, hsl(235, 66%, 29%), hsl(324, 100%, 50%));
+      color: var(--text);
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .contact-form button:hover {
+      background: #ff0793;
+    }
+
+    .contact-form button:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+
+    .contact-form button:disabled::after {
+      content: "Loading...";
+      animation: pulse 1.5s infinite;
+    }
+
+    .social-links {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .social-links a {
+      color: white;
+      font-size: 24px;
+      transition: color 0.3s;
+    }
+
+    .social-links a:hover {
+      color: #007bff;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+    }
+
+    .back-to-top {
+      display: inline-block;
+      margin-top: 10px;
+      color: var(--text);
+      font-size: 1.5rem;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 font-sans">
+  <!-- Primary Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="https://kale-pro.github.io/dhanushbohara/profile.html">
+        <img src="https://raw.githubusercontent.com/kale-pro/dhanushbohara/main/d-lofo.jpg" alt="Logo" class="logo">
+      </a>
+      <button class="menu-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></button>
+      <div class="nav-links">
+        <a href="https://kale-pro.github.io/dhanushbohara/">Home</a>
+         <li><a href="#introduction">Introduction</a></li>
+        <li><a href="#geography">Geography</a></li>
+        <li><a href="#history">History</a></li>
+        <li><a href="#culture">Culture</a></li>
+        <li><a href="#economy">Economy</a></li>
+        <li><a href="#education">Education</a></li>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="social-icons">
+        <a href="https://www.linkedin.com/in/dhanush-bohara-660732358/" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="https://www.tiktok.com/@mr.dhanushbohara?_t=ZS-8vAFoD0k4nq&_r=1" target="_blank"><i class="fab fa-tiktok"></i></a>
+        <a href="https://www.facebook.com/profile.php?id=100082124208815" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://youtube.com/@kaleproff" target="_blank"><i class="fab fa-youtube"></i></a>
+        <i class="fas fa-globe text-xl cursor-pointer hover:text-gray-300" onclick="toggleTranslateDropdown()"></i>
+      </div>
+    </div>
+    <div id="google_translate_element" class="translate-dropdown"></div>
+  </nav>
+  <!-- Main Content -->
+  <main class="container mx-auto p-6 bg-white shadow-md mt-24 rounded-lg">
+    <!-- Introduction -->
+    <section id="introduction" class="mb-8">
+      <h2 class="text-3xl font-bold text-blue-900 mb-4">Introduction</h2>
+      <p class="text-gray-700">
+        Bajhang District, located in the Sudurpashchim Province of Nepal, is a remote yet culturally and geographically diverse region. With its district headquarters in Chainpur, part of Jaya Prithvi Municipality, Bajhang spans 3,422 km² and had a population of 195,159 according to the 2011 Nepal census. Known for its rugged landscapes, traditional villages, and deep-rooted cultural heritage, the district faces challenges such as poor infrastructure, limited healthcare access, and constrained economic opportunities. However, its natural beauty, religious significance, and potential in agriculture, tourism, and hydropower position Bajhang as a region with significant promise for sustainable development.
+      </p>
+    </section>
+
+    <!-- Geography -->
+    <section id="geography" class="mb-8">
+      <h2 class="text-3xl font-bold text-blue-900 mb-4">Geography</h2>
+      <p class="text-gray-700">
+        Bajhang District is situated between 29°29' and 30°09' north latitude and 80°46' and 81°34' east longitude, with elevations ranging from 900 meters to 7,035 meters above sea level. This wide elevation range results in diverse climate zones.
+      </p>
+      <table class="w-full border-collapse border border-gray-300 mt-4">
+        <thead>
+          <tr class="bg-blue-100">
+            <th class="border border-gray-300 p-2">Climate Zone</th>
+            <th class="border border-gray-300 p-2">Elevation Range</th>
+            <th class="border border-gray-300 p-2">Percentage of Area</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="border border-gray-300 p-2">Upper Tropical</td><td class="border border-gray-300 p-2">300–1,000 m</td><td class="border border-gray-300 p-2">0.5%</td></tr>
+          <tr><td class="border border-gray-300 p-2">Subtropical</td><td class="border border-gray-300 p-2">1,000–2,000 m</td><td class="border border-gray-300 p-2">18.0%</td></tr>
+          <tr><td class="border border-gray-300 p-2">Temperate</td><td class="border border-gray-300 p-2">2,000–3,000 m</td><td class="border border-gray-300 p-2">26.5%</td></tr>
+          <tr><td class="border border-gray-300 p-2">Subalpine</td><td class="border border-gray-300 p-2">3,000–4,000 m</td><td class="border border-gray-300 p-2">16.6%</td></tr>
+          <tr><td class="border border-gray-300 p-2">Alpine</td><td class="border border-gray-300 p-2">4,000–5,000 m</td><td class="border border-gray-300 p-2">8.4%</td></tr>
+          <tr><td class="border border-gray-300 p-2">Nival</td><td class="border border-gray-300 p-2">Above 5,000 m</td><td class="border border-gray-300 p-2">30.0%</td></tr>
+        </tbody>
+      </table>
+      <p class="text-gray-700 mt-4">
+        The district is bordered by Bajura and Humla to the east, Baitadi and Darchula to the west, Humla to the north, and Doti and Achham to the south. Its geography features high mountain peaks, such as Mt. Saipal, deep valleys, dense forests, and pristine rivers like the Seti River and Bauli Khola.
+      </p>
+    </section>
+
+    <!-- History -->
+    <section id="history" class="mb-8">
+      <h2 class="text-3xl font-bold text-blue-900 mb-4">History</h2>
+      <p class="text-gray-700">
+        Bajhang District has a rich historical past, having been part of the Bajhang Kingdom, which played a significant role in the region’s history. Bitthad Bazar, a notable area within the district, was historically renowned for its fresh milk and yogurt and is bordered by Baitadi District, known for Bitthad Kalika and Kedar temples. The district’s history is shaped by its position along ancient trade routes and cultural influences from various dynasties.
+      </p>
+    </section>
+
+    <!-- Culture -->
+    <section id="culture" class="mb-8">
+      <h2 class="text-3xl font-bold text-blue-900 mb-4">Culture</h2>
+      <p class="text-gray-700">
+        Bajhang’s cultural diversity is reflected in its ethnic composition.
+      </p>
+      <table class="w-full border-collapse border border-gray-300 mt-4">
+        <thead>
+          <tr class="bg-blue-100">
+            <th class="border border-gray-300 p-2">Ethnic/Caste Group</th>
+            <th class="border border-gray-300 p-2">Percentage</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="border border-gray-300 p-2">Chhetri</td><td class="border border-gray-300 p-2">66.6%</td></tr>
+          <tr><td class="border border-gray-300 p-2">Hill Brahmin</td><td class="border border-gray-300 p-2">10.2%</td></tr>
+          <tr><td class="border border-gray-300 p-2">Kami</td><td class="border border-gray-300 p-2">7.3%</td></tr>
+          <tr><td class="border border-gray-300 p-2">Other Dalit</td><td class="border border-gray-300 p-2">5.1%</td></tr>
+          <tr><td class="border border-gray-300 p-2">Thakuri</td><td class="border border-gray-300 p-2">4.9%</td></tr>
+          <tr><td class="border border-gray-300 p-2">Sarki</td><td class="border border-gray-300 p-2">2.2%</td></tr>
+          <tr><td class="border border-gray-300 p-2">Damai/Dholi</td><td class="border border-gray-300 p-2">1.5%</td></tr>
+          <tr><td class="border border-gray-300 p-2">Sanyasi/Dasnami</td><td class="border border-gray-300 p-2">1.2%</td></tr>
+          <tr><td class="border border-gray-300 p-2">Badi</td><td class="border border-gray-300 p-2">0.2%</td></tr>
+          <tr><td class="border border-gray-300 p-2">Gurung, Magar, Newar, Tamang, Other Terai, Others</td><td class="border border-gray-300 p-2">0.1% each</td></tr>
+        </tbody>
+      </table>
+      <p class="text-gray-700 mt-4">
+        The district is predominantly Hindu (99.7%), with a small Buddhist population (0.2%). Cultural practices are preserved through festivals, traditional music, and dances, adding vibrancy to the rural lifestyle.
+      </p>
+    </section>
+
+    <!-- Languages -->
+    <section id="languages" class="mb-8">
+      <h2 class="text-3xl font-bold text-blue-900 mb-4">Languages</h2>
+      <p class="text-gray-700">
+        The linguistic diversity of Bajhang reflects its ethnic composition.
+      </p>
+      <table class="w-full border-collapse border border-gray-300 mt-4">
+        <thead>
+          <tr class="bg-blue-100">
+            <th class="border border-gray-300 p-2">Language</th>
+            <th class="border border-gray-300 p-2">Percentage</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="border border-gray-300 p-2">Nepali</td><td class="border border-gray-300 p-2">75.5%</td></tr>
+          <tr><td class="border border-gray-300 p-2">Bajhangi</td><td class="border border-gray-300 p-2">23.6%</td></tr>
+          <tr><td class="border border-gray-300 p-2">Doteli</td><td class="border border-gray-300 p-2">0.5%</td></tr>
+          <tr><td class="border border-gray-300 p-2">Dhuleli</td><td class="border border-gray-300 p-2">0.2%</td></tr>
+          <tr><td class="border border-gray-300 p-2">Gurung</td><td class="border border-gray-300 p-2">0.1%</td></tr>
+          <tr><td class="border border-gray-300 p-2">Tamang</td><td class="border border-gray-300 p-2">0.1%</td></tr>
+          <tr><td class="border border-gray-300 p-2">Other languages</td><td class="border border-gray-300 p-2">0.1%</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+<!-- Festivals -->
+<section id="festivals" class="mb-8">
+  <h2 class="text-3xl font-bold text-blue-900 mb-4">Festivals</h2>
+  <ul class="list-disc pl-6 text-gray-700">
+    <li><strong>Dashain</strong>: A 15-day festival in September or October, celebrating the triumph of good over evil through worship of Goddess Durga, family gatherings, animal sacrifices, and tika ceremonies.</li><br>
+    <li><strong>Tihar</strong>: A five-day festival of lights in October or November, honoring animals like dogs, crows, and cows, and celebrating sibling bonds during Bhaitika.</li><br>
+    <li><strong>Gaura</strong>: Especially popular in the Far-Western region like Bajhang, Gaura is celebrated by women worshipping goddess Gaura and Lord Shiva with traditional songs (Deuda) and rituals during August or September.</li><br>
+    <li><strong>Bisu (Baisakh 1)</strong>: Celebrated as New Year by the Far-Western communities, it includes cultural programs, Deuda dances, and gatherings at rivers and temples.</li><br>
+    <li><strong>Teej</strong>: A festival for women observed in August or September, marked by fasting, dancing, singing, and praying for marital happiness and the well-being of spouses.</li><br>
+    <li><strong>Maghi</strong>: Celebrated around mid-January, especially by the Tharu community, as their New Year with feasting, dances, and community gatherings.</li><br>
+    <li><strong>Maha Shivaratri</strong>: A Hindu festival dedicated to Lord Shiva, celebrated in February or March with fasting, visiting Shiva temples like Surma Sarovar, and night vigils.</li><br>
+    <li><strong>Holi</strong>: The festival of colors in March, celebrated joyfully with vibrant powders, water, music, and dance, especially among youth in towns like Chainpur.</li><br>
+    <li><strong>Janai Purnima & Rakshya Bandhan</strong>: Celebrated in August with sacred thread rituals by Hindu men and Rakhi ties by sisters to their brothers.</li><br>
+    <li><strong>Udhauli/Ubhauli</strong>: Observed by the Kirat communities in the region, these festivals mark the seasonal migration with dances and rituals.</li><br>
+  </ul>
+</section>
+
+
+    <!-- Major Attractions -->
+    <section id="attractions" class="mb-8">
+      <h2 class="text-3xl font-bold text-blue-900 mb-4">Major Attractions</h2>
+      <ul class="list-disc pl-6 text-gray-700">
+        <li><strong>Khaptad Baba Mandir</strong>: A revered temple dedicated to Khaptad Swami, located in the scenic Khaptad National Park.</li>
+        <li><strong>Devisthan Mandir (Chainpur)</strong>: A temple dedicated to Goddess Durga, central to the district’s religious life.</li>
+        <li><strong>Chuli Tika (Chabbis)</strong>: A pilgrimage site combining spiritual significance with natural beauty.</li>
+        <li><strong>Ram Mandir (Kada)</strong>: A temple dedicated to Lord Rama, attracting devotees.</li>
+        <li><strong>Surma Sarowar (Surma)</strong>: A sacred lake believed to have healing properties.</li>
+        <li><strong>Khulmour Kedar Mandir (Kedarnath)</strong>: A temple dedicated to Lord Shiva, significant for Hindu pilgrims.</li>
+        <li><strong>Thali (Durga Thali Municipality)</strong>: Known for its Durga temple and picturesque views.</li>
+        <li><strong>Baddi Jyaban (Purumchuli Siddanath, Bungle Municipality)</strong>: A site of religious and cultural importance.</li>
+        <li><strong>Khaptad National Park</strong>: A biodiversity hotspot offering trekking and wildlife viewing.</li>
+        <li><strong>Mt. Saipal</strong>: A stunning peak for adventure enthusiasts.</li>
+        <li><strong>Surma Sarovar Lake</strong>: A destination for eco-tourism and spiritual retreats.</li>
+      </ul>
+    </section>
+
+    <!-- Economy -->
+    <section id="economy" class="mb-8">
+      <h2 class="text-3xl font-bold text-blue-900 mb-4">Economy</h2>
+      <p class="text-gray-700">
+        The economy of Bajhang District is primarily agrarian, with agriculture serving as the backbone. Major crops include rice, wheat, and maize, cultivated across the district’s fertile valleys. Traditional handicrafts and small-scale enterprises also contribute to the local economy. Tourism holds significant potential due to attractions like Khaptad National Park, Mt. Saipal, and Surma Sarovar Lake, but development is hindered by poor infrastructure.
+      </p>
+    </section>
+
+    <!-- Education -->
+    <section id="education" class="mb-8">
+      <h2 class="text-3xl font-bold text-blue-900 mb-4">Education</h2>
+      <p class="text-gray-700">
+        Education in Bajhang faces challenges due to its remote terrain and limited resources. The literacy rate is 55.4%, with 3.2% able to only read and 41.3% unable to read or write, according to the 2011 census. Gender disparities are notable, with male literacy at 82.8% and female literacy at 60%.
+      </p>
+    </section>
+
+    <!-- Lifestyle -->
+    <section id="lifestyle" class="mb-8">
+      <h2 class="text-3xl font-bold text-blue-900 mb-4">Lifestyle of People</h2>
+      <p class="text-gray-700">
+        The lifestyle in Bajhang District is predominantly rural, with a population density of 57/km². Most residents are engaged in agriculture and livestock farming.
+      </p>
+      <table class="w-full border-collapse border border-gray-300 mt-4">
+        <thead>
+          <tr class="bg-blue-100">
+            <th class="border border-gray-300 p-2">Year</th>
+            <th class="border border-gray-300 p-2">Population</th>
+            <th class="border border-gray-300 p-2">Growth Rate</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="border border-gray-300 p-2">1981</td><td class="border border-gray-300 p-2">124,010</td><td class="border border-gray-300 p-2">-</td></tr>
+          <tr><td class="border border-gray-300 p-2">1991</td><td class="border border-gray-300 p-2">139,092</td><td class="border border-gray-300 p-2">+1.15% p.a.</td></tr>
+          <tr><td class="border border-gray-300 p-2">2001</td><td class="border border-gray-300 p-2">167,026</td><td class="border border-gray-300 p-2">+1.85% p.a.</td></tr>
+          <tr><td class="border border-gray-300 p-2">2011</td><td class="border border-gray-300 p-2">195,159</td><td class="border border-gray-300 p-2">+1.57% p.a.</td></tr>
+          <tr><td class="border border-gray-300 p-2">2021</td><td class="border border-gray-300 p-2">189,097</td><td class="border border-gray-300 p-2">-0.32% p.a.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Administration -->
+    <section id="administration" class="mb-8">
+      <h2 class="text-3xl font-bold text-blue-900 mb-4">Administration</h2>
+      <p class="text-gray-700">
+        Bajhang District is divided into 12 municipalities, including two urban municipalities (Jaya Prithvi and Talkot) and ten rural municipalities (Masta, Khaptadchhanna, Thalara, Bitthad Bazar, Chhabis Pathibhara, Dungeshwar, Kedarsyun, Saipal, and others). Chainpur, located at the confluence of the Seti River and Bauli Khola, serves as the administrative and economic center.
+      </p>
+    </section>
+
+    <!-- Conclusion -->
+    <section id="conclusion" class="mb-8">
+      <h2 class="text-3xl font-bold text-blue-900 mb-4">Conclusion</h2>
+      <p class="text-gray-700">
+        Bajhang District, with its rich cultural heritage, diverse geography, and untapped potential, offers a unique glimpse into Nepal’s traditional way of life. Its spiritual sites, natural beauty, and agrarian lifestyle make it a compelling destination, despite challenges like poor infrastructure and limited economic opportunities.
+      </p>
+    </section>
+  </main>
+
+  <!-- Comment/Feedback and Contact Section -->
+  <div class="cc-box">
+    <div class="comment-box">
+      <h2>Comment</h2>
+      <form class="contact-form" id="commentForm" action="https://formspree.io/f/manoeqey" method="POST">
+        <label for="name">Your Name</label>
+        <input id="name" type="text" name="name" placeholder="Your Name" required>
+        <label for="email">Your Email</label>
+        <input id="email" type="email" name="email" placeholder="Your Email" required>
+        <label for="comment">Your Comment or Feedback</label>
+        <textarea id="comment" name="comment" placeholder="Your Comment or Feedback..." rows="5" required></textarea>
+        <button type="submit">Post Comment</button>
+      </form>
+    </div>
+
+    <div class="contact-box" id="contact">
+      <h2>Contact Information</h2>
+      <p><i class="fas fa-envelope"></i> mr.dhanushbohara@gmail.com</p>
+      <p><i class="fas fa-phone"></i> +977-9842172080</p>
+      <p><i class="fas fa-map-marker-alt"></i> Sudurpaschim, Nepal</p>
+      <p><i class="fas fa-code"></i> Aspiring Developer | Python, Java & Web Enthusiast</p>
+      <p><i class="fas fa-lightbulb"></i> Passionate about real-world projects and continuous learning.</p>
+      <div class="social-links">
+        <a href="https://wa.me/9779842172080" target="_blank" title="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://youtube.com/@kaleproff" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://facebook.com/dhanushbohara" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.linkedin.com/in/dhanush-bohara-660732358/" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="https://www.tiktok.com/@mr.dhanushbohara?_t=ZS-8vAFoD0k4nq&_r=1" target="_blank"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Section -->
+  <footer>
+    <a href="#home" class="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></a>
+    <div style="margin-top: 10px;">
+      <a href="https://kale-pro.github.io/dhanushbohara/privacy-policy.html" style="margin-right: 10px; color: #bca2a2; text-decoration: none;">Privacy Policy</a> | 
+      <a href="https://kale-pro.github.io/dhanushbohara/terms%26condition.html" style="margin-left: 10px; color: #bca2a2; text-decoration: none;">Terms & Conditions</a>
+    </div>            
+    <p data-translate="footer-designed">Designed by <a href="https://www.facebook.com/kale.pro.156523" target="_blank" style="color: #ea2525; text-decoration: none;"><b>Kale Pro</b></a></p>
+    <p data-translate="footer-copyright">
+      © 2025 <strong>Kale Pro by 
+      <a href="https://www.facebook.com/dhanush.bohara.2025" target="_blank" style="text-decoration: none; font-weight: bold; font-size: 18px;">
+        <span style="background: linear-gradient(to right, #ea25b2 0%, #25a0ea 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; display: inline-block;">
+          Dhanush Bohara
+        </span>
+      </a>
+      </strong> All rights reserved.
+    </p>
+  </footer>
+
+  <script>
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'ne,en',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+        autoDisplay: true
+      }, 'google_translate_element');
+    }
+
+    function toggleTranslateDropdown() {
+      const dropdown = document.getElementById('google_translate_element');
+      dropdown.classList.toggle('active');
+      if (dropdown.classList.contains('active')) {
+        dropdown.querySelector('.goog-te-combo')?.focus();
+      }
+    }
+
+    function toggleMenu() {
+      const navLinks = document.querySelector('.nav-links');
+      const socialIcons = document.querySelector('.social-icons');
+      navLinks.classList.toggle('active');
+      socialIcons.classList.toggle('active');
+    }
+
+    // Scroll-based hide/show for secondary navbar
+    let lastScroll = 0;
+    const secondaryNav = document.querySelector('.secondary-nav');
+
+    window.addEventListener('scroll', () => {
+      let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+      if (currentScroll > lastScroll && currentScroll > 72) {
+        // Scrolling down
+        secondaryNav.classList.add('hidden');
+      } else {
+        // Scrolling up
+        secondaryNav.classList.remove('hidden');
+      }
+      lastScroll = currentScroll <= 0 ? 0 : currentScroll;
+    });
+
+    document.addEventListener('click', function(event) {
+      const translateContainer = document.getElementById('google_translate_element');
+      const globeIcon = document.querySelector('.fa-globe');
+      if (!translateContainer.contains(event.target) && !globeIcon.contains(event.target)) {
+        translateContainer.classList.remove('active');
+      }
+    });
+  </script>
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>
