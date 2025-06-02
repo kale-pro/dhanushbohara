@@ -1,0 +1,1868 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sunita Secondary School, Bajhang</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Noto Serif Devanagari', serif;
+            background-color: #E9E7F7;
+        }
+        .marquee {
+            animation: marquee 15s linear infinite;
+        }
+        @keyframes marquee {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 1s ease-in forwards;
+        }
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+        .class-card {
+            border: 2px solid #5C3A8E;
+            border-radius: 10px;
+            background-color: white;
+            transition: transform 0.3s ease;
+        }
+        .class-card:hover {
+            transform: translateY(-5px);
+        }
+        #sidebar {
+            transform: translateX(-100%);
+            transition: transform 0.3s ease-in-out;
+        }
+        #sidebar.open {
+            transform: translateX(0);
+        }
+        nav {
+            transition: background-color 0.3s ease;
+        }
+        nav.scrolled {
+            background-color: rgba(92, 58, 142, 0.95);
+        }
+        /* Ensure images load correctly */
+        #slider-image {
+            transition: opacity 0.5s ease-in-out;
+        }
+        /* Full-screen image viewer */
+        #fullscreen-viewer {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 50;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        #fullscreen-image {
+            max-width: 90%;
+            max-height: 80%;
+            object-fit: contain;
+        }
+        /* Gallery container with horizontal scrolling */
+        #gallery-container {
+            display: flex;
+            overflow: hidden;
+            scroll-behavior: smooth;
+        }
+        .gallery-item {
+            flex: 0 0 25%; /* Default: Show 4 items on large screens */
+            padding: 0 8px;
+            box-sizing: border-box;
+        }
+        .gallery-image {
+            object-fit: cover;
+            width: 100%;
+            height: 120px; /* Default height for large screens */
+            cursor: pointer;
+            border-radius: 8px;
+        }
+        .gallery-caption {
+            text-align: center;
+            color: #5C3A8E;
+            font-size: 12px;
+            margin-top: 4px;
+        }
+        /* Responsive adjustments for gallery */
+        @media (max-width: 768px) {
+            .gallery-item {
+                flex: 0 0 33.33%; /* Show 3 items on medium screens */
+            }
+            .gallery-image {
+                height: 100px; /* Smaller height for medium screens */
+            }
+        }
+        @media (max-width: 640px) {
+            .gallery-item {
+                flex: 0 0 50%; /* Show 2 items on small screens */
+            }
+            .gallery-image {
+                height: 80px; /* Smaller height for small screens */
+            }
+        }
+        /* Styles extracted from body */
+        .top-bar {
+            background-color: #4A1A47;
+            color: white;
+            padding: 0.75rem 1rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        @media (min-width: 640px) {
+            .top-bar {
+                padding: 0.75rem 1.5rem;
+                flex-direction: row;
+            }
+        }
+        .top-bar-info {
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+        @media (min-width: 640px) {
+            .top-bar-info {
+                margin-bottom: 0;
+                text-align: left;
+            }
+        }
+        .top-bar-title {
+            font-weight: 700;
+            font-size: 1rem;
+        }
+        @media (min-width: 640px) {
+            .top-bar-title {
+                font-size: 1.125rem;
+            }
+        }
+        .top-bar-contact {
+            display: block;
+            margin-left: 0;
+            font-size: 0.75rem;
+        }
+        @media (min-width: 640px) {
+            .top-bar-contact {
+                display: inline;
+                margin-left: 1rem;
+                font-size: 0.875rem;
+            }
+        }
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+        }
+        .social-icon {
+            font-size: 1.125rem;
+            transition: color 0.3s;
+        }
+        .social-icon:hover {
+            color: #FBBF24;
+        }
+        .nav-bar {
+            background-color: #5C3A8E;
+            color: white;
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        @media (min-width: 640px) {
+            .nav-bar {
+                padding: 1rem 1.5rem;
+            }
+        }
+        .nav-logo-container {
+            display: flex;
+            align-items: center;
+        }
+        .hamburger {
+            font-size: 1.5rem;
+        }
+        @media (min-width: 768px) {
+            .hamburger {
+                display: none;
+            }
+        }
+        .nav-logo {
+            margin-left: 1rem;
+            font-size: 1.125rem;
+            font-weight: 600;
+            display: none;
+        }
+        @media (min-width: 768px) {
+            .nav-logo {
+                display: block;
+            }
+        }
+        .nav-menu {
+            display: none;
+            gap: 2rem;
+            justify-content: center;
+            flex: 1;
+        }
+        @media (min-width: 768px) {
+            .nav-menu {
+                display: flex;
+            }
+        }
+        @media (min-width: 1024px) {
+            .nav-menu {
+                gap: 2.5rem;
+            }
+        }
+        .nav-item {
+            transition: color 0.3s, border-bottom 0.3s;
+            font-size: 0.875rem;
+            padding: 0.25rem 0.5rem;
+        }
+        @media (min-width: 1024px) {
+            .nav-item {
+                font-size: 1rem;
+            }
+        }
+        .nav-item:hover {
+            color: #FBBF24;
+            border-bottom: 2px solid #FBBF24;
+        }
+        .nav-search-container {
+            position: relative;
+            display: none;
+        }
+        @media (min-width: 768px) {
+            .nav-search-container {
+                display: block;
+            }
+        }
+        .nav-search {
+            background-color: #4A2F73;
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+        }
+        .nav-search:focus {
+            outline: none;
+            ring: 2px solid #FBBF24;
+        }
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 16rem;
+            background-color: #4A1A47;
+            color: white;
+            z-index: 30;
+            padding: 1.5rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        .close-sidebar {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .sidebar-menu {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .sidebar-item {
+            transition: color 0.3s;
+            font-size: 0.875rem;
+        }
+        @media (min-width: 1024px) {
+            .sidebar-item {
+                font-size: 1rem;
+            }
+        }
+        .sidebar-item:hover {
+            color: #FBBF24;
+            text-decoration: underline;
+        }
+       /* Hero section */
+        .hero-section {
+            position: relative;
+            background-color: #E5E7EB;
+            height: 24rem; /* Increased from 20rem to 24rem */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        @media (min-width: 640px) {
+            .hero-section {
+                height: 28rem; /* Increased from 24rem to 28rem */
+            }
+        }
+        @media (min-width: 768px) {
+            .hero-section {
+                height: 36rem; /* Increased from 31.25rem to 36rem */
+            }
+        }
+        .hero-content {
+            text-align: center;
+            z-index: 10;
+        }
+        .hero-title {
+            font-size: 1.875rem;
+            font-weight: 700;
+            color: #5C3A8E;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        @media (min-width: 640px) {
+            .hero-title {
+                font-size: 2.25rem;
+            }
+        }
+        @media (min-width: 768px) {
+            .hero-title {
+                font-size: 3.75rem;
+            }
+        }
+        .hero-subtitle {
+            margin-top: 0.5rem;
+            font-size: 1rem;
+            color: #4B5563;
+        }
+        @media (min-width: 640px) {
+            .hero-subtitle {
+                font-size: 1.125rem;
+            }
+        }
+        .hero-image-container {
+            position: absolute;
+            inset: 0;
+        }
+        .hero-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        /* Notices section */
+        .notices-section {
+            background-color: #FEF9C3;
+            padding: 0.75rem 0;
+            overflow: hidden;
+        }
+        .notices-marquee {
+            white-space: nowrap;
+            color: #5C3A8E;
+            font-size: 0.875rem;
+            display: inline-block; /* Required for animation */
+            animation: marquee-scroll 15s linear infinite; /* Add scrolling animation */
+        }
+        @media (min-width: 640px) {
+            .notices-marquee {
+                font-size: 1.125rem;
+            }
+        }
+        .notices-marquee span {
+            margin: 0 0.5rem;
+        }
+        @media (min-width: 640px) {
+            .notices-marquee span {
+                margin: 0 1rem;
+            }
+        }
+
+        /* Animation for scrolling effect */
+        @keyframes marquee-scroll {
+            0% {
+                transform: translateX(100%); /* Start from the right */
+            }
+            100% {
+                transform: translateX(-100%); /* Move to the left */
+            }
+        }
+        /* about section */
+        .about-section {
+            padding: 2rem 1rem;
+            background-color: white;
+        }
+        @media (min-width: 640px) {
+            .about-section {
+                padding: 3rem 1.5rem;
+            }
+        }
+        .about-container {
+            max-width: 72rem;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        @media (min-width: 768px) {
+            .about-container {
+                flex-direction: row;
+            }
+        }
+        .about-content {
+            width: 100%;
+        }
+        @media (min-width: 768px) {
+            .about-content {
+                width: 66.666667%;
+            }
+        }
+        .about-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #5C3A8E;
+            margin-bottom: 1rem;
+        }
+        @media (min-width: 640px) {
+            .about-title {
+                font-size: 1.5rem;
+            }
+        }
+        @media (min-width: 768px) {
+            .about-title {
+                font-size: 1.875rem;
+            }
+        }
+        .about-text {
+            color: #4B5563;
+            font-size: 0.875rem;
+        }
+        @media (min-width: 640px) {
+            .about-text {
+                font-size: 1rem;
+            }
+        }
+        .about-image-container {
+            width: 100%;
+            margin-top: 1.5rem;
+        }
+        @media (min-width: 768px) {
+            .about-image-container {
+                width: 33.333333%;
+                margin-top: 0;
+            }
+        }
+        .about-image {
+            width: 100%;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        /* Classes section */
+        .academic-section {
+            padding: 2rem 1rem;
+        }
+        @media (min-width: 640px) {
+            .academic-section {
+                padding: 3rem 1.5rem;
+            }
+        }
+        .academic-container {
+            max-width: 72rem;
+            margin: 0 auto;
+            position: relative;
+        }
+        .academic-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #5C3A8E;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        @media (min-width: 640px) {
+            .academic-title {
+                font-size: 1.5rem;
+            }
+        }
+        @media (min-width: 768px) {
+            .academic-title {
+                font-size: 1.875rem;
+            }
+        }
+        .academic-grid {
+            display: flex;
+            flex-wrap: nowrap;
+            gap: 1.5rem;
+            overflow-x: auto; /* Enable horizontal scrolling */
+            padding-bottom: 1rem; /* Space for scrollbar */
+            scrollbar-width: thin; /* Firefox */
+            -ms-overflow-style: none; /* IE and Edge */
+        }
+        .academic-grid::-webkit-scrollbar {
+            height: 8px; /* Webkit browsers */
+        }
+        .academic-grid::-webkit-scrollbar-thumb {
+            background-color: #5C3A8E;
+            border-radius: 4px;
+        }
+        @media (max-width: 639px) {
+            .academic-grid {
+                flex-wrap: nowrap; /* Prevent vertical stacking */
+                justify-content: flex-start; /* Align to start */
+            }
+        }
+        @media (min-width: 640px) {
+            .academic-grid {
+                gap: 2rem;
+            }
+        }
+        .class-card {
+            min-width: 180px; /* Fixed width for each card */
+            flex: 0 0 auto; /* Prevent shrinking */
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .class-card-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .class-card-number {
+            font-size: 1.875rem;
+            font-weight: 700;
+            color: #5C3A8E;
+            margin-bottom: 0.5rem;
+        }
+        @media (min-width: 640px) {
+            .class-card-number {
+                font-size: 3rem;
+            }
+        }
+        .class-card-title {
+            color: #5C3A8E;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        @media (min-width: 640px) {
+            .class-card-title {
+                font-size: 1.125rem;
+            }
+        }
+        .class-card-text {
+            color: #4B5563;
+            text-align: center;
+            font-size: 0.875rem;
+            margin-bottom: 0.5rem;
+        }
+        @media (min-width: 640px) {
+            .class-card-text {
+                font-size: 1rem;
+            }
+        }
+        .class-card-link {
+            color: #5C3A8E;
+            font-size: 0.875rem;
+            text-decoration: none;
+        }
+        @media (min-width: 640px) {
+            .class-card-link {
+                font-size: 1rem;
+            }
+        }
+        .class-card-link:hover {
+            text-decoration: underline;
+        }
+        /* News section */
+        .news-section {
+            padding: 2rem 1rem;
+            background-color: #F8F5FF;
+        }
+        @media (min-width: 640px) {
+            .news-section {
+                padding: 3rem 1.5rem;
+            }
+        }
+        .news-container {
+            max-width: 72rem;
+            margin: 0 auto;
+        }
+        .news-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #5C3A8E;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        @media (min-width: 640px) {
+            .news-title {
+                font-size: 1.5rem;
+            }
+        }
+        @media (min-width: 768px) {
+            .news-title {
+                font-size: 1.875rem;
+            }
+        }
+        .news-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+        @media (min-width: 640px) {
+            .news-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+        }
+        @media (min-width: 1024px) {
+            .news-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        .news-card {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 1rem;
+        }
+        @media (min-width: 640px) {
+            .news-card {
+                padding: 1.5rem;
+            }
+        }
+        .news-card-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #5C3A8E;
+            margin-bottom: 0.5rem;
+        }
+        @media (min-width: 640px) {
+            .news-card-title {
+                font-size: 1.25rem;
+            }
+        }
+        .news-card-date {
+            font-size: 0.875rem;
+            color: #4B5563;
+            margin-bottom: 0.5rem;
+        }
+        @media (min-width: 640px) {
+            .news-card-date {
+                font-size: 1rem;
+            }
+        }
+        .news-card-content {
+            margin-bottom: 0.5rem;
+        }
+        .news-card-text {
+            font-size: 0.875rem;
+            color: #4B5563;
+            margin-bottom: 0.5rem;
+        }
+        @media (min-width: 640px) {
+            .news-card-text {
+                font-size: 1rem;
+            }
+        }
+        .news-card-link {
+            font-size: 0.875rem;
+            color: #5C3A8E;
+            text-decoration: none;
+        }
+        @media (min-width: 640px) {
+            .news-card-link {
+                font-size: 1rem;
+            }
+        }
+        .news-card-link:hover {
+            text-decoration: underline;
+        }
+        .news-detail {
+            margin-top: 1rem;
+            display: none;
+        }
+        .news-detail-content {
+            font-size: 1rem;
+            color: #1F2937;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        .news-detail-back {
+            font-size: 1rem;
+            color: #5C3A8E;
+            text-decoration: none;
+        }
+        .news-detail-back:hover {
+            text-decoration: underline;
+        }
+        .hidden {
+            display: none;
+        }
+        .visible {
+            display: block;
+        }
+        /* Chart bar section */
+        .stats-section {
+            padding: 2rem 1rem;
+            background-color: white;
+        }
+        @media (min-width: 640px) {
+            .stats-section {
+                padding: 3rem 1.5rem;
+            }
+        }
+        .stats-container {
+            max-width: 72rem;
+            margin: 0 auto;
+        }
+        .stats-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #5C3A8E;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        @media (min-width: 640px) {
+            .stats-title {
+                font-size: 1.5rem;
+            }
+        }
+        @media (min-width: 768px) {
+            .stats-title {
+                font-size: 1.875rem;
+            }
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+        @media (min-width: 768px) {
+            .stats-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1.5rem;
+            }
+        }
+        .stats-item {
+            text-align: center;
+            padding: 1rem;
+            background-color: #F8F5FF;
+            border-radius: 0.5rem;
+        }
+        .stats-item-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #5C3A8E;
+        }
+        @media (min-width: 640px) {
+            .stats-item-title {
+                font-size: 1.25rem;
+            }
+        }
+        @media (min-width: 768px) {
+            .stats-item-title {
+                font-size: 1.5rem;
+            }
+        }
+        .stats-item-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1F2937;
+        }
+        @media (min-width: 640px) {
+            .stats-item-value {
+                font-size: 1.875rem;
+            }
+        }
+        @media (min-width: 768px) {
+            .stats-item-value {
+                font-size: 2.25rem;
+            }
+        }
+        .stats-chart-container {
+            margin-top: 2rem;
+            width: 100%;
+            max-width: 600px; /* Set a reasonable max width */
+            margin-left: auto;
+            margin-right: auto; /* Center the chart */
+            height: 300px; /* Set a fixed height */
+        }
+        /* event sections */
+        .events-section {
+            padding: 2rem 1rem;
+        }
+        @media (min-width: 640px) {
+            .events-section {
+                padding: 3rem 1.5rem;
+            }
+        }
+        .events-container {
+            max-width: 72rem;
+            margin: 0 auto;
+        }
+        .events-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #5C3A8E;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        @media (min-width: 640px) {
+            .events-title {
+                font-size: 1.5rem;
+            }
+        }
+        @media (min-width: 768px) {
+            .events-title {
+                font-size: 1.875rem;
+            }
+        }
+        .events-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        .event-item {
+            background-color: white;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s;
+        }
+        @media (min-width: 640px) {
+            .event-item {
+                padding: 1.5rem;
+            }
+        }
+        .event-item:hover {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        .event-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #5C3A8E;
+        }
+        @media (min-width: 640px) {
+            .event-title {
+                font-size: 1.25rem;
+            }
+        }
+        .event-text {
+            color: #4B5563;
+            font-size: 0.875rem;
+        }
+        @media (min-width: 640px) {
+            .event-text {
+                font-size: 1rem;
+            }
+        }
+        /* result section */
+        .result-search-section {
+            padding: 2rem 1rem;
+            background-color: white;
+        }
+        @media (min-width: 640px) {
+            .result-search-section {
+                padding: 3rem 1.5rem;
+            }
+        }
+        .result-search-container {
+            max-width: 72rem;
+            margin: 0 auto;
+        }
+        .result-search-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #5C3A8E;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        @media (min-width: 640px) {
+            .result-search-title {
+                font-size: 1.5rem;
+            }
+        }
+        @media (min-width: 768px) {
+            .result-search-title {
+                font-size: 1.875rem;
+            }
+        }
+        .result-search-form {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 1rem;
+        }
+        @media (min-width: 640px) {
+            .result-search-form {
+                flex-direction: row;
+                gap: 1rem;
+            }
+        }
+        .result-search-input {
+            border: 1px solid #5C3A8E;
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+            width: 100%;
+            font-size: 0.875rem;
+        }
+        @media (min-width: 640px) {
+            .result-search-input {
+                width: 50%;
+                font-size: 1rem;
+            }
+        }
+        .result-search-input:focus {
+            outline: none;
+            ring: 2px solid #5C3A8E;
+        }
+        .result-search-button {
+            background-color: #5C3A8E;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            transition: background-color 0.3s;
+            font-size: 0.875rem;
+        }
+        @media (min-width: 640px) {
+            .result-search-button {
+                font-size: 1rem;
+            }
+        }
+        .result-search-button:hover {
+            background-color: #4A2F73;
+        }
+        .result-output {
+            margin-top: 1rem;
+            color: #4B5563;
+            font-size: 0.875rem;
+            padding: 1rem;
+            border-radius: 0.5rem;
+        }
+        @media (min-width: 640px) {
+            .result-output {
+                font-size: 1rem;
+            }
+        }
+        /* Gallery section css */
+        .gallery-section {
+            padding: 2rem 1rem;
+            background-color: white;
+        }
+        @media (min-width: 640px) {
+            .gallery-section {
+                padding: 3rem 1.5rem;
+            }
+        }
+        .gallery-container {
+            max-width: 90rem; /* Increased from 72rem to 90rem */
+            margin: 0 auto;
+        }
+        .gallery-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #5C3A8E;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        @media (min-width: 640px) {
+            .gallery-title {
+                font-size: 1.5rem;
+            }
+        }
+        @media (min-width: 768px) {
+            .gallery-title {
+                font-size: 1.875rem;
+            }
+        }
+        .gallery-slider-container {
+            position: relative;
+        }
+        .gallery-nav-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: #5C3A8E;
+            color: white;
+            padding: 0.5rem;
+            border-radius: 9999px;
+            transition: background-color 0.3s;
+        }
+        .gallery-nav-button:hover {
+            background-color: #4A2F73;
+        }
+        .gallery-prev-button {
+            left: 0;
+        }
+        .gallery-next-button {
+            right: 0;
+        }
+
+        /* Add this to style the gallery items */
+        .gallery-item {
+            width: 20%; /* Adjust width of each item, e.g., 20% of container */
+            margin: 0 0.5rem; /* Add some spacing between items */
+            display: inline-block;
+            vertical-align: top;
+        }
+        .gallery-item img {
+            width: 100%; /* Make images fill the item container */
+            height: auto;
+        }
+
+        /* feedback options */
+        .feedback-section {
+            padding: 2rem 1rem;
+            background-color: white;
+        }
+        @media (min-width: 640px) {
+            .feedback-section {
+                padding: 3rem 1.5rem;
+            }
+        }
+        .feedback-container {
+            max-width: 72rem;
+            margin: 0 auto;
+        }
+        .feedback-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #5C3A8E;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        @media (min-width: 640px) {
+            .feedback-title {
+                font-size: 1.5rem;
+            }
+        }
+        @media (min-width: 768px) {
+            .feedback-title {
+                font-size: 1.875rem;
+            }
+        }
+        .feedback-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .feedback-input {
+            border: 1px solid #5C3A8E;
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+            width: 100%;
+            font-size: 0.875rem;
+        }
+        @media (min-width: 640px) {
+            .feedback-input {
+                font-size: 1rem;
+            }
+        }
+        .feedback-input:focus {
+            outline: none;
+            ring: 2px solid #5C3A8E;
+        }
+        .feedback-textarea {
+            border: 1px solid #5C3A8E;
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+            width: 100%;
+            height: 8rem;
+            font-size: 0.875rem;
+        }
+        @media (min-width: 640px) {
+            .feedback-textarea {
+                font-size: 1rem;
+            }
+        }
+        .feedback-textarea:focus {
+            outline: none;
+            ring: 2px solid #5C3A8E;
+        }
+        .feedback-button {
+            background-color: #5C3A8E;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            transition: background-color 0.3s;
+            font-size: 0.875rem;
+        }
+        @media (min-width: 640px) {
+            .feedback-button {
+                font-size: 1rem;
+            }
+        }
+        .feedback-button:hover {
+            background-color: #4A2F73;
+        }
+        .feedback-output {
+            margin-top: 1rem;
+            color: #4B5563;
+            font-size: 0.875rem;
+        }
+        @media (min-width: 640px) {
+            .feedback-output {
+                font-size: 1rem;
+            }
+        }
+        /* footer section */
+        .footer {
+            background-color: #4A1A47;
+            color: white;
+            padding: 1.5rem 1rem;
+        }
+        @media (min-width: 640px) {
+            .footer {
+                padding: 1.5rem 1.5rem;
+            }
+        }
+        .footer-container {
+            max-width: 72rem;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+        @media (min-width: 640px) {
+            .footer-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+        }
+        @media (min-width: 768px) {
+            .footer-container {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        .footer-section-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        @media (min-width: 640px) {
+            .footer-section-title {
+                font-size: 1.125rem;
+            }
+        }
+        .footer-text {
+            font-size: 0.75rem;
+        }
+        @media (min-width: 640px) {
+            .footer-text {
+                font-size: 0.875rem;
+            }
+        }
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+            font-size: 0.75rem;
+        }
+        @media (min-width: 640px) {
+            .footer-links {
+                font-size: 0.875rem;
+            }
+        }
+        .footer-link {
+            color: white;
+        }
+        .footer-link:hover {
+            color: #FBBF24;
+            text-decoration: underline;
+        }
+        .footer-back-to-top {
+            text-align: center;
+            margin-top: 1rem;
+        }
+        .footer-back-to-top-icon {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+        .footer-back-to-top-icon:hover {
+            color: #FBBF24;
+        }
+        .footer-copyright {
+            background-color: #3A1438;
+            text-align: center;
+            margin-top: 1.5rem;
+            padding: 0.75rem;
+            font-size: 0.75rem;
+        }
+        @media (min-width: 640px) {
+            .footer-copyright {
+                font-size: 0.875rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar with Contact Info and Social Links -->
+    <div class="top-bar">
+        <div class="top-bar-info">
+            <span class="top-bar-title">Sunita Secondary School, Bajhang</span>
+            <span class="top-bar-contact">Email: info@sunitaschool.edu.np | Phone: +977-123-456-7890</span>
+        </div>
+        <div class="social-icons">
+            <a href="https://www.linkedin.com/in/dhanush-bohara-660732358/" target="_blank"><i class="fab fa-linkedin social-icon"></i></a>
+            <a href="https://www.tiktok.com/@mr.dhanushbohara?_t=ZS-8vAFoD0k4nq&_r=1" target="_blank"><i class="fab fa-tiktok social-icon"></i></a>
+            <a href="https://www.facebook.com/profile.php?id=100082124208815" target="_blank"><i class="fab fa-facebook social-icon"></i></a>
+            <a href="https://youtube.com/@kaleproff" target="_blank"><i class="fab fa-youtube social-icon"></i></a>
+        </div>
+    </div>
+
+    <!-- Enhanced Navigation Menu -->
+    <nav class="nav-bar">
+        <div class="nav-logo-container">
+            <button id="hamburger" class="hamburger"><i class="fas fa-bars"></i></button>
+            <span class="nav-logo">Sunita School</span>
+        </div>
+        <ul class="nav-menu">
+            <li><a href="#home" class="nav-item">Home</a></li>
+            <li><a href="#about" class="nav-item">About Us</a></li>
+            <li><a href="#academic" class="nav-item">Academic</a></li>
+            <li><a href="#news" class="nav-item">News</a></li>
+            <li><a href="#notices" class="nav-item">Notices</a></li>
+            <li><a href="#result-search" class="nav-item">Results</a></li>
+            <li><a href="#gallery" class="nav-item">Gallery</a></li>
+        </ul>
+        <div class="nav-search-container">
+            <input type="text" id="quick-search" placeholder="Quick Search..." class="nav-search">
+        </div>
+    </nav>
+
+    <!-- Sidebar for Mobile Navigation -->
+    <div id="sidebar" class="sidebar">
+        <button id="close-sidebar" class="close-sidebar">×</button>
+        <ul class="sidebar-menu">
+            <li><a href="#home" class="sidebar-item">Home</a></li>
+            <li><a href="#about" class="sidebar-item">About Us</a></li>
+            <li><a href="#academic" class="sidebar-item">Academic</a></li>
+            <li><a href="#news" class="sidebar-item">News</a></li>
+            <li><a href="#notices" class="sidebar-item">Notices</a></li>
+            <li><a href="#result-search" class="sidebar-item">Results</a></li>
+            <li><a href="#gallery" class="sidebar-item">Gallery</a></li>
+            <li><a href="#" class="sidebar-item">Publications</a></li>
+            <li><a href="#" class="sidebar-item">Life @ Sunita</a></li>
+            <li><a href="#" class="sidebar-item">Annual Calendar</a></li>
+            <li><a href="#" class="sidebar-item">Scholarships</a></li>
+            <li><a href="#events" class="sidebar-item">Events</a></li>
+            <li><a href="#" class="sidebar-item">Contact Us</a></li>
+        </ul>
+    </div>
+
+    <!-- Hero Section with Image Slider -->
+    <section id="home" class="hero-section animate-section">
+        <div class="hero-content fade-in">
+            <h1 class="hero-title">Welcome to Sunita Secondary School</h1>
+            <p class="hero-subtitle">Empowering Education, Enriching Lives</p>
+        </div>
+        <div class="hero-image-container">
+            <img id="slider-image" src="https://raw.githubusercontent.com/Kale-Pro/dhanushbohara/main/IMG_20240417_171412.jpg" alt="School Image" class="hero-image">
+        </div>
+    </section>
+
+    <!-- Notices Marquee -->
+    <section id="notices" class="notices-section animate-section">
+        <div class="notices-marquee">
+            <span>नोटिस: वार्षिक परीक्षा २०८२ चैत १५ देखि शुरू।</span>
+            <span>नोटिस: अभिभावक-शिक्षक भेटघाट माघ १० गते।</span>
+            <span>नोटिस: खेलकुद सप्ताह फागुन १ देखि।</span>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="about-section animate-section">
+        <div class="about-container">
+            <div class="about-content">
+                <h2 class="about-title">About Us</h2>
+                <p class="about-text">
+                    Sunita Secondary School, Bajhang, established in 1990, is committed to providing quality education in a nurturing environment. We focus on holistic development, academic excellence, and cultural values, preparing students for a bright future.
+                </p>
+            </div>
+            <div class="about-image-container">
+                <img src="https://raw.githubusercontent.com/Kale-Pro/dhanushbohara/main/IMG_20240417_171412.jpg" alt="School Building" class="about-image">
+            </div>
+        </div>
+    </section>
+
+    <!-- Academic Classes Section -->
+    <section id="academic" class="academic-section animate-section">
+        <div class="academic-container">
+            <h2 class="academic-title">Our Classes</h2>
+            <div class="academic-grid">
+                <div class="class-card">
+                    <div class="class-card-content">
+                        <h3 class="class-card-number">1</h3>
+                        <p class="class-card-title">Class 1</p>
+                        <p class="class-card-text">Students: 30<br>Teacher: Ms. Rita Sharma</p>
+                        <a href="#" class="class-card-link" onclick="return false;">Explore...</a>
+                    </div>
+                </div>
+                <div class="class-card">
+                    <div class="class-card-content">
+                        <h3 class="class-card-number">2</h3>
+                        <p class="class-card-title">Class 2</p>
+                        <p class="class-card-text">Students: 28<br>Teacher: Mr. Hari Thapa</p>
+                        <a href="#" class="class-card-link" onclick="return false;">Explore...</a>
+                    </div>
+                </div>
+                <div class="class-card">
+                    <div class="class-card-content">
+                        <h3 class="class-card-number">3</h3>
+                        <p class="class-card-title">Class 3</p>
+                        <p class="class-card-text">Students: 27<br>Teacher: Ms. Anita Karki</p>
+                        <a href="#" class="class-card-link" onclick="return false;">Explore...</a>
+                    </div>
+                </div>
+                <div class="class-card">
+                    <div class="class-card-content">
+                        <h3 class="class-card-number">4</h3>
+                        <p class="class-card-title">Class 4</p>
+                        <p class="class-card-text">Students: 26<br>Teacher: Mr. Rajesh Singh</p>
+                        <a href="#" class="class-card-link" onclick="return false;">Explore...</a>
+                    </div>
+                </div>
+                <div class="class-card">
+                    <div class="class-card-content">
+                        <h3 class="class-card-number">5</h3>
+                        <p class="class-card-title">Class 5</p>
+                        <p class="class-card-text">Students: 25<br>Teacher: Ms. Sunita Gurung</p>
+                        <a href="#" class="class-card-link" onclick="return false;">Explore...</a>
+                    </div>
+                </div>
+                <div class="class-card">
+                    <div class="class-card-content">
+                        <h3 class="class-card-number">6</h3>
+                        <p class="class-card-title">Class 6</p>
+                        <p class="class-card-text">Students: 24<br>Teacher: Mr. Suresh Adhikari</p>
+                        <a href="#" class="class-card-link" onclick="return false;">Explore...</a>
+                    </div>
+                </div>
+                <div class="class-card">
+                    <div class="class-card-content">
+                        <h3 class="class-card-number">7</h3>
+                        <p class="class-card-title">Class 7</p>
+                        <p class="class-card-text">Students: 23<br>Teacher: Ms. Laxmi Thapa</p>
+                        <a href="#" class="class-card-link" onclick="return false;">Explore...</a>
+                    </div>
+                </div>
+                <div class="class-card">
+                    <div class="class-card-content">
+                        <h3 class="class-card-number">8</h3>
+                        <p class="class-card-title">Class 8</p>
+                        <p class="class-card-text">Students: 22<br>Teacher: Mr. Prakash Sharma</p>
+                        <a href="#" class="class-card-link" onclick="return false;">Explore...</a>
+                    </div>
+                </div>
+                <div class="class-card">
+                    <div class="class-card-content">
+                        <h3 class="class-card-number">9</h3>
+                        <p class="class-card-title">Class 9</p>
+                        <p class="class-card-text">Students: 21<br>Teacher: Ms. Saraswoti Rai</p>
+                        <a href="#" class="class-card-link" onclick="return false;">Explore...</a>
+                    </div>
+                </div>
+                <div class="class-card">
+                    <div class="class-card-content">
+                        <h3 class="class-card-number">10</h3>
+                        <p class="class-card-title">Class 10</p>
+                        <p class="class-card-text">Students: 20<br>Teacher: Mr. Binod K.C.</p>
+                        <a href="#" class="class-card-link" onclick="return false;">Explore...</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- News Section -->
+    <section id="news" class="news-section animate-section">
+        <div class="news-container">
+            <h2 class="news-title">Latest News</h2>
+            <div class="news-grid">
+                <div class="news-card">
+                    <h3 class="news-card-title">Annual Sports Day 2025</h3>
+                    <p class="news-card-date">May 30, 2025</p>
+                    <div id="content-1" class="news-card-content visible">
+                        <p class="news-card-text">Join us for the Annual Sports Day event featuring various activities and competitions for all students.</p>
+                        <a href="#" class="news-card-link" onclick="toggleDetails('content-1', 'detail-1'); return false;">More...</a>
+                    </div>
+                    <div id="detail-1" class="news-detail hidden">
+                        <p class="news-detail-content">
+                            The Annual Sports Day 2025 will be held on May 30 at the school sports ground. Events include track races, football, volleyball, and more. All students, parents, and staff are invited to participate and cheer for the teams.
+                        </p>
+                        <a href="#" class="news-detail-back" onclick="toggleDetails('content-1', 'detail-1'); return false;">Back</a>
+                    </div>
+                </div>
+                <div class="news-card">
+                    <h3 class="news-card-title">Science Exhibition Winners</h3>
+                    <p class="news-card-date">May 25, 2025</p>
+                    <div id="content-2" class="news-card-content visible">
+                        <p class="news-card-text">Congratulations to the winners of this year's Science Exhibition! Check out their amazing projects.</p>
+                        <a href="#" class="news-card-link" onclick="toggleDetails('content-2', 'detail-2'); return false;">More...</a>
+                    </div>
+                    <div id="detail-2" class="news-detail hidden">
+                        <p class="news-detail-content">The Science Exhibition 2025 featured an impressive array of innovative projects from our students. Winners were selected based on creativity, scientific accuracy, and presentation skills. Highlights included a working model of a solar-powered car and a detailed study on local biodiversity. Congratulations to all participants and a special shoutout to the winning teams from Class 7 and Class 9!</p>
+                        <a href="#" class="news-detail-back" onclick="toggleDetails('content-2', 'detail-2'); return false;">Back</a>
+                    </div>
+                </div>
+                <div class="news-card">
+                    <h3 class="news-card-title">Parent-Teacher Meeting</h3>
+                    <p class="news-card-date">May 20, 2025</p>
+                    <div id="content-3" class="news-card-content visible">
+                        <p class="news-card-text">A Parent-Teacher Meeting will be held to discuss student progress and upcoming events.</p>
+                        <a href="#" class="news-card-link" onclick="toggleDetails('content-3', 'detail-3'); return false;">Read More...</a>
+                    </div>
+                    <div id="detail-3" class="news-detail hidden">
+                        <p class="news-detail-content">The Parent-Teacher Meeting scheduled for May 20, 2025, provided a valuable opportunity for parents to discuss their children's academic performance and behavior with teachers. Key topics included upcoming exams, extracurricular activities, and strategies for student improvement. The meeting concluded with a positive outlook and plans for future engagements.</p>
+                        <a href="#" class="news-detail-back" onclick="toggleDetails('content-3', 'detail-3'); return false;">Back</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Student Statistics Section -->
+    <section id="stats" class="stats-section animate-section">
+        <div class="stats-container">
+            <h2 class="stats-title">Student Statistics</h2>
+            <div class="stats-grid">
+                <div class="stats-item">
+                    <h3 class="stats-item-title">Total Students</h3>
+                    <p class="stats-item-value">500</p>
+                </div>
+                <div class="stats-item">
+                    <h3 class="stats-item-title">Pass Students</h3>
+                    <p class="stats-item-value">450</p>
+                </div>
+                <div class="stats-item">
+                    <h3 class="stats-item-title">Fail Students</h3>
+                    <p class="stats-item-value">100</p>
+                </div>
+            </div>
+            <div class="stats-chart-container">
+                <canvas id="statsChart" class="w-full h-auto"></canvas>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section id="events" class="events-section animate-section">
+        <div class="events-container">
+            <h2 class="events-title">Events</h2>
+            <div class="events-list">
+                <div class="event-item">
+                    <h3 class="event-title">Upcoming: Annual Sports Week</h3>
+                    <p class="event-text">Date: Falgun 1, 2082<br>Description: Join us for a week of exciting sports activities.</p>
+                </div>
+                <div class="event-item">
+                    <h3 class="event-title">Past: Science Exhibition</h3>
+                    <p class="event-text">Date: Mangsir 15, 2081<br>Description: Students showcased innovative projects.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Result Search Section -->
+    <section id="result-search" class="result-search-section animate-section">
+        <div class="result-search-container">
+            <h2 class="result-search-title">Result Search</h2>
+            <div class="result-search-form">
+                <input id="search-input" type="text" placeholder="Enter EIMS Number" class="result-search-input">
+                <button onclick="searchResult()" class="result-search-button">Search</button>
+            </div>
+            <div id="result-output" class="result-output"></div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery-section animate-section">
+        <div class="gallery-container">
+            <h2 class="gallery-title">Gallery</h2>
+            <div class="gallery-slider-container">
+                <div id="gallery-container" class="flex">
+                    <!-- Gallery items will be dynamically added here -->
+                </div>
+                <button onclick="prevGallerySlide()" class="gallery-nav-button gallery-prev-button">←</button>
+                <button onclick="nextGallerySlide()" class="gallery-nav-button gallery-next-button">→</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Full-Screen Image Viewer -->
+    <div id="fullscreen-viewer">
+        <img id="fullscreen-image" src="" alt="Full-screen Image">
+        <p id="fullscreen-caption" class="text-white text-lg mt-4"></p>
+        <button onclick="closeFullscreen()" class="absolute top-4 right-4 text-white text-2xl focus:outline-none">×</button>
+    </div>
+
+    <!-- Feedback Section -->
+    <section id="feedback" class="feedback-section animate-section">
+        <div class="feedback-container">
+            <h2 class="feedback-title">Leave a Comment or Feedback</h2>
+            <div class="feedback-form">
+                <input type="text" id="feedback-name" placeholder="Your Name (Optional)" class="feedback-input">
+                <input type="email" id="feedback-email" placeholder="Your Email (Optional)" class="feedback-input">
+                <input type="tel" id="feedback-phone" placeholder="Your Phone Number (Optional)" class="feedback-input">
+                <textarea id="feedback-text" placeholder="Your comment or feedback..." class="feedback-textarea"></textarea>
+                <button onclick="submitFeedback()" class="feedback-button">Submit</button>
+            </div>
+            <div id="feedback-output" class="feedback-output"></div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div>
+                <h3 class="footer-section-title">Sunita Secondary School</h3>
+                <p class="footer-text">Bajhang, Nepal<br>Email: info@sunitaschool.edu.np</p>
+            </div>
+            <div>
+                <h3 class="footer-section-title">Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#about" class="footer-link">About</a></li>
+                    <li><a href="#result-search" class="footer-link">Results</a></li>
+                    <li><a href="#gallery" class="footer-link">Gallery</a></li>
+                    <li><a href="#" class="footer-link">Publications</a></li>
+                    <li><a href="#" class="footer-link">Annual Calendar</a></li>
+                    <li><a href="#events" class="footer-link">Events</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="footer-section-title">Contact Us</h3>
+                <p class="footer-text">Phone: +977-123-456-7890<br>Address: Bajhang, Nepal</p>
+            </div>
+        </div>
+        <div class="footer-back-to-top">
+            <a href="#home" class="footer-back-to-top-icon"><i class="fas fa-arrow-up"></i></a>
+        </div>
+        <div class="footer-copyright">
+            © 2082 Sunita Secondary School. All rights reserved. | Current Date & Time: 12:57 PM +0545, Monday, June 02, 2025
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Initialize Chart.js for Student Statistics
+        const ctx = document.getElementById('statsChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Total Students', 'Pass Students', 'Fail Students'],
+                datasets: [{
+                    label: 'Student Statistics',
+                    data: [500, 450, 100],
+                    backgroundColor: ['#5C3A8E', '#A78BFA', '#E9E7F7'],
+                    borderColor: ['#4A2F73', '#7C6EBB', '#D1CFF5'],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: { display: true, text: 'Number of Students' }
+                    },
+                    x: {
+                        title: { display: true, text: 'Category' }
+                    }
+                },
+                plugins: {
+                    legend: { position: 'top', labels: { font: { size: 14 } } },
+                    title: { display: true, text: 'Student Performance Overview', font: { size: 18 } }
+                }
+            }
+        });
+
+        // Hamburger Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const sidebar = document.getElementById('sidebar');
+        const closeSidebar = document.getElementById('close-sidebar');
+
+        hamburger.addEventListener('click', () => {
+            sidebar.classList.add('open');
+            gsap.from(sidebar.querySelectorAll('li'), { x: -20, opacity: 0, stagger: 0.1, duration: 0.5 });
+        });
+
+        closeSidebar.addEventListener('click', () => {
+            sidebar.classList.remove('open');
+        });
+
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Photo Slider for Hero Section
+        const images = [
+            'https://raw.githubusercontent.com/Kale-Pro/dhanushbohara/main/IMG_20240417_171412.jpg',
+            'https://raw.githubusercontent.com/Kale-Pro/dhanushbohara/main/1712622553138.jpg',
+            'https://images.unsplash.com/photo-1600585154347-6e7e7e5b7d0f',
+            'https://www.shutterstock.com/image-photo/group-indian-school-students-classroom-260nw-2116758467.jpg',
+            'https://wordinblack.com/wp-content/uploads/2024/10/freedom-schools-1024x683.jpg'
+        ];
+        let currentImage = 0;
+        function updateSlider() {
+            const img = document.getElementById('slider-image');
+            gsap.to(img, {
+                opacity: 0,
+                duration: 0.5,
+                onComplete: () => {
+                    img.src = images[currentImage];
+                    gsap.to(img, { opacity: 1, duration: 0.5 });
+                }
+            });
+        }
+        function nextSlide() {
+            currentImage = (currentImage + 1) % images.length;
+            updateSlider();
+        }
+        function prevSlide() {
+            currentImage = (currentImage - 1 + images.length) % images.length;
+            updateSlider();
+        }
+        setInterval(nextSlide, 5000);
+
+        // Gallery Slider
+        const galleryImages = [
+            { src: 'https://raw.githubusercontent.com/kale-pro/dhanushbohara/main/1695652800202.jpg', caption: 'Annual Day Celebration' },
+            { src: 'https://raw.githubusercontent.com/kale-pro/dhanushbohara/main/1704016540957.jpg', caption: 'Science Exhibition' },
+            { src: 'https://raw.githubusercontent.com/kale-pro/dhanushbohara/main/1724945586223.jpg', caption: 'Sports Day' },
+            { src: 'https://raw.githubusercontent.com/kale-pro/dhanushbohara/main/IMG-20230429-WA0004.jpg', caption: 'Cultural Program' }
+        ];
+        function populateGallery() {
+            const container = document.getElementById('gallery-container');
+            galleryImages.forEach((item, index) => {
+                const div = document.createElement('div');
+                div.className = 'gallery-item';
+                div.innerHTML = `
+                    <img class="gallery-image" src="${item.src}" alt="School Event ${index + 1}">
+                    <p class="gallery-caption">${item.caption}</p>
+                `;
+                div.querySelector('img').addEventListener('click', () => openFullscreen(item.src, item.caption));
+                container.appendChild(div);
+            });
+        }
+        function getVisibleItems() {
+            if (window.innerWidth <= 640) return 2;
+            if (window.innerWidth <= 768) return 3;
+            return 4;
+        }
+        function nextGallerySlide() {
+            const container = document.getElementById('gallery-container');
+            const itemWidth = container.querySelector('.gallery-item').offsetWidth;
+            const visibleItems = getVisibleItems();
+            container.scrollLeft += itemWidth * visibleItems;
+            if (container.scrollLeft >= container.scrollWidth - container.clientWidth) {
+                container.scrollLeft = 0;
+            }
+            gsap.from(container.children, { opacity: 0, x: 20, stagger: 0.1, duration: 0.5 });
+        }
+        function prevGallerySlide() {
+            const container = document.getElementById('gallery-container');
+            const itemWidth = container.querySelector('.gallery-item').offsetWidth;
+            const visibleItems = getVisibleItems();
+            container.scrollLeft -= itemWidth * visibleItems;
+            if (container.scrollLeft <= 0) {
+                container.scrollLeft = container.scrollWidth - container.clientWidth;
+            }
+            gsap.from(container.children, { opacity: 0, x: -20, stagger: 0.1, duration: 0.5 });
+        }
+        populateGallery();
+        window.addEventListener('resize', () => {
+            const container = document.getElementById('gallery-container');
+            container.scrollLeft = 0;
+        });
+
+        // Full-Screen Image Viewer Functions
+        function openFullscreen(src, caption) {
+            const viewer = document.getElementById('fullscreen-viewer');
+            const img = document.getElementById('fullscreen-image');
+            const cap = document.getElementById('fullscreen-caption');
+            img.src = src;
+            cap.textContent = caption;
+            viewer.style.display = 'flex';
+            gsap.from(img, { scale: 0.8, opacity: 0, duration: 0.5 });
+        }
+        function closeFullscreen() {
+            const viewer = document.getElementById('fullscreen-viewer');
+            gsap.to(viewer, {
+                opacity: 0,
+                duration: 0.5,
+                onComplete: () => {
+                    viewer.style.display = 'none';
+                }
+            });
+        }
+                    // News Section Toggle Details
+        function toggleDetails(contentId, detailId) {
+            const content = document.getElementById(contentId);
+            const detail = document.getElementById(detailId);
+            if (content && detail) {
+                if (content.classList.contains('visible')) {
+                    content.classList.remove('visible');
+                    content.classList.add('hidden');
+                    detail.classList.remove('hidden');
+                    detail.classList.add('visible');
+                } else {
+                    content.classList.remove('hidden');
+                    content.classList.add('visible');
+                    detail.classList.remove('visible');
+                    detail.classList.add('hidden');
+                }
+            }
+        }
+
+        // Admin Dashboard Toggle (Placeholder)
+        function showAdminDashboard() {
+            console.warn('Admin dashboard not implemented in this version.');
+        }
+
+        // Result Search with EIMS Number
+        const sampleResults = [
+            { name: "Ram Thapa", eims: "1001", marks: 85, status: "Pass" },
+            { name: "Sita Gurung", eims: "1002", marks: 90, status: "Pass" },
+            { name: "Hari Sharma", eims: "1003", marks: 78, status: "Pass" },
+            { name: "Gita Nepali", eims: "1004", marks: 45, status: "Fail" }
+        ];
+        function searchResult() {
+            const input = document.getElementById('search-input').value.trim();
+            const output = document.getElementById('result-output');
+            if (!input) {
+                output.innerHTML = '<div class="bg-red-100 p-4 rounded-lg">Please enter an EIMS Number.</div>';
+                gsap.from(output, { opacity: 0, y: 20, duration: 0.5 });
+                return;
+            }
+            const result = sampleResults.find(r => r.eims === input);
+            output.innerHTML = result
+                ? `<div class="${result.status === 'Pass' ? 'bg-green-100' : 'bg-red-100'} p-4 rounded-lg">
+                    Name: ${result.name}<br>
+                    EIMS Number: ${result.eims}<br>
+                    Marks: ${result.marks}<br>
+                    Status: ${result.status}
+                   </div>`
+                : '<div class="bg-red-100 p-4 rounded-lg">No results found for EIMS Number: ' + input + '</div>';
+            gsap.from(output, { opacity: 0, y: 20, duration: 0.5 });
+        }
+
+        // Admin Result Upload
+        function uploadResult() {
+            const name = document.getElementById('student-name')?.value;
+            const eims = document.getElementById('symbol-number')?.value;
+            const marks = document.getElementById('marks')?.value;
+            const status = document.getElementById('pass-fail')?.value;
+            if (!name || !eims || !marks || !status) {
+                console.warn('Result upload inputs not found or incomplete.');
+                return;
+            }
+            const students = JSON.parse(localStorage.getItem('students') || '[]');
+            students.push({ name, eims, marks, status });
+            localStorage.setItem('students', JSON.stringify(students));
+            updateStudentList();
+            document.getElementById('student-name').value = '';
+            document.getElementById('symbol-number').value = '';
+            document.getElementById('marks').value = '';
+        }
+
+        // Update Student List in Admin Dashboard
+        function updateStudentList() {
+            const students = JSON.parse(localStorage.getItem('students') || '[]');
+            const list = document.getElementById('student-list');
+            if (!list) {
+                console.warn('Student list element not found.');
+                return;
+            }
+            list.innerHTML = students.length
+                ? students.map(s => `
+                    <p class="p-2 ${s.status === 'Pass' ? 'bg-green-100' : 'bg-red-100'} rounded">
+                        Name: ${s.name}, EIMS: ${s.eims}, Marks: ${s.marks}, Status: ${s.status}
+                    </p>`).join('')
+                : '<p class="p-2 bg-gray-100 roundup">No students added.</p>';
+            gsap.from(list.children, { opacity: 0, y: 20, stagger: 0.1, duration: 0.5 });
+        }
+        updateStudentList();
+
+        // Feedback Submission
+        function submitFeedback() {
+            const feedback = document.getElementById('feedback-text').value;
+            const name = document.getElementById('feedback-name').value || 'Anonymous';
+            const email = document.getElementById('feedback-email').value || 'Not provided';
+            const phone = document.getElementById('feedback-phone').value || 'Not provided';
+            const output = document.getElementById('feedback-output');
+            if (!feedback) {
+                output.innerHTML = '<div class="bg-red-100 p-4 rounded-lg">Please provide feedback.</div>';
+                gsap.from(output, { opacity: 0, y: 20, duration: 0.5 });
+                return;
+            }
+            output.innerHTML = `
+                <div class="bg-green-100 p-4 rounded-lg">
+                    Thank you, ${name}, for your feedback: "${feedback}"<br>
+                    Email: ${email}<br>
+                    Phone: ${phone}
+                </div>`;
+            gsap.from(output, { opacity: 0, y: 20, duration: 0.5 });
+            document.getElementById('feedback-name').value = '';
+            document.getElementById('feedback-email').value = '';
+            document.getElementById('feedback-phone').value = '';
+            document.getElementById('feedback-text').value = '';
+        }
+
+        // Scroll Animations
+        gsap.registerPlugin(ScrollTrigger);
+        document.querySelectorAll('.animate-section').forEach((section, index) => {
+            const direction = index % 2 === 0 ? 'left' : 'right';
+            gsap.from(section, {
+                scrollTrigger: {
+                    trigger: section,
+                    start: 'top 80%',
+                    toggleActions: 'play none none none'
+                },
+                x: direction === 'left' ? -100 : 100,
+                opacity: 0,
+                duration: 1,
+                ease: 'power2.out'
+            });
+        });
+
+        // Quick Search Functionality
+        document.getElementById('quick-search').addEventListener('input', (e) => {
+            const value = e.target.value.toLowerCase();
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                const text = section.textContent.toLowerCase();
+                section.style.display = text.includes(value) || value === '' ? 'block' : 'none';
+            });
+        });
+
+        // Preload images to avoid flickering
+        function preloadImages() {
+            images.forEach(src => {
+                const img = new Image();
+                img.src = src;
+            });
+            galleryImages.forEach(item => {
+                const img = new Image();
+                img.src = item.src;
+            });
+        }
+        preloadImages();
+    </script>
+</body>
+</html>
