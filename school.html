@@ -933,7 +933,6 @@
                 font-size: 1rem;
             }
         }
-        /* teachers section */
 /* Teachers Section Styling */
 #teachers {
     padding: 3rem 0;
@@ -1070,7 +1069,8 @@
 
 #teachers .animate-section.visible {
     opacity: 1;
-}       /* result section */
+}    
+   /* result section */
         .result-search-section {
             padding: 2rem 1rem;
             background-color: white;
@@ -1932,8 +1932,7 @@
             © 2082 Sunita Secondary School. All rights reserved. | 2025
         </div>
     </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
         // Initialize Chart.js for Student Statistics
         const ctx = document.getElementById('statsChart').getContext('2d');
@@ -2052,7 +2051,7 @@
         heroContainer.addEventListener('mouseleave', () => {
             autoSlide = setInterval(nextSlide, 5000);
         });
-        // Gallery Slider
+               // Gallery Slider
         const galleryImages = [
             { src: 'https://raw.githubusercontent.com/kale-pro/dhanushbohara/main/1695652800202.jpg', caption: 'Annual Day Celebration' },
             { src: 'https://raw.githubusercontent.com/kale-pro/dhanushbohara/main/1704016540957.jpg', caption: 'Science Exhibition' },
@@ -2143,10 +2142,6 @@
         }
 
         // Admin Dashboard Toggle (Placeholder)
-        function showAdminDashboard() {
-            console.warn('Admin dashboard not implemented in this version.');
-        }
-
         // Result Search with EIMS Number
         const sampleResults = [
             { name: "Ram Thapa", eims: "1001", marks: 85, status: "Pass" },
@@ -2175,42 +2170,7 @@
         }
 
         // Admin Result Upload
-        function uploadResult() {
-            const name = document.getElementById('student-name')?.value;
-            const eims = document.getElementById('symbol-number')?.value;
-            const marks = document.getElementById('marks')?.value;
-            const status = document.getElementById('pass-fail')?.value;
-            if (!name || !eims || !marks || !status) {
-                console.warn('Result upload inputs not found or incomplete.');
-                return;
-            }
-            const students = JSON.parse(localStorage.getItem('students') || '[]');
-            students.push({ name, eims, marks, status });
-            localStorage.setItem('students', JSON.stringify(students));
-            updateStudentList();
-            document.getElementById('student-name').value = '';
-            document.getElementById('symbol-number').value = '';
-            document.getElementById('marks').value = '';
-        }
-
         // Update Student List in Admin Dashboard
-        function updateStudentList() {
-            const students = JSON.parse(localStorage.getItem('students') || '[]');
-            const list = document.getElementById('student-list');
-            if (!list) {
-                console.warn('Student list element not found.');
-                return;
-            }
-            list.innerHTML = students.length
-                ? students.map(s => `
-                    <p class="p-2 ${s.status === 'Pass' ? 'bg-green-100' : 'bg-red-100'} rounded">
-                        Name: ${s.name}, EIMS: ${s.eims}, Marks: ${s.marks}, Status: ${s.status}
-                    </p>`).join('')
-                : '<p class="p-2 bg-gray-100 roundup">No students added.</p>';
-            gsap.from(list.children, { opacity: 0, y: 20, stagger: 0.1, duration: 0.5 });
-        }
-        updateStudentList();
-
         // Feedback Submission
         function submitFeedback() {
             const feedback = document.getElementById('feedback-text').value;
@@ -2237,9 +2197,9 @@
         }
 
         // Scroll Animations
-        gsap.registerPlugin(ScrollTrigger);
+     gsap.registerPlugin(ScrollTrigger);
         document.querySelectorAll('.animate-section').forEach((section, index) => {
-            const direction = index % 2 === 0 ? 'left' : 'right';
+            const direction = index % 1 === 0 ? 'left' : 'right';
             gsap.from(section, {
                 scrollTrigger: {
                     trigger: section,
@@ -2252,6 +2212,8 @@
                 ease: 'power2.out'
             });
         });
+
+
 
         // Quick Search Functionality
         document.getElementById('quick-search').addEventListener('input', (e) => {
