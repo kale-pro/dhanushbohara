@@ -41,19 +41,19 @@
     </script>
 
     <style>
-        /* CSS Variables for Theme Support */
+       /* CSS Variables for Theme Support */
         :root {
-            --primary: #1a1a1a; 
-            --secondary: #ff4655; 
-            --text: #ffffff; 
+            --primary: #1a1a1a;
+            --secondary: #ff4655;
+            --text: #ffffff;
             --bg: #0a0a0a;
         }
 
         /* Light Mode Variables */
         [data-theme="light"] {
-            --primary: #ffffff; 
-            --text: #1a1a1a; 
-            --bg: #f0f0f0; 
+            --primary: #ffffff;
+            --text: #1a1a1a;
+            --bg: #f0f0f0;
         }
 
         /* Global Reset and Transitions */
@@ -69,6 +69,10 @@
             background: var(--bg);
             color: var(--text);
             line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            gap: 0;
         }
 
         /* Navigation Bar */
@@ -153,13 +157,15 @@
 
         /* Hero Section */
         .hero {
-            height: 100vh;
+            height: auto;
+            min-height: 60vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             position: relative;
             overflow: hidden;
+            padding: 2rem;
         }
 
         #particles-js {
@@ -186,13 +192,24 @@
             opacity: 0.9;
         }
 
+        /* General Section Styling */
         section {
-            padding: 5rem 2rem;
-            min-height: 100vh;
-            scroll-margin-top: 2rem;
+            padding: 2rem;
+            min-height: auto;
+            scroll-margin-top: 4rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 1rem;
         }
 
-        /* Responsive Design for Navbar */
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        /* Responsive Design for Navbar and Sections */
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.5rem; }
             .nav-links {
@@ -213,6 +230,8 @@
             }
             .nav-links.active { display: flex; }
             .menu-toggle { display: block; }
+            section { padding: 1.5rem; }
+            .hero { min-height: 50vh; }
         }
 
         @keyframes fadeIn {
@@ -342,7 +361,6 @@
             text-align: justify;
         }
 
-        /* Styling for the about photo */
         .profile-img {
             float: right;
             width: 300px;
@@ -359,8 +377,8 @@
             gap: 1rem;
             padding: 1rem 0;
             max-width: 100%;
-            scrollbar-width: thin; /* For Firefox */
-            scrollbar-color: #888 #f1f1f1; /* For Firefox */
+            scrollbar-width: thin;
+            scrollbar-color: #888 #f1f1f1;
         }
 
         .gallery-container::-webkit-scrollbar {
@@ -399,7 +417,6 @@
             cursor: pointer;
         }
 
-        /* Fullscreen Modal */
         .fullscreen-modal {
             display: none;
             position: fixed;
@@ -439,7 +456,7 @@
             text-decoration: none;
         }
 
-        /* Responsive design */
+        /* Responsive Design for About and Gallery */
         @media (max-width: 600px) {
             .profile-img {
                 float: none;
@@ -458,311 +475,380 @@
             }
         }
 
-                /* Skills Section */
+        /* Skills Section */
         .skills-grid {
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-                gap: 2rem;
-                max-width: 1000px;
-                margin: 2rem auto;
-            }
-            #skill {
-                text-align: center;
-            }
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 2rem auto;
+        }
 
-            .skill {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                padding: 1.5rem;
-                background: rgba(255, 255, 255, 0.05);
-                border-radius: 10px;
-                transition: transform 0.3s ease;
-                cursor: pointer;
-            }
-
-            .skill:hover {
-                transform: translateY(-5px);
-            }
-
-            .skill img, .skill i {
-                width: 24px;
-                height: 24px;
-                margin-bottom: 1rem;
-            }
-            /* story and palce discribe */
-            .custom-button {
-            padding: 10px 20px;
+        #skill {
             text-align: center;
-            background: linear-gradient(45deg, #0159b6, #00090e);
-            color: white;
-            font-family: 'Pacifico', cursive; /* Fancy font */
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Shadow for glow effect */
+        }
+
+        .skill {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .skill:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill img, .skill i {
+            width: 24px;
+            height: 24px;
+            margin-bottom: 1rem;
+        }
+
+        /* Story and Place Description */
+        .story-section {
+        padding: 2rem;
+        text-align: center;
+        max-width: 100vw;
+        box-sizing: border-box;
+        }
+
+        .card-container {
+        display: flex;
+        flex-wrap: nowrap; /* Prevents wrapping for horizontal scroll */
+        gap: 1.5rem;
+        margin: 0 auto;
+        padding: 0 1rem;
+        box-sizing: border-box;
+        overflow-x: auto; /* Enables horizontal scrolling */
+        scroll-behavior: smooth; /* Smooth scrolling */
+        -webkit-overflow-scrolling: touch; /* Smooth scrolling on touch devices */
+        width: calc(4 * 250px + 3 * 1.5rem); /* 4 cards * 250px width + 3 gaps * 1.5rem */
+        max-width: 100%; /* Prevents container from exceeding viewport */
+        }
+
+        .card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-decoration: none;
+        background-color: var(--card-bg);
+        border-radius: 0.5rem;
+        box-shadow: var(--card-shadow);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        overflow: hidden;
+        flex: 0 0 250px; /* Fixed width for each card */
+        max-width: 250px; /* Ensures consistent card width */
+        }
+
+        .card:hover:not(.disabled) {
+        transform: translateY(-5px);
+        box-shadow: var(--hover-shadow);
+        }
+
+        .card-image {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-top-left-radius: 0.5rem;
+        border-top-right-radius: 0.5rem;
+        }
+
+        .card-title {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: var(--title-color);
+        padding: 1rem;
+        margin: 0;
+        }
+
+        .card.disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+        pointer-events: none;
+        }
+
+        .card.disabled .card-image {
+        filter: grayscale(100%);
+        }
+
+        @media (max-width: 600px) {
+        .card-container {
+            width: calc(2 * 200px + 1 * 1.5rem); /* Show 2 cards on mobile */
+            flex-wrap: nowrap; /* Maintain horizontal scroll */
+        }
+
+        .card {
+            flex: 0 0 200px; /* Smaller cards on mobile */
+            max-width: 200px;
+        }
+
+        .card-image {
+            height: 150px;
+        }
+        }
+
+        @media (prefers-color-scheme: dark) {
+        :root {
+
+
+            --text-color: #e0e0e0;
+            --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+            --hover-shadow: 0 6px 12px rgba(0, 0, 0, 0.7);
+            --title-color: #ffffff, black;
+        }
+        }
+        /* Project Section */
+        .projects-section {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .projects-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .project-card {
+            background: var(--bg);
+            border-radius: 10px;
+            padding: 1.25rem;
+            border: 1px solid var(--primary);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            will-change: transform, box-shadow;
+            transform-style: preserve-3d;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.4s ease;
+        }
+
+        .project-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(45deg, #0ed87a, #51d1f5);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: -1;
+        }
+
+        .project-card:hover::before {
+            opacity: 0.08;
+        }
+
+        .project-title {
+            font-size: 1.4rem;
+            margin-bottom: 0.75rem;
+            color: var(--text);
+            font-weight: 600;
+            background: linear-gradient(45deg, #4800fd, #011f2c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .project-description {
+            color: var(--text);
+            line-height: 1.5;
+            font-size: 0.9rem;
+        }
+
+        .tilt {
+            transition: transform 0.4s ease;
+        }
+
+        @media (min-width: 768px) {
+            .projects-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .project-card:nth-child(1) { transition-delay: 0.1s; }
+        .project-card:nth-child(2) { transition-delay: 0.2s; }
+        .project-card:nth-child(3) { transition-delay: 0.3s; }
+        .project-card:nth-child(4) { transition-delay: 0.4s; }
+        .project-card:nth-child(5) { transition-delay: 0.5s; }
+        .project-card:nth-child(6) { transition-delay: 0.6s; }
+
+        /* Contact and Comment Box */
+        .cc-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .contact-box, .comment-box {
+            padding: 30px;
+            border-radius: 12px;
+            width: 530px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            text-align: left;
+            margin: 30px 0;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .contact-box p {
+            margin: 10px 0;
+            font-size: 16px;
+        }
+
+        .contact-box i {
+            margin-right: 10px;
+            color: #007bff;
+        }
+
+        .contact-form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border: none;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.2);
+            color: var(--text);
+        }
+
+        .contact-form input::placeholder,
+        .contact-form textarea::placeholder {
+            color: #ccc;
+        }
+
+        .contact-form button {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(45deg, hsl(235, 66%, 29%), hsl(324, 100%, 50%));
+            color: var(--text);
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            font-size: 20px;
-            transition: background 0.3s, transform 0.2s;
-            }
+            font-size: 16px;
+        }
 
-            .custom-button:hover {
-            background: linear-gradient(45deg, #00090e, #0159b6);
-            transform: scale(1.05); /* Slight grow on hover */
-            }
+        .contact-form button:hover {
+            background: #ff0793;
+        }
 
- /* Project section */
-            .projects-section {
-                padding: 3rem 1.5rem;
-                max-width: 1200px;
-                margin: 0 auto;
-                opacity: 0; /* Start hidden for entrance animation */
-                transform: translateY(50px); /* Start slightly below */
-                transition: opacity 0.6s ease, transform 0.6s ease; /* Smooth entrance */
-            }
+        .contact-form button:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
 
-            .projects-section.visible {
-                opacity: 1;
-                transform: translateY(0); /* Slide up and fade in */
-            }
+        .contact-form button:disabled::after {
+            content: "Loading...";
+            animation: pulse 1.5s infinite;
+        }
 
-            .projects-grid {
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-                gap: 1.5rem;
-            }
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
 
-            .project-card {
-                background: var(--card-bg-start);
-                border-radius: 10px;
-                padding: 1.25rem;
-                border: 1px solid var(--card-border);
-                transition: transform 0.4s ease, box-shadow 0.4s ease; /* Slow, smooth transitions */
-                cursor: pointer;
-                position: relative;
-                overflow: hidden;
-                will-change: transform, box-shadow; /* Optimize for animations */
-                transform-style: preserve-3d; /* Enable 3D transforms */
-                opacity: 0; /* Start hidden for staggered entrance */
-                transform: translateY(30px); /* Start below for card entrance */
-                transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.4s ease; /* Card entrance */
-            }
+        .social-links a {
+            font-size: 1.5rem;
+            color: #333;
+            transition: color 0.3s ease;
+        }
 
-            .project-card.visible {
-                opacity: 1;
-                transform: translateY(0); /* Cards slide up */
-            }
+        .social-links a:hover {
+            color: #007bff;
+        }
 
-            .project-card:hover {
-                transform: translateY(-4px); /* Subtle lift on hover */
-                box-shadow: 0 4px 16px var(--shadow-color);
-            }
+        .success-message {
+            background: linear-gradient(45deg, #d80ea9, #1e1253);
+            color: #fff;
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 1.1rem;
+            font-weight: 500;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.4s ease, transform 0.4s ease;
+            margin-top: 1rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
 
-            .project-card::before {
-                content: '';
-                position: absolute;
-                inset: 0;
-                background: linear-gradient(45deg, #0ed87a, #51d1f5);
-                opacity: 0;
-                transition: opacity 0.4s ease;
-                z-index: -1;
-            }
+        .success-message[style*="display: block"] {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
-            .project-card:hover::before {
-                opacity: 0.08;
-            }
+        /* ChatBot Section */
+        .chatbot-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
 
-            .project-title {
-                font-size: 1.4rem;
-                margin-bottom: 0.75rem;
-                color: var(--title-color);
-                font-weight: 600;
-                background: linear-gradient(45deg, #4800fd, #011f2c);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-            }
+        .df-messenger-dialog {
+            width: 350px !important;
+            height: 430px !important;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+        }
 
-            .project-description {
-                color: var(--text-color);
-                line-height: 1.5;
-                font-size: 0.9rem;
-            }
+        df-messenger {
+            --df-messenger-button-visibility: visible !important;
+        }
 
-            /* Tilt effect class */
-            .tilt {
-                transition: transform 0.4s ease; /* Slow, smooth tilt */
-            }
+        df-messenger .df-messenger-button {
+            width: 50px !important;
+            height: 50px !important;
+        }
 
-            /* Media query for larger screens */
-            @media (min-width: 768px) {
-                .projects-grid {
-                    grid-template-columns: repeat(3, 1fr);
-                }
-            }
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+        }
 
-            /* Staggered entrance for cards */
-            .project-card:nth-child(1) { transition-delay: 0.1s; }
-            .project-card:nth-child(2) { transition-delay: 0.2s; }
-            .project-card:nth-child(3) { transition-delay: 0.3s; }
-            .project-card:nth-child(4) { transition-delay: 0.4s; }
-            .project-card:nth-child(5) { transition-delay: 0.5s; }
-            .project-card:nth-child(6) { transition-delay: 0.6s; }
-            /* Add more if you have more cards */
-
-/* Contact and Comment Box */
-.cc-box {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0;
-    padding: 0;
-}
-
-/* Comment Box */
-.contact-box, .comment-box {
-    padding: 30px;
-    border-radius: 12px;
-    width: 530px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-    text-align: left;
-    margin: 30px 0;
-}
-
-h2 {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.contact-box p {
-    margin: 10px 0;
-    font-size: 16px;
-}
-
-.contact-box i {
-    margin-right: 10px;
-    color: #007bff;
-}
-
-.contact-form label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-}
-
-.contact-form input,
-.contact-form textarea {
-    width: 100%;
-    padding: 1rem;
-    margin-bottom: 1rem;
-    border: none;
-    border-radius: 5px;
-    background: rgba(255, 255, 255, 0.2);
-    color: var(--text);
-}
-
-.contact-form input::placeholder,
-.contact-form textarea::placeholder {
-    color: #ccc;
-}
-
-.contact-form button {
-    width: 100%;
-    padding: 1rem;
-    background: linear-gradient(45deg, hsl(235, 66%, 29%), hsl(324, 100%, 50%));
-    color: var(--text);
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-.contact-form button:hover {
-    background: #ff0793;
-}
-
-.contact-form button:disabled {
-    opacity: 0.7;
-    cursor: not-allowed;
-}
-
-.contact-form button:disabled::after {
-    content: "Loading...";
-    animation: pulse 1.5s infinite;
-}
-
-/* Social Links Styling */
-.social-links {
-    display: flex;
-    justify-content: center; /* Centers the icons horizontally */
-    gap: 20px; /* Adds spacing between icons */
-    margin-top: 20px; /* Adds space above the social links */
-}
-
-.social-links a {
-    font-size: 2.5rem; /* Makes the icons larger */
-    color: #333; /* Default icon color */
-    transition: color 0.3s ease; /* Smooth hover effect */
-}
-
-.social-links a:hover {
-    color: #007bff; /* Hover color to match contact-box i */
-}
-            /* Comment secussfull sms */
-            .success-message {
-                background: linear-gradient(45deg, #d80ea9, #1e1253);
-                color: #fff;
-                padding: 1rem;
-                border-radius: 8px;
-                text-align: center;
-                font-size: 1.1rem;
-                font-weight: 500;
-                opacity: 0;
-                transform: translateY(20px);
-                transition: opacity 0.4s ease, transform 0.4s ease;
-                margin-top: 1rem;
-                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-            }
-
-            .success-message[style*="display: block"] {
-                opacity: 1;
-                transform: translateY(0);
-            }
-
-            /* ChatBot Section */
-            .chatbot-container {
-                position: fixed;
-                bottom: 20px;
-                right: 20px;
-                z-index: 1000;
-            }
-
-            .df-messenger-dialog {
-                width: 350px !important;
-                height: 430px !important;
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-                border-radius: 10px;
-            }
-
-            df-messenger {
-                --df-messenger-button-visibility: visible !important;
-            }
-
-            df-messenger .df-messenger-button {
-                width: 50px !important;
-                height: 50px !important;
-            }
-
-            /* Footer */
-            footer {
-                text-align: center;
-                padding: 20px;
-            }
-
-            .back-to-top {
-                display: inline-block;
-                margin-top: 10px;
-                color: var(--text);
-                font-size: 1.5rem;
-            }
+        .back-to-top {
+            display: inline-block;
+            margin-top: 10px;
+            color: var(--text);
+            font-size: 1.5rem;
+        }
     </style>
 </head>
 <body>
@@ -826,23 +912,23 @@ h2 {
     <div class="container" id="about">
         <h1 class="text-3xl font-bold text-center mb-6" >About Me</h1>
         <img src="https://github.com/kale-pro/dhanushbohara/blob/main/about%20right%20photo%20frame.png?raw=true" class="profile-img">
-        <p style="text-align: justify;">Dhanush Bohara is a motivated and self-driven tech enthusiast with a growing interest in software development and modern programming. With a strong foundation in computer science, he has been actively learning various programming languages like Python, Java, C, and C++ — continuously working to sharpen his skills and explore real-world applications.</p>
-        <p style="text-align: justify;">He is passionate about building practical projects and experimenting with code. Recently, he completed a step-wise HTML-based mini project and is currently developing his own advanced personal portfolio website to showcase his work, skills, and creative ideas. His focus lies not only in writing functional code but also in designing clean, user-friendly interfaces.</p>
-        <p style="text-align: justify;">Dhanush believes in learning by doing. Most of his growth comes from consistent practice, online tutorials, and experimenting with small-scale web and software development projects. He enjoys breaking down complex problems and turning them into simple, working solutions — a trait that reflects his logical mindset and patience.</p>
-        <p style="text-align: justify;">In addition to programming, he follows technology trends and takes inspiration from open-source communities and online creators. He also finds balance through hobbies like watching cricket, exploring digital tools, and spending time improving his personal projects.</p>
-        <p style="text-align: justify;">With a curious mind and a goal-oriented approach, Dhanush is on a journey to grow as a developer, contribute to the tech world, and build a meaningful career in software engineering.</p>
-          
+<p style="text-align: justify;">Dhanush Bohara is a passionate learner in the field of Information Technology with a strong interest in programming and software development. He enjoys exploring how things work behind the scenes and is continuously building his skills by working on small yet meaningful projects.</p><br>
+<p style="text-align: justify;">He is especially interested in web technologies and loves experimenting with code to create clean, functional, and user-friendly designs. His journey into the tech world began out of curiosity and has now evolved into a dedicated pursuit of technical growth.</p><br>
+<p style="text-align: justify;">Dhanush prefers hands-on learning — whether through coding simple programs, developing web pages, or trying out new tools and frameworks. He believes in learning by doing and enjoys solving problems by breaking them into clear and logical steps.</p><br>
+<p style="text-align: justify;">Outside of coding, he keeps up with the latest tech trends and often draws inspiration from open-source communities and creative developers around the world. Personal growth and creative exploration are central to his learning path.</p>
+<p style="text-align: justify;">With a focused mindset and a drive to improve, Dhanush aims to become a skilled developer and contribute to the evolving world of technology through his passion and dedication.</p>
+ 
         <!-- Gallery Section -->
       <section class="container" id="gallery">
          <h1 class="text-3xl font-bold text-center mb-6">Photo Gallery</h1>
      <div class="gallery-container flex flex-nowrap justify-start gap-4" id="photoGallery"> </div>
     </section>
 
-        <p style="text-align: justify;">धनुष बोहरा बझाङ जिल्लाको केदारस्युँ गाउँपालिका–५, पउटा भन्ने सानो तर रमणीय गाउँमा जन्मिएर हुर्किएका हुन्। सानै उमेरदेखि पढाइमा रुचि राख्ने धनुषले कक्षा १ देखि ८ सम्म श्री रत्न माध्यमिक विद्यालय, पउटाबाट अध्ययन पूरा गरे। त्यसपछि उनले बागथलामा कक्षा ११ र १२ मा कम्प्युटर इन्जिनियरिङ (आईटी) विषयमा पढे र +2 पनि यही विषयमा कैलालीको दुर्गा लक्ष्मी मोडेल स्कूल, अत्तरियामा सम्पन्न गरे।</p>
-        <p style="text-align: justify;">म एक उत्साही र जिज्ञासु विद्यार्थी हुँ, जसलाई प्रविधि र प्रोग्रामिङमा गहिरो रुचि छ। माध्यमिक तहमा कम्प्युटर इन्जिनियरिङ (आईटी) विषय लिएर अध्ययन गरेको छु, र हाल इन्जिनियरिङ प्रवेश परीक्षाको तयारी गर्दैछु। मेरो लक्ष्य प्रविधिको माध्यमबाट आफूलाई सक्षम बनाउनु र भविष्यमा उपयोगी प्रोजेक्टहरू निर्माण गर्नु हो।</p>
-        <p style="text-align: justify;">अहिले म Python, Java, C, C++ जस्ता प्रोग्रामिङ भाषाहरू सिक्दै छु। सानोसानो प्रोजेक्टहरू बनाउँदै अभ्यास गर्दैछु, जसमध्ये HTML प्रयोग गरेर बनाएको एक step-wise website मेरो लागि सिक्ने राम्रो माध्यम बनेको छ। अहिले म आफ्नो पोर्टफोलियो वेबसाइट निर्माणमा पनि लागिरहेको छु, जसमा म आफ्नो सीप र रुचिहरू प्रस्तुत गर्ने सोचमा छु।</p>
-        <p style="text-align: justify;">म फुर्सदको समयमा YouTube तथा अनलाइन प्लेटफर्महरूबाट नयाँ कुरा सिक्न मन पराउँछु। कहिलेकाहीँ वेबसाइट डिजाइन, code experimentation, वा logical problems solve गर्दै रमाउँछु। म विश्वास गर्छु — निरन्तर अभ्यास र आत्मविश्वासले मात्र आफूलाई अगाडि बढाउन सकिन्छ।</p>
-        <p style="text-align: justify;">खेलकुदमा पनि मेरो रुचि छ, विशेष गरेर क्रिकेट हेर्न मलाई मन पर्छ। प्रविधि र सिर्जनात्मकता मेरो प्रेरणाका मूल आधार हुन्, जसले मलाई हरेक दिन केही नयाँ गर्न उत्प्रेरित गर्छ।</p>
+<p style="text-align: justify;">धनुष बोहरा सुदूरपश्चिम नेपालका एक उत्साही र जिज्ञासु विद्यार्थी हुन्, जसलाई प्रविधि र प्रोग्रामिङ क्षेत्रमा गहिरो रुचि छ। उनले माध्यमिक तहमा Information Technology (IT) विषय लिएर अध्ययन गरेका हुन् र कक्षा १० पछि दुर्गा लक्ष्मी मोडेल स्कूलबाट IT मा +2 स्तर पूरा गरेका छन्। हाल उनी इन्जिनियरिङ् प्रवेश परीक्षाको तयारीमा जुटिरहेका छन्।</p><br>
+<p style="text-align: justify;">उनले Python, Java, C, C++ जस्ता प्रोग्रामिङ भाषाहरूमा अभ्यास गर्दै आएका छन्। साना परियोजनाहरू निर्माण गर्दै, HTML प्रयोग गरेर बनाएको एक step-wise website बाट उनले सिक्ने यात्रा सुरु गरेका छन्। अहिले उनी आफ्नो व्यक्तिगत पोर्टफोलियो वेबसाइट निर्माणमा लागिरहेका छन्, जसमा आफ्नो सीप, रुचि र सिर्जनात्मक कामहरू प्रस्तुत गर्ने योजना छ।</p><br>
+<p style="text-align: justify;">धनुषको विश्वास छ कि "सिकाइ भनेको केवल सिद्धान्त होइन, अभ्यास पनि हो।" उनी YouTube लगायत अन्य अनलाइन स्रोतहरूबाट निरन्तर नयाँ कुरा सिक्ने प्रयास गर्छन् र विभिन्न code experimentation तथा logical problem-solving मार्फत आफ्नो क्षमतालाई बलियो बनाउँदै छन्।</p><br>
+<p style="text-align: justify;">उनलाई प्रविधि मात्र होइन, खेलकुदमा पनि रुचि छ, विशेष गरी क्रिकेट हेर्न। प्रविधिप्रतिको मोह, निरन्तर अभ्यास, र सिर्जनात्मक सोच नै उनीलाई हरेक दिन नयाँ कुरा सिक्न र गर्न उत्प्रेरित गर्छ। भविष्यमा उनी उपयोगी प्रोजेक्टहरू निर्माण गर्दै टेक क्षेत्रमा योगदान दिने लक्ष्य राख्छन्।</p>
+
     </div>
 
     <!-- Fullscreen Modal for Image Viewing -->
@@ -852,22 +938,32 @@ h2 {
         <a class="download-btn" id="downloadBtn" href="#" download>Download</a>
     </div>
 
-    <!-- Story And Describe Place -->
-    <section class="story-section">
-        <h2 class="text-3xl font-bold text-center mb-6">Our Story & Places</h2>
-        <div style="display: flex; justify-content: center; align-items: center; gap: 20px; margin: 1rem 0;">
-            <a href="https://kale-pro.github.io/dhanushbohara/AboutBajhang.html" target="_self">
-                <button class="custom-button">About Bajhang</button>
-            </a>
-            <a href="https://kale-pro.github.io/dhanushbohara/school.html" class="custom-button" target="_self">School</a>
-        </div>
-        <div style="display: flex; justify-content: center; align-items: center; gap: 20px; margin: 1rem 0;">
-            <a href="https://raw.githubusercontent.com/kale-pro/dhanushbohara/main/sudurpaschim%20data.pdf" target="_self">
-                <button class="custom-button">About Sudurpaschim</button>
-            </a>
-            <a href="#" class="custom-button" onclick="alert('Coming Soon!')">About Mount Everest</a>
-        </div>
-    </section>
+<!-- Story And Describe Place -->
+<section class="story-section" aria-labelledby="story-heading">
+  <h2 id="story-heading" class="text-3xl font-bold text-center mb-8">Our Story & Places</h2>
+  <div class="card-container">
+    <!-- Bajhang Card -->
+    <a href="https://kale-pro.github.io/dhanushbohara/AboutBajhang.html" class="card" aria-label="Learn more about Bajhang">
+      <img src="https://github.com/kale-pro/dhanushbohara/raw/main/khapta3.jpg" alt="Scenic view of Bajhang" class="card-image">
+      <h3 class="card-title">Bajhang</h3>
+    </a>
+    <!-- School Card -->
+    <a href="https://kale-pro.github.io/dhanushbohara/school.html" class="card" aria-label="Learn more about School">
+        <img src="https://raw.githubusercontent.com/kale-pro/dhanushbohara/main/Sunita%20Secondary%20School%2C%20Bajhang.jpg" alt="School in Bajhang" class="card-image">
+        <h3 class="card-title">School</h3>
+    </a>
+    <!-- Sudurpaschim Card -->
+    <a href="https://raw.githubusercontent.com/kale-pro/dhanushbohara/main/sudurpaschim%20data.pdf" class="card" aria-label="Learn more about Sudurpaschim">
+      <img src="https://github.com/kale-pro/dhanushbohara/raw/main/khapta2.jpg" alt="Sudurpaschim landscape" class="card-image">
+      <h3 class="card-title">Sudurpaschim</h3>
+    </a>
+    <!-- Mount Everest Card (Disabled) -->
+    <a href="#" class="card disabled" aria-label="About Mount Everest (Coming Soon)" aria-disabled="true">
+      <img src="https://github.com/kale-pro/dhanushbohara/raw/main/khaptad4.jpg" alt="Mount Everest (Coming Soon)" class="card-image">
+      <h3 class="card-title">Mount Everest</h3>
+    </a>
+  </div>
+</section>
 
     <!-- Projects Section -->
     <section class="projects-section">
@@ -997,7 +1093,7 @@ h2 {
             <div class="social-links" justify>
                 <a href="https://wa.me/9779842172080" target="_blank" title="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
                 <a href="https://youtube.com/@kaleproff" target="_blank"><i class="fab fa-youtube"></i></a>
-                <a href="https://facebook.com/dhanushbohara" target="_blank"><i class="fab fa-facebook"></i></a>
+               <a href="https://www.facebook.com/dhanush.bohara.2025" target="_blank"><i class="fab fa-facebook"></i></a>
                 <a href="https://www.linkedin.com/in/dhanush-bohara-660732358/" target="_blank"><i class="fab fa-linkedin"></i></a>
                 <a href="https://www.tiktok.com/@mr.dhanushbohara?_t=ZS-8vAFoD0k4nq&_r=1" target="_blank"><i class="fab fa-tiktok"></i></a>
             </div>
