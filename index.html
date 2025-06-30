@@ -15,22 +15,6 @@
     <!-- Author -->
     <meta name="author" content="Dhanush Bohara">
     
-    <!-- Open Graph Meta Tags (for social sharing) -->
-    <meta property="og:title" content="Dhanush Bohara">
-    <meta property="og:site_name" content="Dhanush Bohara">
-    <meta property="og:description" content="Visit the official site of Dhanush Bohara, Python & Java Developer from Nepal. Check out his skills, projects and contact.">
-    <meta property="og:image" content="https://raw.githubusercontent.com/kale-pro/dhanushbohara/main/web%20logo.png">
-    <meta property="og:url" content="https://www.dhanushbohara.com.np">
-    <meta property="og:type" content="website">
-    
-    <!-- Twitter Card Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@mrdhanushbohara">
-    <meta name="twitter:creator" content="@mrdhanushbohara">
-    <meta name="twitter:title" content="Dhanush Bohara | Developer & Creator from Nepal">
-    <meta name="twitter:description" content="Explore the official website of Dhanush Bohara — Aspiring Developer, Programmer, and Tech Enthusiast from Nepal.">
-    <meta name="twitter:image" content="https://raw.githubusercontent.com/kale-pro/dhanushbohara/main/web%20logo.png">
-    
     <!-- Favicon (Browser Tab Icon) -->
     <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/kale-pro/dhanushbohara/main/website-logo.ico">
     
@@ -42,6 +26,9 @@
 
     <!-- Particles.js -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
 
     <!-- Structured Data for Website (schema.org) -->
     <script type="application/ld+json">
@@ -355,501 +342,64 @@
             text-align: justify;
         }
 
-                /* Styling for the about photo */
-            .profile-img {
-            float: right; /* Moved photo to the right side */
-            width: 300px; /* Reduced size */
+        /* Styling for the about photo */
+        .profile-img {
+            float: right;
+            width: 300px;
             height: auto;
-            margin: 0 0 1px 1px; /* Adjusted margin for right alignment */
-            padding: 3px; /* Smaller padding */
+            margin: 0 0 1px 1px;
+            padding: 3px;
         }
 
-        /* Responsive design */
-        @media (max-width: 600px) {
-            .profile-img {
-                float: none;
-                display: block;
-                margin: 0 auto 15px;
-                width: 100px; /* Smaller size for mobile */
-            }
-            .container {
-                padding: 10px;
-            }
-        }
-
-        /* Photo Gallery Container */
-        /* Scales with viewport and centers content */
-        .photo-gallery-container {
-            position: relative;
-            margin: 40px auto;
+        /* Gallery Section */
+        .gallery-container {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 10px;
-            max-width: 90vw;
-            border-radius: 15px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            gap: 1rem;
+            padding: 1rem 0;
+            max-width: 100%;
+            scrollbar-width: thin; /* For Firefox */
+            scrollbar-color: #888 #f1f1f1; /* For Firefox */
         }
 
-        /* Photo Gallery Layout */
-        /* Flex layout with responsive gap */
-        .photo-gallery {
-            display: flex;
-            justify-content: center;
-            gap: 1vw;
-            overflow: hidden;
-            width: 100%;
-            padding: 10px;
+        .gallery-container::-webkit-scrollbar {
+            height: 8px;
         }
 
-        /* iPhone Frame */
-        .photo-frame {
-            position: relative;
-            width: 280px;
-            height: 464px; /* Reduced height by 20% from 580px to make iPhone frame smaller */
-            border-radius: 35px;
-            background: #000;
-            box-shadow: 
-                0 0 0 6px #5c1a4f,
-                0 0 30px rgba(0, 0, 0, 0.5),
-                0 0 60px rgba(0, 0, 0, 0.3);
-            overflow: hidden;
-            z-index: 1;
+        .gallery-container::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        .gallery-container::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 4px;
+        }
+
+        .gallery-container::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+        .gallery-item {
+            min-width: 250px;
             flex: 0 0 auto;
-            animation: fadeIn 0.5s ease-in-out;
+            transition: transform 0.3s ease;
         }
 
-        /* Commented out hover effect to prevent iPhone frame movement/rotation on click or hover */
-        /* .photo-frame:hover {
-            transform: translateY(-10px) rotate(2deg);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
-        } */
-
-        .photo-frame:hover .screen-content img {
-            transform: scale(1.1);
-        }
-
-        /* Caption Area (Styled like Facebook Post) */
-        .caption-area {
-            position: absolute;
-            top: 6px;
-            left: 6px;
-            right: 6px;
-            background: rgba(0, 0, 0, 0.8);
-            padding: 10px;
-            border-radius: 10px 10px 0 0;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            z-index: 3;
-        }
-
-        .caption-area .profile-pic {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
+        .gallery-item img {
+            width: 100%;
+            height: 200px;
             object-fit: cover;
-            cursor: pointer; /* Indicate it's clickable */
+            border-radius: 8px;
+            filter: brightness(100%) contrast(100%) saturate(100%);
         }
 
-        .caption-area .profile-pic:hover {
-            opacity: 0.9;
-        }
-
-        .caption-area .caption-content {
-            flex: 1;
-        }
-
-        .caption-area .caption-content p {
-            font-size: 14px;
-            margin: 0;
-            color: #ffffff;
-        }
-
-        .caption-area .caption-content .caption-meta {
-            font-size: 12px;
-            color: #cccccc;
-            margin-top: 2px; /* Reduced gap between caption and date */
-        }
-
-        /* iPhone Screen Area (Adjusted for caption area) */
-        .photo-frame .screen-content {
-            position: absolute;
-            top: 70px; /* Adjusted to make space for caption */
-            left: 6px;
-            right: 6px;
-            bottom: 6px;
-            border-radius: 0 0 30px 30px;
-            overflow: hidden;
-            z-index: 2;
-        }
-
-        .photo-frame .screen-content img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 0 0 30px 30px;
+        .gallery-item img:hover {
+            transform: scale(1.05);
             cursor: pointer;
         }
 
-        /* iPhone Notch */
-        .photo-frame .iphone-notch {
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 110px;
-            height: 22px;
-            background-color: #000;
-            border-bottom-left-radius: 10px;
-            border-bottom-right-radius: 10px;
-            z-index: 3;
-        }
-
-        /* iPhone Speaker */
-        .photo-frame .iphone-speaker {
-            position: absolute;
-            top: 5px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 44px;
-            height: 4px;
-            background-color: #333;
-            border-radius: 2px;
-            z-index: 4;
-        }
-
-        /* iPhone Camera */
-        .photo-frame .iphone-camera {
-            position: absolute;
-            top: 5px;
-            right: 22px;
-            width: 9px;
-            height: 9px;
-            background-color: #333;
-            border-radius: 4.5px;
-            z-index: 4;
-        }
-
-        /* iPhone Power Button */
-        .photo-frame .iphone-power-button {
-            position: absolute;
-            right: -3px;
-            top: 75px;
-            width: 3px;
-            height: 60px;
-            background-color: #d2d3d5;
-            border-top-right-radius: 2px;
-            border-bottom-right-radius: 2px;
-            z-index: 1;
-        }
-
-        /* iPhone Volume Buttons */
-        .photo-frame .iphone-volume-buttons {
-            position: absolute;
-            left: -3px;
-            top: 75px;
-            width: 3px;
-            height: 90px;
-            z-index: 1;
-        }
-
-        .photo-frame .iphone-volume-up {
-            position: absolute;
-            top: 0;
-            width: 100%;
-            height: 30px;
-            background-color: #d2d3d5;
-            border-top-left-radius: 2px;
-            border-bottom-left-radius: 2px;
-        }
-
-        .photo-frame .iphone-volume-down {
-            position: absolute;
-            top: 45px;
-            width: 100%;
-            height: 30px;
-            background-color: #d2d3d5;
-            border-top-left-radius: 2px;
-            border-bottom-left-radius: 2px;
-        }
-
-        /* iPhone Silent Switch */
-        .photo-frame .iphone-silent-switch {
-            position: absolute;
-            left: -3px;
-            top: 30px;
-            width: 3px;
-            height: 22px;
-            background-color: #d2d3d5;
-            border-top-left-radius: 2px;
-            border-bottom-left-radius: 2px;
-            z-index: 1;
-        }
-
-        /* Social Interaction Buttons */
-        /* Like, Comment, Favorite buttons */
-        .social-interaction {
-            position: absolute;
-            bottom: 0.5vw;
-            left: 0;
-            right: 0;
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            background: rgba(0, 0, 0, 0.8);
-            padding: 0.4vw 0;
-            border-radius: 0 0 calc(45 / 250 * 100%) calc(45 / 250 * 100%);
-            z-index: 3;
-        }
-
-        .interaction-btn {
-            background: none;
-            border: none;
-            color: #ffffff;
-            font-size: clamp(12px, 1.2vw, 14px);
-            display: flex;
-            align-items: center;
-            gap: 0.4vw;
-            cursor: pointer;
-            transition: transform 0.2s ease;
-            touch-action: manipulation;
-        }
-
-        .interaction-btn i {
-            font-size: clamp(14px, 1.4vw, 16px);
-        }
-
-        .interaction-btn:hover {
-            transform: scale(1.1);
-        }
-
-        .interaction-btn.active {
-            color: #ff4655;
-        }
-
-        .interaction-btn.disabled {
-            color: #888;
-            cursor: not-allowed;
-        }
-
-        .interaction-btn.disabled:hover {
-            transform: none;
-        }
-
-        .interaction-btn span {
-            font-weight: 500;
-        }
-
-        /* Comment Section */
-        /* Adjusted for mobile with close button and edit/delete options */
-        .comment-section {
-            display: none; /* Hidden by default, shown only for logged-in users */
-            position: absolute;
-            bottom: clamp(40px, 4vw, 50px);
-            left: 0;
-            right: 0;
-            background: rgba(0, 0, 0, 0.9);
-            padding: 0.8vw;
-            max-height: clamp(120px, 14vw, 180px);
-            overflow-y: auto;
-            border-radius: 10px;
-            z-index: 4;
-            touch-action: none;
-        }
-
-        .comment-section.active {
-            display: block;
-        }
-
-        .comment {
-            color: #ffffff;
-            font-size: clamp(10px, 1vw, 12px);
-            margin: 0.4vw 0;
-            padding: 0.4vw;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 5px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        /* Comment Action Buttons (Edit/Delete) */
-        .comment-actions {
-            display: flex;
-            gap: 0.4vw;
-        }
-
-        .comment-action-btn {
-            background: none;
-            border: none;
-            color: #ffffff;
-            font-size: clamp(10px, 1vw, 12px);
-            cursor: pointer;
-            padding: 0.2vw 0.4vw;
-            border-radius: 3px;
-            transition: background 0.3s ease;
-        }
-
-        .comment-action-btn.edit-btn {
-            background: #1877f2;
-        }
-
-        .comment-action-btn.edit-btn:hover {
-            background: #145dbf;
-        }
-
-        .comment-action-btn.delete-btn {
-            background: #ff4655;
-        }
-
-        .comment-action-btn.delete-btn:hover {
-            background: #cc3b47;
-        }
-
-        .comment-input-container {
-            display: flex;
-            align-items: center;
-            gap: 0.8vw;
-            margin-top: 0.4vw;
-        }
-
-        .comment-input {
-            flex: 1;
-            padding: 0.4vw;
-            background: rgba(255, 255, 255, 0.1);
-            border: none;
-            border-radius: 5px;
-            color: #ffffff;
-            font-size: clamp(10px, 1vw, 12px);
-            outline: none;
-        }
-
-        .comment-post-btn {
-            background: #1877f2;
-            color: #ffffff;
-            border: none;
-            border-radius: 5px;
-            padding: 0.4vw 0.8vw;
-            font-size: clamp(10px, 1vw, 12px);
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
-
-        .comment-post-btn:hover {
-            background: #145dbf;
-        }
-
-        /* Close Button for Comment Section */
-        .comment-close-btn {
-            background: #ff4655;
-            color: #ffffff;
-            border: none;
-            border-radius: 5px;
-            padding: 0.4vw 0.8vw;
-            font-size: clamp(10px, 1vw, 12px);
-            cursor: pointer;
-            transition: background 0.3s ease;
-            margin-left: 0.4vw;
-        }
-
-        .comment-close-btn:hover {
-            background: #cc3b47;
-        }
-
-        .photo-gallery.dragging {
-            cursor: grab;
-            user-select: none;
-        }
-
-        /* Navigation Arrows */
-        .arrow {
-            background: linear-gradient(135deg, #00aaff, #0078cc);
-            color: #ffffff;
-            border: none;
-            width: clamp(30px, 3vw, 40px);
-            height: clamp(30px, 3vw, 40px);
-            border-radius: 50%;
-            font-size: clamp(16px, 1.6vw, 20px);
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: transform 0.3s ease, background 0.3s ease;
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            z-index: 10;
-        }
-
-        .arrow:hover {
-            transform: translateY(-50%) scale(1.1);
-            background: linear-gradient(135deg, #0078cc, #00aaff);
-        }
-
-        .arrow-left {
-            left: 1vw;
-        }
-
-        .arrow-right {
-            right: 1vw;
-        }
-
-        /* Responsive Design for Photo Gallery */
-        @media (max-width: 1024px) {
-            .photo-gallery-container {
-                max-width: 95vw;
-            }
-            .photo-frame {
-                width: clamp(160px, 22vw, 220px); /* Slightly smaller for tablets */
-                height: clamp(256px, 35.2vw, 352px); /* Maintain aspect ratio for smaller height */
-            }
-        }
-
-        @media (max-width: 768px) {
-            .photo-gallery {
-                width: clamp(180px, 60vw, 260px);
-                justify-content: flex-start;
-            }
-            .photo-frame {
-                width: clamp(160px, 55vw, 240px); /* Adjusted for mobile screens */
-                height: clamp(256px, 88vw, 384px); /* Adjusted for mobile */
-            }
-            .photo-gallery-container {
-                max-width: clamp(180px, 65vw, 280px);
-                padding: 5px;
-            }
-            .arrow {
-                width: clamp(25px, 8vw, 35px);
-                height: clamp(25px, 8vw, 35px);
-                font-size: clamp(14px, 4vw, 18px);
-            }
-        }
-
-        @media (max-width: 480px) {
-            .photo-frame {
-                width: clamp(150px, 80vw, 200px); /* Optimized for small mobile devices */
-                height: clamp(240px, 128vw, 320px); /* Optimized for small mobile */
-            }
-            .photo-gallery-container {
-                max-width: 90vw;
-            }
-        }
-
-        /* Loading Animation */
-        .photo-gallery.loading::before {
-            content: "Loading...";
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: #00aaff;
-            font-size: clamp(1rem, 2vw, 1.2rem);
-            animation: pulse 1.5s infinite;
-        }
-
-        /* Fullscreen Modal for Images */
+        /* Fullscreen Modal */
         .fullscreen-modal {
             display: none;
             position: fixed;
@@ -861,14 +411,11 @@
             z-index: 2000;
             justify-content: center;
             align-items: center;
-            overflow: auto;
         }
 
         .fullscreen-modal img {
             max-width: 90%;
             max-height: 90%;
-            border-radius: 10px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
             object-fit: contain;
         }
 
@@ -876,57 +423,42 @@
             position: absolute;
             top: 20px;
             right: 20px;
-            color: #ffffff;
-            font-size: clamp(30px, 5vw, 40px);
+            color: #fff;
+            font-size: 2rem;
             cursor: pointer;
-            z-index: 2100;
         }
 
-        .fullscreen-modal .close:hover {
-            color: #00aaff;
-        }
-
-        @keyframes pulse {
-            0% { opacity: 1; }
-            50% { opacity: 0.5; }
-            100% { opacity: 1; }
-        }
-
-        .social-links {
-            margin-top: 40px;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        .social-links a {
-            font-size: 24px;
-            color: var(--text);
-        }
-
-        .social-links a:hover {
-            color: var(--secondary);
-        }
-
-        /* Login Prompt for Commenting */
-        .login-prompt {
-            color: #ff4655;
-            font-size: clamp(10px, 1vw, 12px);
-            text-align: center;
-            padding: 0.4vw;
-            background: rgba(255, 255, 255, 0.1);
+        .fullscreen-modal .download-btn {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background: #ff4655;
+            color: #fff;
+            padding: 10px 20px;
             border-radius: 5px;
-        }
-
-        .login-prompt a {
-            color: #00aaff;
             text-decoration: none;
         }
 
-        .login-prompt a:hover {
-            text-decoration: underline;
+        /* Responsive design */
+        @media (max-width: 600px) {
+            .profile-img {
+                float: none;
+                display: block;
+                margin: 0 auto 15px;
+                width: 100px;
+            }
+            .container {
+                padding: 10px;
+            }
+            .gallery-item {
+                min-width: 200px;
+            }
+            .gallery-item img {
+                height: 150px;
+            }
         }
-        /* Skills Section */
+
+                /* Skills Section */
         .skills-grid {
                 display: grid;
                 grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -978,7 +510,7 @@
             transform: scale(1.05); /* Slight grow on hover */
             }
 
-           /* Project section */
+ /* Project section */
             .projects-section {
                 padding: 3rem 1.5rem;
                 max-width: 1200px;
@@ -1076,86 +608,104 @@
             .project-card:nth-child(6) { transition-delay: 0.6s; }
             /* Add more if you have more cards */
 
-            /* Contact and Comment Box */
-            .cc-box {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                margin: 0;
-                padding: 0;
-            }
+/* Contact and Comment Box */
+.cc-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
 
-            /* Comment Box */
-            .contact-box, .comment-box {
-                padding: 30px;
-                border-radius: 12px;
-                width: 530px;
-                box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-                text-align: left;
-                margin: 30px 0;
-            }
+/* Comment Box */
+.contact-box, .comment-box {
+    padding: 30px;
+    border-radius: 12px;
+    width: 530px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    text-align: left;
+    margin: 30px 0;
+}
 
-            h2 {
-                text-align: center;
-                margin-bottom: 20px;
-            }
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
 
-            .contact-box p {
-                margin: 10px 0;
-                font-size: 16px;
-            }
+.contact-box p {
+    margin: 10px 0;
+    font-size: 16px;
+}
 
-            .contact-box i {
-                margin-right: 10px;
-                color: #007bff;
-            }
+.contact-box i {
+    margin-right: 10px;
+    color: #007bff;
+}
 
-            .contact-form label {
-                display: block;
-                margin-bottom: 5px;
-                font-weight: bold;
-            }
+.contact-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
 
-            .contact-form input,
-            .contact-form textarea {
-                width: 100%;
-                padding: 1rem;
-                margin-bottom: 1rem;
-                border: none;
-                border-radius: 5px;
-                background: rgba(255, 255, 255, 0.2);
-                color: var(--text);
-            }
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: none;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.2);
+    color: var(--text);
+}
 
-            .contact-form input::placeholder,
-            .contact-form textarea::placeholder {
-                color: #ccc;
-            }
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: #ccc;
+}
 
-            .contact-form button {
-                width: 100%;
-                padding: 1rem;
-                background: linear-gradient(45deg, hsl(235, 66%, 29%), hsl(324, 100%, 50%));
-                color: var(--text);
-                border: none;
-                border-radius: 5px;
-                cursor: pointer;
-                font-size: 16px;
-            }
+.contact-form button {
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(45deg, hsl(235, 66%, 29%), hsl(324, 100%, 50%));
+    color: var(--text);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
 
-            .contact-form button:hover {
-                background: #ff0793;
-            }
+.contact-form button:hover {
+    background: #ff0793;
+}
 
-            .contact-form button:disabled {
-                opacity: 0.7;
-                cursor: not-allowed;
-            }
+.contact-form button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
 
-            .contact-form button:disabled::after {
-                content: "Loading...";
-                animation: pulse 1.5s infinite;
-            }
+.contact-form button:disabled::after {
+    content: "Loading...";
+    animation: pulse 1.5s infinite;
+}
+
+/* Social Links Styling */
+.social-links {
+    display: flex;
+    justify-content: center; /* Centers the icons horizontally */
+    gap: 20px; /* Adds spacing between icons */
+    margin-top: 20px; /* Adds space above the social links */
+}
+
+.social-links a {
+    font-size: 2.5rem; /* Makes the icons larger */
+    color: #333; /* Default icon color */
+    transition: color 0.3s ease; /* Smooth hover effect */
+}
+
+.social-links a:hover {
+    color: #007bff; /* Hover color to match contact-box i */
+}
             /* Comment secussfull sms */
             .success-message {
                 background: linear-gradient(45deg, #d80ea9, #1e1253);
@@ -1213,116 +763,115 @@
                 color: var(--text);
                 font-size: 1.5rem;
             }
-        </style>
-    </head>
-    <body>
-<!-- Navigation Bar -->
-<nav class="navbar">
-    <div class="nav-container">
-        <a href="https://kale-pro.github.io/dhanushbohara/profile.html">
-            <img src="https://raw.githubusercontent.com/kale-pro/dhanushbohara/main/d-lofo.jpg" alt="Logo" class="logo">
-        </a>
-        <button class="menu-toggle"><i class="fas fa-bars"></i></button>
-        <div class="nav-links">
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#projects">Projects</a>
-            <a href="#skills">Skills</a>
-            <a href="#contact">Contact</a>
-        </div>
-        <div class="social-icons">
-            <a href="https://www.linkedin.com/in/dhanush-bohara-660732358/" target="_blank"><i class="fab fa-linkedin"></i></a>
-            <a href="https://www.tiktok.com/@mr.dhanushbohara?_t=ZS-8vAFoD0k4nq&_r=1" target="_blank"><i class="fab fa-tiktok"></i></a>
-            <a href="https://www.facebook.com/profile.php?id=100082124208815" target="_blank"><i class="fab fa-facebook"></i></a>
-            <a href="https://youtube.com/@kaleproff" target="_blank"><i class="fab fa-youtube"></i></a>
-        </div>
-        <!-- Theme toggle button added to navbar -->
-        <button class="theme-toggle" id="themeToggle" title="Toggle Theme">
-            <i class="fas fa-moon"></i> <!-- Default icon for dark mode -->
-        </button>
-         
-         <!-- Login/Account Icon -->
-         <a href="https://kale-pro.github.io/dhanushbohara/login.html" title="Login" class="login-icon">
-            <i class="fas fa-user"></i>
-        </a>        
-          
-    </div>
-</nav>
-
-        <!-- Hero Section -->
-        <section class="hero" id="home">
-            <div id="particles-js"></div>
-            <div class="hero-content">
-                <h1 id="welcome">Welcome To My Website</h1>
-                <h1>Dhanush Bohara</h1>
-                <p class="tagline">Aspiring Software Developer | IT Enthusiast</p>
-                <!-- Search Bar Container -->
-                <div class="search-container">
-                    <input id="search" type="text" placeholder="Search here...">
-                    <button id="buttons"><i class="fas fa-search"></i></button>
-                </div>
-                <!-- Search Results Container -->
-                <div id="searchResults" class="search-results"></div>
-
-                <!-- Font Awesome for Search Icon -->
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="https://kale-pro.github.io/dhanushbohara/profile.html">
+                <img src="https://raw.githubusercontent.com/kale-pro/dhanushbohara/main/d-lofo.jpg" alt="Logo" class="logo">
+            </a>
+            <button class="menu-toggle"><i class="fas fa-bars"></i></button>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#gallery">Gallery</a>
+                <a href="#projects">Projects</a>
+                <a href="#skills">Skills</a>
+                <a href="#contact">Contact</a>
             </div>
-        </section>
-
-        <!-- Chatbot section HTML -->
-        <div class="chatbot-container">
-            <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
-            <df-messenger
-                intent="WELCOME"
-                chat-title="kaleproBot"
-                agent-id="f8df47c5-f7d7-49a5-bccd-c5b2e9936794"
-                language-code="en">
-            </df-messenger>
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/dhanush-bohara-660732358/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.tiktok.com/@mr.dhanushbohara?_t=ZS-8vAFoD0k4nq&_r=1" target="_blank"><i class="fab fa-tiktok"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=100082124208815" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://youtube.com/@kaleproff" target="_blank"><i class="fab fa-youtube"></i></a>
+            </div>
+            <button class="theme-toggle" id="themeToggle" title="Toggle Theme">
+                <i class="fas fa-moon"></i>
+            </button>
+            <a href="https://kale-pro.github.io/dhanushbohara/login.html" title="Login" class="login-icon">
+                <i class="fas fa-user"></i>
+            </a>
         </div>
+    </nav>
 
-        <!-- About Section -->
-        <div class="container" id="content">
-            <h1 id="about">About Me</h1>
-            <img src="https://github.com/kale-pro/dhanushbohara/blob/main/about%20right%20photo%20frame.png?raw=true" class="profile-img">
-            <p style="text-align: justify;">Dhanush Bohara is a motivated and self-driven tech enthusiast with a growing interest in software development and modern programming. With a strong foundation in computer science, he has been actively learning various programming languages like Python, Java, C, and C++ — continuously working to sharpen his skills and explore real-world applications.</p>
-            <p style="text-align: justify;">He is passionate about building practical projects and experimenting with code. Recently, he completed a step-wise HTML-based mini project and is currently developing his own advanced personal portfolio website to showcase his work, skills, and creative ideas. His focus lies not only in writing functional code but also in designing clean, user-friendly interfaces.</p>
-            <p style="text-align: justify;">Dhanush believes in learning by doing. Most of his growth comes from consistent practice, online tutorials, and experimenting with small-scale web and software development projects. He enjoys breaking down complex problems and turning them into simple, working solutions — a trait that reflects his logical mindset and patience.</p>
-            <p style="text-align: justify;">In addition to programming, he follows technology trends and takes inspiration from open-source communities and online creators. He also finds balance through hobbies like watching cricket, exploring digital tools, and spending time improving his personal projects.</p>
-            <p style="text-align: justify;">With a curious mind and a goal-oriented approach, Dhanush is on a journey to grow as a developer, contribute to the tech world, and build a meaningful career in software engineering.</p>
-              <!-- Photo Gallery Section -->
-        <div class="photo-gallery-container">
-            <button class="arrow arrow-left" onclick="previousPhotos()" aria-label="Previous Photos">‹</button>
-            <div class="photo-gallery" id="photoGallery"></div>
-            <button class="arrow arrow-right" onclick="nextPhotos()" aria-label="Next Photos">›</button>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div id="particles-js"></div>
+        <div class="hero-content">
+            <h1 id="welcome">Welcome To My Website</h1>
+            <h1>Dhanush Bohara</h1>
+            <p class="tagline">Aspiring Software Developer | IT Enthusiast</p>
+            <div class="search-container">
+                <input id="search" type="text" placeholder="Search here...">
+                <button id="buttons"><i class="fas fa-search"></i></button>
+            </div>
+            <div id="searchResults" class="search-results"></div>
         </div>
+    </section>
 
-        <!-- Fullscreen Modal for Image Viewing -->
-        <div class="fullscreen-modal" id="fullscreenModal">
-            <span class="close" onclick="closeFullscreenModal()">×</span>
-            <img id="fullscreenImage" src="" alt="Fullscreen Image">
-        </div>
+    <!-- Chatbot Section -->
+    <div class="chatbot-container">
+        <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+        <df-messenger
+            intent="WELCOME"
+            chat-title="kaleproBot"
+            agent-id="f8df47c5-f7d7-49a5-bccd-c5b2e9936794"
+            language-code="en">
+        </df-messenger>
+    </div>
 
-        <p style="text-align: justify;">धनुष बोहरा बझाङ जिल्लाको केदारस्युँ गाउँपालिका–५, पउटा भन्ने सानो तर रमणीय गाउँमा जन्मिएर हुर्किएका हुन्। सानै उमेरदेखि पढाइमा रुचि राख्ने धनुषले कक्षा १ देखि ८ सम्म श्री रत्न माध्यमिक विद्यालय, पउटाबाट अध्ययन पूरा गरे। त्यसपछि उनले बागथलामा कक्षा ९ र १० मा कम्प्युटर इन्जिनियरिङ (आईटी) विषयमा पढे र +2 पनि यही विषयमा कैलालीको दुर्गा लक्ष्मी मोडेल स्कुल, अत्तरियामा सम्पन्न गरे।</p>
+    <!-- About Section -->
+    <div class="container" id="about">
+        <h1 class="text-3xl font-bold text-center mb-6" >About Me</h1>
+        <img src="https://github.com/kale-pro/dhanushbohara/blob/main/about%20right%20photo%20frame.png?raw=true" class="profile-img">
+        <p style="text-align: justify;">Dhanush Bohara is a motivated and self-driven tech enthusiast with a growing interest in software development and modern programming. With a strong foundation in computer science, he has been actively learning various programming languages like Python, Java, C, and C++ — continuously working to sharpen his skills and explore real-world applications.</p>
+        <p style="text-align: justify;">He is passionate about building practical projects and experimenting with code. Recently, he completed a step-wise HTML-based mini project and is currently developing his own advanced personal portfolio website to showcase his work, skills, and creative ideas. His focus lies not only in writing functional code but also in designing clean, user-friendly interfaces.</p>
+        <p style="text-align: justify;">Dhanush believes in learning by doing. Most of his growth comes from consistent practice, online tutorials, and experimenting with small-scale web and software development projects. He enjoys breaking down complex problems and turning them into simple, working solutions — a trait that reflects his logical mindset and patience.</p>
+        <p style="text-align: justify;">In addition to programming, he follows technology trends and takes inspiration from open-source communities and online creators. He also finds balance through hobbies like watching cricket, exploring digital tools, and spending time improving his personal projects.</p>
+        <p style="text-align: justify;">With a curious mind and a goal-oriented approach, Dhanush is on a journey to grow as a developer, contribute to the tech world, and build a meaningful career in software engineering.</p>
+          
+        <!-- Gallery Section -->
+      <section class="container" id="gallery">
+         <h1 class="text-3xl font-bold text-center mb-6">Photo Gallery</h1>
+     <div class="gallery-container flex flex-nowrap justify-start gap-4" id="photoGallery"> </div>
+    </section>
+
+        <p style="text-align: justify;">धनुष बोहरा बझाङ जिल्लाको केदारस्युँ गाउँपालिका–५, पउटा भन्ने सानो तर रमणीय गाउँमा जन्मिएर हुर्किएका हुन्। सानै उमेरदेखि पढाइमा रुचि राख्ने धनुषले कक्षा १ देखि ८ सम्म श्री रत्न माध्यमिक विद्यालय, पउटाबाट अध्ययन पूरा गरे। त्यसपछि उनले बागथलामा कक्षा ११ र १२ मा कम्प्युटर इन्जिनियरिङ (आईटी) विषयमा पढे र +2 पनि यही विषयमा कैलालीको दुर्गा लक्ष्मी मोडेल स्कूल, अत्तरियामा सम्पन्न गरे।</p>
         <p style="text-align: justify;">म एक उत्साही र जिज्ञासु विद्यार्थी हुँ, जसलाई प्रविधि र प्रोग्रामिङमा गहिरो रुचि छ। माध्यमिक तहमा कम्प्युटर इन्जिनियरिङ (आईटी) विषय लिएर अध्ययन गरेको छु, र हाल इन्जिनियरिङ प्रवेश परीक्षाको तयारी गर्दैछु। मेरो लक्ष्य प्रविधिको माध्यमबाट आफूलाई सक्षम बनाउनु र भविष्यमा उपयोगी प्रोजेक्टहरू निर्माण गर्नु हो।</p>
         <p style="text-align: justify;">अहिले म Python, Java, C, C++ जस्ता प्रोग्रामिङ भाषाहरू सिक्दै छु। सानोसानो प्रोजेक्टहरू बनाउँदै अभ्यास गर्दैछु, जसमध्ये HTML प्रयोग गरेर बनाएको एक step-wise website मेरो लागि सिक्ने राम्रो माध्यम बनेको छ। अहिले म आफ्नो पोर्टफोलियो वेबसाइट निर्माणमा पनि लागिरहेको छु, जसमा म आफ्नो सीप र रुचिहरू प्रस्तुत गर्ने सोचमा छु।</p>
         <p style="text-align: justify;">म फुर्सदको समयमा YouTube तथा अनलाइन प्लेटफर्महरूबाट नयाँ कुरा सिक्न मन पराउँछु। कहिलेकाहीँ वेबसाइट डिजाइन, code experimentation, वा logical problems solve गर्दै रमाउँछु। म विश्वास गर्छु — निरन्तर अभ्यास र आत्मविश्वासले मात्र आफूलाई अगाडि बढाउन सकिन्छ।</p>
         <p style="text-align: justify;">खेलकुदमा पनि मेरो रुचि छ, विशेष गरेर क्रिकेट हेर्न मलाई मन पर्छ। प्रविधि र सिर्जनात्मकता मेरो प्रेरणाका मूल आधार हुन्, जसले मलाई हरेक दिन केही नयाँ गर्न उत्प्रेरित गर्छ।</p>
     </div>
-    <!-- Story And Discribe Place -->
-     <h2>Our Story & Places</h2>
-<div style="display: flex; justify-content: center; align-items: center; gap: 20px;">
-<a href="https://kale-pro.github.io/dhanushbohara/AboutBajhang.html" target="_self">
-  <button class="custom-button">About Bajhang</button>
-</a>
-<a href="https://kale-pro.github.io/dhanushbohara/school.html" class="custom-button" target="_self">School</a>
-</div><br><br>
-<div style="display: flex; justify-content: center; align-items: center; gap: 20px;">
-   <a href="https://raw.githubusercontent.com/kale-pro/dhanushbohara/main/sudurpaschim%20data.pdf" target="_self"><button class="custom-button">About Sudurpaschim</button></a>   
-     <button class="custom-button">About Mount Everest</button>
-</div>
+
+    <!-- Fullscreen Modal for Image Viewing -->
+    <div class="fullscreen-modal" id="fullscreenModal">
+        <span class="close" onclick="closeFullscreenModal()">×</span>
+        <img id="fullscreenImage" src="" alt="Fullscreen Image">
+        <a class="download-btn" id="downloadBtn" href="#" download>Download</a>
+    </div>
+
+    <!-- Story And Describe Place -->
+    <section class="story-section">
+        <h2 class="text-3xl font-bold text-center mb-6">Our Story & Places</h2>
+        <div style="display: flex; justify-content: center; align-items: center; gap: 20px; margin: 1rem 0;">
+            <a href="https://kale-pro.github.io/dhanushbohara/AboutBajhang.html" target="_self">
+                <button class="custom-button">About Bajhang</button>
+            </a>
+            <a href="https://kale-pro.github.io/dhanushbohara/school.html" class="custom-button" target="_self">School</a>
+        </div>
+        <div style="display: flex; justify-content: center; align-items: center; gap: 20px; margin: 1rem 0;">
+            <a href="https://raw.githubusercontent.com/kale-pro/dhanushbohara/main/sudurpaschim%20data.pdf" target="_self">
+                <button class="custom-button">About Sudurpaschim</button>
+            </a>
+            <a href="#" class="custom-button" onclick="alert('Coming Soon!')">About Mount Everest</a>
+        </div>
+    </section>
+
     <!-- Projects Section -->
     <section class="projects-section">
-        <h2 id="projects">Project</h2>
+        <h2 id="projects" class="text-3xl font-bold text-center mb-6">Projects</h2>
         <div class="projects-grid">
             <!-- Project Card 1 -->
             <div class="project-card">
@@ -1354,12 +903,10 @@
         </div>
     </section>
 
-
-
     <!-- Skills Section -->
     <section id="skills" data-aos="fade-up">
         <div class="container">
-            <h2 id="skill">Skills</h2>
+            <h2 id="skill" class="text-3xl font-bold text-center mb-6" >Skills</h2>
             <div class="skills-grid">
                 <!-- Python icon -->
                 <div class="skill" data-aos="fade-up" onclick="window.location.href='https://kale-pro.github.io/dhanushbohara/python.html'">
@@ -1427,7 +974,7 @@
     <!-- Comment/Feedback and Contact Section -->
     <div class="cc-box">
         <div class="comment-box">
-            <h2>Comment</h2>
+            <h2 class="text-3xl font-bold text-center mb-6" >Comment</h2>
             <!-- Comment form submits directly to Formspree -->
             <form class="contact-form" id="commentForm" action="https://formspree.io/f/manoeqey" method="POST">
                 <label for="name">Your Name</label>
@@ -1441,13 +988,13 @@
         </div>
 
         <div class="contact-box" id="contact">
-            <h2>Contact Information</h2>
+            <h2 class="text-3xl font-bold text-center mb-6">Contact Information</h2>
             <p><i class="fas fa-envelope"></i> mr.dhanushbohara@gmail.com</p>
             <p><i class="fas fa-phone"></i> +977-9842172080</p>
             <p><i class="fas fa-map-marker-alt"></i> Sudurpaschim, Nepal</p>
             <p><i class="fas fa-code"></i> Aspiring Developer | Python, Java & Web Enthusiast</p>
             <p><i class="fas fa-lightbulb"></i> Passionate about real-world projects and continuous learning.</p>
-            <div class="social-links">
+            <div class="social-links" justify>
                 <a href="https://wa.me/9779842172080" target="_blank" title="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
                 <a href="https://youtube.com/@kaleproff" target="_blank"><i class="fab fa-youtube"></i></a>
                 <a href="https://facebook.com/dhanushbohara" target="_blank"><i class="fab fa-facebook"></i></a>
@@ -1457,40 +1004,42 @@
         </div>
     </div>
 
-                       <!-- Footer Section -->
-            <footer>
-            <a href="#home" class="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></a>
-
-            <div style="margin-top: 10px;">
-                <a href="https://kale-pro.github.io/dhanushbohara/privacy-policy.html" style="margin-right: 10px; color: #bca2a2; text-decoration: none;">Privacy Policy</a> | 
-                <a href="https://kale-pro.github.io/dhanushbohara/terms%26condition.html" style="margin-left: 10px; color: #bca2a2; text-decoration: none;">Terms & Conditions</a>
-            </div>            
-
-            <p data-translate="footer-designed"> Designed by<a href="https://www.facebook.com/kale.pro.156523" target="_blank" style="color: #ea2525; text-decoration: none;">  <b>Kale Pro</b></a></p>
-           <p data-translate="footer-copyright">
-                © 2025 <strong>Kale Pro by 
-                <a href="https://www.facebook.com/dhanush.bohara.2025" target="_blank" style="text-decoration: none; font-weight: bold; font-size: 18px;">
-                    <span style="background: linear-gradient(to right, #ea25b2 0%, #25a0ea 100%);
-                                -webkit-background-clip: text;
-                                -webkit-text-fill-color: transparent;
-                                display: inline-block;">
-                        Dhanush Bohara
-                    </span>
-                </a>
-                </strong> All rights reserved.
-            </p>
-            </footer>
+    <!-- Footer Section -->
+    <footer>
+        <a href="#home" class="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></a>
+        <div style="margin-top: 10px;">
+            <a href="https://kale-pro.github.io/dhanushbohara/privacy-policy.html" style="margin-right: 10px; color: #bca2a2; text-decoration: none;">Privacy Policy</a> | 
+            <a href="https://kale-pro.github.io/dhanushbohara/terms%26condition.html" style="margin-left: 10px; color: #bca2a2; text-decoration: none;">Terms & Conditions</a>
+        </div>            
+        <p data-translate="footer-designed"> Designed by <a href="https://www.facebook.com/kale.pro.156523" target="_blank" style="color: #ea2525; text-decoration: none;"><b>Kale Pro</b></a></p>
+        <p data-translate="footer-copyright">
+            © 2025 <strong>Kale Pro by 
+            <a href="https://www.facebook.com/dhanush.bohara.2025" target="_blank" style="text-decoration: none; font-weight: bold; font-size: 18px;">
+                <span style="background: linear-gradient(to right, #ea25b2 0%, #25a0ea 100%);
+                            -webkit-background-clip: text;
+                            -webkit-text-fill-color: transparent;
+                            display: inline-block;">
+                    Dhanush Bohara
+                </span>
+            </a>
+            </strong> All rights reserved.
+        </p>
+    </footer>
+</body>
     <!-- Scripts -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        // Theme Toggle Functionality
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    // Theme Toggle Functionality
+    document.addEventListener('DOMContentLoaded', () => {
         const themeToggle = document.getElementById('themeToggle');
         const body = document.body;
 
+        // Load saved theme or default to 'dark'
         const savedTheme = localStorage.getItem('theme') || 'dark';
         body.setAttribute('data-theme', savedTheme);
         themeToggle.innerHTML = savedTheme === 'light' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
 
+        // Toggle theme on click
         themeToggle.addEventListener('click', () => {
             const currentTheme = body.getAttribute('data-theme');
             const newTheme = currentTheme === 'light' ? 'dark' : 'light';
@@ -1498,662 +1047,286 @@
             themeToggle.innerHTML = newTheme === 'light' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
             localStorage.setItem('theme', newTheme);
         });
+    });
 
-        // Photo Gallery Data
-        const images = [
-            "https://raw.githubusercontent.com/Kale-Pro/dhanushbohara/main/1709123191724.jpg",
-            "https://raw.githubusercontent.com/Kale-Pro/dhanushbohara/main/IMG-20230429-WA0004.jpg",
-            "https://raw.githubusercontent.com/Kale-Pro/dhanushbohara/main/1725349768824.jpg",
-            "https://raw.githubusercontent.com/Kale-Pro/dhanushbohara/main/1724945586223.jpg",
-            "https://raw.githubusercontent.com/Kale-Pro/dhanushbohara/main/1712622553138.jpg",
-            "https://raw.githubusercontent.com/Kale-Pro/dhanushbohara/main/IMG_20240417_171412.jpg",
-            "https://raw.githubusercontent.com/Kale-Pro/dhanushbohara/main/dhanush-1.jpg",
-            "https://raw.githubusercontent.com/Kale-Pro/dhanushbohara/main/1708085922690.jpg",
-            "https://raw.githubusercontent.com/Kale-Pro/dhanushbohara/main/1704016540957.jpg",
-            "https://raw.githubusercontent.com/Kale-Pro/dhanushbohara/main/IMG_20240311_124808.jpg",
-            "https://raw.githubusercontent.com/Kale-Pro/dhanushbohara/main/1695652800202.jpg"
-        ];
+    // Gallery Data and Rendering
+    const photos = [
+        { url: "https://raw.githubusercontent.com/Kale-Pro/dhanushbohara/main/1709123191724.jpg", caption: "Picture after the presentation.", date: "2024-02-28", location: "Kathmandu, Nepal" },
+        { url: "https://raw.githubusercontent.com/Kale-Pro/dhanushbohara/main/IMG-20230429-WA0004.jpg", caption: "Memories of School!", date: "2023-04-29", location: "Pokhara, Nepal" },
+        { url: "https://raw.githubusercontent.com/Kale-Pro/dhanushbohara/main/1725349768824.jpg", caption: "Exploring nature!", date: "2024-09-03", location: "Chitwan, Nepal" },
+        { url: "https://raw.githubusercontent.com/Kale-Pro/dhanushbohara/main/1724945586223.jpg", caption: "Feeling on top of the world!", date: "2024-08-29", location: "Everest Base Camp, Nepal" },
+        { url: "https://raw.githubusercontent.com/Kale-Pro/dhanushbohara/main/1712622553138.jpg", caption: "A moment of Last Day.", date: "2024-04-09", location: "Lalitpur, Nepal" },
+        { url: "https://raw.githubusercontent.com/Kale-Pro/dhanushbohara/main/IMG_20240417_171412.jpg", caption: "CE 2080 Batch group photo!", date: "2024-04-17", location: "Bhaktapur, Nepal" },
+        { url: "https://raw.githubusercontent.com/Kale-Pro/dhanushbohara/main/dhanush-1.jpg", caption: "Memories that last forever.", date: "2023-12-15", location: "Kathmandu, Nepal" },
+        { url: "https://raw.githubusercontent.com/Kale-Pro/dhanushbohara/main/1708085922690.jpg", caption: "Taking a break from coding!", date: "2024-02-16", location: "Pokhara, Nepal" },
+        { url: "https://raw.githubusercontent.com/Kale-Pro/dhanushbohara/main/1704016540957.jpg", caption: "Adventure awaits!", date: "2024-01-01", location: "Mustang, Nepal" },
+        { url: "https://raw.githubusercontent.com/Kale-Pro/dhanushbohara/main/IMG_20240311_124808.jpg", caption: "Just another day in paradise.", date: "2024-03-11", location: "Kathmandu, Nepal" },
+        { url: "https://raw.githubusercontent.com/Kale-Pro/dhanushbohara/main/1695652800202.jpg", caption: "Living my best life!", date: "2023-09-27", location: "Lumbini, Nepal" }
+    ];
 
-        const captions = [
-            "Picture after tha presentation.",
-            "Memories of School!",
-            "Exploring nature!",
-            "Feeling on top of the world!",
-            "A moment of Last Day.",
-            "CE 2080 Batch group photo!",
-            "Memories that last forever.",
-            "Taking a break from coding!",
-            "Adventure awaits!",
-            "Just another day in paradise.",
-            "Living my best life!"
-        ];
+    function renderGallery() {
+        const gallery = document.getElementById('photoGallery');
+        if (!gallery) return; // Guard clause if gallery element is missing
+        gallery.innerHTML = '';
+        photos.forEach(photo => {
+            const item = document.createElement('div');
+            item.className = 'gallery-item snap-center flex-shrink-0 p-2';
+            item.innerHTML = `
+                <img src="${photo.url}" alt="${photo.caption}" class="mb-2" loading="lazy" onclick="openFullscreenModal('${photo.url}')">
+                <div class="text-center">
+                    <p class="font-semibold">${photo.caption}</p>
+                    <p class="text-sm text-gray-600">${photo.date}</p>
+                    <p class="text-sm text-gray-600">${photo.location}</p>
+                </div>
+            `;
+            gallery.appendChild(item);
+        });
+    }
 
-        let currentIndex = 0;
-        const photoGallery = document.getElementById("photoGallery");
-        const fullscreenModal = document.getElementById("fullscreenModal");
-        const fullscreenImage = document.getElementById("fullscreenImage");
-
-        // Calculate max frames based on viewport width
-        function getMaxFrames() {
-            const width = window.innerWidth;
-            if (width <= 480) return 1;
-            if (width <= 768) return 1;
-            if (width <= 1024) return 2;
-            return 3;
+    // Fullscreen Modal Functions
+    function openFullscreenModal(url) {
+        const modal = document.getElementById('fullscreenModal');
+        const fullscreenImage = document.getElementById('fullscreenImage');
+        const downloadBtn = document.getElementById('downloadBtn');
+        if (modal && fullscreenImage && downloadBtn) {
+            fullscreenImage.src = url;
+            downloadBtn.href = url;
+            modal.style.display = 'flex';
         }
+    }
 
-        let maxFrames = getMaxFrames();
-
-        // Interaction data for likes, favorites, and comments
-        let interactionData = images.map(() => ({
-            likes: 0,
-            hasLiked: false,
-            favorites: 0,
-            favorited: false,
-            comments: [] // Now stores { text: string, user: string }
-        }));
-
-        // Load interaction data from localStorage
-        function loadInteractionData() {
-            const savedData = localStorage.getItem('photoGalleryInteractions');
-            if (savedData) {
-                const parsedData = JSON.parse(savedData);
-                if (parsedData.length === images.length) {
-                    interactionData = parsedData;
-                }
-            }
-        }
-
-        // Save interaction data to localStorage
-        function saveInteractionData() {
-            localStorage.setItem('photoGalleryInteractions', JSON.stringify(interactionData));
-        }
-
-        loadInteractionData();
-
-        // Check if user is logged in
-        function isLoggedIn() {
-            return !!localStorage.getItem('loggedInUser');
-        }
-
-        // Get current logged-in user
-        function getCurrentUser() {
-            return localStorage.getItem('loggedInUser') || null;
-        }
-
-        // Display photos in the gallery
-        function displayPhotos() {
-            maxFrames = getMaxFrames();
-            photoGallery.classList.add("loading");
-            setTimeout(() => {
-                photoGallery.innerHTML = "";
-                photoGallery.classList.remove("loading");
-                for (let i = 0; i < maxFrames; i++) {
-                    const index = (currentIndex + i) % images.length;
-                    if (images[index]) {
-                        const frame = document.createElement("div");
-                        frame.className = "photo-frame";
-                        frame.setAttribute("data-index", index);
-                        // Check login status to determine comment section visibility
-                        const isUserLoggedIn = isLoggedIn();
-                        const commentSectionContent = isUserLoggedIn
-                            ? `
-                                <!-- Comment Section with Close Button -->
-                                <div class="comment-section">
-                                    <div class="comments-list"></div>
-                                    <div class="comment-input-container">
-                                        <input type="text" class="comment-input" placeholder="Write a comment...">
-                                        <button class="comment-post-btn">Post</button>
-                                        <button class="comment-close-btn">Close</button>
-                                    </div>
-                                </div>
-                            `
-                            : `
-                                <!-- Login Prompt for Non-Logged-In Users -->
-                                <div class="login-prompt">
-                                    Please <a href="https://kale-pro.github.io/dhanushbohara/login.html">log in</a> to comment.
-                                </div>
-                            `;
-                        frame.innerHTML = `
-                            <!-- Caption Area -->
-                            <div class="caption-area">
-                                <img src="https://raw.githubusercontent.com/kale-pro/dhanushbohara/main/d-lofo.jpg" alt="Profile" class="profile-pic">
-                                <div class="caption-content">
-                                    <p>${captions[index]}</p>
-                                    <div class="caption-meta">15 Feb 2024</div>
-                                </div>
-                            </div>
-                            <div class="screen-content">
-                                <img src="${images[index]}" alt="Photo ${index + 1}" loading="lazy">
-                            </div>
-                            <div class="iphone-notch"></div>
-                            <div class="iphone-speaker"></div>
-                            <div class="iphone-camera"></div>
-                            <div class="iphone-power-button"></div>
-                            <div class="iphone-volume-buttons">
-                                <div class="iphone-volume-up"></div>
-                                <div class="iphone-volume-down"></div>
-                            </div>
-                            <div class="iphone-silent-switch"></div>
-                            <!-- Social Interaction Buttons -->
-                            <div class="social-interaction">
-                                <button class="interaction-btn like-btn ${interactionData[index].hasLiked ? 'active disabled' : ''}">
-                                    <i class="fas fa-heart"></i>
-                                    <span>${interactionData[index].likes}</span>
-                                </button>
-                                <button class="interaction-btn comment-btn ${!isUserLoggedIn ? 'disabled' : ''}">
-                                    <i class="fas fa-comment"></i>
-                                    <span>${interactionData[index].comments.length}</span>
-                                </button>
-                                <button class="interaction-btn favorite-btn ${interactionData[index].favorited ? 'active' : ''}">
-                                    <i class="fas fa-star"></i>
-                                    <span>${interactionData[index].favorites}</span>
-                                </button>
-                            </div>
-                            ${commentSectionContent}
-                        `;
-                        const img = frame.querySelector(".screen-content img");
-                        img.addEventListener('click', () => {
-                            fullscreenImage.src = images[index];
-                            fullscreenModal.style.display = 'flex';
-                        });
-
-                        const profilePic = frame.querySelector(".profile-pic");
-                        profilePic.addEventListener('click', () => {
-                            window.location.href = "https://kale-pro.github.io/dhanushbohara/profile.html";
-                        });
-
-                        // Like Button Functionality
-                        const likeBtn = frame.querySelector(".like-btn");
-                        if (!interactionData[index].hasLiked) {
-                            likeBtn.addEventListener('click', () => {
-                                interactionData[index].likes += 1;
-                                interactionData[index].hasLiked = true;
-                                likeBtn.querySelector("span").textContent = interactionData[index].likes;
-                                likeBtn.classList.add("active", "disabled");
-                                saveInteractionData();
-                            });
-                        }
-
-                        // Comment Button Functionality (Only for logged-in users)
-                        const commentBtn = frame.querySelector(".comment-btn");
-                        if (isUserLoggedIn) {
-                            const commentSection = frame.querySelector(".comment-section");
-                            const commentInput = frame.querySelector(".comment-input");
-                            const commentPostBtn = frame.querySelector(".comment-post-btn");
-                            const commentCloseBtn = frame.querySelector(".comment-close-btn");
-                            const commentsList = frame.querySelector(".comments-list");
-
-                            commentBtn.addEventListener('click', (e) => {
-                                e.stopPropagation();
-                                commentSection.classList.add("active");
-                            });
-
-                            commentCloseBtn.addEventListener('click', (e) => {
-                                e.stopPropagation();
-                                commentSection.classList.remove("active");
-                                commentInput.value = "";
-                            });
-
-                            // Add Comment with Edit/Delete Options (Restricted to Owner)
-                            const addComment = () => {
-                                if (commentInput.value.trim()) {
-                                    const currentUser = getCurrentUser();
-                                    interactionData[index].comments.push({
-                                        text: commentInput.value.trim(),
-                                        user: currentUser
-                                    });
-                                    const comment = document.createElement("div");
-                                    comment.className = "comment";
-                                    const commentText = commentInput.value.trim();
-                                    // Only show edit/delete buttons if the comment belongs to the current user
-                                    const commentActions = currentUser
-                                        ? `
-                                            <div class="comment-actions">
-                                                <button class="comment-action-btn edit-btn">Edit</button>
-                                                <button class="comment-action-btn delete-btn">Delete</button>
-                                            </div>
-                                        `
-                                        : '';
-                                    comment.innerHTML = `
-                                        <span class="comment-text">${commentText} (by ${currentUser})</span>
-                                        ${commentActions}
-                                    `;
-                                    commentsList.appendChild(comment);
-                                    commentBtn.querySelector("span").textContent = interactionData[index].comments.length;
-                                    commentInput.value = "";
-                                    commentSection.classList.remove("active"); // Hide comment section after posting
-                                    saveInteractionData();
-
-                                    // Edit Comment Functionality (Only for Owner)
-                                    if (currentUser) {
-                                        const editBtn = comment.querySelector(".edit-btn");
-                                        editBtn.addEventListener('click', () => {
-                                            commentInput.value = commentText;
-                                            commentPostBtn.textContent = "Update";
-                                            commentPostBtn.onclick = () => {
-                                                if (commentInput.value.trim()) {
-                                                    const commentIndex = interactionData[index].comments.findIndex(
-                                                        c => c.text === commentText && c.user === currentUser
-                                                    );
-                                                    if (commentIndex !== -1) {
-                                                        interactionData[index].comments[commentIndex].text = commentInput.value.trim();
-                                                        comment.querySelector(".comment-text").textContent = `${commentInput.value.trim()} (by ${currentUser})`;
-                                                        saveInteractionData();
-                                                    }
-                                                    commentInput.value = "";
-                                                    commentPostBtn.textContent = "Post";
-                                                    commentPostBtn.onclick = addComment;
-                                                    commentSection.classList.remove("active");
-                                                }
-                                            };
-                                        });
-
-                                        // Delete Comment Functionality (Only for Owner)
-                                        const deleteBtn = comment.querySelector(".delete-btn");
-                                        deleteBtn.addEventListener('click', () => {
-                                            const commentIndex = interactionData[index].comments.findIndex(
-                                                c => c.text === commentText && c.user === currentUser
-                                            );
-                                            if (commentIndex !== -1) {
-                                                interactionData[index].comments.splice(commentIndex, 1);
-                                                comment.remove();
-                                                commentBtn.queryLPrompt.querySelector("span").textContent = interactionData[index].comments.length;
-                                                saveInteractionData();
-                                            }
-                                        });
-                                    }
-                                }
-                            };
-
-                            commentInput.addEventListener('keypress', (e) => {
-                                if (e.key === 'Enter') {
-                                    addComment();
-                                }
-                            });
-
-                            commentPostBtn.addEventListener('click', addComment);
-
-                            // Load existing comments with Edit/Delete options (Restricted to Owner)
-                            interactionData[index].comments.forEach((commentObj, commentIdx) => {
-                                const comment = document.createElement("div");
-                                comment.className = "comment";
-                                const currentUser = getCurrentUser();
-                                // Only show edit/delete buttons if the comment belongs to the current user
-                                const commentActions = commentObj.user === currentUser
-                                    ? `
-                                        <div class="comment-actions">
-                                            <button class="comment-action-btn edit-btn">Edit</button>
-                                            <button class="comment-action-btn delete-btn">Delete</button>
-                                        </div>
-                                    `
-                                    : '';
-                                comment.innerHTML = `
-                                    <span class="comment-text">${commentObj.text} (by ${commentObj.user})</span>
-                                    ${commentActions}
-                                `;
-                                commentsList.appendChild(comment);
-
-                                // Edit Comment Functionality (Only for Owner)
-                                if (commentObj.user === currentUser) {
-                                    const editBtn = comment.querySelector(".edit-btn");
-                                    editBtn.addEventListener('click', () => {
-                                        commentInput.value = commentObj.text;
-                                        commentPostBtn.textContent = "Update";
-                                        commentPostBtn.onclick = () => {
-                                            if (commentInput.value.trim()) {
-                                                interactionData[index].comments[commentIdx].text = commentInput.value.trim();
-                                                comment.querySelector(".comment-text").textContent = `${commentInput.value.trim()} (by ${commentObj.user})`;
-                                                saveInteractionData();
-                                                commentInput.value = "";
-                                                commentPostBtn.textContent = "Post";
-                                                commentPostBtn.onclick = addComment;
-                                                commentSection.classList.remove("active");
-                                            }
-                                        };
-                                    });
-
-                                    // Delete Comment Functionality (Only for Owner)
-                                    const deleteBtn = comment.querySelector(".delete-btn");
-                                    deleteBtn.addEventListener('click', () => {
-                                        interactionData[index].comments.splice(commentIdx, 1);
-                                        comment.remove();
-                                        commentBtn.querySelector("span").textContent = interactionData[index].comments.length;
-                                        saveInteractionData();
-                                    });
-                                }
-                            });
-                        }
-
-                        // Favorite Button Functionality
-                        const favoriteBtn = frame.querySelector(".favorite-btn");
-                        favoriteBtn.addEventListener('click', () => {
-                            interactionData[index].favorited = !interactionData[index].favorited;
-                            if (interactionData[index].favorited) {
-                                interactionData[index].favorites += 1;
-                            } else {
-                                interactionData[index].favorites = Math.max(0, interactionData[index].favorites - 1);
-                            }
-                            favoriteBtn.classList.toggle("active");
-                            favoriteBtn.querySelector("span").textContent = interactionData[index].favorites;
-                            saveInteractionData();
-                        });
-
-                        photoGallery.appendChild(frame);
-                    }
-                }
-            }, 300);
-        }
-
-        // Navigate to next set of photos
-        function nextPhotos() {
-            if (images.length <= maxFrames) return;
-            currentIndex = (currentIndex + 1) % images.length;
-            displayPhotos();
-        }
-
-        // Navigate to previous set of photos
-        function previousPhotos() {
-            if (images.length <= maxFrames) return;
-            currentIndex = (currentIndex - 1 + images.length) % images.length;
-            displayPhotos();
-        }
-
-        // Close fullscreen modal
-        function closeFullscreenModal() {
-            fullscreenModal.style.display = 'none';
+    function closeFullscreenModal() {
+        const modal = document.getElementById('fullscreenModal');
+        const fullscreenImage = document.getElementById('fullscreenImage');
+        if (modal && fullscreenImage) {
+            modal.style.display = 'none';
             fullscreenImage.src = '';
         }
+    }
 
-        fullscreenModal.addEventListener('click', (e) => {
-            if (e.target === fullscreenModal) {
-                closeFullscreenModal();
-            }
-        });
+    // Event Listeners for Modal
+    document.addEventListener('DOMContentLoaded', () => {
+        const modal = document.getElementById('fullscreenModal');
+        if (modal) {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) closeFullscreenModal();
+            });
 
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && fullscreenModal.style.display === 'flex') {
-                closeFullscreenModal();
-            }
-        });
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && modal.style.display === 'flex') closeFullscreenModal();
+            });
+        }
+    });
 
-        window.addEventListener('load', () => {
-            fullscreenModal.style.display = 'none';
-            displayPhotos();
-        });
+    // Initialize AOS for animations
+    AOS.init({
+        duration: 1000,
+        once: true,
+        easing: 'ease-in-out' // Smoother animation
+    });
 
-        window.addEventListener("resize", () => {
-            maxFrames = getMaxFrames();
-            displayPhotos();
-        });
-
-        document.addEventListener("keydown", (event) => {
-            if (event.key === "ArrowRight") nextPhotos();
-            else if (event.key === "ArrowLeft") previousPhotos();
-        });
-
-        // Drag/Swipe Support
-        let isDragging = false;
-        let startX;
-
-        photoGallery.addEventListener("mousedown", (e) => {
-            if (e.target.closest('.comment-section')) return;
-            isDragging = true;
-            photoGallery.classList.add("dragging");
-            startX = e.pageX;
-        });
-
-        photoGallery.addEventListener("mousemove", (e) => {
-            if (!isDragging) return;
-            e.preventDefault();
-            const x = e.pageX;
-            const walk = x - startX;
-            if (walk > 50) {
-                previousPhotos();
-                isDragging = false;
-            } else if (walk < -50) {
-                nextPhotos();
-                isDragging = false;
-            }
-        });
-
-        photoGallery.addEventListener("mouseup", () => {
-            isDragging = false;
-            photoGallery.classList.remove("dragging");
-        });
-
-        photoGallery.addEventListener("mouseleave", () => {
-            isDragging = false;
-            photoGallery.classList.remove("dragging");
-        });
-
-        photoGallery.addEventListener("touchstart", (e) => {
-            if (e.target.closest('.comment-section')) return;
-            isDragging = true;
-            startX = e.touches[0].pageX;
-        });
-
-        photoGallery.addEventListener("touchmove", (e) => {
-            if (!isDragging) return;
-            if (e.target.closest('.comment-section')) return;
-            e.preventDefault();
-            const x = e.touches[0].pageX;
-            const walk = x - startX;
-            if (walk > 30) {
-                previousPhotos();
-                isDragging = false;
-            } else if (walk < -30) {
-                nextPhotos();
-                isDragging = false;
-            }
-        });
-
-        photoGallery.addEventListener("touchend", () => {
-            isDragging = false;
-        });
-
-        // Initialize AOS for animations
-        AOS.init({
-            duration: 1000,
-            once: true
-        });
-
-        // Mobile menu toggle
+    // Mobile Menu Toggle
+    document.addEventListener('DOMContentLoaded', () => {
         const menuToggle = document.querySelector('.menu-toggle');
         const navLinks = document.querySelector('.nav-links');
-        menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
+        if (menuToggle && navLinks) {
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+        }
+    });
 
-        // Smooth scrolling for anchor links
+    // Smooth Scrolling for Anchor Links
+    document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+            anchor.addEventListener('click', function(e) {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth' });
             });
-        }); 
-         // Particle Background
-         particlesJS('particles-js', {
-                particles: {
-                    number: { value: 80 },
-                    color: { value: '#ffffff' },
-                    shape: { type: 'circle' },
-                    opacity: { value: 0.5 },
-                    size: { value: 3 },
-                    move: {
-                        enable: true,
-                        speed: 2,
-                        direction: 'none',
-                        random: false,
-                        straight: false,
-                        out_mode: 'out',
-                    }
-                },
-                interactivity: {
-                    detect_on: 'canvas',
-                    events: {
-                        onhover: { enable: true, mode: 'repulse' },
-                        resize: true
-                    }
-                }
-            });
-           // Sample content to search from (replace this with your actual content source)
-           const contentData = [
-                "Dhanush Bohara is a motivated and self-driven tech enthusiast with a growing interest in software development and modern programming.",
-                "He is passionate about building practical projects and experimenting with code.",
-                "Recently, he completed a step-wise HTML-based mini project and is currently developing his own advanced personal portfolio website.",
-                "Dhanush believes in learning by doing and enjoys breaking down complex problems into simple solutions.",
-                "In addition to programming, he follows technology trends and takes inspiration from open-source communities."
-            ];
+        });
+    });
 
-            // Search Functionality
-            document.getElementById('buttons').addEventListener('click', function() {
-                const query = document.getElementById('search').value.toLowerCase().trim();
-                const searchResults = document.getElementById('searchResults');
-                
-                // Clear previous results
+    // Particle Background
+    particlesJS('particles-js', {
+        particles: {
+            number: { value: 80 },
+            color: { value: '#ffffff' },
+            shape: { type: 'circle' },
+            opacity: { value: 0.5 },
+            size: { value: 3 },
+            move: {
+                enable: true,
+                speed: 2,
+                direction: 'none',
+                random: false,
+                straight: false,
+                out_mode: 'out'
+            }
+        },
+        interactivity: {
+            detect_on: 'canvas',
+            events: {
+                onhover: { enable: true, mode: 'repulse' },
+                resize: true
+            }
+        }
+    });
+
+    // Search Functionality
+    document.addEventListener('DOMContentLoaded', () => {
+        const contentData = [
+            "Dhanush Bohara is a motivated and self-driven tech enthusiast with a growing interest in software development and modern programming.",
+            "He is passionate about building practical projects and experimenting with code.",
+            "Recently, he completed a step-wise HTML-based mini project and is currently developing his own advanced personal portfolio website.",
+            "Dhanush believes in learning by doing and enjoys breaking down complex problems into simple solutions.",
+            "In addition to programming, he follows technology trends and takes inspiration from open-source communities."
+        ];
+
+        const buttons = document.getElementById('buttons');
+        const search = document.getElementById('search');
+        const searchResults = document.getElementById('searchResults');
+
+        if (buttons && search && searchResults) {
+            buttons.addEventListener('click', () => {
+                const query = search.value.toLowerCase().trim();
                 searchResults.innerHTML = '';
-                
-                // Check if query is empty
+
                 if (!query) {
                     searchResults.innerHTML = '<p class="no-results">Please enter a search term.</p>';
                     searchResults.classList.add('active');
                     return;
                 }
 
-                // Search through content
                 let resultsFound = false;
-                contentData.forEach((item, index) => {
+                contentData.forEach((item) => {
                     if (item.toLowerCase().includes(query)) {
                         searchResults.innerHTML += `<p>${item}</p>`;
                         resultsFound = true;
                     }
                 });
 
-                // Display results or no-results message
                 if (!resultsFound) {
                     searchResults.innerHTML = '<p class="no-results">Sorry!! No results found.</p>';
                 }
-                
-                // Show the results container
                 searchResults.classList.add('active');
             });
 
-            // Clear results when clicking outside the search bar or results
-            document.addEventListener('click', function(e) {
-                const searchContainer = document.querySelector('.search-container');
-                const searchResults = document.getElementById('searchResults');
-                if (!searchContainer.contains(e.target) && !searchResults.contains(e.target)) {
+            document.addEventListener('click', (e) => {
+                if (!search.contains(e.target) && !searchResults.contains(e.target)) {
                     searchResults.classList.remove('active');
                 }
             });
-            // project section 
-                    document.querySelectorAll('.project-card').forEach(card => {
-            card.addEventListener('mousemove', e => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left; // Mouse X relative to card
-                const y = e.clientY - rect.top;  // Mouse Y relative to card
-                const width = rect.width;
-                const height = rect.height;
+        }
+    });
 
-                // Normalize mouse position to [-1, 1] for each axis
-                const normX = (x / width) * 2 - 1; // -1 (left) to 1 (right)
-                const normY = (y / height) * 2 - 1; // -1 (top) to 1 (bottom)
+    // Project Card Interactions
+    document.addEventListener('DOMContentLoaded', () => {
+        const cards = document.querySelectorAll('.project-card');
+        if (cards.length > 0) {
+            cards.forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    const width = rect.width;
+                    const height = rect.height;
 
-                // Calculate tilt angles (max 5 degrees for slightly more movement)
-                const tiltX = normY * 5; // Tilt up/down based on Y position
-                const tiltY = -normX * 5; // Tilt left/right based on X position
+                    const normX = (x / width) * 2 - 1;
+                    const normY = (y / height) * 2 - 1;
+                    const tiltX = normY * 5;
+                    const tiltY = -normX * 5;
 
-                // Apply transform
-                card.classList.add('tilt');
-                card.style.transform = `translateY(-4px) rotateX(${tiltX}deg) rotateY(${tiltY}deg)`;
+                    card.classList.add('tilt');
+                    card.style.transform = `translateY(-4px) rotateX(${tiltX}deg) rotateY(${tiltY}deg)`;
+                });
+
+                card.addEventListener('mouseleave', () => {
+                    card.classList.remove('tilt');
+                    card.style.transform = 'translateY(0)';
+                });
+
+                // Touch events for mobile
+                card.addEventListener('touchstart', () => {
+                    card.style.transform = 'translateY(-4px) scale(1.02)';
+                }, { passive: true });
+
+                card.addEventListener('touchend', () => {
+                    card.style.transform = 'translateY(0)';
+                }, { passive: true });
             });
+        }
+    });
 
-            card.addEventListener('mouseleave', () => {
-                // Reset transform on mouse leave
-                card.classList.remove('tilt');
-                card.style.transform = 'translateY(0)';
-            });
+    // Project Section Animation
+    document.addEventListener('DOMContentLoaded', () => {
+        const section = document.querySelector('.projects-section');
+        const cards = document.querySelectorAll('.project-card');
 
-            // Fallback for touch devices
-            card.addEventListener('touchstart', () => {
-                card.style.transform = 'translateY(-4px) scale(1.02)';
-            });
-            card.addEventListener('touchend', () => {
-                card.style.transform = 'translateY(0)';
-            });
-          });
-
-            document.addEventListener('DOMContentLoaded', () => {
-                const section = document.querySelector('.projects-section');
-                const cards = document.querySelectorAll('.project-card');
-
-                const observer = new IntersectionObserver(entries => {
-                    entries.forEach(entry => {
+        if (section && cards.length > 0) {
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
                         if (entry.isIntersecting) {
                             section.classList.add('visible');
                             cards.forEach(card => card.classList.add('visible'));
-                            observer.unobserve(section); // Stop observing after animation
+                            observer.unobserve(section);
                         }
                     });
-                }, {
-                    threshold: 0.2 // Trigger when 20% of section is visible
-                });
-
-                observer.observe(section);
-            });
-
-            // Comment Form Submission
-            document.addEventListener('DOMContentLoaded', () => {
-    const commentForm = document.getElementById('commentForm');
-    const successMessage = document.createElement('div');
-    successMessage.className = 'success-message';
-    successMessage.textContent = 'Thank you so much for your valuable comment! We have successfully received your feedback and truly appreciate the time you took to share your thoughts with us';
-    successMessage.style.display = 'none'; // Hidden by default
-    commentForm.parentNode.appendChild(successMessage); // Add to DOM
-
-    commentForm.addEventListener('submit', async function(e) {
-        e.preventDefault();
-        const submitButton = commentForm.querySelector('button[type="submit"]');
-        submitButton.disabled = true;
-
-        // Collect form data
-        const formData = new FormData(commentForm);
-
-        try {
-            // Submit to Formspree via fetch
-            const response = await fetch(commentForm.action, {
-                method: 'POST',
-                body: formData,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            });
-
-            if (response.ok) {
-                // Show success message
-                successMessage.style.display = 'block';
-                commentForm.style.display = 'none'; // Hide form
-                commentForm.reset(); // Reset form
-
-                // Optional: Hide success message after 5 seconds
-                setTimeout(() => {
-                    successMessage.style.display = 'none';
-                    commentForm.style.display = 'block'; // Show form again
-                }, 5000);
-            } else {
-                throw new Error('Form submission failed');
-            }
-        } catch (error) {
-            console.error('Error:', error);
-            alert('Something went wrong. Please try again.');
-        } finally {
-            submitButton.disabled = false; // Re-enable button
+                },
+                { threshold: 0.2 }
+            );
+            observer.observe(section);
         }
     });
-});
-        </script>
-    </body>
+
+    // Comment Form Submission
+    document.addEventListener('DOMContentLoaded', () => {
+        const commentForm = document.getElementById('commentForm');
+        if (commentForm) {
+            const successMessage = document.createElement('div');
+            successMessage.className = 'success-message';
+            successMessage.textContent = 'Thank you so much for your valuable comment! We have successfully received your feedback and truly appreciate the time you took to share your thoughts with us';
+            successMessage.style.display = 'none';
+            commentForm.parentNode.appendChild(successMessage);
+
+            commentForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const submitButton = commentForm.querySelector('button[type="submit"]');
+                if (submitButton) submitButton.disabled = true;
+
+                const formData = new FormData(commentForm);
+
+                try {
+                    const response = await fetch(commentForm.action, {
+                        method: 'POST',
+                        body: formData,
+                        headers: { 'Accept': 'application/json' }
+                    });
+
+                    if (response.ok) {
+                        successMessage.style.display = 'block';
+                        commentForm.style.display = 'none';
+                        commentForm.reset();
+
+                        setTimeout(() => {
+                            successMessage.style.display = 'none';
+                            commentForm.style.display = 'block';
+                        }, 5000);
+                    } else {
+                        throw new Error('Form submission failed');
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    alert('Something went wrong. Please try again.');
+                } finally {
+                    if (submitButton) submitButton.disabled = false;
+                }
+            });
+        }
+    });
+
+    // Initialize Gallery
+    document.addEventListener('DOMContentLoaded', renderGallery);
+</script>
 </html>
