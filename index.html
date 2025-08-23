@@ -1,23 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <!-- Required Meta Tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <!-- Title (Shown in Browser Tab) -->
     <title>Dhanush Bohara</title>
-    
+
     <!-- Description and Keywords (SEO) -->
-    <meta name="description" content="Dhanush Bohara — Programming enthusiast and Web Developer from Nepal. Explore innovative projects, technical skills, and collaboration opportunities.">
-    <meta name="keywords" content="Dhanush Bohara, dhanushbohara.com.np, Kale Pro, Python Developer, Software Developer, Portfolio, Nepal, Web Developer">
-    
+    <meta name="description"
+        content="Dhanush Bohara — Programming enthusiast and Web Developer from Nepal. Explore innovative projects, technical skills, and collaboration opportunities.">
+    <meta name="keywords"
+        content="Dhanush Bohara, dhanushbohara.com.np, Kale Pro, Python Developer, Software Developer, Portfolio, Nepal, Web Developer">
+
     <!-- Author -->
     <meta name="author" content="Dhanush Bohara">
-    
+
     <!-- Favicon (Browser Tab Icon) -->
-    <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/kale-pro/dhanushbohara/main/website-logo.ico">
-    
+    <link rel="icon" type="image/x-icon"
+        href="https://raw.githubusercontent.com/kale-pro/dhanushbohara/main/website-logo.ico">
+
     <!-- Fonts and Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
@@ -41,7 +45,7 @@
     </script>
 
     <style>
-       /* CSS Variables for Theme Support */
+        /* CSS Variables for Theme Support */
         :root {
             --primary: #1a1a1a;
             --secondary: #ff4655;
@@ -211,7 +215,10 @@
 
         /* Responsive Design for Navbar and Sections */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
             .nav-links {
                 display: none;
                 position: fixed;
@@ -225,18 +232,38 @@
                 text-align: center;
                 z-index: 999;
             }
+
             [data-theme="light"] .nav-links {
                 background: rgba(255, 255, 255, 0.9);
             }
-            .nav-links.active { display: flex; }
-            .menu-toggle { display: block; }
-            section { padding: 1.5rem; }
-            .hero { min-height: 50vh; }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            section {
+                padding: 1.5rem;
+            }
+
+            .hero {
+                min-height: 50vh;
+            }
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         #welcome {
@@ -260,7 +287,7 @@
             border: 2px solid #2a1b3d;
             border-radius: 25px;
             background: rgba(255, 255, 255, 0.1);
-            color: #ffffff;
+            color: #000000;
             font-size: 16px;
             outline: none;
             transition: all 0.3s ease;
@@ -271,10 +298,11 @@
             color: #ccc;
         }
 
-        #search:focus, #search:hover {
+        #search:focus,
+        #search:hover {
             border-color: #6a1b9a;
-            background: rgba(255, 255, 255, 0.2);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            background: rgba(255, 255, 255, 0.653);
+            box-shadow: 0 4px 10px rgba(246, 4, 4, 0.3);
             transform: scale(1.02);
         }
 
@@ -284,7 +312,7 @@
             border: none;
             border-radius: 25px;
             cursor: pointer;
-            color: #ffffff;
+            color: #b19595;
             font-size: 16px;
             display: flex;
             align-items: center;
@@ -367,6 +395,53 @@
             height: auto;
             margin: 0 0 1px 1px;
             padding: 3px;
+        }
+
+        /* cv model */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background-color: white;
+            padding: 1rem;
+            border-radius: 8px;
+            max-width: 90%;
+            max-height: 90%;
+            overflow: auto;
+            position: relative;
+        }
+
+        .modal-content img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #f61c03;
+            color: white;
+            border: none;
+            padding: 0.5rem;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .close-btn:hover {
+            background-color: #c0392b;
         }
 
         /* Gallery Section */
@@ -464,12 +539,15 @@
                 margin: 0 auto 15px;
                 width: 100px;
             }
+
             .container {
                 padding: 10px;
             }
+
             .gallery-item {
                 min-width: 200px;
             }
+
             .gallery-item img {
                 height: 150px;
             }
@@ -503,7 +581,8 @@
             transform: translateY(-5px);
         }
 
-        .skill img, .skill i {
+        .skill img,
+        .skill i {
             width: 24px;
             height: 24px;
             margin-bottom: 1rem;
@@ -511,97 +590,109 @@
 
         /* Story and Place Description */
         .story-section {
-        padding: 2rem;
-        text-align: center;
-        max-width: 100vw;
-        box-sizing: border-box;
+            padding: 2rem;
+            text-align: center;
+            max-width: 100vw;
+            box-sizing: border-box;
         }
 
         .card-container {
-        display: flex;
-        flex-wrap: nowrap; /* Prevents wrapping for horizontal scroll */
-        gap: 1.5rem;
-        margin: 0 auto;
-        padding: 0 1rem;
-        box-sizing: border-box;
-        overflow-x: auto; /* Enables horizontal scrolling */
-        scroll-behavior: smooth; /* Smooth scrolling */
-        -webkit-overflow-scrolling: touch; /* Smooth scrolling on touch devices */
-        width: calc(4 * 250px + 3 * 1.5rem); /* 4 cards * 250px width + 3 gaps * 1.5rem */
-        max-width: 100%; /* Prevents container from exceeding viewport */
+            display: flex;
+            flex-wrap: nowrap;
+            /* Prevents wrapping for horizontal scroll */
+            gap: 1.5rem;
+            margin: 0 auto;
+            padding: 0 1rem;
+            box-sizing: border-box;
+            overflow-x: auto;
+            /* Enables horizontal scrolling */
+            scroll-behavior: smooth;
+            /* Smooth scrolling */
+            -webkit-overflow-scrolling: touch;
+            /* Smooth scrolling on touch devices */
+            width: calc(4 * 250px + 3 * 1.5rem);
+            /* 4 cards * 250px width + 3 gaps * 1.5rem */
+            max-width: 100%;
+            /* Prevents container from exceeding viewport */
         }
 
         .card {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-decoration: none;
-        background-color: var(--card-bg);
-        border-radius: 0.5rem;
-        box-shadow: var(--card-shadow);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        overflow: hidden;
-        flex: 0 0 250px; /* Fixed width for each card */
-        max-width: 250px; /* Ensures consistent card width */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            background-color: var(--card-bg);
+            border-radius: 0.5rem;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+            flex: 0 0 250px;
+            /* Fixed width for each card */
+            max-width: 250px;
+            /* Ensures consistent card width */
         }
 
         .card:hover:not(.disabled) {
-        transform: translateY(-5px);
-        box-shadow: var(--hover-shadow);
+            transform: translateY(-5px);
+            box-shadow: var(--hover-shadow);
         }
 
         .card-image {
-        width: 100%;
-        height: 200px;
-        object-fit: cover;
-        border-top-left-radius: 0.5rem;
-        border-top-right-radius: 0.5rem;
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-top-left-radius: 0.5rem;
+            border-top-right-radius: 0.5rem;
         }
 
         .card-title {
-        font-size: 1.25rem;
-        font-weight: 600;
-        color: var(--title-color);
-        padding: 1rem;
-        margin: 0;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--title-color);
+            padding: 1rem;
+            margin: 0;
         }
 
         .card.disabled {
-        opacity: 0.6;
-        cursor: not-allowed;
-        pointer-events: none;
+            opacity: 0.6;
+            cursor: not-allowed;
+            pointer-events: none;
         }
 
         .card.disabled .card-image {
-        filter: grayscale(100%);
+            filter: grayscale(100%);
         }
 
         @media (max-width: 600px) {
-        .card-container {
-            width: calc(2 * 200px + 1 * 1.5rem); /* Show 2 cards on mobile */
-            flex-wrap: nowrap; /* Maintain horizontal scroll */
-        }
+            .card-container {
+                width: calc(2 * 200px + 1 * 1.5rem);
+                /* Show 2 cards on mobile */
+                flex-wrap: nowrap;
+                /* Maintain horizontal scroll */
+            }
 
-        .card {
-            flex: 0 0 200px; /* Smaller cards on mobile */
-            max-width: 200px;
-        }
+            .card {
+                flex: 0 0 200px;
+                /* Smaller cards on mobile */
+                max-width: 200px;
+            }
 
-        .card-image {
-            height: 150px;
-        }
+            .card-image {
+                height: 150px;
+            }
         }
 
         @media (prefers-color-scheme: dark) {
-        :root {
+            :root {
 
 
-            --text-color: #e0e0e0;
-            --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
-            --hover-shadow: 0 6px 12px rgba(0, 0, 0, 0.7);
-            --title-color: #ffffff, black;
+                --text-color: #e0e0e0;
+                --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+                --hover-shadow: 0 6px 12px rgba(0, 0, 0, 0.7);
+                --title-color: #ffffff, black;
+            }
         }
-        }
+
         /* Project Section */
         .projects-section {
             padding: 2rem;
@@ -689,12 +780,29 @@
             }
         }
 
-        .project-card:nth-child(1) { transition-delay: 0.1s; }
-        .project-card:nth-child(2) { transition-delay: 0.2s; }
-        .project-card:nth-child(3) { transition-delay: 0.3s; }
-        .project-card:nth-child(4) { transition-delay: 0.4s; }
-        .project-card:nth-child(5) { transition-delay: 0.5s; }
-        .project-card:nth-child(6) { transition-delay: 0.6s; }
+        .project-card:nth-child(1) {
+            transition-delay: 0.1s;
+        }
+
+        .project-card:nth-child(2) {
+            transition-delay: 0.2s;
+        }
+
+        .project-card:nth-child(3) {
+            transition-delay: 0.3s;
+        }
+
+        .project-card:nth-child(4) {
+            transition-delay: 0.4s;
+        }
+
+        .project-card:nth-child(5) {
+            transition-delay: 0.5s;
+        }
+
+        .project-card:nth-child(6) {
+            transition-delay: 0.6s;
+        }
 
         /* Contact and Comment Box */
         .cc-box {
@@ -705,7 +813,8 @@
             padding: 0;
         }
 
-        .contact-box, .comment-box {
+        .contact-box,
+        .comment-box {
             padding: 30px;
             border-radius: 12px;
             width: 530px;
@@ -851,12 +960,14 @@
         }
     </style>
 </head>
+
 <body>
     <!-- Navigation Bar -->
     <nav class="navbar">
         <div class="nav-container">
             <a href="https://kale-pro.github.io/dhanushbohara/profile.html">
-                <img src="https://raw.githubusercontent.com/kale-pro/dhanushbohara/main/d-lofo.jpg" alt="Logo" class="logo">
+                <img src="https://raw.githubusercontent.com/kale-pro/dhanushbohara/main/d-lofo.jpg" alt="Logo"
+                    class="logo">
             </a>
             <button class="menu-toggle"><i class="fas fa-bars"></i></button>
             <div class="nav-links">
@@ -868,26 +979,30 @@
                 <a href="#contact">Contact</a>
             </div>
             <div class="social-icons">
-                <a href="https://www.linkedin.com/in/dhanush-bohara-660732358/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="https://www.tiktok.com/@mr.dhanushbohara?_t=ZS-8vAFoD0k4nq&_r=1" target="_blank"><i class="fab fa-tiktok"></i></a>
-                <a href="https://www.facebook.com/profile.php?id=100082124208815" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.linkedin.com/in/dhanush-bohara-660732358/" target="_blank"><i
+                        class="fab fa-linkedin"></i></a>
+                <a href="https://www.tiktok.com/@mr.dhanushbohara?_t=ZS-8vAFoD0k4nq&_r=1" target="_blank"><i
+                        class="fab fa-tiktok"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=100082124208815" target="_blank"><i
+                        class="fab fa-facebook"></i></a>
                 <a href="https://youtube.com/@kaleproff" target="_blank"><i class="fab fa-youtube"></i></a>
             </div>
             <button class="theme-toggle" id="themeToggle" title="Toggle Theme">
                 <i class="fas fa-moon"></i>
             </button>
-            <a href="https://kale-pro.github.io/dhanushbohara/login.html" title="Login" class="login-icon">
+            <!-- <a href="https://kale-pro.github.io/dhanushbohara/login.html" title="Login" class="login-icon">
                 <i class="fas fa-user"></i>
-            </a>
+            </a> -->
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div id="particles-js"></div>
-        <div class="hero-content">
-            <h1 id="welcome">Welcome To My Website</h1>
-            <h1>Dhanush Bohara</h1>
+        <div class="hero-content"><br><br>
+            <h1 id="welcome"><span style="font-family: 'Edu NSW ACT Foundation', cursive;">Welcome To My Website</span>
+            </h1>
+            <h1 style="font-family: 'Playfair Display', serif;">Dhanush Bohara</h1>
             <p class="tagline">Aspiring Software Developer | IT Enthusiast</p>
             <div class="search-container">
                 <input id="search" type="text" placeholder="Search here...">
@@ -900,34 +1015,62 @@
     <!-- Chatbot Section -->
     <div class="chatbot-container">
         <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
-        <df-messenger
-            intent="WELCOME"
-            chat-title="kaleproBot"
-            agent-id="f8df47c5-f7d7-49a5-bccd-c5b2e9936794"
+        <df-messenger intent="WELCOME" chat-title="kaleproBot" agent-id="f8df47c5-f7d7-49a5-bccd-c5b2e9936794"
             language-code="en">
         </df-messenger>
     </div>
 
+
+
     <!-- About Section -->
     <div class="container" id="about">
-        <h1 class="text-3xl font-bold text-center mb-6" >About Me</h1>
-        <img src="https://github.com/kale-pro/dhanushbohara/blob/main/about%20right%20photo%20frame.png?raw=true" class="profile-img">
-<p style="text-align: justify;">Dhanush Bohara is a passionate learner in the field of Information Technology with a strong interest in programming and software development. He enjoys exploring how things work behind the scenes and is continuously building his skills by working on small yet meaningful projects.</p><br>
-<p style="text-align: justify;">He is especially interested in web technologies and loves experimenting with code to create clean, functional, and user-friendly designs. His journey into the tech world began out of curiosity and has now evolved into a dedicated pursuit of technical growth.</p><br>
-<p style="text-align: justify;">Dhanush prefers hands-on learning — whether through coding simple programs, developing web pages, or trying out new tools and frameworks. He believes in learning by doing and enjoys solving problems by breaking them into clear and logical steps.</p><br>
-<p style="text-align: justify;">Outside of coding, he keeps up with the latest tech trends and often draws inspiration from open-source communities and creative developers around the world. Personal growth and creative exploration are central to his learning path.</p>
-<p style="text-align: justify;">With a focused mindset and a drive to improve, Dhanush aims to become a skilled developer and contribute to the evolving world of technology through his passion and dedication.</p>
- 
-        <!-- Gallery Section -->
-      <section class="container" id="gallery">
-         <h1 class="text-3xl font-bold text-center mb-6">Photo Gallery</h1>
-     <div class="gallery-container flex flex-nowrap justify-start gap-4" id="photoGallery"> </div>
+        <h1 class="text-3xl font-bold text-center mb-6">About Me</h1>
+        <img src="https://github.com/kale-pro/dhanushbohara/blob/main/about%20right%20photo%20frame.png?raw=true"
+            class="profile-img">
+        <p style="text-align: justify;">Dhanush Bohara is a passionate learner in the field of Information Technology
+            with a strong interest in programming and software development. He enjoys exploring how things work behind
+            the scenes and is continuously building his skills by working on small yet meaningful projects.</p><br>
+        <p style="text-align: justify;">He is especially interested in web technologies and loves experimenting with
+            code to create clean, functional, and user-friendly designs. His journey into the tech world began out of
+            curiosity and has now evolved into a dedicated pursuit of technical growth.</p><br>
+        <p style="text-align: justify;">Dhanush prefers hands-on learning — whether through coding simple programs,
+            developing web pages, or trying out new tools and frameworks. He believes in learning by doing and enjoys
+            solving problems by breaking them into clear and logical steps.</p><br>
+        <p style="text-align: justify;">Outside of coding, he keeps up with the latest tech trends and often draws
+            inspiration from open-source communities and creative developers around the world. Personal growth and
+            creative exploration are central to his learning path.</p>
+        <p style="text-align: justify;">With a focused mindset and a drive to improve, Dhanush aims to become a skilled
+            developer and contribute to the evolving world of technology through his passion and dedication.</p>
+        <button onclick="openModal()" style="color: red; background: none; border: none; cursor: pointer; font-size: 16px;"> View CV</button>
+        <!-- Modal for full-screen CV -->
+        <div id="cvModal" class="modal">
+            <div class="modal-content">
+                <button class="close-btn" onclick="closeModal()">Close</button>
+                <img src="https://raw.githubusercontent.com/kale-pro/dhanushbohara/main/cv.png" alt="CV">
+            </div>
+        </div>
+    </div>
+
+    <!-- Gallery Section -->
+    <section class="container" id="gallery">
+        <h1 class="text-3xl font-bold text-center mb-6">Photo Gallery</h1>
+        <div class="gallery-container flex flex-nowrap justify-start gap-4" id="photoGallery"> </div>
     </section>
 
-<p style="text-align: justify;">धनुष बोहरा सुदूरपश्चिम नेपालका एक उत्साही र जिज्ञासु विद्यार्थी हुन्, जसलाई प्रविधि र प्रोग्रामिङ क्षेत्रमा गहिरो रुचि छ। उनले माध्यमिक तहमा Information Technology (IT) विषय लिएर अध्ययन गरेका हुन् र कक्षा १० पछि दुर्गा लक्ष्मी मोडेल स्कूलबाट IT मा +2 स्तर पूरा गरेका छन्। हाल उनी इन्जिनियरिङ् प्रवेश परीक्षाको तयारीमा जुटिरहेका छन्।</p><br>
-<p style="text-align: justify;">उनले Python, Java, C, C++ जस्ता प्रोग्रामिङ भाषाहरूमा अभ्यास गर्दै आएका छन्। साना परियोजनाहरू निर्माण गर्दै, HTML प्रयोग गरेर बनाएको एक step-wise website बाट उनले सिक्ने यात्रा सुरु गरेका छन्। अहिले उनी आफ्नो व्यक्तिगत पोर्टफोलियो वेबसाइट निर्माणमा लागिरहेका छन्, जसमा आफ्नो सीप, रुचि र सिर्जनात्मक कामहरू प्रस्तुत गर्ने योजना छ।</p><br>
-<p style="text-align: justify;">धनुषको विश्वास छ कि "सिकाइ भनेको केवल सिद्धान्त होइन, अभ्यास पनि हो।" उनी YouTube लगायत अन्य अनलाइन स्रोतहरूबाट निरन्तर नयाँ कुरा सिक्ने प्रयास गर्छन् र विभिन्न code experimentation तथा logical problem-solving मार्फत आफ्नो क्षमतालाई बलियो बनाउँदै छन्।</p><br>
-<p style="text-align: justify;">उनलाई प्रविधि मात्र होइन, खेलकुदमा पनि रुचि छ, विशेष गरी क्रिकेट हेर्न। प्रविधिप्रतिको मोह, निरन्तर अभ्यास, र सिर्जनात्मक सोच नै उनीलाई हरेक दिन नयाँ कुरा सिक्न र गर्न उत्प्रेरित गर्छ। भविष्यमा उनी उपयोगी प्रोजेक्टहरू निर्माण गर्दै टेक क्षेत्रमा योगदान दिने लक्ष्य राख्छन्।</p>
+    <!-- <p style="text-align: justify;">धनुष बोहरा सुदूरपश्चिम नेपालका एक उत्साही र जिज्ञासु विद्यार्थी हुन्, जसलाई
+            प्रविधि र प्रोग्रामिङ क्षेत्रमा गहिरो रुचि छ। उनले माध्यमिक तहमा Information Technology (IT) विषय लिएर
+            अध्ययन गरेका हुन् र कक्षा १० पछि दुर्गा लक्ष्मी मोडेल स्कूलबाट IT मा +2 स्तर पूरा गरेका छन्। हाल उनी
+            इन्जिनियरिङ् प्रवेश परीक्षाको तयारीमा जुटिरहेका छन्।</p><br>
+        <p style="text-align: justify;">उनले Python, Java, C, C++ जस्ता प्रोग्रामिङ भाषाहरूमा अभ्यास गर्दै आएका छन्।
+            साना परियोजनाहरू निर्माण गर्दै, HTML प्रयोग गरेर बनाएको एक step-wise website बाट उनले सिक्ने यात्रा सुरु
+            गरेका छन्। अहिले उनी आफ्नो व्यक्तिगत पोर्टफोलियो वेबसाइट निर्माणमा लागिरहेका छन्, जसमा आफ्नो सीप, रुचि र
+            सिर्जनात्मक कामहरू प्रस्तुत गर्ने योजना छ।</p><br>
+        <p style="text-align: justify;">धनुषको विश्वास छ कि "सिकाइ भनेको केवल सिद्धान्त होइन, अभ्यास पनि हो।" उनी
+            YouTube लगायत अन्य अनलाइन स्रोतहरूबाट निरन्तर नयाँ कुरा सिक्ने प्रयास गर्छन् र विभिन्न code experimentation
+            तथा logical problem-solving मार्फत आफ्नो क्षमतालाई बलियो बनाउँदै छन्।</p><br>
+        <p style="text-align: justify;">उनलाई प्रविधि मात्र होइन, खेलकुदमा पनि रुचि छ, विशेष गरी क्रिकेट हेर्न।
+            प्रविधिप्रतिको मोह, निरन्तर अभ्यास, र सिर्जनात्मक सोच नै उनीलाई हरेक दिन नयाँ कुरा सिक्न र गर्न उत्प्रेरित
+            गर्छ। भविष्यमा उनी उपयोगी प्रोजेक्टहरू निर्माण गर्दै टेक क्षेत्रमा योगदान दिने लक्ष्य राख्छन्।</p> -->
 
     </div>
 
@@ -938,32 +1081,39 @@
         <a class="download-btn" id="downloadBtn" href="#" download>Download</a>
     </div>
 
-<!-- Story And Describe Place -->
-<section class="story-section" aria-labelledby="story-heading">
-  <h2 id="story-heading" class="text-3xl font-bold text-center mb-8">Our Story & Places</h2>
-  <div class="card-container">
-    <!-- Bajhang Card -->
-    <a href="https://kale-pro.github.io/dhanushbohara/AboutBajhang.html" class="card" aria-label="Learn more about Bajhang">
-      <img src="https://github.com/kale-pro/dhanushbohara/raw/main/khapta3.jpg" alt="Scenic view of Bajhang" class="card-image">
-      <h3 class="card-title">Bajhang</h3>
-    </a>
-    <!-- School Card -->
-    <a href="https://kale-pro.github.io/dhanushbohara/school.html" class="card" aria-label="Learn more about School">
-        <img src="https://raw.githubusercontent.com/kale-pro/dhanushbohara/main/Sunita%20Secondary%20School%2C%20Bajhang.jpg" alt="School in Bajhang" class="card-image">
-        <h3 class="card-title">School</h3>
-    </a>
-    <!-- Sudurpaschim Card -->
-    <a href="https://raw.githubusercontent.com/kale-pro/dhanushbohara/main/sudurpaschim%20data.pdf" class="card" aria-label="Learn more about Sudurpaschim">
-      <img src="https://github.com/kale-pro/dhanushbohara/raw/main/khapta2.jpg" alt="Sudurpaschim landscape" class="card-image">
-      <h3 class="card-title">Sudurpaschim</h3>
-    </a>
-    <!-- Mount Everest Card (Disabled) -->
-    <a href="#" class="card disabled" aria-label="About Mount Everest (Coming Soon)" aria-disabled="true">
-      <img src="https://github.com/kale-pro/dhanushbohara/raw/main/khaptad4.jpg" alt="Mount Everest (Coming Soon)" class="card-image">
-      <h3 class="card-title">Mount Everest</h3>
-    </a>
-  </div>
-</section>
+    <!-- Story And Describe Place -->
+    <section class="story-section" aria-labelledby="story-heading">
+        <h2 id="story-heading" class="text-3xl font-bold text-center mb-8">Demo Websites</h2>
+        <div class="card-container">
+            <!-- Bajhang Card -->
+            <a href="https://kale-pro.github.io/dhanushbohara/AboutBajhang.html" class="card"
+                aria-label="Learn more about Bajhang">
+                <img src="https://github.com/kale-pro/dhanushbohara/raw/main/khapta3.jpg" alt="Scenic view of Bajhang"
+                    class="card-image">
+                <h3 class="card-title">Bajhang</h3>
+            </a>
+            <!-- School Card -->
+            <a href="https://kale-pro.github.io/dhanushbohara/school.html" class="card"
+                aria-label="Learn more about School">
+                <img src="https://raw.githubusercontent.com/kale-pro/dhanushbohara/main/Sunita%20Secondary%20School%2C%20Bajhang.jpg"
+                    alt="School in Bajhang" class="card-image">
+                <h3 class="card-title">School</h3>
+            </a>
+            <!-- Sudurpaschim Card -->
+            <a href="https://raw.githubusercontent.com/kale-pro/dhanushbohara/main/sudurpaschim%20data.pdf" class="card"
+                aria-label="Learn more about Sudurpaschim">
+                <img src="https://github.com/kale-pro/dhanushbohara/raw/main/khapta2.jpg" alt="Sudurpaschim landscape"
+                    class="card-image">
+                <h3 class="card-title">Sudurpaschim</h3>
+            </a>
+            <!-- Mount Everest Card (Disabled) -->
+            <a href="#" class="card disabled" aria-label="About Mount Everest (Coming Soon)" aria-disabled="true">
+                <img src="https://github.com/kale-pro/dhanushbohara/raw/main/khaptad4.jpg"
+                    alt="Mount Everest (Coming Soon)" class="card-image">
+                <h3 class="card-title">Mount Everest</h3>
+            </a>
+        </div>
+    </section>
 
     <!-- Projects Section -->
     <section class="projects-section">
@@ -973,8 +1123,8 @@
             <div class="project-card">
                 <h3 class="project-title">Personal Website</h3>
                 <p class="project-description">
-                    A fully responsive personal portfolio website built using HTML, CSS, and JavaScript. 
-                    Features smooth animations, modern design, and a contact form. Constantly updated 
+                    A fully responsive personal portfolio website built using HTML, CSS, and JavaScript.
+                    Features smooth animations, modern design, and a contact form. Constantly updated
                     to improve user experience.
                 </p>
             </div>
@@ -983,7 +1133,7 @@
             <div class="project-card">
                 <h3 class="project-title">KaleProBot</h3>
                 <p class="project-description">
-                    Smart virtual assistant built using Google Dialogflow. Supports both English and Nepali, 
+                    Smart virtual assistant built using Google Dialogflow. Supports both English and Nepali,
                     helping users interact with the Kale Pro brand in a friendly and intelligent way.
                 </p>
             </div>
@@ -992,7 +1142,7 @@
             <div class="project-card">
                 <h3 class="project-title">Programming Courses</h3>
                 <p class="project-description">
-                    Clean course listing website made with HTML, CSS, and JavaScript. Organizes beginner 
+                    Clean course listing website made with HTML, CSS, and JavaScript. Organizes beginner
                     to advanced level Java and Python topics in a structured and user-friendly format.
                 </p>
             </div>
@@ -1002,64 +1152,74 @@
     <!-- Skills Section -->
     <section id="skills" data-aos="fade-up">
         <div class="container">
-            <h2 id="skill" class="text-3xl font-bold text-center mb-6" >Skills</h2>
+            <h2 id="skill" class="text-3xl font-bold text-center mb-6">Skills</h2>
             <div class="skills-grid">
                 <!-- Python icon -->
-                <div class="skill" data-aos="fade-up" onclick="window.location.href='https://kale-pro.github.io/dhanushbohara/python.html'">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" 
-                         alt="Python Icon" style="width: 24px; height: 24px; margin-right: 8px;">
+                <div class="skill" data-aos="fade-up"
+                    onclick="window.location.href='https://kale-pro.github.io/dhanushbohara/python.html'">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
+                        alt="Python Icon" style="width: 24px; height: 24px; margin-right: 8px;">
                     <span>Python</span>
                 </div>
                 <!-- Java icon -->
-                <div class="skill" data-aos="fade-up" onclick="window.location.href='https://kale-pro.github.io/dhanushbohara/java.html'">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" 
-                         alt="Java Icon" style="width: 24px; height: 24px; margin-right: 8px;">
+                <div class="skill" data-aos="fade-up"
+                    onclick="window.location.href='https://kale-pro.github.io/dhanushbohara/java.html'">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java Icon"
+                        style="width: 24px; height: 24px; margin-right: 8px;">
                     <span>Java</span>
                 </div>
                 <!-- C icon -->
-                <div class="skill" data-aos="fade-up" data-aos-delay="100" onclick="window.location.href='https://kale-pro.github.io/dhanushbohara/c.html'">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" 
-                         alt="C Icon" style="width: 24px; height: 24px; margin-right: 8px;">
+                <div class="skill" data-aos="fade-up" data-aos-delay="100"
+                    onclick="window.location.href='https://kale-pro.github.io/dhanushbohara/c.html'">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="C Icon"
+                        style="width: 24px; height: 24px; margin-right: 8px;">
                     <span>C</span>
                 </div>
                 <!-- C++ icon -->
-                <div class="skill" data-aos="fade-up" data-aos-delay="150" onclick="window.location.href='https://kale-pro.github.io/dhanushbohara/cplush.html'">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" 
-                         alt="C++ Icon" style="width: 24px; height: 24px; margin-right: 8px;">
+                <div class="skill" data-aos="fade-up" data-aos-delay="150"
+                    onclick="window.location.href='https://kale-pro.github.io/dhanushbohara/cplush.html'">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg"
+                        alt="C++ Icon" style="width: 24px; height: 24px; margin-right: 8px;">
                     <span>C++</span>
                 </div>
                 <!-- HTML icon -->
-                <div class="skill" data-aos="fade-up" data-aos-delay="200" onclick="window.location.href='https://kale-pro.github.io/dhanushbohara/webhtml.html'">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" 
-                         alt="HTML5 Icon" style="width: 24px; height: 24px; margin-right: 8px;">
+                <div class="skill" data-aos="fade-up" data-aos-delay="200"
+                    onclick="window.location.href='https://kale-pro.github.io/dhanushbohara/webhtml.html'">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
+                        alt="HTML5 Icon" style="width: 24px; height: 24px; margin-right: 8px;">
                     <span>HTML</span>
                 </div>
                 <!-- CSS icon -->
-                <div class="skill" data-aos="fade-up" data-aos-delay="300" onclick="window.location.href='https://kale-pro.github.io/dhanushbohara/webcss.html'">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" 
-                         alt="CSS Icon" style="width: 24px; height: 24px; margin-right: 8px;">
+                <div class="skill" data-aos="fade-up" data-aos-delay="300"
+                    onclick="window.location.href='https://kale-pro.github.io/dhanushbohara/webcss.html'">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS Icon"
+                        style="width: 24px; height: 24px; margin-right: 8px;">
                     <span>CSS</span>
                 </div>
                 <!-- JavaScript icon -->
-                <div class="skill" data-aos="fade-up" data-aos-delay="250" onclick="window.location.href='https://kale-pro.github.io/dhanushbohara/webjs.html'">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" 
-                         alt="JavaScript Icon" style="width: 24px; height: 24px; margin-right: 8px;">
+                <div class="skill" data-aos="fade-up" data-aos-delay="250"
+                    onclick="window.location.href='https://kale-pro.github.io/dhanushbohara/webjs.html'">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+                        alt="JavaScript Icon" style="width: 24px; height: 24px; margin-right: 8px;">
                     <span>JavaScript</span>
                 </div>
                 <!-- Git icon -->
-                <div class="skill" data-aos="fade-up" data-aos-delay="350" onclick="window.location.href='https://kale-pro.github.io/dhanushbohara/webgit.html'">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" 
-                         alt="Git Icon" style="width: 24px; height: 24px; margin-right: 8px;">
+                <div class="skill" data-aos="fade-up" data-aos-delay="350"
+                    onclick="window.location.href='https://kale-pro.github.io/dhanushbohara/webgit.html'">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git Icon"
+                        style="width: 24px; height: 24px; margin-right: 8px;">
                     <span>Git</span>
                 </div>
                 <!-- GitHub -->
-                <div class="skill" data-aos="fade-up" data-aos-delay="400" onclick="window.location.href='https://kale-pro.github.io/dhanushbohara/webgithub.html'">
+                <div class="skill" data-aos="fade-up" data-aos-delay="400"
+                    onclick="window.location.href='https://kale-pro.github.io/dhanushbohara/webgithub.html'">
                     <i class="fab fa-github"></i>
                     <span>GitHub</span>
                 </div>
 
                 <!-- Software Tools -->
-                <div class="skill" data-aos="fade-up" data-aos-delay="450" onclick="window.location.href='https://kale-pro.github.io/dhanushbohara/softwaretool.html'">
+                <div class="skill" data-aos="fade-up" data-aos-delay="450"
+                    onclick="window.location.href='https://kale-pro.github.io/dhanushbohara/softwaretool.html'">
                     <i class="fas fa-tools"></i>
                     <span>Software Tools</span>
                 </div>
@@ -1070,7 +1230,7 @@
     <!-- Comment/Feedback and Contact Section -->
     <div class="cc-box">
         <div class="comment-box">
-            <h2 class="text-3xl font-bold text-center mb-6" >Comment</h2>
+            <h2 class="text-3xl font-bold text-center mb-6">Comment</h2>
             <!-- Comment form submits directly to Formspree -->
             <form class="contact-form" id="commentForm" action="https://formspree.io/f/manoeqey" method="POST">
                 <label for="name">Your Name</label>
@@ -1078,7 +1238,8 @@
                 <label for="email">Your Email</label>
                 <input id="email" type="email" name="email" placeholder="Your Email" required>
                 <label for="comment">Your Comment or Feedback</label>
-                <textarea id="comment" name="comment" placeholder="Your Comment or Feedback..." rows="5" required></textarea>
+                <textarea id="comment" name="comment" placeholder="Your Comment or Feedback..." rows="5"
+                    required></textarea>
                 <button type="submit">Post Comment</button>
             </form>
         </div>
@@ -1091,11 +1252,15 @@
             <p><i class="fas fa-code"></i> Aspiring Developer | Python, Java & Web Enthusiast</p>
             <p><i class="fas fa-lightbulb"></i> Passionate about real-world projects and continuous learning.</p>
             <div class="social-links" justify>
-                <a href="https://wa.me/9779842172080" target="_blank" title="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://wa.me/9779842172080" target="_blank" title="Chat on WhatsApp"><i
+                        class="fab fa-whatsapp"></i></a>
                 <a href="https://youtube.com/@kaleproff" target="_blank"><i class="fab fa-youtube"></i></a>
-               <a href="https://www.facebook.com/dhanush.bohara.2025" target="_blank"><i class="fab fa-facebook"></i></a>
-                <a href="https://www.linkedin.com/in/dhanush-bohara-660732358/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="https://www.tiktok.com/@mr.dhanushbohara?_t=ZS-8vAFoD0k4nq&_r=1" target="_blank"><i class="fab fa-tiktok"></i></a>
+                <a href="https://www.facebook.com/dhanush.bohara.2025" target="_blank"><i
+                        class="fab fa-facebook"></i></a>
+                <a href="https://www.linkedin.com/in/dhanush-bohara-660732358/" target="_blank"><i
+                        class="fab fa-linkedin"></i></a>
+                <a href="https://www.tiktok.com/@mr.dhanushbohara?_t=ZS-8vAFoD0k4nq&_r=1" target="_blank"><i
+                        class="fab fa-tiktok"></i></a>
             </div>
         </div>
     </div>
@@ -1104,25 +1269,29 @@
     <footer>
         <a href="#home" class="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></a>
         <div style="margin-top: 10px;">
-            <a href="https://kale-pro.github.io/dhanushbohara/privacy-policy.html" style="margin-right: 10px; color: #bca2a2; text-decoration: none;">Privacy Policy</a> | 
-            <a href="https://kale-pro.github.io/dhanushbohara/terms%26condition.html" style="margin-left: 10px; color: #bca2a2; text-decoration: none;">Terms & Conditions</a>
-        </div>            
-        <p data-translate="footer-designed"> Designed by <a href="https://www.facebook.com/kale.pro.156523" target="_blank" style="color: #ea2525; text-decoration: none;"><b>Kale Pro</b></a></p>
+            <a href="https://kale-pro.github.io/dhanushbohara/privacy-policy.html"
+                style="margin-right: 10px; color: #bca2a2; text-decoration: none;">Privacy Policy</a> |
+            <a href="https://kale-pro.github.io/dhanushbohara/terms%26condition.html"
+                style="margin-left: 10px; color: #bca2a2; text-decoration: none;">Terms & Conditions</a>
+        </div>
+        <p data-translate="footer-designed"> Designed by <a href="https://www.facebook.com/kale.pro.156523"
+                target="_blank" style="color: #ea2525; text-decoration: none;"><b>Kale Pro</b></a></p>
         <p data-translate="footer-copyright">
-            © 2025 <strong>Kale Pro by 
-            <a href="https://www.facebook.com/dhanush.bohara.2025" target="_blank" style="text-decoration: none; font-weight: bold; font-size: 18px;">
-                <span style="background: linear-gradient(to right, #ea25b2 0%, #25a0ea 100%);
+            © 2025 <strong>Kale Pro by
+                <a href="https://www.facebook.com/dhanush.bohara.2025" target="_blank"
+                    style="text-decoration: none; font-weight: bold; font-size: 18px;">
+                    <span style="background: linear-gradient(to right, #ea25b2 0%, #25a0ea 100%);
                             -webkit-background-clip: text;
                             -webkit-text-fill-color: transparent;
                             display: inline-block;">
-                    Dhanush Bohara
-                </span>
-            </a>
+                        Dhanush Bohara
+                    </span>
+                </a>
             </strong> All rights reserved.
         </p>
     </footer>
 </body>
-    <!-- Scripts -->
+<!-- Scripts -->
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
     // Theme Toggle Functionality
@@ -1147,16 +1316,16 @@
 
     // Gallery Data and Rendering
     const photos = [
-        { url: "https://raw.githubusercontent.com/Kale-Pro/dhanushbohara/main/1709123191724.jpg", caption: "Picture after the presentation.", date: "2024-02-28", location: "Kathmandu, Nepal" },
-        { url: "https://raw.githubusercontent.com/Kale-Pro/dhanushbohara/main/IMG-20230429-WA0004.jpg", caption: "Memories of School!", date: "2023-04-29", location: "Pokhara, Nepal" },
-        { url: "https://raw.githubusercontent.com/Kale-Pro/dhanushbohara/main/1725349768824.jpg", caption: "Exploring nature!", date: "2024-09-03", location: "Chitwan, Nepal" },
-        { url: "https://raw.githubusercontent.com/Kale-Pro/dhanushbohara/main/1724945586223.jpg", caption: "Feeling on top of the world!", date: "2024-08-29", location: "Everest Base Camp, Nepal" },
-        { url: "https://raw.githubusercontent.com/Kale-Pro/dhanushbohara/main/1712622553138.jpg", caption: "A moment of Last Day.", date: "2024-04-09", location: "Lalitpur, Nepal" },
-        { url: "https://raw.githubusercontent.com/Kale-Pro/dhanushbohara/main/IMG_20240417_171412.jpg", caption: "CE 2080 Batch group photo!", date: "2024-04-17", location: "Bhaktapur, Nepal" },
-        { url: "https://raw.githubusercontent.com/Kale-Pro/dhanushbohara/main/dhanush-1.jpg", caption: "Memories that last forever.", date: "2023-12-15", location: "Kathmandu, Nepal" },
-        { url: "https://raw.githubusercontent.com/Kale-Pro/dhanushbohara/main/1708085922690.jpg", caption: "Taking a break from coding!", date: "2024-02-16", location: "Pokhara, Nepal" },
-        { url: "https://raw.githubusercontent.com/Kale-Pro/dhanushbohara/main/1704016540957.jpg", caption: "Adventure awaits!", date: "2024-01-01", location: "Mustang, Nepal" },
-        { url: "https://raw.githubusercontent.com/Kale-Pro/dhanushbohara/main/IMG_20240311_124808.jpg", caption: "Just another day in paradise.", date: "2024-03-11", location: "Kathmandu, Nepal" },
+        { url: "https://raw.githubusercontent.com/Kale-Pro/dhanushbohara/main/1709123191724.jpg", caption: "Picture after the presentation.", date: "2024-02-28", location: "Kailali, Nepal" },
+        { url: "https://raw.githubusercontent.com/Kale-Pro/dhanushbohara/main/IMG-20230429-WA0004.jpg", caption: "Memories of School!", date: "2023-04-29", location: "Kailali, Nepal" },
+        { url: "https://raw.githubusercontent.com/Kale-Pro/dhanushbohara/main/1725349768824.jpg", caption: "Exploring nature!", date: "2024-09-03", location: "Kailali, Nepal" },
+        { url: "https://raw.githubusercontent.com/Kale-Pro/dhanushbohara/main/1724945586223.jpg", caption: "Feeling on top of the world!", date: "2024-08-29", location: "Bajhang, Nepal" },
+        { url: "https://raw.githubusercontent.com/Kale-Pro/dhanushbohara/main/1712622553138.jpg", caption: "A moment of Last Day.", date: "2024-04-09", location: "Kailali, Nepal" },
+        { url: "https://raw.githubusercontent.com/Kale-Pro/dhanushbohara/main/IMG_20240417_171412.jpg", caption: "CE 2080 Batch group photo!", date: "2024-04-17", location: "Kailali, Nepal" },
+        { url: "https://raw.githubusercontent.com/Kale-Pro/dhanushbohara/main/dhanush-1.jpg", caption: "Memories that last forever.", date: "2023-12-15", location: "Kailali, Nepal" },
+        { url: "https://raw.githubusercontent.com/Kale-Pro/dhanushbohara/main/1708085922690.jpg", caption: "Taking a break from coding!", date: "2024-02-16", location: "Kailali, Nepal" },
+        { url: "https://raw.githubusercontent.com/Kale-Pro/dhanushbohara/main/1704016540957.jpg", caption: "Adventure awaits!", date: "2024-01-01", location: "Kailali, Nepal" },
+        { url: "https://raw.githubusercontent.com/Kale-Pro/dhanushbohara/main/IMG_20240311_124808.jpg", caption: "Just another day in paradise.", date: "2024-03-11", location: "Kailali, Nepal" },
         { url: "https://raw.githubusercontent.com/Kale-Pro/dhanushbohara/main/1695652800202.jpg", caption: "Living my best life!", date: "2023-09-27", location: "Lumbini, Nepal" }
     ];
 
@@ -1235,7 +1404,7 @@
     // Smooth Scrolling for Anchor Links
     document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
+            anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) target.scrollIntoView({ behavior: 'smooth' });
@@ -1244,30 +1413,42 @@
     });
 
     // Particle Background
-    particlesJS('particles-js', {
-        particles: {
-            number: { value: 80 },
-            color: { value: '#ffffff' },
-            shape: { type: 'circle' },
-            opacity: { value: 0.5 },
-            size: { value: 3 },
-            move: {
-                enable: true,
-                speed: 2,
-                direction: 'none',
-                random: false,
-                straight: false,
-                out_mode: 'out'
-            }
-        },
-        interactivity: {
-            detect_on: 'canvas',
-            events: {
-                onhover: { enable: true, mode: 'repulse' },
-                resize: true
-            }
-        }
-    });
+    // particlesJS('particles-js', {
+    //     particles: {
+    //         number: { value: 80 },
+    //         color: { value: '#ffffff' },
+    //         shape: { type: 'circle' },
+    //         opacity: { value: 0.5 },
+    //         size: { value: 3 },
+    //         move: {
+    //             enable: true,
+    //             speed: 2,
+    //             direction: 'none',
+    //             random: false,
+    //             straight: false,
+    //             out_mode: 'out'
+    //         }
+    //     },
+    //     interactivity: {
+    //         detect_on: 'canvas',
+    //         events: {
+    //             onhover: { enable: true, mode: 'repulse' },
+    //             resize: true
+    //         }
+    //     }
+    // });
+    // cv mode
+    function showMessage() {
+        alert("Thanks for clicking! This is a simple interactive feature.");
+    }
+
+    function openModal() {
+        document.getElementById("cvModal").style.display = "flex";
+    }
+
+    function closeModal() {
+        document.getElementById("cvModal").style.display = "none";
+    }
 
     // Search Functionality
     document.addEventListener('DOMContentLoaded', () => {
@@ -1425,4 +1606,5 @@
     // Initialize Gallery
     document.addEventListener('DOMContentLoaded', renderGallery);
 </script>
+
 </html>
