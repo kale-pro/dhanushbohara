@@ -6,11 +6,1253 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
         <!-- Title (Shown in Browser Tab) -->
-        <title>Dhanush Bohara</title>
+        <title>Dhanush Bohara -Profile page </title>
     
         <!-- Description and Keywords (SEO) -->
         <meta name="description" content="Dhanush Bohara — Programming enthusiast and Web Developer from Nepal. Explore innovative projects, technical skills, and collaboration opportunities.">
-        <meta name="keywords" content="Dhanush Bohara, dhanushbohara.com.np, Kale Pro, Python Developer, Software Developer, Portfolio, Nepal, Web Developer">
+        <meta name="keywords" content="Dhanush Bohara, <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dhanush Bohara - IT Supporter</title>
+    <meta name="description"
+        content="Dhanush Bohara - Aspiring Software Developer and IT Enthusiast from Nepal. Explore my skills, projects, and get in touch for collaboration opportunities.">
+    <meta name="author" content="Dhanush Bohara">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Dhanush Bohara - Software Developer">
+    <meta property="og:description" content="Aspiring Software Developer and IT Enthusiast from Nepal">
+    <meta property="og:image"
+        content="https://raw.githubusercontent.com/kale-pro/dhanushbohara/main/profile_with_logo.png">
+    <meta property="og:url" content="https://dhanushbohara.com.np">
+    <meta property="og:type" content="website">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon"
+        href="https://raw.githubusercontent.com/kale-pro/dhanushbohara/main/website-logo.ico">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary-blue: #3B82F6;
+            --secondary-teal: #10B981;
+            --accent-orange: #F59E0B;
+            --success-green: #22C55E;
+            --warning-yellow: #F59E0B;
+            --error-red: #EF4444;
+            --neutral-50: #F8FAFC;
+            --neutral-100: #F1F5F9;
+            --neutral-200: #E2E8F0;
+            --neutral-300: #CBD5E1;
+            --neutral-400: #94A3B8;
+            --neutral-500: #64748B;
+            --neutral-600: #475569;
+            --neutral-700: #334155;
+            --neutral-800: #1E293B;
+            --neutral-900: #0F172A;
+            --border-color: var(--neutral-200);
+            --text-primary: var(--neutral-700);
+            --primary-color: var(--primary-blue);
+            --transition: all 0.3s ease;
+            --border-radius: 8px;
+            --spacing-1: 0.25rem;
+            --spacing-2: 0.5rem;
+            --spacing-3: 0.75rem;
+            --spacing-4: 1rem;
+            --spacing-5: 1.25rem;
+            --spacing-6: 1.5rem;
+            --spacing-8: 2rem;
+            --spacing-10: 2.5rem;
+            --spacing-12: 3rem;
+            --spacing-16: 4rem;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--neutral-700);
+            background: linear-gradient(135deg, var(--neutral-50) 0%, var(--neutral-100) 100%);
+            min-height: 100vh;
+        }
+
+        /* Floating particles animation */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--primary-blue);
+            border-radius: 50%;
+            opacity: 0.1;
+            animation: float 20s infinite linear;
+            will-change: transform, opacity;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 0.1;
+            }
+
+            90% {
+                opacity: 0.1;
+            }
+
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--spacing-4);
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+
+        .header.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: var(--shadow-md);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--spacing-4) 0;
+        }
+
+        .logo {
+            width: 60px;
+            height: auto;
+            object-fit: cover;
+            margin: 0 var(--spacing-2) 0 0;
+            vertical-align: middle;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: var(--spacing-8);
+        }
+
+        .nav-link {
+            color: var(--text-primary);
+            font-weight: 500;
+            padding: var(--spacing-2) var(--spacing-4);
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--primary-color);
+            background: rgba(37, 99, 235, 0.1);
+        }
+
+        .nav-link:focus {
+            outline: 2px solid var(--primary-blue);
+            outline-offset: 2px;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: var(--spacing-2);
+        }
+
+        .hamburger {
+            width: 24px;
+            height: 2px;
+            background: var(--text-primary);
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .hamburger::before,
+        .hamburger::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: var(--text-primary);
+            transition: var(--transition);
+        }
+
+        .hamburger::before {
+            top: -8px;
+        }
+
+        .hamburger::after {
+            bottom: -8px;
+        }
+
+        /* Header Section */
+        .header-section {
+            text-align: center;
+            padding: var(--spacing-16) 0 var(--spacing-12);
+            position: relative;
+        }
+
+        .profile-image-container {
+            position: relative;
+            display: inline-block;
+            margin-bottom: var(--spacing-8);
+        }
+
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 6px solid white;
+            box-shadow: var(--shadow-xl);
+            object-fit: cover;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+        }
+
+        .profile-image:hover {
+            transform: scale(1.1);
+            box-shadow: 0 25px 50px -12px rgba(59, 130, 246, 0.25);
+        }
+
+        .profile-name {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-teal));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: var(--spacing-2);
+            line-height: 1.2;
+        }
+
+        .profile-tagline {
+            font-size: 1.25rem;
+            color: var(--neutral-600);
+            font-weight: 400;
+            margin-bottom: var(--spacing-6);
+        }
+
+        /* Section Styling */
+        .section {
+            margin-bottom: var(--spacing-16);
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: var(--spacing-8);
+            color: var(--neutral-800);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -var(--spacing-2);
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-teal));
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--neutral-600);
+            background: white;
+            padding: var(--spacing-8);
+            border-radius: 16px;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-text::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-blue), var(--secondary-teal), var(--accent-orange));
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-6);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .skill-card {
+            background: white;
+            padding: var(--spacing-6);
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.1), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .skill-card:hover::before {
+            left: 100%;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .skill-icon {
+            font-size: 2.5rem;
+            margin-bottom: var(--spacing-4);
+            display: block;
+        }
+
+        .skill-card:nth-child(1) .skill-icon {
+            color: #306998;
+        }
+
+        /* Python */
+        .skill-card:nth-child(2) .skill-icon {
+            color: #007396;
+        }
+
+        /* Java */
+        .skill-card:nth-child(3) .skill-icon {
+            color: #00599C;
+        }
+
+        /* C */
+        .skill-card:nth-child(4) .skill-icon {
+            color: #00599C;
+        }
+
+        /* C++ */
+        .skill-card:nth-child(5) .skill-icon {
+            color: #E34F26;
+        }
+
+        /* HTML */
+        .skill-card:nth-child(6) .skill-icon {
+            color: #1572B6;
+        }
+
+        /* CSS */
+        .skill-card:nth-child(7) .skill-icon {
+            color: #F7DF1E;
+        }
+
+        /* JavaScript */
+
+        .skill-name {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--neutral-800);
+            margin-bottom: var(--spacing-2);
+        }
+
+        .skill-level {
+            font-size: 0.9rem;
+            color: var(--neutral-500);
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            margin-bottom: var(--spacing-16);
+        }
+
+        .gallery-container {
+            overflow-x: auto;
+            white-space: nowrap;
+            padding: var(--spacing-4);
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: thin;
+            scrollbar-color: var(--primary-blue) var(--neutral-200);
+        }
+
+        .gallery-container::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .gallery-container::-webkit-scrollbar-track {
+            background: var(--neutral-200);
+            border-radius: 4px;
+        }
+
+        .gallery-container::-webkit-scrollbar-thumb {
+            background: var(--primary-blue);
+            border-radius: 4px;
+        }
+
+        .gallery-container::-webkit-scrollbar-thumb:hover {
+            background: var(--secondary-teal);
+        }
+
+        .gallery-item {
+            display: inline-block;
+            width: 200px;
+            height: 200px;
+            margin-right: var(--spacing-4);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-item::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(16, 185, 129, 0.2));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover::after {
+            opacity: 1;
+        }
+
+        /* Contact Section */
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-info {
+            background: white;
+            padding: var(--spacing-8);
+            border-radius: 16px;
+            box-shadow: var(--shadow-lg);
+            margin-bottom: var(--spacing-8);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: var(--spacing-4);
+            font-size: 1.1rem;
+        }
+
+        .contact-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .contact-item i {
+            margin-right: var(--spacing-3);
+            color: var(--primary-blue);
+            width: 20px;
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-4);
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background: white;
+            border-radius: 50%;
+            color: var(--neutral-600);
+            font-size: 1.5rem;
+            text-decoration: none;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-teal));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .social-link:hover::before {
+            opacity: 1;
+        }
+
+        .social-link:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-xl);
+            color: white;
+        }
+
+        .social-link:focus {
+            outline: 2px solid var(--primary-blue);
+            outline-offset: 2px;
+        }
+
+        .social-link i {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: var(--spacing-8);
+            color: var(--neutral-500);
+            font-size: 0.9rem;
+        }
+
+        .footer-link {
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .footer-link:hover {
+            text-decoration: underline;
+        }
+
+        .footer-link:focus {
+            outline: 2px solid var(--primary-blue);
+            outline-offset: 2px;
+        }
+
+        /* Fullscreen Image Modal */
+        .fullscreen-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .fullscreen-modal.active {
+            display: flex;
+        }
+
+        .fullscreen-modal img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        /* Scroll animations */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .container {
+                padding: var(--spacing-3);
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: var(--spacing-4);
+            }
+
+            .gallery-item {
+                width: 180px;
+                height: 180px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(255, 255, 255, 0.98);
+                flex-direction: column;
+                padding: var(--spacing-4);
+                box-shadow: var(--shadow-md);
+                border-radius: 0 0 var(--border-radius) var(--border-radius);
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .nav-link {
+                padding: var(--spacing-3);
+                text-align: center;
+            }
+
+            .hamburger.active {
+                background: transparent;
+            }
+
+            .hamburger.active::before {
+                transform: rotate(45deg);
+                top: 0;
+            }
+
+            .hamburger.active::after {
+                transform: rotate(-45deg);
+                bottom: 0;
+            }
+
+            .profile-image {
+                width: 150px;
+                height: 150px;
+            }
+
+            .profile-name {
+                font-size: 2.5rem;
+            }
+
+            .profile-tagline {
+                font-size: 1.1rem;
+            }
+
+            .section-title {
+                font-size: 1.75rem;
+            }
+
+            .about-text {
+                padding: var(--spacing-6);
+                font-size: 1rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-4);
+            }
+
+            .skill-card {
+                padding: var(--spacing-5);
+            }
+
+            .contact-info {
+                padding: var(--spacing-6);
+            }
+
+            .contact-item {
+                font-size: 1rem;
+            }
+
+            .gallery-item {
+                width: 150px;
+                height: 150px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-section {
+                padding: var(--spacing-12) 0 var(--spacing-8);
+            }
+
+            .profile-image {
+                width: 120px;
+                height: 120px;
+            }
+
+            .profile-name {
+                font-size: 2rem;
+            }
+
+            .profile-tagline {
+                font-size: 1rem;
+            }
+
+            .section {
+                margin-bottom: var(--spacing-12);
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .about-text {
+                padding: var(--spacing-5);
+            }
+
+            .social-link {
+                width: 50px;
+                height: 50px;
+                font-size: 1.25rem;
+            }
+
+            .gallery-item {
+                width: 120px;
+                height: 120px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="https://dhanushbohara.com.np">
+                    <img src="https://raw.githubusercontent.com/kale-pro/dhanushbohara/main/Dhanush-logo-icon-remove.png"
+                        alt="Logo" class="logo"></a>
+
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="#section-title" class="nav-link">About</a></li>
+                    <li><a href="#Gallery" class="nav-link">Gallery</a></li>
+                    <li><a href="#Technical-Skills" class="nav-link">Technical Skills</a></li>
+                    <li><a href="#Get-In-Touch" class="nav-link">Get In Touch</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+
+                <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle mobile menu">
+                    <div class="hamburger"></div>
+                </button>
+            </nav>
+        </div>
+    </header><br><br><br>
+    <!-- Floating Particles -->
+    <div class="particles"></div>
+
+    <div class="container">
+        <!-- Header Section -->
+        <section class="header-section animate-on-scroll">
+            <div class="profile-image-container">
+                <img src="https://raw.githubusercontent.com/kale-pro/dhanushbohara/main/profile_with_logo.png"
+                    alt="Dhanush Bohara Profile" class="profile-image" onclick="openFullscreen(this)">
+            </div>
+            <h1 class="profile-name">Dhanush Bohara</h1>
+            <p class="profile-tagline">Aspiring Software Developer | IT Enthusiast</p>
+        </section>
+
+        <!-- About Section -->
+        <section class="section animate-on-scroll">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text" style="text-align: justify; text-justify: inter-word; hyphens: auto;">
+                    Hello! I'm Dhanush Bohara, an 18-year-old aspiring software developer and IT enthusiast from
+                    Sudurpaschim, Nepal. Having recently graduated with a focus on Information Technology, I'm
+                    passionate about creating innovative solutions through code. My journey in software development is
+                    driven by curiosity and a desire to build real-world applications that make a difference. I'm
+                    constantly learning new technologies and exploring the endless possibilities in the world of
+                    programming. Whether it's developing web applications, solving complex problems, or contributing to
+                    open-source projects, I'm always ready for the next challenge!
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section class="section gallery-section animate-on-scroll" id="gallery">
+            <h2 class="section-title">Gallery</h2>
+            <div class="gallery-container">
+                <div class="gallery-item">
+                    <img src="https://raw.githubusercontent.com/Kale-Pro/dhanushbohara/main/1709123191724.jpg"
+                        alt="Picture after the presentation" data-caption="Picture after the presentation."
+                        data-date="2024-02-28" data-location="Kailali, Nepal">
+                    <div class="gallery-caption">Picture after the presentation.</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://raw.githubusercontent.com/Kale-Pro/dhanushbohara/main/IMG-20230429-WA0004.jpg"
+                        alt="Memories of School!" data-caption="Memories of School!" data-date="2023-04-29"
+                        data-location="Kailali, Nepal">
+                    <div class="gallery-caption">Memories of School!</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://raw.githubusercontent.com/Kale-Pro/dhanushbohara/main/1725349768824.jpg"
+                        alt="Exploring nature!" data-caption="Exploring nature!" data-date="2024-09-03"
+                        data-location="Kailali, Nepal">
+                    <div class="gallery-caption">Exploring nature!</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://raw.githubusercontent.com/Kale-Pro/dhanushbohara/main/1724945586223.jpg"
+                        alt="Feeling on top of the world!" data-caption="Feeling on top of the world!"
+                        data-date="2024-08-29" data-location="Bajhang, Nepal">
+                    <div class="gallery-caption">Feeling on top of the world!</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://raw.githubusercontent.com/Kale-Pro/dhanushbohara/main/1712622553138.jpg"
+                        alt="A moment of Last Day." data-caption="A moment of Last Day." data-date="2024-04-09"
+                        data-location="Kailali, Nepal">
+                    <div class="gallery-caption">A moment of Last Day.</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://raw.githubusercontent.com/Kale-Pro/dhanushbohara/main/IMG_20240417_171412.jpg"
+                        alt="CE 2080 Batch group photo!" data-caption="CE 2080 Batch group photo!"
+                        data-date="2024-04-17" data-location="Kailali, Nepal">
+                    <div class="gallery-caption">CE 2080 Batch group photo!</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://raw.githubusercontent.com/Kale-Pro/dhanushbohara/main/dhanush-1.jpg"
+                        alt="Memories that last forever." data-caption="Memories that last forever."
+                        data-date="2023-12-15" data-location="Kailali, Nepal">
+                    <div class="gallery-caption">Memories that last forever.</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://raw.githubusercontent.com/Kale-Pro/dhanushbohara/main/1708085922690.jpg"
+                        alt="Taking a break from coding!" data-caption="Taking a break from coding!"
+                        data-date="2024-02-16" data-location="Kailali, Nepal">
+                    <div class="gallery-caption">Taking a break from coding!</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://raw.githubusercontent.com/Kale-Pro/dhanushbohara/main/1704016540957.jpg"
+                        alt="Adventure awaits!" data-caption="Adventure awaits!" data-date="2024-01-01"
+                        data-location="Kailali, Nepal">
+                    <div class="gallery-caption">Adventure awaits!</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://raw.githubusercontent.com/Kale-Pro/dhanushbohara/main/IMG_20240311_124808.jpg"
+                        alt="Just another day in paradise." data-caption="Just another day in paradise."
+                        data-date="2024-03-11" data-location="Kailali, Nepal">
+                    <div class="gallery-caption">Just another day in paradise.</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://raw.githubusercontent.com/Kale-Pro/dhanushbohara/main/1695652800202.jpg"
+                        alt="Living my best life!" data-caption="Living my best life!" data-date="2023-09-27"
+                        data-location="Lumbini, Nepal">
+                    <div class="gallery-caption">Living my best life!</div>
+                </div>
+            </div>
+        </section>
+        <!-- Skills Section -->
+        <section class="section animate-on-scroll">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <i class="fab fa-python skill-icon"></i>
+                    <h3 class="skill-name">Python</h3>
+                    <p class="skill-level">Backend Development</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-java skill-icon"></i>
+                    <h3 class="skill-name">Java</h3>
+                    <p class="skill-level">Object-Oriented Programming</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-code skill-icon"></i>
+                    <h3 class="skill-name">C</h3>
+                    <p class="skill-level">System Programming</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-code skill-icon"></i>
+                    <h3 class="skill-name">C++</h3>
+                    <p class="skill-level">Advanced Programming</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-html5 skill-icon"></i>
+                    <h3 class="skill-name">HTML</h3>
+                    <p class="skill-level">Web Structure</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-css3-alt skill-icon"></i>
+                    <h3 class="skill-name">CSS</h3>
+                    <p class="skill-level">Web Styling</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-js-square skill-icon"></i>
+                    <h3 class="skill-name">JavaScript</h3>
+                    <p class="skill-level">Web Interactivity</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="section animate-on-scroll">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>mr.dhanushbohara@gmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+977-9842172080</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Sudurpaschim, Nepal</span>
+                    </div>
+                </div>
+
+                <div class="social-links">
+                    <a href="https://www.tiktok.com/@mr.dhanushbohara?_t=ZS-8vAFoD0k4nq&_r=1" class="social-link"
+                        target="_blank" rel="noopener noreferrer" title="TikTok">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+                    <a href="https://wa.me/+9779842172080" class="social-link" target="_blank" rel="noopener noreferrer"
+                        title="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="https://www.facebook.com/dhanush.bohara.2025" class="social-link" target="_blank"
+                        rel="noopener noreferrer" title="Facebook">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/dhanushbohara" class="social-link" target="_blank"
+                        rel="noopener noreferrer" title="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/dhanushbohara" class="social-link" target="_blank"
+                        rel="noopener noreferrer" title="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 Dhanush Bohara. All rights reserved. | Designed with ❤️ by
+            <a href="#" class="footer-link">Kale Pro</a>
+        </p>
+    </footer>
+
+    <!-- Fullscreen Modal -->
+    <div class="fullscreen-modal" onclick="closeFullscreen()">
+        <img src="" alt="Profile Image Fullscreen">
+    </div>
+
+    <script>
+        // Navigation functionality
+        class Portfolio {
+            constructor() {
+                this.init();
+            }
+
+            init() {
+                this.initNavigation();
+                this.initScrollAnimations();
+                this.initKeyboardNavigation();
+                this.initParticles();
+                this.initFullscreenModal();
+                this.initSkillCardInteractions();
+            }
+
+            // Utility: Debounce function to limit event frequency
+            debounce(fn, wait) {
+                let timeout;
+                return (...args) => {
+                    clearTimeout(timeout);
+                    timeout = setTimeout(() => fn.apply(this, args), wait);
+                };
+            }
+
+            // Navigation functionality
+            initNavigation() {
+                const header = document.getElementById('header');
+                const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+                const navMenu = document.getElementById('nav-menu');
+                const navLinks = document.querySelectorAll('.nav-link');
+
+                // Check for required elements
+                if (!header || !mobileMenuBtn || !navMenu) {
+                    console.warn('Navigation elements (header, mobile-menu-btn, or nav-menu) missing');
+                    return;
+                }
+                if (!navLinks.length) {
+                    console.warn('Navigation links missing');
+                    return;
+                }
+
+                // Header scroll effect
+                window.addEventListener('scroll', this.debounce(() => {
+                    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                    header.classList.toggle('scrolled', scrollTop > 50);
+                }, 100));
+
+                // Mobile menu toggle
+                mobileMenuBtn.addEventListener('click', () => {
+                    navMenu.classList.toggle('active');
+                });
+
+                // Close mobile menu and set active link on click
+                navLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        navMenu.classList.remove('active');
+                        this.setActiveNavLink(link);
+                    });
+                });
+
+                // Update active nav link on scroll
+                window.addEventListener('scroll', this.debounce(() => {
+                    this.updateActiveNavLink();
+                }, 100));
+
+                // Smooth scrolling for anchor links
+                document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                    anchor.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        const targetId = anchor.getAttribute('href');
+                        const target = document.querySelector(targetId);
+                        if (target) {
+                            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        } else {
+                            console.warn(`Target element ${targetId} not found`);
+                        }
+                    });
+                });
+            }
+
+            setActiveNavLink(activeLink) {
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.classList.remove('active');
+                });
+                activeLink.classList.add('active');
+            }
+
+            updateActiveNavLink() {
+                const sections = document.querySelectorAll('section');
+                const navLinks = document.querySelectorAll('.nav-link');
+                let currentSection = '';
+
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (window.pageYOffset >= sectionTop - sectionHeight / 3) {
+                        currentSection = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').slice(1) === currentSection) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+
+            initScrollAnimations() {
+                const observerOptions = {
+                    threshold: 0.1,
+                    rootMargin: '0px 0px -50px 0px'
+                };
+
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('animated');
+                        }
+                    });
+                }, observerOptions);
+
+                document.querySelectorAll('.animate-on-scroll').forEach(el => {
+                    observer.observe(el);
+                });
+            }
+
+            initKeyboardNavigation() {
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape') {
+                        this.closeFullscreen();
+                    }
+                });
+            }
+
+            initParticles() {
+                const particlesContainer = document.querySelector('.particles');
+                if (!particlesContainer) {
+                    console.warn('Particles container missing');
+                    return;
+                }
+
+                const particleCount = 50;
+                for (let i = 0; i < particleCount; i++) {
+                    const particle = document.createElement('div');
+                    particle.className = 'particle';
+                    particle.style.left = Math.random() * 100 + '%';
+                    particle.style.animationDuration = (Math.random() * 20 + 10) + 's';
+                    particle.style.animationDelay = Math.random() * 20 + 's';
+                    particlesContainer.appendChild(particle);
+                }
+            }
+
+            initFullscreenModal() {
+                const images = document.querySelectorAll('.profile-image, .gallery-item img');
+                const modal = document.querySelector('.fullscreen-modal');
+                if (!modal) {
+                    console.warn('Fullscreen modal element missing');
+                    return;
+                }
+                const modalImg = modal.querySelector('img');
+                if (!modalImg) {
+                    console.warn('Modal image element missing');
+                    return;
+                }
+
+                images.forEach(img => {
+                    img.addEventListener('click', () => {
+                        modalImg.src = img.src;
+                        modal.classList.add('active');
+                        document.body.style.overflow = 'hidden';
+                    });
+                });
+
+                modal.addEventListener('click', () => this.closeFullscreen());
+            }
+
+            closeFullscreen() {
+                const modal = document.querySelector('.fullscreen-modal');
+                if (modal) {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            }
+
+            initSkillCardInteractions() {
+                const skillCards = document.querySelectorAll('.skill-card');
+                if (!skillCards.length) {
+                    console.warn('Skill cards missing');
+                    return;
+                }
+
+                skillCards.forEach(card => {
+                    card.addEventListener('click', function () {
+                        this.style.transform = 'scale(0.95)';
+                        setTimeout(() => {
+                            this.style.transform = '';
+                        }, 150);
+                    });
+                });
+            }
+        }
+
+        // Initialize when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            new Portfolio();
+
+            // Handle window resize for particle adjustments
+            window.addEventListener('resize', () => {
+                const particles = document.querySelectorAll('.particle');
+                if (particles.length) {
+                    particles.forEach(particle => {
+                        particle.style.left = Math.random() * 100 + '%';
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>dhanushbohara.com.np, Kale Pro, Python Developer, Software Developer, Portfolio, Nepal, Web Developer">
     
         <!-- Author -->
         <meta name="author" content="Dhanush Bohara">
